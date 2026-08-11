@@ -1,0 +1,9 @@
+{
+  "_comment": "연구실 일정. date는 YYYY-MM-DD 형식. /admin 또는 이 파일에서 수정. 달력에 점으로 표시되고, 다가오는 일정 목록에 나타납니다.",
+  "events": [
+    { "date": "2026-08-20", "title_ko": "[예시] 그룹 미팅 — 진행 연구 공유", "title_en": "[Example] Group meeting — research updates" },
+    { "date": "2026-09-04", "title_ko": "[예시] 한국자원공학회 추계학술대회 초록 마감", "title_en": "[Example] KSMER Fall Meeting abstract deadline" },
+    { "date": "2026-09-15", "title_ko": "[예시] 학부연구생 오픈랩", "title_en": "[Example] Open Lab for undergraduates" },
+    { "date": "2026-10-23", "title_ko": "[예시] 추계학술대회 발표", "title_en": "[Example] KSMER Fall Meeting presentations" }
+  ]
+}

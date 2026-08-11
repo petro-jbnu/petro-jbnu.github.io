@@ -1,0 +1,32 @@
+{
+  "_comment": "Research > Project 페이지 하단의 '연구 과제' 목록. [예시] 항목을 실제 수주 과제로 교체하세요.",
+  "items": [
+    {
+      "title_ko": "[예시] 국내 대염수층 CO₂ 저장 효율 향상을 위한 나노유체 주입 기술 개발",
+      "title_en": "[Example] Nanofluid injection technology for improving CO2 storage efficiency in domestic saline aquifers",
+      "agency_ko": "한국에너지기술평가원 (KETEP)",
+      "agency_en": "Korea Energy Technology Evaluation and Planning (KETEP)",
+      "period": "2024.01 – 2026.12",
+      "role_ko": "주관",
+      "role_en": "Lead"
+    },
+    {
+      "title_ko": "[예시] AI 기반 가스 파이프라인 누출 진단 실시간 운영 솔루션 개발",
+      "title_en": "[Example] Real-time AI leak-diagnosis solution for operating gas pipelines",
+      "agency_ko": "한국가스공사 (KOGAS)",
+      "agency_en": "Korea Gas Corporation (KOGAS)",
+      "period": "2025.03 – 2027.02",
+      "role_ko": "참여",
+      "role_en": "Partner"
+    },
+    {
+      "title_ko": "[예시] 폐석탄광의 CO₂ 저장소 전환 타당성 평가 연구",
+      "title_en": "[Example] Feasibility assessment of repurposing abandoned coal mines for CO2 storage",
+      "agency_ko": "한국지질자원연구원 (KIGAM)",
+      "agency_en": "Korea Institute of Geoscience and Mineral Resources (KIGAM)",
+      "period": "2026.01 – 2027.12",
+      "role_ko": "주관",
+      "role_en": "Lead"
+    }
+  ]
+}

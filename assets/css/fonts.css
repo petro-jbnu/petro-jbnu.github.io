@@ -1,0 +1,22 @@
+/* Self-hosted fonts — Pretendard (KO/EN) + JetBrains Mono (data) + Material Symbols (icons) */
+@font-face {
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+  src: url("../fonts/PretendardVariable.woff2") format("woff2-variations");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("../fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations");
+}
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url("../fonts/material-symbols-outlined.woff2") format("woff2-variations");
+}

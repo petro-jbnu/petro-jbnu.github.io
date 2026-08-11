@@ -1,0 +1,64 @@
+{
+  "_comment": "연구 성과 데이터: papers(저널 논문), presentations(학술대회), awards(수상). 상단 지표는 각 목록의 개수로 자동 집계됩니다. [Example] 항목을 실제 내용으로 교체하세요.",
+  "papers": [
+    {
+      "quartile": "Q1",
+      "year": "2026",
+      "doi": "10.0000/example.2026.000001",
+      "title": "[Example] Experimental study on nanofluid pre-injection for CO2 storage efficiency in sandstone",
+      "authors": "S. Han, H.Y. Noh, Y.S. Lee",
+      "journal": "International Journal of Greenhouse Gas Control",
+      "url": ""
+    },
+    {
+      "quartile": "Q1",
+      "year": "2025",
+      "doi": "10.0000/example.2025.000002",
+      "title": "[Example] Machine-learning prediction of CO2 adsorption capacity in shale reservoirs",
+      "authors": "H.M. Yoo, G.W. Ju, Y.S. Lee",
+      "journal": "Applied Energy",
+      "url": ""
+    },
+    {
+      "quartile": "Q2",
+      "year": "2025",
+      "doi": "10.0000/example.2025.000003",
+      "title": "[Example] Simultaneous diagnosis of leak size and location in operating gas pipelines using AI",
+      "authors": "S. Han, Y.S. Lee",
+      "journal": "Journal of Pipeline Science and Engineering",
+      "url": ""
+    }
+  ],
+  "presentations": [
+    {
+      "date": "May 2026",
+      "title": "[Example] Multi-objective optimization of multi-well CO2 storage operations",
+      "authors": "G.W. Ju, Y.S. Lee",
+      "venue": "KSMER Spring Conference"
+    },
+    {
+      "date": "Oct 2025",
+      "title": "[Example] Wettability alteration by supercritical CO2 and nanofluids: contact angle study",
+      "authors": "H.Y. Noh, Y.S. Lee",
+      "venue": "SPE Annual Technical Conference and Exhibition (ATCE)"
+    }
+  ],
+  "awards": [
+    {
+      "date": "2026.05",
+      "name_ko": "[예시] 한국자원공학회 춘계학술대회 우수발표논문상",
+      "name_en": "[Example] Best Presentation Award, KSMER Spring Conference",
+      "recipient": "G.W. Ju",
+      "org_ko": "한국자원공학회",
+      "org_en": "KSMER"
+    },
+    {
+      "date": "2025.11",
+      "name_ko": "[예시] BK21 우수 대학원생 표창",
+      "name_en": "[Example] BK21 Outstanding Graduate Student Award",
+      "recipient": "H.Y. Noh",
+      "org_ko": "전북대학교",
+      "org_en": "Jeonbuk National University"
+    }
+  ]
+}

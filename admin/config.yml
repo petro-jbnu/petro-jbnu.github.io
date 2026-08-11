@@ -1,0 +1,160 @@
+# =====================================================================
+# 관리자 페이지(CMS) 설정 — SETUP-GUIDE.md 2단계에서 아래 3곳만 수정하세요.
+#   (1) repo:      GitHub아이디/저장소이름
+#   (2) base_url:  인증 워커 주소 (Cloudflare Worker)
+#   (3) site_url:  배포된 사이트 주소
+# =====================================================================
+backend:
+  name: github
+  repo: petro-jbnu/petro-jbnu.github.io   # (1) 설정 완료
+  branch: main
+  base_url: https://YOUR-AUTH-WORKER.workers.dev   # (2) 인증 워커 주소
+
+site_url: https://petro-jbnu.github.io   # (3) 설정 완료
+
+media_folder: "assets/img/uploads"
+public_folder: "assets/img/uploads"
+
+collections:
+  - name: "content"
+    label: "사이트 콘텐츠"
+    files:
+      # ---------------- Publications ----------------
+      - name: "publications"
+        label: "연구 실적 (Publications)"
+        file: "data/publications.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - label: "저널 논문 (Paper)"
+            name: "papers"
+            widget: "list"
+            summary: "{{fields.year}} — {{fields.title}}"
+            fields:
+              - { label: "분급", name: "quartile", widget: "select", options: ["Q1", "Q2", "Q3", "Q4"], default: "Q1" }
+              - { label: "연도", name: "year", widget: "string" }
+              - { label: "DOI", name: "doi", widget: "string", required: false }
+              - { label: "논문 제목", name: "title", widget: "string" }
+              - { label: "저자", name: "authors", widget: "string" }
+              - { label: "저널명", name: "journal", widget: "string" }
+              - { label: "링크 URL (선택)", name: "url", widget: "string", required: false }
+          - label: "학술대회 발표 (Presentation)"
+            name: "presentations"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - { label: "발표 시기 (예: May 2026)", name: "date", widget: "string" }
+              - { label: "발표 제목", name: "title", widget: "string" }
+              - { label: "저자", name: "authors", widget: "string" }
+              - { label: "학술대회명", name: "venue", widget: "string" }
+
+          - label: "수상 (Awards)"
+            name: "awards"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.name_ko}}"
+            fields:
+              - { label: "수상 시기 (예: 2026.05)", name: "date", widget: "string" }
+              - { label: "상 이름(한국어)", name: "name_ko", widget: "string" }
+              - { label: "상 이름(영어)", name: "name_en", widget: "string" }
+              - { label: "수상자 (예: G.W. Ju)", name: "recipient", widget: "string" }
+              - { label: "수여기관(한국어)", name: "org_ko", widget: "string" }
+              - { label: "수여기관(영어)", name: "org_en", widget: "string" }
+
+      # ---------------- Activities ----------------
+      - name: "activities"
+        label: "연구실 활동 (Activities)"
+        file: "data/activities.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - label: "활동 게시물 (홈에는 최신 3개 표시)"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.title_ko}}"
+            fields:
+              - { label: "날짜 (YYYY-MM-DD)", name: "date", widget: "string" }
+              - { label: "분류", name: "category", widget: "select", options: ["교육", "워크샵", "기타"], default: "기타" }
+              - { label: "제목(한국어)", name: "title_ko", widget: "string" }
+              - { label: "제목(영어)", name: "title_en", widget: "string" }
+              - { label: "내용(한국어)", name: "body_ko", widget: "text" }
+              - { label: "내용(영어)", name: "body_en", widget: "text" }
+
+      # ---------------- Schedule ----------------
+      - name: "schedule"
+        label: "연구실 일정 (Schedule)"
+        file: "data/schedule.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - label: "일정 목록 (달력·다가오는 일정에 자동 표시)"
+            name: "events"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.title_ko}}"
+            fields:
+              - { label: "날짜 (YYYY-MM-DD)", name: "date", widget: "string" }
+              - { label: "일정명(한국어)", name: "title_ko", widget: "string" }
+              - { label: "일정명(영어)", name: "title_en", widget: "string" }
+
+      # ---------------- Grants ----------------
+      - name: "grants"
+        label: "연구 과제 (Grants)"
+        file: "data/grants.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - label: "과제 목록"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.period}} — {{fields.title_ko}}"
+            fields:
+              - { label: "과제명(한국어)", name: "title_ko", widget: "string" }
+              - { label: "과제명(영어)", name: "title_en", widget: "string" }
+              - { label: "지원기관(한국어)", name: "agency_ko", widget: "string" }
+              - { label: "지원기관(영어)", name: "agency_en", widget: "string" }
+              - { label: "기간 (예: 2024.01 – 2026.12)", name: "period", widget: "string" }
+              - { label: "역할(한국어: 주관/참여)", name: "role_ko", widget: "string", default: "주관" }
+              - { label: "역할(영어: Lead/Partner)", name: "role_en", widget: "string", default: "Lead" }
+
+      # ---------------- Equipment ----------------
+      - name: "equipment"
+        label: "연구실 장비 (Equipment)"
+        file: "data/equipment.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - label: "장비 목록"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name_ko}}"
+            fields:
+              - { label: "장비명(한국어)", name: "name_ko", widget: "string" }
+              - { label: "장비명(영어)", name: "name_en", widget: "string" }
+              - { label: "설명(한국어)", name: "desc_ko", widget: "text" }
+              - { label: "설명(영어)", name: "desc_en", widget: "text" }
+              - { label: "사진 경로 (예: assets/img/uploads/장비.jpg, 선택)", name: "image", widget: "string", required: false }
+
+      # ---------------- Members ----------------
+      - name: "members"
+        label: "구성원 (Members)"
+        file: "data/members.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - label: "구성원 카드"
+            name: "members"
+            widget: "list"
+            summary: "{{fields.name_ko}} ({{fields.role_ko}})"
+            fields:
+              - { label: "아바타 글자 (이름 첫 글자)", name: "initial", widget: "string" }
+              - { label: "이름(한국어)", name: "name_ko", widget: "string" }
+              - { label: "이름(영어)", name: "name_en", widget: "string" }
+              - { label: "직책(한국어)", name: "role_ko", widget: "string" }
+              - { label: "직책(영어)", name: "role_en", widget: "string" }
+              - { label: "비고(한국어, 예: 2025년 합류)", name: "note_ko", widget: "string", required: false }
+              - { label: "비고(영어)", name: "note_en", widget: "string", required: false }
+              - { label: "이메일 (선택)", name: "email", widget: "string", required: false }
+          - label: "졸업생 진로표 (Alumni)"
+            name: "alumni"
+            widget: "list"
+            summary: "{{fields.org_ko}} — {{fields.role_ko}}"
+            fields:
+              - { label: "소속(한국어)", name: "org_ko", widget: "string" }
+              - { label: "소속(영어)", name: "org_en", widget: "string" }
+              - { label: "분야(한국어)", name: "role_ko", widget: "string" }
+              - { label: "분야(영어)", name: "role_en", widget: "string" }
+              - { label: "학위(한국어)", name: "degree_ko", widget: "string" }
+              - { label: "학위(영어)", name: "degree_en", widget: "string" }

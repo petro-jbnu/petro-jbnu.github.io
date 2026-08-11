@@ -1,0 +1,37 @@
+{
+  "_comment": "연구실 활동 게시판. category는 교육/워크샵/기타 중 하나. /admin 또는 이 파일에서 수정. 홈에는 최신 3개가 표시됩니다.",
+  "items": [
+    {
+      "date": "2026-07-21",
+      "category": "교육",
+      "title_ko": "[예시] 하계 신입생 시뮬레이터 교육 (1주차)",
+      "title_en": "[Example] Summer simulator training for new members (Week 1)",
+      "body_ko": "신입 구성원을 대상으로 저류층 시뮬레이터 기초 교육을 진행했습니다.",
+      "body_en": "Introductory reservoir-simulator training for new lab members."
+    },
+    {
+      "date": "2026-06-13",
+      "category": "워크샵",
+      "title_ko": "[예시] 상반기 연구 워크샵 — 진행 과제 중간 점검",
+      "title_en": "[Example] First-half research workshop — mid-term project review",
+      "body_ko": "구성원 전원이 진행 중인 연구의 중간 결과를 발표하고 토의했습니다.",
+      "body_en": "All members presented and discussed interim results of ongoing research."
+    },
+    {
+      "date": "2026-05-15",
+      "category": "기타",
+      "title_ko": "[예시] 2026 오픈랩 개최",
+      "title_en": "[Example] Open Lab 2026",
+      "body_ko": "학부생을 대상으로 연구실의 CO₂ 지중저장·AI 연구를 소개했습니다.",
+      "body_en": "Introduced our CO₂ storage and AI research to undergraduate students."
+    },
+    {
+      "date": "2026-03-02",
+      "category": "기타",
+      "title_ko": "[예시] 신입 대학원생 합류",
+      "title_en": "[Example] New graduate students joined",
+      "body_ko": "박사과정 노현영·유현명 학생이 합류했습니다.",
+      "body_en": "Ph.D. students Hyun-Young Noh and Hyun-Myung Yoo joined the lab."
+    }
+  ]
+}

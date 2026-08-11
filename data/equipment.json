@@ -1,0 +1,33 @@
+{
+  "_comment": "연구실 장비 페이지. image는 assets/img/ 경로(선택). /admin 또는 이 파일에서 수정하세요.",
+  "items": [
+    {
+      "name_ko": "[예시] 코어 플러딩 시스템",
+      "name_en": "[Example] Core Flooding System",
+      "desc_ko": "고압·고온 조건에서 암석 코어에 CO₂·염수·나노유체를 주입하여 유동 특성과 저장 효율을 평가합니다.",
+      "desc_en": "Injects CO₂, brine, and nanofluids into rock cores under high pressure and temperature to evaluate flow behavior and storage efficiency.",
+      "image": ""
+    },
+    {
+      "name_ko": "[예시] 접촉각·계면장력 측정 시스템",
+      "name_en": "[Example] Contact Angle & IFT Measurement System",
+      "desc_ko": "초임계 CO₂ 조건에서 pendant drop / sessile drop 방식으로 접촉각과 계면장력을 측정합니다.",
+      "desc_en": "Measures contact angle and interfacial tension via pendant/sessile drop methods under supercritical CO₂ conditions.",
+      "image": "assets/img/fig-contact-angle-1.png"
+    },
+    {
+      "name_ko": "[예시] 가스 흡착 분석기",
+      "name_en": "[Example] Gas Adsorption Analyzer",
+      "desc_ko": "셰일·석탄 시료의 CO₂ 흡착 등온선을 측정하여 흡착 저장량을 평가합니다.",
+      "desc_en": "Measures CO₂ adsorption isotherms of shale and coal samples to assess adsorption storage capacity.",
+      "image": "assets/img/fig-langmuir.png"
+    },
+    {
+      "name_ko": "[예시] 시뮬레이션 워크스테이션",
+      "name_en": "[Example] Simulation Workstations",
+      "desc_ko": "저류층·파이프라인 시뮬레이션과 머신러닝 모델 학습을 위한 고성능 전산 자원입니다.",
+      "desc_en": "High-performance computing resources for reservoir/pipeline simulation and machine-learning model training.",
+      "image": "assets/img/fig-sim-saturation.png"
+    }
+  ]
+}
