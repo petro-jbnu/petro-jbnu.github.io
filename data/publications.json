@@ -5,7 +5,7 @@
       "quartile": "Q1",
       "year": "2026",
       "doi": "10.0000/example.2026.000001",
-      "title": "[Example] Experimental study on nanofluid pre-injection for CO2 storage efficiency in sandstone",
+      "title": "[Example] Experimental study on nanofluid pre-injection for CO₂ storage efficiency in sandstone",
       "authors": "S. Han, H.Y. Noh, Y.S. Lee",
       "journal": "International Journal of Greenhouse Gas Control",
       "url": ""
@@ -14,7 +14,7 @@
       "quartile": "Q1",
       "year": "2025",
       "doi": "10.0000/example.2025.000002",
-      "title": "[Example] Machine-learning prediction of CO2 adsorption capacity in shale reservoirs",
+      "title": "[Example] Machine-learning prediction of CO₂ adsorption capacity in shale reservoirs",
       "authors": "H.M. Yoo, G.W. Ju, Y.S. Lee",
       "journal": "Applied Energy",
       "url": ""
@@ -32,13 +32,13 @@
   "presentations": [
     {
       "date": "May 2026",
-      "title": "[Example] Multi-objective optimization of multi-well CO2 storage operations",
+      "title": "[Example] Multi-objective optimization of multi-well CO₂ storage operations",
       "authors": "G.W. Ju, Y.S. Lee",
       "venue": "KSMER Spring Conference"
     },
     {
       "date": "Oct 2025",
-      "title": "[Example] Wettability alteration by supercritical CO2 and nanofluids: contact angle study",
+      "title": "[Example] Wettability alteration by supercritical CO₂ and nanofluids: contact angle study",
       "authors": "H.Y. Noh, Y.S. Lee",
       "venue": "SPE Annual Technical Conference and Exhibition (ATCE)"
     }
