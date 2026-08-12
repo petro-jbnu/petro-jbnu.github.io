@@ -1,0 +1,90 @@
+{
+ "_comment": "연구실 소개 페이지 데이터: whatwedo(사진은 image에 경로), courses(교과목), partners(협력기관).",
+ "whatwedo": [
+  {
+   "title_ko": "유동 메커니즘 규명",
+   "title_en": "Flow mechanisms",
+   "desc_ko": "실험과 시뮬레이션에 기반하여 <strong>지층 내 유체 유동 메커니즘</strong>을 분석합니다.",
+   "desc_en": "We analyze <strong>subsurface fluid-flow mechanisms</strong> based on experiments and simulation.",
+   "image": ""
+  },
+  {
+   "title_ko": "개발·저장 최적화",
+   "title_en": "Development & storage optimization",
+   "desc_ko": "실험·현장 데이터를 기반으로 <strong>자원개발</strong>과 <strong>CO₂ 지중저장</strong>을 최적화합니다.",
+   "desc_en": "We optimize <strong>resource development</strong> and <strong>CO₂ geological storage</strong> using experimental and field data.",
+   "image": ""
+  },
+  {
+   "title_ko": "+ 실무형 교육",
+   "title_en": "+ Hands-on training",
+   "desc_ko": "실험 장비와 상용 소프트웨어를 직접 운용하며, 소속 학생 대상 <strong>심화 강의</strong>와 <strong>소프트웨어 교육</strong>을 별도로 진행합니다.",
+   "desc_en": "Students operate lab equipment and industry software, with dedicated <strong>in-depth courses</strong> and <strong>software training</strong>.",
+   "image": ""
+  }
+ ],
+ "courses": [
+  {
+   "name_ko": "지하지층 내 유체유동",
+   "name_en": "Fluid Flow in Subsurface Formations",
+   "term": "2-1"
+  },
+  {
+   "name_ko": "저류층 평가공학",
+   "name_en": "Reservoir Evaluation Engineering",
+   "term": "3-1"
+  },
+  {
+   "name_ko": "석유·천연가스 생산공학",
+   "name_en": "Oil & Gas Production Engineering",
+   "term": "3-2"
+  },
+  {
+   "name_ko": "시추공학",
+   "name_en": "Drilling Engineering",
+   "term": "3-2"
+  },
+  {
+   "name_ko": "이산화탄소 포집·저장공학",
+   "name_en": "CO₂ Capture & Storage Engineering",
+   "term": "4-1"
+  },
+  {
+   "name_ko": "암석물성계측실험",
+   "name_en": "Rock Property Measurement Lab",
+   "term": "4-2"
+  }
+ ],
+ "partners": [
+  {
+   "name_ko": "한국에너지기술평가원",
+   "name_en": "KETEP",
+   "highlight": true
+  },
+  {
+   "name_ko": "한국지질자원연구원",
+   "name_en": "KIGAM",
+   "highlight": true
+  },
+  {
+   "name_ko": "한국가스공사",
+   "name_en": "KOGAS",
+   "highlight": true
+  },
+  {
+   "name_ko": "포스코인터내셔널",
+   "name_en": "POSCO International",
+   "highlight": false
+  },
+  {
+   "name_ko": "HD현대중공업",
+   "name_en": "HD Hyundai Heavy Industries",
+   "highlight": false
+  },
+  {
+   "name_ko": "골든엔지니어링",
+   "name_en": "Golden Engineering",
+   "highlight": false
+  }
+ ]
+}

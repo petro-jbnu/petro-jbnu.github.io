@@ -265,7 +265,7 @@
   function awardCard(a) {
     return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex items-start gap-sm transition-shadow hover:shadow-md relative overflow-hidden">' +
       '<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>' +
-      '<span class="text-[22px]">🏆</span><div>' +
+      '<div>' +
       '<div class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(a.date) + "</div>" +
       '<h3 class="font-body-lg font-bold text-on-surface mt-0.5">' + bi(esc(a.name_ko), esc(a.name_en || a.name_ko)) + "</h3>" +
       '<p class="font-body-md text-[14.5px] text-on-surface-variant mt-0.5">' + esc(a.recipient || "") + " · " + bi(esc(a.org_ko || ""), esc(a.org_en || a.org_ko || "")) + "</p></div></div>";
@@ -293,11 +293,11 @@
         : '<p class="font-body-md text-on-surface-variant">' + bi("등록된 수상 내역이 없습니다.", "No awards registered yet.") + "</p>";
       if (homePub) {
         var h = "";
-        h += '<div class="font-label-caps text-primary mb-1">📄 PAPER <span class="text-on-surface-variant">(' + papers.length + ")</span></div>";
+        h += '<div class="font-label-caps text-primary mb-1">PAPER <span class="text-on-surface-variant">(' + papers.length + ")</span></div>";
         h += papers.slice(0, 2).map(function (x) { return miniRow(x.year, esc(x.title)); }).join("");
-        h += '<div class="font-label-caps text-tertiary mt-sm mb-1">🎤 PRESENTATION <span class="text-on-surface-variant">(' + pres.length + ")</span></div>";
+        h += '<div class="font-label-caps text-tertiary mt-sm mb-1">PRESENTATION <span class="text-on-surface-variant">(' + pres.length + ")</span></div>";
         h += pres.slice(0, 1).map(function (x) { return miniRow(x.date, esc(x.title)); }).join("");
-        h += '<div class="font-label-caps text-secondary mt-sm mb-1">🏆 AWARDS <span class="text-on-surface-variant">(' + awards.length + ")</span></div>";
+        h += '<div class="font-label-caps text-secondary mt-sm mb-1">AWARDS <span class="text-on-surface-variant">(' + awards.length + ")</span></div>";
         h += awards.slice(0, 1).map(function (x) { return miniRow(x.date, bi(esc(x.name_ko), esc(x.name_en || x.name_ko))); }).join("");
         homePub.innerHTML = h;
       }
@@ -311,11 +311,166 @@
       eqList.innerHTML = (data.items || []).map(function (e) {
         var img = e.image
           ? '<div class="h-48 w-full overflow-hidden bg-surface-container-high"><img class="w-full h-full object-cover" alt="" src="' + esc(e.image) + '"/></div>'
-          : '<div class="h-48 w-full flex items-center justify-center bg-surface-container-high text-[44px]">🔬</div>';
+          : '<div class="h-48 w-full flex items-center justify-center bg-surface-container-high"><span class="material-symbols-outlined text-[44px] text-outline">imagesmode</span></div>';
         return '<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/40 overflow-hidden hover:shadow-md transition-shadow">' + img +
           '<div class="p-md"><h3 class="font-headline-md text-[19px] text-on-surface">' + bi(esc(e.name_ko), esc(e.name_en || e.name_ko)) + "</h3>" +
           '<p class="font-body-md text-[14.5px] text-on-surface-variant mt-xs">' + bi(esc(e.desc_ko || ""), esc(e.desc_en || e.desc_ko || "")) + "</p></div></div>";
       }).join("");
     }, ["equipment-list"]);
+  }
+
+  /* ============ 10. 구성원 (Members·Alumni·진출 분야) ============ */
+  var memberList = document.getElementById("member-list");
+  var alumniBody = document.getElementById("alumni-body");
+  if (memberList || alumniBody) {
+    load("data/members.json", function (data) {
+      if (memberList) {
+        memberList.innerHTML = (data.members || []).map(function (m) {
+          var avatar = m.photo
+            ? '<img class="w-[92px] h-[92px] rounded-full object-cover mb-sm" alt="" src="' + esc(m.photo) + '"/>'
+            : '<div class="w-[92px] h-[92px] rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-headline-md text-[30px] mb-sm">' + esc(m.initial || (m.name_ko || "?").charAt(0)) + "</div>";
+          return '<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl shadow-sm p-md flex flex-col hover:shadow-md transition-shadow">' + avatar +
+            '<h3 class="font-headline-md text-[18px] text-on-surface">' + bi(esc(m.name_ko), esc(m.name_en || m.name_ko)) + "</h3>" +
+            '<p class="font-label-caps text-primary tracking-wider mt-1">' + bi(esc(m.role_ko || ""), esc(m.role_en || m.role_ko || "")) + "</p>" +
+            (m.note_ko ? '<p class="font-body-md text-[14px] text-on-surface-variant mt-xs">' + bi(esc(m.note_ko), esc(m.note_en || m.note_ko)) + "</p>" : "") +
+            (m.email ? '<a class="mt-auto pt-sm font-body-md text-[13.5px] text-primary hover:underline break-all" href="mailto:' + esc(m.email) + '">' + esc(m.email) + "</a>" : "") +
+            "</div>";
+        }).join("");
+      }
+      if (alumniBody) {
+        alumniBody.innerHTML = (data.alumni || []).map(function (a) {
+          return '<tr class="hover:bg-surface-container-low">' +
+            '<td class="py-sm px-md font-semibold">' + bi(esc(a.org_ko), esc(a.org_en || a.org_ko)) + "</td>" +
+            '<td class="py-sm px-md text-on-surface-variant">' + bi(esc(a.role_ko || ""), esc(a.role_en || a.role_ko || "")) + "</td>" +
+            '<td class="py-sm px-md text-on-surface-variant">' + bi(esc(a.degree_ko || ""), esc(a.degree_en || a.degree_ko || "")) + "</td></tr>";
+        }).join("");
+      }
+      var pub = document.getElementById("career-public"), ind = document.getElementById("career-industry");
+      function chip(c, primary) {
+        var cls = primary ? "bg-primary-container text-on-primary-container" : "bg-surface-container text-on-surface-variant border border-outline-variant";
+        return '<span class="inline-flex items-center px-sm py-base ' + cls + ' font-body-md text-[13.5px] font-semibold rounded-full">' + bi(esc(c.name_ko), esc(c.name_en || c.name_ko)) + "</span>";
+      }
+      var careers = data.careers || [];
+      if (pub) pub.innerHTML = careers.filter(function (c) { return c.sector === "공공"; }).map(function (c) { return chip(c, true); }).join("");
+      if (ind) ind.innerHTML = careers.filter(function (c) { return c.sector !== "공공"; }).map(function (c) { return chip(c, false); }).join("");
+    }, ["member-list"]);
+  }
+
+  /* ============ 11. 소개 페이지 (What we do·교과목·협력기관) ============ */
+  var wwd = document.getElementById("whatwedo-list");
+  var courseBody = document.getElementById("course-body");
+  var partnerList = document.getElementById("partner-list");
+  if (wwd || courseBody || partnerList) {
+    load("data/about.json", function (data) {
+      if (wwd) {
+        wwd.innerHTML = (data.whatwedo || []).map(function (w) {
+          var media = w.image
+            ? '<div class="h-40 w-full rounded-lg overflow-hidden mb-md bg-surface-container-high"><img class="w-full h-full object-cover" alt="" src="' + esc(w.image) + '"/></div>'
+            : '<div class="h-40 w-full rounded-lg mb-md bg-surface-container-high border border-dashed border-outline-variant flex items-center justify-center"><span class="material-symbols-outlined text-[36px] text-outline">imagesmode</span></div>';
+          return '<div class="bg-surface-container-lowest rounded-xl shadow-sm p-md border border-outline-variant/40">' + media +
+            '<h3 class="font-headline-md text-[19px] text-on-surface mb-xs">' + bi(w.title_ko, w.title_en || w.title_ko) + "</h3>" +
+            '<p class="font-body-md text-[15px] text-on-surface-variant">' + bi(w.desc_ko || "", w.desc_en || w.desc_ko || "") + "</p></div>";
+        }).join("");
+      }
+      if (courseBody) {
+        courseBody.innerHTML = (data.courses || []).map(function (c, i) {
+          return '<tr class="hover:bg-surface-container-low' + (i % 2 ? ' bg-surface-bright' : '') + '">' +
+            '<td class="py-sm px-md font-semibold">' + bi(esc(c.name_ko), esc(c.name_en || c.name_ko)) + "</td>" +
+            '<td class="py-sm px-md text-on-surface-variant">' + esc(c.term || "") + "</td></tr>";
+        }).join("");
+      }
+      if (partnerList) {
+        partnerList.innerHTML = (data.partners || []).map(function (p) {
+          var cls = p.highlight ? "bg-primary-container text-on-primary-container" : "bg-surface-container text-on-surface-variant border border-outline-variant";
+          return '<span class="inline-flex items-center px-sm py-base ' + cls + ' font-body-md text-[14px] font-semibold rounded-full">' + bi(esc(p.name_ko), esc(p.name_en || p.name_ko)) + "</span>";
+        }).join("");
+      }
+    }, ["whatwedo-list", "partner-list"]);
+  }
+
+  /* ============ 12. 홈 히어로 이미지 (data/home.json) ============ */
+  if (slides.length) {
+    load("data/home.json", function (data) {
+      (data.hero || []).forEach(function (h, i) {
+        if (slides[i] && h.image) slides[i].style.backgroundImage = "url('" + h.image + "')";
+      });
+    }, []);
+  }
+
+  /* ============ 13. 연구 프로젝트 (목록·상세 공용 템플릿) ============ */
+  var STATUS_CLS = { "진행 중": "bg-primary-container text-on-primary-container", "진행 예정": "bg-tertiary-container text-on-tertiary-container", "종료": "bg-surface-variant text-on-surface-variant" };
+  var STATUS_EN = { "진행 중": "ONGOING", "진행 예정": "PLANNED", "종료": "COMPLETED" };
+  function statusChip(s, dark) {
+    var base = STATUS_CLS[s] || STATUS_CLS["진행 중"];
+    if (dark) base = "bg-white/15 text-white border border-white/30";
+    return '<span class="inline-flex items-center px-sm py-1 rounded-full font-label-caps ' + base + '">' + bi(esc(s), esc(STATUS_EN[s] || s)) + "</span>";
+  }
+  var pjCards = document.getElementById("project-cards");
+  if (pjCards) {
+    load("data/projects.json", function (data) {
+      var items = data.items || [];
+      var cnt = document.getElementById("proj-count");
+      if (cnt) cnt.textContent = items.length;
+      pjCards.innerHTML = items.map(function (p) {
+        var c = p.card || {};
+        return '<a class="group relative bg-surface-container-lowest rounded-xl flex flex-col h-full overflow-hidden hover:-translate-y-1 transition-transform duration-300 shadow-md border border-outline-variant/40" href="project.html?id=' + encodeURIComponent(p.id) + '">' +
+          '<div class="h-48 w-full overflow-hidden bg-surface-container-high">' + (c.image ? '<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="" src="' + esc(c.image) + '"/>' : "") + "</div>" +
+          '<div class="p-md flex flex-col flex-grow">' +
+          '<div class="flex items-center justify-between mb-sm"><span class="font-label-caps text-primary uppercase tracking-widest">' + esc(c.chip || "") + "</span>" + statusChip(p.status) + "</div>" +
+          '<h3 class="font-headline-md text-[20px] text-on-surface mb-xs group-hover:text-primary transition-colors">' + bi(esc(p.title_ko), esc(p.title_en || p.title_ko)) + "</h3>" +
+          '<p class="font-body-md text-[15px] text-on-surface-variant mb-md flex-grow">' + bi(c.desc_ko || "", c.desc_en || c.desc_ko || "") + "</p>" +
+          '<div class="flex items-center justify-between mt-auto">' +
+          '<span class="inline-flex items-center px-xs py-base bg-secondary-container text-on-secondary-container font-data-tabular text-data-tabular rounded-sm">' + esc(c.tag || "") + "</span>" +
+          '<span class="inline-flex items-center gap-1 font-label-caps text-primary">' + bi("자세히", "DETAILS") + ' <span class="material-symbols-outlined text-[16px]">chevron_right</span></span>' +
+          "</div></div></a>";
+      }).join("");
+    }, ["project-cards"]);
+  }
+  var pjTitle = document.getElementById("pj-title");
+  if (pjTitle) {
+    load("data/projects.json", function (data) {
+      var items = data.items || [];
+      var id = null;
+      try { id = new URLSearchParams(window.location.search).get("id"); } catch (e) {}
+      var p = items.filter(function (x) { return x.id === id; })[0] || items[0];
+      if (!p) return;
+      var t = document.querySelector("title");
+      if (t) {
+        t.setAttribute("data-ko", p.title_ko + " | Reservoir & CO2 Storage Lab");
+        t.setAttribute("data-en", (p.title_en || p.title_ko) + " | Reservoir & CO2 Storage Lab");
+        t.textContent = (lang() === "ko" ? p.title_ko : (p.title_en || p.title_ko)) + " | Reservoir & CO2 Storage Lab";
+      }
+      document.getElementById("pj-status").innerHTML = statusChip(p.status, true);
+      pjTitle.innerHTML = bi(esc(p.title_ko), esc(p.title_en || p.title_ko));
+      document.getElementById("pj-lead").innerHTML = bi(esc(p.lead_ko || ""), esc(p.lead_en || p.lead_ko || ""));
+      document.getElementById("pj-keywords").innerHTML = (p.keywords || []).map(function (k) {
+        return '<span class="inline-flex items-center px-xs py-base bg-white/10 text-secondary-fixed font-data-tabular text-data-tabular rounded-sm">' + esc(k) + "</span>";
+      }).join("");
+      document.getElementById("pj-bg").innerHTML = bi(esc(p.bg_ko || ""), esc(p.bg_en || p.bg_ko || ""));
+      document.getElementById("pj-sections").innerHTML = (p.sections || []).slice(0, 4).map(function (s, i) {
+        var lis = (s.bullets || []).map(function (b) {
+          return '<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-[18px] mt-[3px]">check</span><span>' + bi(esc(b.ko), esc(b.en || b.ko)) + "</span></li>";
+        }).join("");
+        return '<div class="flex gap-md">' +
+          '<div class="shrink-0 w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-headline-md text-[15px]">' + (i + 1) + "</div>" +
+          '<div class="flex-1"><h3 class="font-headline-md text-[20px] text-on-surface mb-xs">' + bi(esc(s.title_ko), esc(s.title_en || s.title_ko)) + "</h3>" +
+          '<ul class="space-y-xs font-body-md text-[15.5px] text-on-surface-variant">' + lis + "</ul></div></div>";
+      }).join("");
+      var res = document.getElementById("pj-results");
+      if (p.results_ko || p.results_en) {
+        res.classList.remove("hidden");
+        res.innerHTML = bi(esc(p.results_ko || ""), esc(p.results_en || p.results_ko || ""));
+      }
+      document.getElementById("pj-figures").innerHTML = (p.figures || []).slice(0, 4).map(function (fg) {
+        return '<figure class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden group hover:shadow-md transition-shadow border border-outline-variant/40">' +
+          '<div class="h-44 w-full overflow-hidden bg-surface-container-high"><img alt="" class="w-full h-full object-contain p-sm bg-surface-container-lowest transform group-hover:scale-105 transition-transform duration-700" src="' + esc(fg.image) + '"/></div>' +
+          '<figcaption class="px-md py-sm font-body-md text-[13px] text-on-surface-variant border-t border-outline-variant/50">' + bi(esc(fg.cap_ko || ""), esc(fg.cap_en || fg.cap_ko || "")) + "</figcaption></figure>";
+      }).join("");
+      document.getElementById("pj-related").innerHTML = items.filter(function (x) { return x.id !== p.id; }).slice(0, 3).map(function (x) {
+        return '<a class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl shadow-sm p-md group hover:shadow-md hover:-translate-y-0.5 transition-all block" href="project.html?id=' + encodeURIComponent(x.id) + '">' +
+          '<h3 class="font-headline-md text-[17px] text-on-surface group-hover:text-primary transition-colors mb-sm">' + bi(esc(x.title_ko), esc(x.title_en || x.title_ko)) + "</h3>" +
+          '<span class="inline-flex items-center gap-1 font-label-caps text-primary">' + bi("보러 가기", "VIEW") + ' <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span></a>';
+      }).join("");
+    }, ["pj-sections", "pj-figures", "pj-related"]);
   }
 })();

@@ -8,7 +8,7 @@ backend:
   name: github
   repo: petro-jbnu/petro-jbnu.github.io   # (1) 설정 완료
   branch: main
-  base_url: https://sveltia-cms-auth.gwanwoo7835.workers.dev   # (2) 설정 완료
+  base_url: https://YOUR-AUTH-WORKER.workers.dev   # (2) 인증 워커 주소
 
 site_url: https://petro-jbnu.github.io   # (3) 설정 완료
 
@@ -19,6 +19,109 @@ collections:
   - name: "content"
     label: "사이트 콘텐츠"
     files:
+      # ---------------- Home ----------------
+      - name: "home"
+        label: "홈 화면 (Hero 이미지)"
+        file: "data/home.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - label: "히어로 슬라이드 이미지 (3장 권장)"
+            name: "hero"
+            widget: "list"
+            max: 3
+            summary: "{{fields.image}}"
+            fields:
+              - { label: "배경 이미지", name: "image", widget: "image" }
+
+      # ---------------- Projects ----------------
+      - name: "projects"
+        label: "연구 프로젝트 (Projects)"
+        file: "data/projects.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - label: "프로젝트 목록"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title_ko}}"
+            fields:
+              - { label: "고유 ID (영문·하이픈, 주소에 사용. 예: co2-experiment)", name: "id", widget: "string" }
+              - { label: "진행 여부", name: "status", widget: "select", options: ["진행 예정", "진행 중", "종료"], default: "진행 중" }
+              - { label: "제목(한국어)", name: "title_ko", widget: "string" }
+              - { label: "제목(영어)", name: "title_en", widget: "string" }
+              - { label: "키워드 (쉼표로 추가)", name: "keywords", widget: "list", required: false }
+              - { label: "요약 문장(한국어)", name: "lead_ko", widget: "text" }
+              - { label: "요약 문장(영어)", name: "lead_en", widget: "text" }
+              - { label: "연구 배경(한국어)", name: "bg_ko", widget: "text" }
+              - { label: "연구 배경(영어)", name: "bg_en", widget: "text" }
+              - label: "연구 내용 (최대 4개)"
+                name: "sections"
+                widget: "list"
+                max: 4
+                summary: "{{fields.title_ko}}"
+                fields:
+                  - { label: "소제목(한국어)", name: "title_ko", widget: "string" }
+                  - { label: "소제목(영어)", name: "title_en", widget: "string" }
+                  - label: "세부 항목"
+                    name: "bullets"
+                    widget: "list"
+                    fields:
+                      - { label: "내용(한국어)", name: "ko", widget: "string" }
+                      - { label: "내용(영어)", name: "en", widget: "string" }
+              - { label: "주요 결과 설명(한국어, 선택)", name: "results_ko", widget: "text", required: false }
+              - { label: "주요 결과 설명(영어, 선택)", name: "results_en", widget: "text", required: false }
+              - label: "결과 이미지 (최대 4장)"
+                name: "figures"
+                widget: "list"
+                max: 4
+                required: false
+                summary: "{{fields.cap_ko}}"
+                fields:
+                  - { label: "이미지", name: "image", widget: "image" }
+                  - { label: "설명(한국어)", name: "cap_ko", widget: "string", required: false }
+                  - { label: "설명(영어)", name: "cap_en", widget: "string", required: false }
+              - label: "목록 카드 표시 설정"
+                name: "card"
+                widget: "object"
+                fields:
+                  - { label: "카드 이미지", name: "image", widget: "image", required: false }
+                  - { label: "상단 분류 문구 (예: EXPERIMENT · AI)", name: "chip", widget: "string", required: false }
+                  - { label: "카드 설명(한국어)", name: "desc_ko", widget: "text", required: false }
+                  - { label: "카드 설명(영어)", name: "desc_en", widget: "text", required: false }
+                  - { label: "하단 태그 (예: Machine Learning)", name: "tag", widget: "string", required: false }
+
+      # ---------------- About ----------------
+      - name: "about"
+        label: "연구실 소개 (What we do·교과목·협력기관)"
+        file: "data/about.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - label: "What we do (3개 권장)"
+            name: "whatwedo"
+            widget: "list"
+            max: 3
+            summary: "{{fields.title_ko}}"
+            fields:
+              - { label: "제목(한국어)", name: "title_ko", widget: "string" }
+              - { label: "제목(영어)", name: "title_en", widget: "string" }
+              - { label: "설명(한국어)", name: "desc_ko", widget: "text" }
+              - { label: "설명(영어)", name: "desc_en", widget: "text" }
+              - { label: "사진 (비우면 자리 표시)", name: "image", widget: "image", required: false }
+          - label: "교과목"
+            name: "courses"
+            widget: "list"
+            summary: "{{fields.name_ko}} ({{fields.term}})"
+            fields:
+              - { label: "교과목명(한국어)", name: "name_ko", widget: "string" }
+              - { label: "교과목명(영어)", name: "name_en", widget: "string" }
+              - { label: "학년-학기 (예: 3-1)", name: "term", widget: "string" }
+          - label: "협력 기관"
+            name: "partners"
+            widget: "list"
+            summary: "{{fields.name_ko}}"
+            fields:
+              - { label: "기관명(한국어)", name: "name_ko", widget: "string" }
+              - { label: "기관명(영어)", name: "name_en", widget: "string" }
+              - { label: "강조 표시(공공·주요기관 색상)", name: "highlight", widget: "boolean", default: false }
       # ---------------- Publications ----------------
       - name: "publications"
         label: "연구 실적 (Publications)"
@@ -126,7 +229,7 @@ collections:
               - { label: "장비명(영어)", name: "name_en", widget: "string" }
               - { label: "설명(한국어)", name: "desc_ko", widget: "text" }
               - { label: "설명(영어)", name: "desc_en", widget: "text" }
-              - { label: "사진 경로 (예: assets/img/uploads/장비.jpg, 선택)", name: "image", widget: "string", required: false }
+              - { label: "사진 (선택)", name: "image", widget: "image", required: false }
 
       # ---------------- Members ----------------
       - name: "members"
@@ -140,6 +243,7 @@ collections:
             summary: "{{fields.name_ko}} ({{fields.role_ko}})"
             fields:
               - { label: "아바타 글자 (이름 첫 글자)", name: "initial", widget: "string" }
+              - { label: "사진 (선택 — 없으면 아바타 글자 표시)", name: "photo", widget: "image", required: false }
               - { label: "이름(한국어)", name: "name_ko", widget: "string" }
               - { label: "이름(영어)", name: "name_en", widget: "string" }
               - { label: "직책(한국어)", name: "role_ko", widget: "string" }
@@ -147,6 +251,14 @@ collections:
               - { label: "비고(한국어, 예: 2025년 합류)", name: "note_ko", widget: "string", required: false }
               - { label: "비고(영어)", name: "note_en", widget: "string", required: false }
               - { label: "이메일 (선택)", name: "email", widget: "string", required: false }
+          - label: "진출 분야 (구성원 페이지 하단 배지)"
+            name: "careers"
+            widget: "list"
+            summary: "{{fields.name_ko}} ({{fields.sector}})"
+            fields:
+              - { label: "기관·기업명(한국어)", name: "name_ko", widget: "string" }
+              - { label: "기관·기업명(영어)", name: "name_en", widget: "string" }
+              - { label: "구분", name: "sector", widget: "select", options: ["공공", "산업체"], default: "산업체" }
           - label: "졸업생 진로표 (Alumni)"
             name: "alumni"
             widget: "list"

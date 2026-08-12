@@ -1,0 +1,14 @@
+{
+ "_comment": "홈 화면 설정. hero의 image를 바꾸면 메인 슬라이드 배경이 교체됩니다(3장 권장).",
+ "hero": [
+  {
+   "image": "assets/img/hero-slide1.jpg"
+  },
+  {
+   "image": "assets/img/hero-slide2.jpg"
+  },
+  {
+   "image": "assets/img/hero-slide3.jpg"
+  }
+ ]
+}

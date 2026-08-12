@@ -1,0 +1,557 @@
+{
+ "_comment": "연구 프로젝트 데이터. /admin의 '연구 프로젝트'에서 수정하세요. status는 진행 예정/진행 중/종료 중 하나. sections(연구 내용)는 최대 4개, figures(결과 이미지)는 최대 4개.",
+ "items": [
+  {
+   "id": "co2-experiment",
+   "status": "진행 중",
+   "title_ko": "CO₂ 지중저장 효율 분석 (실험)",
+   "title_en": "CO2 Storage Efficiency Analysis",
+   "keywords": [
+    "Experiment",
+    "Core Flooding",
+    "CA · IFT"
+   ],
+   "lead_ko": "사암 시료 내 CO₂ 주입 실험과 계면 특성 변화 연구를 통해, CO₂를 더 안전하고 효율적으로 저장하는 방법을 탐구합니다.",
+   "lead_en": "Core-scale CO2 injection experiments and interfacial property studies to store CO2 more safely and efficiently.",
+   "bg_ko": "CO₂ 지중저장(CCS)의 핵심은 주입한 CO₂가 지층 내에서 어떻게 흘러가고, 얼마나 안정적으로 갇히는가입니다. 본 연구는 실제 암석 시료를 이용한 주입 실험으로 공극 규모의 유동 양상을 직접 관찰하고, 저장 효율을 높이는 방법을 실험적으로 검증합니다.",
+   "bg_en": "The success of CO2 geological storage depends on how injected CO2 flows through the formation and how securely it is trapped. We directly observe pore-scale flow behavior through core flooding experiments and experimentally verify ways to improve storage efficiency.",
+   "sections": [
+    {
+     "title_ko": "저장 효율 평가를 위한 CO₂ 주입 실험",
+     "title_en": "CO2 injection experiments for storage efficiency",
+     "bullets": [
+      {
+       "ko": "사암 시료 내 CO₂ 단독 주입 시 유동 양상 분석",
+       "en": "Flow behavior of CO2-only injection in sandstone cores"
+      },
+      {
+       "ko": "나노유체 선주입 시 저장 효율 및 주입성 향상 분석",
+       "en": "Improvement of storage efficiency and injectivity with nanofluid pre-injection"
+      }
+     ]
+    },
+    {
+     "title_ko": "계면 특성(접촉각·계면장력) 변화 연구",
+     "title_en": "Interfacial property (contact angle, IFT) studies",
+     "bullets": [
+      {
+       "ko": "초임계 CO₂/나노유체에 의한 계면 특성 변화 분석",
+       "en": "Changes in interfacial properties induced by supercritical CO2 and nanofluids"
+      },
+      {
+       "ko": "접촉각·계면장력 감소에 따른 유동 양상 해석",
+       "en": "Interpretation of flow behavior following reductions in contact angle and IFT"
+      }
+     ]
+    }
+   ],
+   "results_ko": "",
+   "results_en": "",
+   "figures": [
+    {
+     "image": "assets/img/fig-co2-injection.png",
+     "cap_ko": "CO₂ 주입에 따른 접촉각 변화 개념도",
+     "cap_en": "Contact-angle change upon CO2 injection"
+    },
+    {
+     "image": "assets/img/fig-pore-flow.png",
+     "cap_ko": "공극 규모 CO₂ 유동 양상",
+     "cap_en": "Pore-scale CO2 flow behavior"
+    },
+    {
+     "image": "assets/img/fig-contact-angle-1.png",
+     "cap_ko": "접촉각 측정 실험",
+     "cap_en": "Contact angle measurement"
+    },
+    {
+     "image": "assets/img/fig-contact-angle-2.png",
+     "cap_ko": "계면장력 측정 (pendant drop)",
+     "cap_en": "IFT measurement (pendant drop)"
+    }
+   ],
+   "card": {
+    "image": "assets/img/fig-pore-flow.png",
+    "chip": "EXPERIMENT",
+    "desc_ko": "사암 시료 CO₂ 주입 실험과 접촉각·계면장력 분석을 통해 저장 효율과 주입성 향상 방안을 도출합니다.",
+    "desc_en": "Core-scale CO2 injection experiments and interfacial property analysis to improve storage efficiency and injectivity.",
+    "tag": "Core Flooding"
+   }
+  },
+  {
+   "id": "co2-adsorption-ai",
+   "status": "진행 중",
+   "title_ko": "CO₂ 흡착량 평가 및 AI 예측 모델",
+   "title_en": "CO2 Adsorption Assessment & AI Prediction",
+   "keywords": [
+    "Experiment",
+    "Machine Learning",
+    "Shale"
+   ],
+   "lead_ko": "셰일의 지질 특성 분석과 CO₂ 흡착 실험을 수행하고, 최적화·머신러닝 기법으로 흡착 저장량을 예측하는 모델을 구축합니다.",
+   "lead_en": "We characterize shale samples, run CO2 adsorption experiments, and build optimization- and ML-based models to predict adsorption storage capacity.",
+   "bg_ko": "셰일과 같은 치밀한 암석에서는 CO₂가 공극에 갇힐 뿐 아니라 암석 표면에 흡착되어 저장됩니다. 흡착량을 정확히 평가·예측할 수 있다면 저장소의 실제 저장 용량을 훨씬 정밀하게 산정할 수 있습니다.",
+   "bg_en": "In tight rocks such as shale, CO2 is stored not only in pores but also adsorbed onto rock surfaces. Accurate assessment and prediction of adsorption capacity enables far more precise estimation of true storage capacity.",
+   "sections": [
+    {
+     "title_ko": "셰일 시료 물성 및 지질 특성 분석",
+     "title_en": "Shale characterization",
+     "bullets": [
+      {
+       "ko": "TOC, 비표면적, 공극구조, 광물조성 분석",
+       "en": "TOC, specific surface area, pore structure, and mineral composition"
+      },
+      {
+       "ko": "CO₂ 흡착량에 영향을 미치는 주요 인자 도출",
+       "en": "Identification of key factors controlling CO2 adsorption capacity"
+      },
+      {
+       "ko": "CO₂ 흡착 실험을 통한 흡착량 평가",
+       "en": "Capacity assessment via CO2 adsorption experiments"
+      }
+     ]
+    },
+    {
+     "title_ko": "최적화 기반 CO₂ 흡착량 경험식 개발",
+     "title_en": "Optimization-based empirical correlations",
+     "bullets": [
+      {
+       "ko": "지질특성 기반 비선형 예측식 도출",
+       "en": "Nonlinear predictive correlations from geological properties"
+      },
+      {
+       "ko": "실험값–예측값 비교를 통한 모델 정확도 검증",
+       "en": "Validation against experimental measurements"
+      }
+     ]
+    },
+    {
+     "title_ko": "AI 기반 CO₂ 흡착량 예측 모델 구축",
+     "title_en": "Machine-learning prediction models",
+     "bullets": [
+      {
+       "ko": "압력·온도 조건을 추가 반영한 머신러닝 모델 개발",
+       "en": "ML models incorporating pressure and temperature conditions"
+      },
+      {
+       "ko": "머신러닝 알고리즘별 예측 성능 비교",
+       "en": "Benchmarking of prediction performance across ML algorithms"
+      }
+     ]
+    }
+   ],
+   "results_ko": "",
+   "results_en": "",
+   "figures": [
+    {
+     "image": "assets/img/fig-langmuir.png",
+     "cap_ko": "온도별 CO₂ 흡착 등온선 (Langmuir)",
+     "cap_en": "CO2 adsorption isotherms (Langmuir)"
+    },
+    {
+     "image": "assets/img/fig-neural-network.png",
+     "cap_ko": "흡착량 예측 신경망 구조",
+     "cap_en": "Neural network for adsorption prediction"
+    },
+    {
+     "image": "assets/img/fig-ml-rf.png",
+     "cap_ko": "Random Forest 예측 성능",
+     "cap_en": "Random Forest performance"
+    },
+    {
+     "image": "assets/img/fig-ml-xgb.png",
+     "cap_ko": "XGBoost 예측 성능",
+     "cap_en": "XGBoost performance"
+    }
+   ],
+   "card": {
+    "image": "assets/img/fig-neural-network.png",
+    "chip": "EXPERIMENT · AI",
+    "desc_ko": "셰일 지질 특성 분석과 흡착 실험을 수행하고, 머신러닝 기반 흡착량 예측 모델을 구축합니다.",
+    "desc_en": "Shale characterization, adsorption experiments, and ML models predicting CO2 adsorption capacity.",
+    "tag": "Machine Learning"
+   }
+  },
+  {
+   "id": "co2-simulation",
+   "status": "진행 중",
+   "title_ko": "CO₂ 저장 시뮬레이션 및 AI 최적화",
+   "title_en": "CO2 Storage Simulation & AI Optimization",
+   "keywords": [
+    "Simulation",
+    "AI Optimization",
+    "Field Data"
+   ],
+   "lead_ko": "국내외 실제 현장 데이터를 기반으로 저장소를 3D 모델링하고, AI로 주입공법 제안과 다목적 최적화를 수행합니다.",
+   "lead_en": "3D modeling of real storage sites from domestic and international field data, with AI-driven injection strategy recommendation and multi-objective optimization.",
+   "bg_ko": "상용화 규모의 CCS는 수십 년에 걸친 주입·운영 계획이 필요합니다. 시뮬레이션은 다양한 운영 시나리오를 사전에 검증하는 수단이며, AI는 저장량·안정성·경제성처럼 서로 충돌하는 목표를 동시에 고려한 최적 설계를 가능하게 합니다.",
+   "bg_en": "Commercial-scale CCS requires injection and operation planning over decades. Simulation validates operating scenarios in advance, while AI enables optimal designs that simultaneously consider competing objectives — capacity, stability, and economics.",
+   "sections": [
+    {
+     "title_ko": "국내외 저장소 대상 CO₂ 지중저장 가능성 평가",
+     "title_en": "Storage feasibility assessment of real sites",
+     "bullets": [
+      {
+       "ko": "한국·노르웨이 지층/탄성파 데이터 기반 3D 모델링",
+       "en": "3D modeling from Korean and Norwegian stratigraphic/seismic data"
+      },
+      {
+       "ko": "다양한 운영 조건에 따른 CO₂ 저장량·안정성 분석",
+       "en": "Storage capacity and stability analysis under various operating conditions"
+      }
+     ]
+    },
+    {
+     "title_ko": "지질 물성 기반 CO₂ 주입공법 제안 모델 (AI)",
+     "title_en": "AI recommendation of injection strategies",
+     "bullets": [
+      {
+       "ko": "현장 데이터 기반 다중 예측 모델 설계",
+       "en": "Multi-output predictive models trained on field data"
+      },
+      {
+       "ko": "저장소별 지질 물성에 적합한 CO₂ 주입공법 우선순위 제안",
+       "en": "Ranking of injection strategies suited to each site's geology"
+      }
+     ]
+    },
+    {
+     "title_ko": "다중 유정 배치 기반 다목적 최적화 모델 (AI)",
+     "title_en": "Multi-well, multi-objective optimization",
+     "bullets": [
+      {
+       "ko": "실제 공학 문제는 서로 충돌하는 목표들의 동시 달성을 요구",
+       "en": "Real engineering problems demand simultaneously satisfying conflicting objectives"
+      },
+      {
+       "ko": "지질·운영 조건 기반의 저장량/안정성/경제성 최적화",
+       "en": "Optimization of capacity, stability, and economics under geological and operational constraints"
+      }
+     ]
+    }
+   ],
+   "results_ko": "",
+   "results_en": "",
+   "figures": [
+    {
+     "image": "assets/img/fig-geomodel.png",
+     "cap_ko": "현장 데이터 기반 3D 지질 모델",
+     "cap_en": "3D geological model from field data"
+    },
+    {
+     "image": "assets/img/fig-sim-saturation.png",
+     "cap_ko": "CO₂ 주입 시뮬레이션 — 포화도 분포",
+     "cap_en": "CO2 injection simulation — saturation"
+    },
+    {
+     "image": "assets/img/fig-optimization-convergence.png",
+     "cap_ko": "다목적 최적화 수렴 곡선",
+     "cap_en": "Multi-objective optimization convergence"
+    },
+    {
+     "image": "assets/img/fig-storage-schematic.png",
+     "cap_ko": "CO₂ 지중저장 개념도",
+     "cap_en": "CO2 geological storage schematic"
+    }
+   ],
+   "card": {
+    "image": "assets/img/fig-sim-saturation.png",
+    "chip": "SIMULATION · AI",
+    "desc_ko": "한국·노르웨이 현장 데이터 기반 3D 모델링으로 저장 가능성을 평가하고 다목적 최적화를 수행합니다.",
+    "desc_en": "3D modeling from Korean and Norwegian field data for storage assessment and multi-objective optimization.",
+    "tag": "Multi-objective"
+   }
+  },
+  {
+   "id": "pipeline-ai",
+   "status": "진행 중",
+   "title_ko": "가스 파이프라인 누출 진단 AI",
+   "title_en": "AI Leak Diagnosis for Gas Pipelines",
+   "keywords": [
+    "AI",
+    "Dynamic Modeling",
+    "Flow Assurance"
+   ],
+   "lead_ko": "동적 모델링과 AI를 결합하여, 실제 운영 중인 가스 파이프라인의 누출 규모와 위치를 동시에 진단하는 모델을 개발합니다.",
+   "lead_en": "Combining dynamic modeling and AI to simultaneously diagnose leak size and location in operating gas pipelines.",
+   "bg_ko": "천연가스와 CO₂ 수송의 핵심 인프라인 파이프라인에서 누출은 안전과 환경에 직결되는 문제입니다. 누출을 빠르게, 그리고 '어디서 얼마나' 새는지까지 정확히 진단하는 기술은 운영 안전성을 크게 높입니다.",
+   "bg_en": "Pipelines are critical infrastructure for transporting natural gas and CO2; leaks directly threaten safety and the environment. Rapidly diagnosing not just whether, but where and how much a pipeline leaks dramatically improves operational safety.",
+   "sections": [
+    {
+     "title_ko": "동적 모델링 기반 누출 분석",
+     "title_en": "Dynamic-model-based leak analysis",
+     "bullets": [
+      {
+       "ko": "파이프라인 동적 모델링 기반 누출 변수·경향 분석",
+       "en": "Analysis of leak variables and trends via dynamic pipeline modeling"
+      },
+      {
+       "ko": "관 내 불순물 모니터링 및 누출 예측·진단과의 연계",
+       "en": "Linked with in-pipe impurity monitoring and leak prediction/diagnosis"
+      }
+     ]
+    },
+    {
+     "title_ko": "실제 운영 파이프라인 대상 AI 진단 모델",
+     "title_en": "AI diagnosis on operating pipelines",
+     "bullets": [
+      {
+       "ko": "실제 운영 파이프라인 데이터 기반 학습",
+       "en": "Trained on data from real operating pipelines"
+      },
+      {
+       "ko": "누출 규모와 위치의 동시 진단",
+       "en": "Simultaneous diagnosis of leak size and location"
+      }
+     ]
+    },
+    {
+     "title_ko": "CO₂ 파이프라인으로의 확장",
+     "title_en": "Extension to CO2 pipelines",
+     "bullets": [
+      {
+       "ko": "CO₂ 파이프라인 수송 및 운영 분석·설계",
+       "en": "Transport and operation analysis/design of CO2 pipelines"
+      },
+      {
+       "ko": "CCS 전주기(포집–수송–저장) 안전 운영 기술 확보",
+       "en": "Safe-operation technology across the full CCS chain"
+      }
+     ]
+    }
+   ],
+   "results_ko": "",
+   "results_en": "",
+   "figures": [
+    {
+     "image": "assets/img/fig-well-pipeline.png",
+     "cap_ko": "유정–파이프라인 시스템 모식도",
+     "cap_en": "Well–pipeline system schematic"
+    },
+    {
+     "image": "assets/img/fig-production-forecast.png",
+     "cap_ko": "운영 데이터 기반 모델 검증",
+     "cap_en": "Model validation with operating data"
+    },
+    {
+     "image": "assets/img/fig-neural-network.png",
+     "cap_ko": "누출 진단 AI 모델 구조",
+     "cap_en": "AI diagnosis model architecture"
+    },
+    {
+     "image": "assets/img/fig-nodal.png",
+     "cap_ko": "생산 시스템 유동 해석",
+     "cap_en": "Production system nodal analysis"
+    }
+   ],
+   "card": {
+    "image": "assets/img/fig-well-pipeline.png",
+    "chip": "AI · INFRASTRUCTURE",
+    "desc_ko": "동적 모델링과 AI를 결합하여 실제 운영 파이프라인의 누출 규모·위치를 동시 진단합니다.",
+    "desc_en": "Dynamic modeling and AI to diagnose leak size and location simultaneously on operating pipelines.",
+    "tag": "Flow Assurance"
+   }
+  },
+  {
+   "id": "petroleum",
+   "status": "진행 중",
+   "title_ko": "저류공학 및 생산 최적화",
+   "title_en": "Reservoir Engineering & Production Optimization",
+   "keywords": [
+    "Experiment",
+    "Simulation",
+    "EOR"
+   ],
+   "lead_ko": "매장량 평가부터 회수증진(EOR), 비전통자원, 데이터 기반 생산량 예측까지 — 연구실의 뿌리가 되는 전통 자원개발 연구입니다.",
+   "lead_en": "From reserves estimation to EOR, unconventional resources, and data-driven production forecasting — the foundational research of our laboratory.",
+   "bg_ko": "에너지 전환의 시대에도 석유·천연가스는 여전히 세계 에너지의 큰 축을 담당합니다. 기존 유·가스전을 더 효율적이고 깨끗하게 운영하는 기술은 그 자체로 중요할 뿐 아니라, CO₂ 지중저장 기술의 과학적 기반이기도 합니다.",
+   "bg_en": "Even amid the energy transition, oil and natural gas remain central to global energy supply. Technologies for operating fields more efficiently and cleanly matter in their own right — and form the scientific foundation of CO2 geological storage.",
+   "sections": [
+    {
+     "title_ko": "저류층 특성화 및 매장량 평가",
+     "title_en": "Reservoir characterization & reserves estimation",
+     "bullets": [
+      {
+       "ko": "석유·천연가스 물성 분석 및 상거동 해석",
+       "en": "Fluid property analysis and phase-behavior interpretation"
+      },
+      {
+       "ko": "지층 내 유체 유동 해석 및 매장량 평가",
+       "en": "Subsurface flow analysis and reserves estimation"
+      },
+      {
+       "ko": "셰일가스·치밀가스·석탄층 메탄 등 비전통자원 개발",
+       "en": "Unconventional resources: shale gas, tight gas, coalbed methane"
+      }
+     ]
+    },
+    {
+     "title_ko": "생산 최적화 및 회수증진(EOR)",
+     "title_en": "Production optimization & EOR",
+     "bullets": [
+      {
+       "ko": "생산 조건(유량·위치) 최적화 및 회수증진 설계",
+       "en": "Optimization of production conditions (rate, placement) and EOR design"
+      },
+      {
+       "ko": "탄산염암 저류층 대상 다양한 주입유체 적용 — CO₂ 지중저장과 연계",
+       "en": "Various injection fluids for carbonate reservoirs — linked with CO2 storage"
+      },
+      {
+       "ko": "파라핀 침적 예측 등 생산 시스템 유동 안정성 확보",
+       "en": "Flow assurance including paraffin deposition prediction"
+      }
+     ]
+    },
+    {
+     "title_ko": "데이터 기반 생산량 예측 (AI)",
+     "title_en": "Data-driven production forecasting (AI)",
+     "bullets": [
+      {
+       "ko": "현장 데이터 기반 생산량 예측 모델 개발",
+       "en": "Production forecasting models trained on field data"
+      },
+      {
+       "ko": "실시간 현장 운영 솔루션 개발",
+       "en": "Real-time field operation solutions"
+      }
+     ]
+    }
+   ],
+   "results_ko": "",
+   "results_en": "",
+   "figures": [
+    {
+     "image": "assets/img/fig-reservoir-3d.png",
+     "cap_ko": "3D 저류층 시뮬레이션 모델",
+     "cap_en": "3D reservoir simulation model"
+    },
+    {
+     "image": "assets/img/fig-field-sim.png",
+     "cap_ko": "현장 규모 유동 시뮬레이션",
+     "cap_en": "Field-scale flow simulation"
+    },
+    {
+     "image": "assets/img/fig-nodal.png",
+     "cap_ko": "생산 시스템 유동 해석",
+     "cap_en": "Production system nodal analysis"
+    },
+    {
+     "image": "assets/img/fig-production-forecast.png",
+     "cap_ko": "생산 데이터 히스토리 매칭",
+     "cap_en": "History matching of production data"
+    }
+   ],
+   "card": {
+    "image": "assets/img/fig-reservoir-3d.png",
+    "chip": "CORE FOCUS",
+    "desc_ko": "매장량 평가, 회수증진(EOR), 비전통자원, 데이터 기반 생산량 예측 등 전통 자원개발 전반을 수행합니다.",
+    "desc_en": "Reserves estimation, EOR, unconventional resources, and data-driven production forecasting.",
+    "tag": "Reservoir Simulation"
+   }
+  },
+  {
+   "id": "future-work",
+   "status": "진행 예정",
+   "title_ko": "Future Work — 차세대 연구 주제",
+   "title_en": "Future Work — Next Research Topics",
+   "keywords": [
+    "Nanofluids",
+    "Geomechanics",
+    "Coal Mines"
+   ],
+   "lead_ko": "현재 연구를 확장하여 새롭게 도전할 네 가지 연구 방향입니다. 새로 합류하는 학생들이 주도할 수 있는 주제이기도 합니다.",
+   "lead_en": "Four research directions extending our current work — topics that new lab members can take the lead on.",
+   "bg_ko": "연구실의 실험·시뮬레이션 역량은 여러 방향으로 자연스럽게 확장됩니다. 아래 주제들은 검증된 방법론 위에서 대규모 CO₂ 저장 상용화의 미해결 질문에 도전합니다.",
+   "bg_en": "Our experimental and simulation programs open several natural extensions. Each direction builds on validated methods and targets an open question in large-scale CO2 storage deployment.",
+   "sections": [
+    {
+     "title_ko": "나노유체 선주입 연구 확장",
+     "title_en": "Extending nanofluid pre-injection",
+     "bullets": [
+      {
+       "ko": "다양한 저장 지층 내 저장 효율 및 주입성 향상 분석",
+       "en": "Storage efficiency and injectivity improvements across diverse formations"
+      },
+      {
+       "ko": "나노유체 주입에 따른 젖음성 변화 분석",
+       "en": "Wettability alteration induced by nanofluid injection"
+      }
+     ]
+    },
+    {
+     "title_ko": "셰일 덮개암 안정성 평가",
+     "title_en": "Shale caprock stability assessment",
+     "bullets": [
+      {
+       "ko": "CO₂ 주입에 따른 셰일 덮개암의 응력 및 젖음성 변화 분석",
+       "en": "Stress and wettability changes in shale caprocks under CO2 injection"
+      },
+      {
+       "ko": "CO₂ 흡착에 의한 지층 변형 및 투과도 변화 분석",
+       "en": "Adsorption-induced deformation and permeability changes"
+      }
+     ]
+    },
+    {
+     "title_ko": "CO₂ 주입의 지질역학적 영향 연구",
+     "title_en": "Geomechanical effects of CO2 injection",
+     "bullets": [
+      {
+       "ko": "지층 과압에 의한 덮개암 변형, 공극 부피 변화 분석",
+       "en": "Caprock deformation and pore-volume changes from formation overpressure"
+      },
+      {
+       "ko": "지질역학적 변화에 따른 안정성·저장성 분석",
+       "en": "Stability and storability under geomechanical change"
+      }
+     ]
+    },
+    {
+     "title_ko": "국내 폐석탄광의 CO₂ 저장소 전환 연구",
+     "title_en": "Repurposing abandoned coal mines for CO2 storage",
+     "bullets": [
+      {
+       "ko": "CO₂–석탄 간 흡착에 의한 투과도 변화 분석",
+       "en": "Permeability changes from CO2–coal adsorption"
+      },
+      {
+       "ko": "국내 현장 데이터 기반 시뮬레이션 수행",
+       "en": "Simulation based on domestic field data"
+      }
+     ]
+    }
+   ],
+   "results_ko": "",
+   "results_en": "",
+   "figures": [
+    {
+     "image": "assets/img/fig-adsorption-rock.png",
+     "cap_ko": "CO₂–암석 흡착 거동",
+     "cap_en": "CO2–rock adsorption behavior"
+    },
+    {
+     "image": "assets/img/fig-adsorption-molecular.png",
+     "cap_ko": "분자 규모 흡착 개념도",
+     "cap_en": "Molecular-scale adsorption concept"
+    },
+    {
+     "image": "assets/img/fig-contact-angle-3.png",
+     "cap_ko": "암석 젖음성 변화 관찰",
+     "cap_en": "Rock wettability alteration"
+    },
+    {
+     "image": "assets/img/fig-storage-schematic.png",
+     "cap_ko": "CO₂ 지중저장 개념도",
+     "cap_en": "CO2 geological storage schematic"
+    }
+   ],
+   "card": {
+    "image": "assets/img/fig-adsorption-rock.png",
+    "chip": "PLANNED",
+    "desc_ko": "나노유체 선주입, 셰일 덮개암 안정성, 지질역학적 영향, 폐석탄광 CO₂ 저장소 전환 연구 계획입니다.",
+    "desc_en": "Nanofluid pre-injection, shale caprock stability, geomechanics, and coal-mine repurposing.",
+    "tag": "Geomechanics"
+   }
+  }
+ ]
+}
