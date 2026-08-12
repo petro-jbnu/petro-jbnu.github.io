@@ -6,9 +6,58 @@
   <title>관리자 | Reservoir & CO2 Storage Lab</title>
   <link rel="icon" type="image/png" href="../assets/img/favicon.png"/>
   <!-- Sveltia CMS: Decap CMS 호환 Git 기반 CMS. 로그인 후 폼으로 콘텐츠를 수정하면 GitHub에 자동 저장·배포됩니다. -->
+  <!-- 단독 편집 잠금: 최초 접속자만 편집 화면 진입, 이후 접속자는 잠금 안내(새로고침으로 재시도). -->
 </head>
 <body>
-  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+  <script>
+  (function () {
+    var LOCK_API = "https://lab-admin-lock.gwanwoo7835.workers.dev/lock";
+    var HEARTBEAT_MS = 45000; // 45초마다 점유 연장 (워커 유효기간 90초)
+    var sid = null;
+    try {
+      sid = sessionStorage.getItem("lab-lock-id");
+      if (!sid) { sid = Math.random().toString(36).slice(2) + Date.now().toString(36); sessionStorage.setItem("lab-lock-id", sid); }
+    } catch (e) { sid = "s" + Date.now(); }
+
+    function showLockScreen(holder) {
+      document.body.innerHTML =
+        '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f1f4f6;font-family:Pretendard,sans-serif;">' +
+        '<div style="max-width:460px;background:#fff;border:1px solid #d5dde2;border-radius:16px;padding:40px;text-align:center;box-shadow:0 4px 16px rgba(13,27,36,.08);">' +
+        '<div style="font-size:40px;margin-bottom:12px;">&#128274;</div>' +
+        '<h1 style="font-size:20px;color:#0d1b24;margin:0 0 10px;">현재 다른 관리자가 편집 중입니다</h1>' +
+        '<p style="font-size:15px;color:#4f6472;line-height:1.6;margin:0 0 6px;">편집 중: <strong>' + (holder || "다른 관리자") + '</strong></p>' +
+        '<p style="font-size:14px;color:#4f6472;line-height:1.6;margin:0 0 24px;">동시 편집으로 인한 내용 덮어쓰기를 막기 위해<br/>한 번에 한 명만 편집할 수 있습니다.<br/>편집이 끝난 뒤 <strong>새로고침(F5)</strong> 하면 진입할 수 있습니다.</p>' +
+        '<button onclick="location.reload()" style="background:#0B5B78;color:#fff;border:0;border-radius:8px;padding:12px 28px;font-size:15px;font-weight:700;cursor:pointer;">새로고침</button>' +
+        '</div></div>';
+    }
+
+    function startCms() {
+      var s = document.createElement("script");
+      s.src = "https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js";
+      s.type = "module";
+      document.body.appendChild(s);
+      // 점유 연장(하트비트)
+      setInterval(function () {
+        fetch(LOCK_API + "?action=heartbeat&id=" + sid).catch(function () {});
+      }, HEARTBEAT_MS);
+      // 페이지 이탈 시 잠금 해제
+      window.addEventListener("pagehide", function () {
+        try { navigator.sendBeacon(LOCK_API + "?action=release&id=" + sid); } catch (e) {}
+      });
+    }
+
+    fetch(LOCK_API + "?action=acquire&id=" + sid)
+      .then(function (r) { return r.json().then(function (b) { return { status: r.status, body: b }; }); })
+      .then(function (res) {
+        if (res.status === 200 && res.body.ok) startCms();
+        else showLockScreen(res.body && res.body.holder);
+      })
+      .catch(function () {
+        // 잠금 서버 장애 시에는 편집을 막지 않음 (가용성 우선)
+        startCms();
+      });
+  })();
+  </script>
   <noscript>이 페이지는 JavaScript가 필요합니다.</noscript>
 </body>
 </html>
