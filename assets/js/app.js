@@ -319,6 +319,28 @@
     }, ["equipment-list"]);
   }
 
+  /* ============ 9b. 연구 과제 (Grants) ============ */
+  var grantList = document.getElementById("grant-list");
+  if (grantList) {
+    load("data/grants.json", function (data) {
+      var items = data.items || [];
+      var gc = document.getElementById("grant-count");
+      if (gc) gc.textContent = items.length;
+      grantList.innerHTML = items.map(function (g) {
+        var roleCls = (g.role_ko || "") === "주관" ? "bg-primary-container text-on-primary-container" : "bg-surface-container text-on-surface-variant border border-outline-variant";
+        return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex flex-col md:flex-row md:items-center gap-sm transition-shadow hover:shadow-md relative overflow-hidden">' +
+          '<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>' +
+          '<div class="flex-1">' +
+          '<h3 class="font-body-lg font-bold text-on-surface">' + bi(esc(g.title_ko), esc(g.title_en || g.title_ko)) + "</h3>" +
+          '<p class="font-body-md text-[14.5px] text-on-surface-variant mt-1">' + bi(esc(g.agency_ko || ""), esc(g.agency_en || g.agency_ko || "")) + "</p></div>" +
+          '<div class="flex items-center gap-sm shrink-0">' +
+          '<span class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(g.period || "") + "</span>" +
+          '<span class="inline-flex items-center px-sm py-1 rounded-full font-label-caps ' + roleCls + '">' + bi(esc(g.role_ko || ""), esc(g.role_en || g.role_ko || "")) + "</span>" +
+          "</div></div>";
+      }).join("");
+    }, ["grant-list"]);
+  }
+
   /* ============ 10. 구성원 (Members·Alumni·진출 분야) ============ */
   var memberList = document.getElementById("member-list");
   var alumniBody = document.getElementById("alumni-body");
