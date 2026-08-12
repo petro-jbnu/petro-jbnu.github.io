@@ -349,8 +349,8 @@
       if (memberList) {
         memberList.innerHTML = (data.members || []).map(function (m) {
           var avatar = m.photo
-            ? '<img class="w-[92px] h-[92px] rounded-full object-cover mb-sm" alt="" src="' + esc(m.photo) + '"/>'
-            : '<div class="w-[92px] h-[92px] rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-headline-md text-[30px] mb-sm">' + esc(m.initial || (m.name_ko || "?").charAt(0)) + "</div>";
+            ? '<img class="w-[132px] h-[132px] rounded-full object-cover mb-sm" alt="" src="' + esc(m.photo) + '"/>'
+            : '<div class="w-[132px] h-[132px] rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-headline-md text-[40px] mb-sm">' + esc(m.initial || (m.name_ko || "?").charAt(0)) + "</div>";
           return '<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl shadow-sm p-md flex flex-col hover:shadow-md transition-shadow">' + avatar +
             '<h3 class="font-headline-md text-[18px] text-on-surface">' + bi(esc(m.name_ko), esc(m.name_en || m.name_ko)) + "</h3>" +
             '<p class="font-label-caps text-primary tracking-wider mt-1">' + bi(esc(m.role_ko || ""), esc(m.role_en || m.role_ko || "")) + "</p>" +
