@@ -1,195 +1,195 @@
 {
- "_comment": "Members 페이지의 구성원 카드(members)와 졸업생 진로표(alumni). 실제 정보 기준이며 자유롭게 추가·수정하세요.",
- "members": [
-  {
-   "initial": "한",
-   "name_ko": "한선이",
-   "name_en": "Sun-I Han",
-   "role_ko": "박사후 연구원",
-   "role_en": "Postdoctoral Researcher",
-   "note_ko": "2022년 9월 합류",
-   "note_en": "Joined Sep. 2022",
-   "email": ""
-  },
-  {
-   "initial": "노",
-   "name_ko": "노현영",
-   "name_en": "Hyun-Young Noh",
-   "role_ko": "박사과정 · 연구실 대표 학생",
-   "role_en": "Ph.D. Student · Lab Representative",
-   "note_ko": "2026년 합류",
-   "note_en": "Joined 2026",
-   "email": "gusdud819@jbnu.ac.kr"
-  },
-  {
-   "initial": "유",
-   "name_ko": "유현명",
-   "name_en": "Hyun-Myung Yoo",
-   "role_ko": "박사과정",
-   "role_en": "Ph.D. Student",
-   "note_ko": "2026년 합류",
-   "note_en": "Joined 2026",
-   "email": ""
-  },
-  {
-   "initial": "주",
-   "name_ko": "주관우",
-   "name_en": "Gwan-Woo Ju",
-   "role_ko": "석박사통합과정",
-   "role_en": "Integrated M.S.–Ph.D. Student",
-   "note_ko": "2025년 합류",
-   "note_en": "Joined 2025",
-   "email": ""
-  }
- ],
- "alumni": [
-  {
-   "org_ko": "S&P Global",
-   "org_en": "S&P Global",
-   "role_ko": "Upstream 총괄",
-   "role_en": "Upstream Lead",
-   "degree_ko": "박사과정",
-   "degree_en": "Ph.D. course"
-  },
-  {
-   "org_ko": "SLB",
-   "org_en": "SLB",
-   "role_ko": "생산/파이프라인 엔지니어",
-   "role_en": "Production/Pipeline Engineer",
-   "degree_ko": "박사",
-   "degree_en": "Ph.D."
-  },
-  {
-   "org_ko": "한국탄소산업진흥원",
-   "org_en": "KCarbon",
-   "role_ko": "사업 관리",
-   "role_en": "Program Management",
-   "degree_ko": "박사",
-   "degree_en": "Ph.D."
-  },
-  {
-   "org_ko": "한국CCUS추진단",
-   "org_en": "K-CCUS Association",
-   "role_ko": "기술 지원",
-   "role_en": "Technical Support",
-   "degree_ko": "석사과정",
-   "degree_en": "M.S. course"
-  },
-  {
-   "org_ko": "현대로템",
-   "org_en": "Hyundai Rotem",
-   "role_ko": "수소 R&D",
-   "role_en": "Hydrogen R&D",
-   "degree_ko": "석사",
-   "degree_en": "M.S."
-  },
-  {
-   "org_ko": "정보통신기획평가원",
-   "org_en": "IITP",
-   "role_ko": "기술 혁신",
-   "role_en": "Technology Innovation",
-   "degree_ko": "석사",
-   "degree_en": "M.S."
-  },
-  {
-   "org_ko": "한국지질자원연구원",
-   "org_en": "KIGAM",
-   "role_ko": "CO₂ 지중저장센터",
-   "role_en": "CO₂ Storage Center",
-   "degree_ko": "석사",
-   "degree_en": "M.S."
-  }
- ],
- "careers": [
-  {
-   "name_ko": "한국가스공사",
-   "name_en": "KOGAS",
-   "sector": "공공"
-  },
-  {
-   "name_ko": "한국석유공사",
-   "name_en": "KNOC",
-   "sector": "공공"
-  },
-  {
-   "name_ko": "한국수자원공사",
-   "name_en": "K-water",
-   "sector": "공공"
-  },
-  {
-   "name_ko": "한국지질자원연구원",
-   "name_en": "KIGAM",
-   "sector": "공공"
-  },
-  {
-   "name_ko": "한국에너지기술평가원",
-   "name_en": "KETEP",
-   "sector": "공공"
-  },
-  {
-   "name_ko": "한국탄소산업진흥원",
-   "name_en": "KCarbon",
-   "sector": "공공"
-  },
-  {
-   "name_ko": "한국CCUS추진단",
-   "name_en": "K-CCUS",
-   "sector": "공공"
-  },
-  {
-   "name_ko": "정보통신기획평가원",
-   "name_en": "IITP",
-   "sector": "공공"
-  },
-  {
-   "name_ko": "S&P Global",
-   "name_en": "S&P Global",
-   "sector": "산업체"
-  },
-  {
-   "name_ko": "SLB",
-   "name_en": "SLB",
-   "sector": "산업체"
-  },
-  {
-   "name_ko": "Shell",
-   "name_en": "Shell",
-   "sector": "산업체"
-  },
-  {
-   "name_ko": "SK어스온",
-   "name_en": "SK Earthon",
-   "sector": "산업체"
-  },
-  {
-   "name_ko": "SK이노베이션 E&S",
-   "name_en": "SK Innovation E&S",
-   "sector": "산업체"
-  },
-  {
-   "name_ko": "포스코인터내셔널",
-   "name_en": "POSCO International",
-   "sector": "산업체"
-  },
-  {
-   "name_ko": "삼성E&A",
-   "name_en": "Samsung E&A",
-   "sector": "산업체"
-  },
-  {
-   "name_ko": "HD현대중공업",
-   "name_en": "HD Hyundai Heavy Industries",
-   "sector": "산업체"
-  },
-  {
-   "name_ko": "한화오션",
-   "name_en": "Hanwha Ocean",
-   "sector": "산업체"
-  },
-  {
-   "name_ko": "현대로템",
-   "name_en": "Hyundai Rotem",
-   "sector": "산업체"
-  }
- ]
+  "_comment": "Members 페이지의 구성원 카드(members)와 졸업생 진로표(alumni). 실제 정보 기준이며 자유롭게 추가·수정하세요.",
+  "members": [
+    {
+      "initial": "한",
+      "name_ko": "한선이",
+      "name_en": "Sun-Lee Han",
+      "role_ko": "박사후 연구원",
+      "role_en": "Postdoctoral Researcher",
+      "note_ko": "2022년 9월 합류",
+      "note_en": "Joined Sep. 2022",
+      "email": ""
+    },
+    {
+      "initial": "노",
+      "name_ko": "노현영",
+      "name_en": "Hyeon-Yeong Roh",
+      "role_ko": "박사과정 · 연구실 대표 학생",
+      "role_en": "Ph.D. Student · Lab Representative",
+      "note_ko": "2026년 합류",
+      "note_en": "Joined 2026",
+      "email": "gusdud819@jbnu.ac.kr"
+    },
+    {
+      "initial": "유",
+      "name_ko": "유현명",
+      "name_en": "Hyun-Myung Yoo",
+      "role_ko": "박사과정",
+      "role_en": "Ph.D. Student",
+      "note_ko": "2026년 합류",
+      "note_en": "Joined 2026",
+      "email": ""
+    },
+    {
+      "initial": "주",
+      "name_ko": "주관우",
+      "name_en": "Gwan-Woo Ju",
+      "role_ko": "석박사통합과정",
+      "role_en": "Integrated M.S.–Ph.D. Student",
+      "note_ko": "2025년 합류",
+      "note_en": "Joined 2025",
+      "email": ""
+    }
+  ],
+  "careers": [
+    {
+      "name_ko": "한국가스공사",
+      "name_en": "KOGAS",
+      "sector": "공공"
+    },
+    {
+      "name_ko": "한국석유공사",
+      "name_en": "KNOC",
+      "sector": "공공"
+    },
+    {
+      "name_ko": "한국수자원공사",
+      "name_en": "K-water",
+      "sector": "공공"
+    },
+    {
+      "name_ko": "한국지질자원연구원",
+      "name_en": "KIGAM",
+      "sector": "공공"
+    },
+    {
+      "name_ko": "한국에너지기술평가원",
+      "name_en": "KETEP",
+      "sector": "공공"
+    },
+    {
+      "name_ko": "한국탄소산업진흥원",
+      "name_en": "KCarbon",
+      "sector": "공공"
+    },
+    {
+      "name_ko": "한국CCUS추진단",
+      "name_en": "K-CCUS",
+      "sector": "공공"
+    },
+    {
+      "name_ko": "정보통신기획평가원",
+      "name_en": "IITP",
+      "sector": "공공"
+    },
+    {
+      "name_ko": "S&P Global",
+      "name_en": "S&P Global",
+      "sector": "산업체"
+    },
+    {
+      "name_ko": "SLB",
+      "name_en": "SLB",
+      "sector": "산업체"
+    },
+    {
+      "name_ko": "Shell",
+      "name_en": "Shell",
+      "sector": "산업체"
+    },
+    {
+      "name_ko": "SK어스온",
+      "name_en": "SK Earthon",
+      "sector": "산업체"
+    },
+    {
+      "name_ko": "SK이노베이션 E&S",
+      "name_en": "SK Innovation E&S",
+      "sector": "산업체"
+    },
+    {
+      "name_ko": "포스코인터내셔널",
+      "name_en": "POSCO International",
+      "sector": "산업체"
+    },
+    {
+      "name_ko": "삼성E&A",
+      "name_en": "Samsung E&A",
+      "sector": "산업체"
+    },
+    {
+      "name_ko": "HD현대중공업",
+      "name_en": "HD Hyundai Heavy Industries",
+      "sector": "산업체"
+    },
+    {
+      "name_ko": "한화오션",
+      "name_en": "Hanwha Ocean",
+      "sector": "산업체"
+    },
+    {
+      "name_ko": "현대로템",
+      "name_en": "Hyundai Rotem",
+      "sector": "산업체"
+    }
+  ],
+  "alumni": [
+    {
+      "org_ko": "S&P Global",
+      "org_en": "S&P Global",
+      "role_ko": "Upstream 총괄",
+      "role_en": "Upstream Lead",
+      "degree_ko": "박사과정",
+      "degree_en": "Ph.D. course"
+    },
+    {
+      "org_ko": "SLB",
+      "org_en": "SLB",
+      "role_ko": "생산/파이프라인 엔지니어",
+      "role_en": "Production/Pipeline Engineer",
+      "degree_ko": "박사",
+      "degree_en": "Ph.D."
+    },
+    {
+      "org_ko": "한국탄소산업진흥원",
+      "org_en": "KCarbon",
+      "role_ko": "사업 관리",
+      "role_en": "Program Management",
+      "degree_ko": "박사",
+      "degree_en": "Ph.D."
+    },
+    {
+      "org_ko": "한국CCUS추진단",
+      "org_en": "K-CCUS Association",
+      "role_ko": "기술 지원",
+      "role_en": "Technical Support",
+      "degree_ko": "석사과정",
+      "degree_en": "M.S. course"
+    },
+    {
+      "org_ko": "현대로템",
+      "org_en": "Hyundai Rotem",
+      "role_ko": "수소 R&D",
+      "role_en": "Hydrogen R&D",
+      "degree_ko": "석사",
+      "degree_en": "M.S."
+    },
+    {
+      "org_ko": "정보통신기획평가원",
+      "org_en": "IITP",
+      "role_ko": "기술 혁신",
+      "role_en": "Technology Innovation",
+      "degree_ko": "석사",
+      "degree_en": "M.S."
+    },
+    {
+      "org_ko": "한국지질자원연구원",
+      "org_en": "KIGAM",
+      "role_ko": "CO₂ 지중저장센터",
+      "role_en": "CO₂ Storage Center",
+      "degree_ko": "석사",
+      "degree_en": "M.S."
+    }
+  ]
 }
