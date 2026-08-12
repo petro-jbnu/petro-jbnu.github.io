@@ -8,7 +8,7 @@ backend:
   name: github
   repo: petro-jbnu/petro-jbnu.github.io   # (1) 설정 완료
   branch: main
-  base_url: https://YOUR-AUTH-WORKER.workers.dev   # (2) 인증 워커 주소
+    base_url: https://sveltia-cms-auth.gwanwoo7835.workers.dev   # (2) 설정 완료
 
 site_url: https://petro-jbnu.github.io   # (3) 설정 완료
 
