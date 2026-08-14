@@ -1,4 +1,4 @@
-/* Reservoir & CO2 Storage Lab — v4 site script
+/* GeoFlow Engineering Lab — v4 site script
    1) KO/EN 토글  2) 모바일 메뉴·아코디언  3) 히어로 슬라이더  4) 토스트
    5) 데이터 렌더링: 일정(달력)·연구실 활동·연구 성과(Paper/Presentation/Awards 자동 집계)
    관리자 메모: 콘텐츠 수정은 data/ 폴더의 JSON에서 하세요. 이 파일은 수정할 필요가 없습니다. */
@@ -237,30 +237,33 @@
 
   /* ============ 8. 연구 성과: Paper·Presentation·Awards ============ */
   function paperCard(p) {
-    var q = (p.quartile || "Q1").toUpperCase();
+    var q = (p.quartile || "").toUpperCase();
+    var sci = (p.sci || "SCI");
+    var scicls = sci === "SCI" ? "bg-tertiary-container text-on-tertiary-container" : "bg-surface-variant text-on-surface-variant";
     var qcls = q === "Q1" ? "bg-primary-container text-on-primary-container" : "bg-secondary-container text-on-secondary-container";
-    var bar = q === "Q1" ? "bg-primary" : "bg-secondary";
+    var bar = q === "Q1" ? "bg-primary" : (q ? "bg-secondary" : "bg-outline-variant");
     var btn = p.url
-      ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener" class="shrink-0 bg-primary text-on-primary px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">open_in_new</span> LINK</a>'
-      : '<button data-toast-ko="논문 링크는 /admin의 url 항목으로 등록할 수 있습니다." data-toast-en="Add a link via the url field in /admin." class="shrink-0 bg-primary text-on-primary px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">download</span> PDF</button>';
+      ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener" class="shrink-0 bg-primary text-on-primary px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">school</span> Google Scholar</a>'
+      : '<button data-toast-ko="Google Scholar 링크는 /admin의 url 항목으로 등록할 수 있습니다." data-toast-en="Add a Google Scholar link via the url field in /admin." class="shrink-0 bg-surface-container text-on-surface-variant border border-outline-variant px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">school</span> Google Scholar</button>';
     return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex flex-col md:flex-row gap-md items-start group transition-shadow hover:shadow-md relative overflow-hidden">' +
       '<div class="absolute left-0 top-0 bottom-0 w-1 ' + bar + '"></div>' +
       '<div class="flex-1 flex flex-col gap-xs"><div class="flex gap-sm items-center mb-1 flex-wrap">' +
-      '<span class="px-2 py-0.5 ' + qcls + ' font-label-caps rounded-sm">' + esc(q) + "</span>" +
+      '<span class="px-2 py-0.5 ' + scicls + ' font-label-caps rounded-sm">' + esc(sci) + "</span>" +
+      (q ? '<span class="px-2 py-0.5 ' + qcls + ' font-label-caps rounded-sm">' + esc(q) + "</span>" : "") +
       '<span class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(p.year) + "</span>" +
       (p.doi ? '<span class="font-data-tabular text-[12px] text-outline">DOI: ' + esc(p.doi) + "</span>" : "") + "</div>" +
-      '<h3 class="font-headline-md text-[20px] text-on-surface group-hover:text-primary transition-colors">' + esc(p.title) + "</h3>" +
-      '<p class="font-body-md text-on-surface-variant">' + esc(p.authors) + "</p>" +
-      '<div class="font-data-tabular text-data-tabular text-secondary mt-xs flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">menu_book</span>' + esc(p.journal) + "</div></div>" + btn + "</div>";
+      '<h3 class="font-headline-md text-[20px] text-on-surface group-hover:text-primary transition-colors">' + bi(esc(p.title_ko || p.title || ""), esc(p.title_en || p.title_ko || p.title || "")) + "</h3>" +
+      '<p class="font-body-md text-on-surface-variant">' + (p.authors_ko ? bi(esc(p.authors_ko), esc(p.authors || p.authors_ko)) : esc(p.authors || "")) + "</p>" +
+      '<div class="font-data-tabular text-data-tabular text-secondary mt-xs flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">menu_book</span>' + bi(esc(p.journal_ko || p.journal || ""), esc(p.journal_en || p.journal_ko || p.journal || "")) + "</div></div>" + btn + "</div>";
   }
   function presCard(c) {
     return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex flex-col gap-sm transition-shadow hover:shadow-md relative overflow-hidden">' +
       '<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>' +
       '<div class="flex gap-sm items-center"><span class="material-symbols-outlined text-tertiary">podium</span>' +
       '<span class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(c.date) + "</span></div>" +
-      '<h3 class="font-body-lg font-bold text-on-surface">' + esc(c.title) + "</h3>" +
-      '<p class="font-body-md text-on-surface-variant">' + esc(c.authors) + "</p>" +
-      '<div class="mt-auto pt-sm font-data-tabular text-data-tabular text-tertiary">' + esc(c.venue) + "</div></div>";
+      '<h3 class="font-body-lg font-bold text-on-surface">' + bi(esc(c.title_ko || c.title || ""), esc(c.title_en || c.title_ko || c.title || "")) + "</h3>" +
+      '<p class="font-body-md text-on-surface-variant">' + esc(c.authors || "") + "</p>" +
+      '<div class="mt-auto pt-sm font-data-tabular text-data-tabular text-tertiary">' + bi(esc(c.venue_ko || c.venue || ""), esc(c.venue_en || c.venue_ko || c.venue || "")) + "</div></div>";
   }
   function awardCard(a) {
     return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex items-start gap-sm transition-shadow hover:shadow-md relative overflow-hidden">' +
@@ -294,9 +297,9 @@
       if (homePub) {
         var h = "";
         h += '<div class="font-label-caps text-primary mb-1">PAPER <span class="text-on-surface-variant">(' + papers.length + ")</span></div>";
-        h += papers.slice(0, 2).map(function (x) { return miniRow(x.year, esc(x.title)); }).join("");
+        h += papers.slice(0, 2).map(function (x) { return miniRow(x.year, bi(esc(x.title_ko || x.title || ""), esc(x.title_en || x.title_ko || x.title || ""))); }).join("");
         h += '<div class="font-label-caps text-tertiary mt-sm mb-1">PRESENTATION <span class="text-on-surface-variant">(' + pres.length + ")</span></div>";
-        h += pres.slice(0, 1).map(function (x) { return miniRow(x.date, esc(x.title)); }).join("");
+        h += pres.slice(0, 1).map(function (x) { return miniRow(x.date, bi(esc(x.title_ko || x.title || ""), esc(x.title_en || x.title_ko || x.title || ""))); }).join("");
         h += '<div class="font-label-caps text-secondary mt-sm mb-1">AWARDS <span class="text-on-surface-variant">(' + awards.length + ")</span></div>";
         h += awards.slice(0, 1).map(function (x) { return miniRow(x.date, bi(esc(x.name_ko), esc(x.name_en || x.name_ko))); }).join("");
         homePub.innerHTML = h;
@@ -394,12 +397,19 @@
             '<p class="font-body-md text-[15px] text-on-surface-variant">' + bi(w.desc_ko || "", w.desc_en || w.desc_ko || "") + "</p></div>";
         }).join("");
       }
-      if (courseBody) {
-        courseBody.innerHTML = (data.courses || []).map(function (c, i) {
+      function courseRows(list) {
+        return (list || []).map(function (c, i) {
           return '<tr class="hover:bg-surface-container-low' + (i % 2 ? ' bg-surface-bright' : '') + '">' +
             '<td class="py-sm px-md font-semibold">' + bi(esc(c.name_ko), esc(c.name_en || c.name_ko)) + "</td>" +
             '<td class="py-sm px-md text-on-surface-variant">' + esc(c.term || "") + "</td></tr>";
         }).join("");
+      }
+      if (courseBody) courseBody.innerHTML = courseRows(data.courses);
+      var gradBody = document.getElementById("grad-course-body");
+      if (gradBody) {
+        var g = data.grad_courses || [];
+        gradBody.innerHTML = g.length ? courseRows(g)
+          : '<tr><td colspan="2" class="py-sm px-md text-on-surface-variant">' + bi("대학원 교과목은 준비 중입니다.", "Graduate courses will be posted soon.") + "</td></tr>";
       }
       if (partnerList) {
         partnerList.innerHTML = (data.partners || []).map(function (p) {
@@ -458,9 +468,9 @@
       if (!p) return;
       var t = document.querySelector("title");
       if (t) {
-        t.setAttribute("data-ko", p.title_ko + " | Reservoir & CO2 Storage Lab");
-        t.setAttribute("data-en", (p.title_en || p.title_ko) + " | Reservoir & CO2 Storage Lab");
-        t.textContent = (lang() === "ko" ? p.title_ko : (p.title_en || p.title_ko)) + " | Reservoir & CO2 Storage Lab";
+        t.setAttribute("data-ko", p.title_ko + " | GeoFlow Engineering Lab");
+        t.setAttribute("data-en", (p.title_en || p.title_ko) + " | GeoFlow Engineering Lab");
+        t.textContent = (lang() === "ko" ? p.title_ko : (p.title_en || p.title_ko)) + " | GeoFlow Engineering Lab";
       }
       document.getElementById("pj-status").innerHTML = statusChip(p.status, true);
       pjTitle.innerHTML = bi(esc(p.title_ko), esc(p.title_en || p.title_ko));

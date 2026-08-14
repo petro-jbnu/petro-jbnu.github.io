@@ -114,6 +114,14 @@ collections:
               - { label: "교과목명(한국어)", name: "name_ko", widget: "string" }
               - { label: "교과목명(영어)", name: "name_en", widget: "string" }
               - { label: "학년-학기 (예: 3-1)", name: "term", widget: "string" }
+          - label: "대학원 교과목"
+            name: "grad_courses"
+            widget: "list"
+            summary: "{{fields.name_ko}} ({{fields.term}})"
+            fields:
+              - { label: "교과목명(한국어)", name: "name_ko", widget: "string" }
+              - { label: "교과목명(영어)", name: "name_en", widget: "string" }
+              - { label: "개설 학기 (예: 1학기)", name: "term", widget: "string" }
           - label: "협력 기관"
             name: "partners"
             widget: "list"
@@ -131,24 +139,30 @@ collections:
           - label: "저널 논문 (Paper)"
             name: "papers"
             widget: "list"
-            summary: "{{fields.year}} — {{fields.title}}"
+            summary: "{{fields.year}} — {{fields.title_en}}"
             fields:
-              - { label: "분급", name: "quartile", widget: "select", options: ["Q1", "Q2", "Q3", "Q4"], default: "Q1" }
+              - { label: "SCI 구분", name: "sci", widget: "select", options: ["SCI", "Non-SCI"], default: "SCI" }
+              - { label: "분급 (비SCI는 비워두기)", name: "quartile", widget: "select", options: ["Q1", "Q2", "Q3", "Q4"], required: false }
               - { label: "연도", name: "year", widget: "string" }
               - { label: "DOI", name: "doi", widget: "string", required: false }
-              - { label: "논문 제목", name: "title", widget: "string" }
-              - { label: "저자", name: "authors", widget: "string" }
-              - { label: "저널명", name: "journal", widget: "string" }
-              - { label: "링크 URL (선택)", name: "url", widget: "string", required: false }
+              - { label: "논문 제목(한국어) — 국문지 논문은 국문 제목, 영문지는 영문 제목을 그대로 입력", name: "title_ko", widget: "string" }
+              - { label: "논문 제목(영어)", name: "title_en", widget: "string" }
+              - { label: "저자 (로마자, 예: G.W. Ju, Y.S. Lee)", name: "authors", widget: "string" }
+              - { label: "저자(한국어, 선택 — 국문지일 때만)", name: "authors_ko", widget: "string", required: false }
+              - { label: "저널명(한국어) — 국문지는 국문 학회지명, 영문지는 영문지명 그대로", name: "journal_ko", widget: "string" }
+              - { label: "저널명(영어)", name: "journal_en", widget: "string" }
+              - { label: "Google Scholar 링크 URL (선택)", name: "url", widget: "string", required: false }
           - label: "학술대회 발표 (Presentation)"
             name: "presentations"
             widget: "list"
-            summary: "{{fields.date}} — {{fields.title}}"
+            summary: "{{fields.date}} — {{fields.title_en}}"
             fields:
               - { label: "발표 시기 (예: May 2026)", name: "date", widget: "string" }
-              - { label: "발표 제목", name: "title", widget: "string" }
-              - { label: "저자", name: "authors", widget: "string" }
-              - { label: "학술대회명", name: "venue", widget: "string" }
+              - { label: "발표 제목(한국어) — 국내 학회 국문 발표는 국문 제목", name: "title_ko", widget: "string" }
+              - { label: "발표 제목(영어)", name: "title_en", widget: "string" }
+              - { label: "저자 (로마자)", name: "authors", widget: "string" }
+              - { label: "학술대회명(한국어, 예: 한국자원공학회 춘계학술대회)", name: "venue_ko", widget: "string" }
+              - { label: "학술대회명(영어, 예: KSMER Spring Conference)", name: "venue_en", widget: "string" }
 
           - label: "수상 (Awards)"
             name: "awards"

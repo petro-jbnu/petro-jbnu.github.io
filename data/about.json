@@ -1,5 +1,5 @@
 {
- "_comment": "연구실 소개 페이지 데이터: whatwedo(사진은 image에 경로), courses(교과목), partners(협력기관).",
+ "_comment": "연구실 소개 페이지 데이터: whatwedo(사진은 image에 경로), courses(학부 교과목), grad_courses(대학원 교과목), partners(협력기관). [예시] 항목은 실제 내용으로 교체하세요.",
  "whatwedo": [
   {
    "title_ko": "유동 메커니즘 규명",
@@ -85,6 +85,18 @@
    "name_ko": "골든엔지니어링",
    "name_en": "Golden Engineering",
    "highlight": false
+  }
+ ],
+ "grad_courses": [
+  {
+   "name_ko": "[예시] 고급 저류공학",
+   "name_en": "[Example] Advanced Reservoir Engineering",
+   "term": "1학기"
+  },
+  {
+   "name_ko": "[예시] CO₂ 지중저장 특론",
+   "name_en": "[Example] Special Topics in CO₂ Geological Storage",
+   "term": "2학기"
   }
  ]
 }

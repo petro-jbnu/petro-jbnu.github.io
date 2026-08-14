@@ -1,52 +1,62 @@
 {
-  "_comment": "연구 성과 데이터: papers(저널 논문), presentations(학술대회), awards(수상). 상단 지표는 각 목록의 개수로 자동 집계됩니다. [Example] 항목을 실제 내용으로 교체하세요.",
+  "_comment": "연구 성과 데이터: papers(저널 논문), presentations(학술대회), awards(수상). 상단 지표는 각 목록의 개수로 자동 집계됩니다. [Example] 항목을 실제 내용으로 교체하세요. 국문지·국내학회는 _ko 칸에 국문, _en 칸에 영문을 각각 입력하고, 영문지는 두 칸에 같은 영문을 입력하면 됩니다.",
   "papers": [
     {
       "quartile": "Q1",
       "year": "2026",
       "doi": "10.0000/example.2026.000001",
-      "title": "[Example] Experimental study on nanofluid pre-injection for CO₂ storage efficiency in sandstone",
+      "title_ko": "[Example] Experimental study on nanofluid pre-injection for CO₂ storage efficiency in sandstone",
+      "title_en": "[Example] Experimental study on nanofluid pre-injection for CO₂ storage efficiency in sandstone",
       "authors": "S. Han, H.Y. Noh, Y.S. Lee",
-      "journal": "International Journal of Greenhouse Gas Control",
-      "url": ""
+      "authors_ko": "",
+      "journal_ko": "International Journal of Greenhouse Gas Control",
+      "journal_en": "International Journal of Greenhouse Gas Control",
+      "url": "",
+      "sci": "SCI"
     },
     {
       "quartile": "Q1",
       "year": "2025",
       "doi": "10.0000/example.2025.000002",
-      "title": "[Example] Machine-learning prediction of CO₂ adsorption capacity in shale reservoirs",
+      "title_ko": "[Example] Machine-learning prediction of CO₂ adsorption capacity in shale reservoirs",
+      "title_en": "[Example] Machine-learning prediction of CO₂ adsorption capacity in shale reservoirs",
       "authors": "H.M. Yoo, G.W. Ju, Y.S. Lee",
-      "journal": "Applied Energy",
-      "url": ""
+      "authors_ko": "",
+      "journal_ko": "Applied Energy",
+      "journal_en": "Applied Energy",
+      "url": "",
+      "sci": "SCI"
     },
     {
-      "quartile": "Q2",
+      "quartile": "",
       "year": "2025",
       "doi": "10.0000/example.2025.000003",
-      "title": "[Example] Simultaneous diagnosis of leak size and location in operating gas pipelines using AI",
+      "title_ko": "[예시] 인공지능을 활용한 운영 중 가스배관 누출 규모·위치 동시 진단",
+      "title_en": "[Example] Simultaneous diagnosis of leak size and location in operating gas pipelines using AI",
       "authors": "S. Han, Y.S. Lee",
-      "journal": "Journal of Pipeline Science and Engineering",
-      "url": ""
+      "authors_ko": "한선호, 이영수",
+      "journal_ko": "한국가스학회지",
+      "journal_en": "Journal of the Korean Institute of Gas",
+      "url": "",
+      "sci": "Non-SCI"
     }
   ],
   "presentations": [
     {
       "date": "May 2026",
-      "title": "[Example] Multi-objective optimization of multi-well CO₂ storage operations",
+      "title_ko": "[예시] 다중 주입정 CO₂ 저장 운영의 다목적 최적화",
+      "title_en": "[Example] Multi-objective optimization of multi-well CO₂ storage operations",
       "authors": "G.W. Ju, Y.S. Lee",
-      "venue": "KSMER Spring Conference"
+      "venue_ko": "한국자원공학회 춘계학술대회",
+      "venue_en": "KSMER Spring Conference"
     },
     {
       "date": "Oct 2025",
-      "title": "[Example] Wettability alteration by supercritical CO₂ and nanofluids: contact angle study",
+      "title_ko": "[Example] Wettability alteration by supercritical CO₂ and nanofluids: contact angle study",
+      "title_en": "[Example] Wettability alteration by supercritical CO₂ and nanofluids: contact angle study",
       "authors": "H.Y. Noh, Y.S. Lee",
-      "venue": "SPE Annual Technical Conference and Exhibition (ATCE)"
-    },
-    {
-      "date": "Apr. 2024",
-      "title": "실리카 나노유체를 활용한 대수층 내 CCS 적용 시 공극 크기 변화 연구",
-      "authors": "H.Y. Roh, S.L. Han, Y.S. Lee",
-      "venue": "KSPE Spring Conference"
+      "venue_ko": "SPE Annual Technical Conference and Exhibition (ATCE)",
+      "venue_en": "SPE Annual Technical Conference and Exhibition (ATCE)"
     }
   ],
   "awards": [
