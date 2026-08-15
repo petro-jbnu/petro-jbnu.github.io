@@ -1,0 +1,36 @@
+name: data-guard
+
+# 대량 배포 커밋이 data/ 폴더를 함께 덮어쓰면 자동으로 경고 이슈를 만듭니다.
+# (관리자 페이지 저장 = data/ 파일 1개 커밋 → 경고 없음)
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: detect and warn
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          CHANGED=$(git diff --name-only HEAD^ HEAD || true)
+          DATA=$(echo "$CHANGED" | grep -c '^data/' || true)
+          OTHER=$(echo "$CHANGED" | grep -v '^data/' | grep -c . || true)
+          echo "changed data files: $DATA / other files: $OTHER"
+          if [ "$DATA" -ge 1 ] && [ "$OTHER" -ge 5 ]; then
+            SHORT=$(echo "${GITHUB_SHA}" | cut -c1-7)
+            FILES=$(echo "$CHANGED" | grep '^data/')
+            BODY=$(printf '방금 올린 대량 배포 커밋(%s)이 아래 데이터 파일을 함께 교체했습니다.\n\n```\n%s\n```\n\n**의도한 변경이라면** 이 이슈를 닫으면 됩니다.\n\n**의도하지 않았다면(관리자 페이지 수정분이 사라졌다면)** 지금 바로 복구하세요:\n1. 저장소 상단 Actions 탭 → 왼쪽 data-restore 선택\n2. Run workflow 버튼 → confirm 칸에 `복구` 입력 → 실행\n3. 약 1분 내 data/ 폴더가 이 배포 직전 상태로 되돌아갑니다.\n\n(주의: 이 배포 이후 관리자 페이지에서 새로 저장한 내용이 있다면 그것도 함께 되돌아갑니다. 사고 직후에 실행하세요.)' "$SHORT" "$FILES")
+            gh issue create --repo "${GITHUB_REPOSITORY}" \
+              --title "[데이터 경고] 대량 배포 커밋 ${SHORT} 이 data/ 를 함께 덮어썼습니다" \
+              --body "$BODY"
+          fi
