@@ -1,0 +1,55 @@
+name: data-restore
+
+# 수동 실행용 복구 기능: Actions 탭 → data-restore → Run workflow
+# 데이터(data/)를 최근 대량 배포 직전 상태로 되돌립니다.
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "복구를 진행하려면 '복구' 라고 입력하세요"
+        required: true
+      restore_sha:
+        description: "복구 기준 커밋 SHA (비우면 최근 대량 배포 직전 시점 자동 선택)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check confirm
+        run: |
+          if [ "${{ github.event.inputs.confirm }}" != "복구" ]; then
+            echo "confirm 칸에 '복구' 라고 입력해야 실행됩니다."; exit 1;
+          fi
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: restore data folder
+        run: |
+          set -e
+          TARGET="${{ github.event.inputs.restore_sha }}"
+          if [ -z "$TARGET" ]; then
+            for C in $(git log --format=%H -- data/); do
+              D=$(git diff-tree --no-commit-id --name-only -r $C | grep -c '^data/' || true)
+              O=$(git diff-tree --no-commit-id --name-only -r $C | grep -v '^data/' | grep -c . || true)
+              if [ "$D" -ge 1 ] && [ "$O" -ge 5 ]; then TARGET="${C}^"; break; fi
+            done
+          fi
+          if [ -z "$TARGET" ]; then
+            echo "대량 배포 커밋을 찾지 못했습니다. restore_sha 에 커밋 SHA를 직접 입력해 다시 실행하세요."; exit 1;
+          fi
+          echo "복구 기준: $TARGET"
+          git checkout "$TARGET" -- data/
+          if [ -z "$(git status --porcelain data/)" ]; then
+            echo "현재 데이터와 동일합니다. 복구할 변경이 없어 종료합니다."; exit 0;
+          fi
+          git config user.name "data-restore-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          git commit -m "restore: data/ 복원 (기준 $TARGET)"
+          git push
