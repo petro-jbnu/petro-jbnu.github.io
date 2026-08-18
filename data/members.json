@@ -10,7 +10,11 @@
       "role_en": "Postdoctoral Researcher (2022)",
       "note_ko": "",
       "note_en": "",
-      "email": ""
+      "email": "",
+      "linkedin": "",
+      "show_linkedin": false,
+      "cv": "",
+      "show_cv": false
     },
     {
       "initial": "노",
@@ -21,7 +25,11 @@
       "role_en": "Ph.D. Course (2026)",
       "note_ko": "연구실 대표 학생",
       "note_en": "Lab Representative",
-      "email": "gusdud819@jbnu.ac.kr"
+      "email": "gusdud819@jbnu.ac.kr",
+      "linkedin": "",
+      "show_linkedin": false,
+      "cv": "",
+      "show_cv": false
     },
     {
       "initial": "유",
@@ -32,7 +40,11 @@
       "role_en": "Ph.D. Course (2026)",
       "note_ko": "지반공학연구소 파견 (Norway, ~2026.12.)",
       "note_en": "Research currently underway at NGI\n(Norway, ~2026.12.)",
-      "email": ""
+      "email": "",
+      "linkedin": "",
+      "show_linkedin": true,
+      "cv": "/assets/img/uploads/CV_Gwanwoo Ju_ver2.pdf",
+      "show_cv": true
     },
     {
       "initial": "주",
@@ -43,7 +55,11 @@
       "role_en": "Integrated Ph.D Course (2025)",
       "note_ko": "",
       "note_en": "",
-      "email": "gwanwoo7835@jbnu.ac.kr"
+      "email": "gwanwoo7835@jbnu.ac.kr",
+      "linkedin": "",
+      "show_linkedin": false,
+      "cv": "",
+      "show_cv": false
     },
     {
       "initial": "김",
@@ -54,7 +70,11 @@
       "role_en": "Ph.D Course (2024, Part-time)",
       "note_ko": "S&P Global (Senior Upstream)",
       "note_en": "S&P Global (Senior Upstream)",
-      "email": ""
+      "email": "",
+      "linkedin": "",
+      "show_linkedin": false,
+      "cv": "",
+      "show_cv": false
     },
     {
       "initial": "한",
@@ -65,7 +85,11 @@
       "role_en": "Ph.D Course (2026, Part-time)",
       "note_ko": "한국CCUS추진단",
       "note_en": "K-CCUS",
-      "email": ""
+      "email": "",
+      "linkedin": "",
+      "show_linkedin": false,
+      "cv": "",
+      "show_cv": false
     }
   ],
   "careers": [
