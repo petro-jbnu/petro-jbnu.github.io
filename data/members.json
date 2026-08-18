@@ -115,11 +115,6 @@
       "sector": "산업체"
     },
     {
-      "name_ko": "SLB",
-      "name_en": "SLB",
-      "sector": "산업체"
-    },
-    {
       "name_ko": "Shell",
       "name_en": "Shell",
       "sector": "산업체"
@@ -127,6 +122,11 @@
     {
       "name_ko": "SK어스온",
       "name_en": "SK Earthon",
+      "sector": "산업체"
+    },
+    {
+      "name_ko": "SLB",
+      "name_en": "SLB",
       "sector": "산업체"
     },
     {
@@ -140,16 +140,6 @@
       "sector": "산업체"
     },
     {
-      "name_ko": "삼성E&A",
-      "name_en": "Samsung E&A",
-      "sector": "산업체"
-    },
-    {
-      "name_ko": "HD현대중공업",
-      "name_en": "HD Hyundai Heavy Industries",
-      "sector": "산업체"
-    },
-    {
       "name_ko": "한화오션",
       "name_en": "Hanwha Ocean",
       "sector": "산업체"
@@ -158,16 +148,21 @@
       "name_ko": "현대로템",
       "name_en": "Hyundai Rotem",
       "sector": "산업체"
+    },
+    {
+      "name_ko": "국가녹색기술연구소",
+      "name_en": "National Institute of Green Technology",
+      "sector": "공공"
     }
   ],
   "alumni": [
     {
       "org_ko": "S&P Global",
       "org_en": "S&P Global",
-      "role_ko": "Upstream 총괄",
-      "role_en": "Upstream Lead",
+      "role_ko": "Upstream",
+      "role_en": "Upstream",
       "degree_ko": "박사과정",
-      "degree_en": "Ph.D. course"
+      "degree_en": "Ph.D. Course"
     },
     {
       "org_ko": "SLB",
@@ -179,8 +174,8 @@
     },
     {
       "org_ko": "한국탄소산업진흥원",
-      "org_en": "KCarbon",
-      "role_ko": "사업 관리",
+      "org_en": "Korea Carbon Industry Promotion Agency",
+      "role_ko": "산업진흥본부",
       "role_en": "Program Management",
       "degree_ko": "박사",
       "degree_en": "Ph.D."
