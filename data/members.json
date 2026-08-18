@@ -42,9 +42,9 @@
       "note_en": "Research currently underway at NGI\n(Norway, ~2026.12.)",
       "email": "",
       "linkedin": "",
-      "show_linkedin": true,
-      "cv": "/assets/img/uploads/CV_Gwanwoo Ju_ver2.pdf",
-      "show_cv": true
+      "show_linkedin": false,
+      "cv": "",
+      "show_cv": false
     },
     {
       "initial": "주",
@@ -57,9 +57,9 @@
       "note_en": "",
       "email": "gwanwoo7835@jbnu.ac.kr",
       "linkedin": "",
-      "show_linkedin": false,
-      "cv": "",
-      "show_cv": false
+      "show_linkedin": true,
+      "cv": "/assets/img/uploads/CV_Gwanwoo Ju_ver2.pdf",
+      "show_cv": true
     },
     {
       "initial": "김",
