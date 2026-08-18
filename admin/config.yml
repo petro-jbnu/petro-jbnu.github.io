@@ -262,8 +262,8 @@ collections:
               - { label: "이름(영어)", name: "name_en", widget: "string" }
               - { label: "직책(한국어)", name: "role_ko", widget: "string" }
               - { label: "직책(영어)", name: "role_en", widget: "string" }
-              - { label: "비고(한국어, 예: 2025년 합류)", name: "note_ko", widget: "string", required: false }
-              - { label: "비고(영어)", name: "note_en", widget: "string", required: false }
+              - { label: "비고(한국어, 예: 2025년 합류 — 줄바꿈 가능)", name: "note_ko", widget: "text", required: false }
+              - { label: "비고(영어)", name: "note_en", widget: "text", required: false }
               - { label: "이메일 (선택)", name: "email", widget: "string", required: false }
           - label: "진출 분야 (구성원 페이지 하단 배지)"
             name: "careers"
