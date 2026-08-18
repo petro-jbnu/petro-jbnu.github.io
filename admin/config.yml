@@ -265,6 +265,10 @@ collections:
               - { label: "비고(한국어, 예: 2025년 합류 — 줄바꿈 가능)", name: "note_ko", widget: "text", required: false }
               - { label: "비고(영어)", name: "note_en", widget: "text", required: false }
               - { label: "이메일 (선택)", name: "email", widget: "string", required: false }
+              - { label: "LinkedIn 주소 (예: https://www.linkedin.com/in/아이디)", name: "linkedin", widget: "string", required: false }
+              - { label: "LinkedIn 버튼 노출", name: "show_linkedin", widget: "boolean", default: false, required: false }
+              - { label: "CV 파일 (PDF 업로드)", name: "cv", widget: "file", required: false }
+              - { label: "CV 버튼 노출", name: "show_cv", widget: "boolean", default: false, required: false }
           - label: "진출 분야 (구성원 페이지 하단 배지)"
             name: "careers"
             widget: "list"
