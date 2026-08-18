@@ -86,7 +86,7 @@
     },
     {
       "name_ko": "한국지질자원연구원",
-      "name_en": "KIGAM",
+      "name_en": "Korea Institute of Geoscience and Mineral Resources (KIGAM)",
       "sector": "공공"
     },
     {
@@ -126,7 +126,7 @@
     },
     {
       "name_ko": "SLB",
-      "name_en": "SLB",
+      "name_en": "SLB (Schlumberger)",
       "sector": "산업체"
     },
     {
@@ -176,39 +176,47 @@
       "org_ko": "한국탄소산업진흥원",
       "org_en": "Korea Carbon Industry Promotion Agency",
       "role_ko": "산업진흥본부",
-      "role_en": "Program Management",
+      "role_en": "Promotion Business",
       "degree_ko": "박사",
       "degree_en": "Ph.D."
     },
     {
       "org_ko": "한국CCUS추진단",
       "org_en": "K-CCUS Association",
-      "role_ko": "기술 지원",
-      "role_en": "Technical Support",
-      "degree_ko": "석사과정",
-      "degree_en": "M.S. course"
+      "role_ko": "기술지원 / 인력양성",
+      "role_en": "Technical Support / H·R Development",
+      "degree_ko": "박사과정",
+      "degree_en": "Ph.D. Course"
     },
     {
       "org_ko": "현대로템",
       "org_en": "Hyundai Rotem",
       "role_ko": "수소 R&D",
-      "role_en": "Hydrogen R&D",
+      "role_en": "R&D (Hydrogen)",
       "degree_ko": "석사",
       "degree_en": "M.S."
     },
     {
       "org_ko": "정보통신기획평가원",
       "org_en": "IITP",
-      "role_ko": "기술 혁신",
-      "role_en": "Technology Innovation",
+      "role_ko": "디지털 융햡",
+      "role_en": "Digital Convergence",
       "degree_ko": "석사",
       "degree_en": "M.S."
     },
     {
       "org_ko": "한국지질자원연구원",
-      "org_en": "KIGAM",
-      "role_ko": "CO₂ 지중저장센터",
-      "role_en": "CO₂ Storage Center",
+      "org_en": "Korea Institute of Geoscience and Mineral Resources (KIGAM)",
+      "role_ko": "지구환경연구본부 탄소저장연구센터",
+      "role_en": "Geological Carbon Storage Research Center",
+      "degree_ko": "석사",
+      "degree_en": "M.S."
+    },
+    {
+      "org_ko": "사체티 플로리인",
+      "org_en": "Florian SACCHETTI",
+      "role_ko": "S/W 엔지니어",
+      "role_en": "Software Engineer",
       "degree_ko": "석사",
       "degree_en": "M.S."
     }
