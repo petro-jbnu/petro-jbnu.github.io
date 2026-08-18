@@ -356,6 +356,15 @@
   }
 
   /* ============ 10. 구성원 (Members·Alumni·진출 분야) ============ */
+  function memberFoot(m) {
+    var foot = "";
+    if (m.email) foot += '<a class="font-body-md text-[13.5px] text-primary hover:underline break-all" href="mailto:' + esc(m.email) + '">' + esc(m.email) + "</a>";
+    var links = "";
+    if (m.show_linkedin && m.linkedin) links += '<a href="' + esc(m.linkedin) + '" target="_blank" rel="noopener" class="inline-flex items-center gap-1 px-sm py-1 rounded-lg bg-primary text-on-primary font-label-caps shadow-sm transition-transform hover:-translate-y-0.5"><span class="material-symbols-outlined text-[16px]">open_in_new</span>LinkedIn</a>';
+    if (m.show_cv && m.cv) links += '<a href="' + esc(m.cv) + '" download class="inline-flex items-center gap-1 px-sm py-1 rounded-lg border border-outline-variant bg-surface-container text-on-surface-variant font-label-caps transition-transform hover:-translate-y-0.5"><span class="material-symbols-outlined text-[16px]">download</span>CV</a>';
+    if (links) foot += '<div class="flex flex-wrap gap-xs">' + links + "</div>";
+    return foot ? '<div class="mt-auto pt-sm flex flex-col gap-xs">' + foot + "</div>" : "";
+  }
   var memberList = document.getElementById("member-list");
   var alumniBody = document.getElementById("alumni-body");
   if (memberList || alumniBody) {
@@ -369,7 +378,7 @@
             '<h3 class="font-headline-md text-[18px] text-on-surface">' + bi(esc(m.name_ko), esc(m.name_en || m.name_ko)) + "</h3>" +
             '<p class="font-label-caps text-primary tracking-wider mt-1">' + bi(esc(m.role_ko || ""), esc(m.role_en || m.role_ko || "")) + "</p>" +
             (m.note_ko ? '<p class="font-body-md text-[14px] text-on-surface-variant mt-xs">' + bi(esc(m.note_ko).replace(/\n/g, "<br/>"), esc(m.note_en || m.note_ko).replace(/\n/g, "<br/>")) + "</p>" : "") +
-            (m.email ? '<a class="mt-auto pt-sm font-body-md text-[13.5px] text-primary hover:underline break-all" href="mailto:' + esc(m.email) + '">' + esc(m.email) + "</a>" : "") +
+            memberFoot(m) +
             "</div>";
         }).join("");
       }
