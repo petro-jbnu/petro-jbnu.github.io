@@ -119,7 +119,7 @@
   }
   function load(path, onOk, containers) {
     var key = path.split("/").pop().replace(".json", "");
-    fetch(path).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(onOk)
+    fetch(path + "?t=" + Date.now()).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(onOk)
       .catch(function () {
         // 로컬(file://) 미리보기: 빌드 시 내장된 데이터로 폴백 (배포 후에는 항상 최신 JSON 사용)
         if (window.LAB_DATA && window.LAB_DATA[key]) { onOk(window.LAB_DATA[key]); return; }
@@ -368,7 +368,7 @@
           return '<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl shadow-sm p-md flex flex-col hover:shadow-md transition-shadow">' + avatar +
             '<h3 class="font-headline-md text-[18px] text-on-surface">' + bi(esc(m.name_ko), esc(m.name_en || m.name_ko)) + "</h3>" +
             '<p class="font-label-caps text-primary tracking-wider mt-1">' + bi(esc(m.role_ko || ""), esc(m.role_en || m.role_ko || "")) + "</p>" +
-            (m.note_ko ? '<p class="font-body-md text-[14px] text-on-surface-variant mt-xs">' + bi(esc(m.note_ko), esc(m.note_en || m.note_ko)) + "</p>" : "") +
+            (m.note_ko ? '<p class="font-body-md text-[14px] text-on-surface-variant mt-xs">' + bi(esc(m.note_ko).replace(/\n/g, "<br/>"), esc(m.note_en || m.note_ko).replace(/\n/g, "<br/>")) + "</p>" : "") +
             (m.email ? '<a class="mt-auto pt-sm font-body-md text-[13.5px] text-primary hover:underline break-all" href="mailto:' + esc(m.email) + '">' + esc(m.email) + "</a>" : "") +
             "</div>";
         }).join("");
