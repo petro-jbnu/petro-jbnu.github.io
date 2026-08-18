@@ -30,8 +30,8 @@
       "name_en": "Hyunmyung Yoo",
       "role_ko": "박사과정 (2026)",
       "role_en": "Ph.D. Course (2026)",
-      "note_ko": "2026년 입학",
-      "note_en": "Joined 2026",
+      "note_ko": "노르웨이 지반공학연구소(NGI) (2026.06.~2026.12.)",
+      "note_en": "NGI, Norway (2026.06.~2026.12.)",
       "email": ""
     },
     {
@@ -39,10 +39,10 @@
       "photo": "/assets/img/uploads/gwanwoo.ju.jpg",
       "name_ko": "주관우",
       "name_en": "Gwanwoo Ju",
-      "role_ko": "석박사통합과정",
-      "role_en": "Integrated Ph.D Course",
-      "note_ko": "2025년 입학",
-      "note_en": "Joined 2025",
+      "role_ko": "석박사통합과정 (2025)",
+      "role_en": "Integrated Ph.D Course (2025)",
+      "note_ko": "",
+      "note_en": "",
       "email": "gwanwoo7835@jbnu.ac.kr"
     },
     {
@@ -50,10 +50,21 @@
       "photo": "",
       "name_ko": "김민기",
       "name_en": "Minki Kim",
-      "role_ko": "박사과정 (Part-time)",
-      "role_en": "Ph.D Course (Part-time)",
-      "note_ko": "2023년\nS&P Global (Senior Upstream)",
-      "note_en": "",
+      "role_ko": "박사과정 (2023, Part-time)",
+      "role_en": "Ph.D Course (2023, Part-time)",
+      "note_ko": "S&P Global (Senior Upstream, 재직 중)",
+      "note_en": "S&P Global (Senior Upstream, Present)",
+      "email": ""
+    },
+    {
+      "initial": "한",
+      "photo": "",
+      "name_ko": "한아름",
+      "name_en": "Han",
+      "role_ko": "박사과정 (2026, Part-time)",
+      "role_en": "Ph.D Course (2026, Part-time)",
+      "note_ko": "한국CCUS추진단",
+      "note_en": "K-CCUS (Korea CCUS Association)",
       "email": ""
     }
   ],
