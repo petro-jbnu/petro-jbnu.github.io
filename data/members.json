@@ -6,10 +6,10 @@
       "photo": "",
       "name_ko": "한선이",
       "name_en": "Sun Lee Han",
-      "role_ko": "박사후 연구원",
-      "role_en": "Postdoctoral Researcher",
-      "note_ko": "2022.09. ~",
-      "note_en": "Joined Sep. 2022",
+      "role_ko": "박사후 연구원 (2022)",
+      "role_en": "Postdoctoral Researcher (2022)",
+      "note_ko": "",
+      "note_en": "",
       "email": ""
     },
     {
@@ -17,10 +17,10 @@
       "photo": "/assets/img/uploads/증명사진_노현영.jpg",
       "name_ko": "노현영",
       "name_en": "Hyunyoung Roh",
-      "role_ko": "박사과정 · 연구실 대표 학생",
-      "role_en": "Ph.D. Course · Lab Representative",
-      "note_ko": "2026년 입학",
-      "note_en": "Joined 2026",
+      "role_ko": "박사과정 (2026) ·",
+      "role_en": "Ph.D. Course (2026)",
+      "note_ko": "연구실 대표 학생",
+      "note_en": "Lab Representative",
       "email": "gusdud819@jbnu.ac.kr"
     },
     {
@@ -28,8 +28,8 @@
       "photo": "",
       "name_ko": "유현명",
       "name_en": "Hyunmyung Yoo",
-      "role_ko": "박사과정",
-      "role_en": "Ph.D. Course",
+      "role_ko": "박사과정 (2026)",
+      "role_en": "Ph.D. Course (2026)",
       "note_ko": "2026년 입학",
       "note_en": "Joined 2026",
       "email": ""
