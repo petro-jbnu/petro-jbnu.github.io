@@ -14,7 +14,7 @@
     },
     {
       "initial": "노",
-      "photo": "",
+      "photo": "/assets/img/uploads/증명사진_노현영.jpg",
       "name_ko": "노현영",
       "name_en": "Hyunyoung Roh",
       "role_ko": "박사과정 · 연구실 대표 학생",
@@ -27,16 +27,16 @@
       "initial": "유",
       "photo": "",
       "name_ko": "유현명",
-      "name_en": "Hyun-Myung Yoo",
+      "name_en": "Hyunmyung Yoo",
       "role_ko": "박사과정",
       "role_en": "Ph.D. Student",
-      "note_ko": "2026년 합류",
+      "note_ko": "2026 ~",
       "note_en": "Joined 2026",
       "email": ""
     },
     {
       "initial": "주",
-      "photo": "",
+      "photo": "/assets/img/uploads/gwanwoo.ju.jpg",
       "name_ko": "주관우",
       "name_en": "Gwan-Woo Ju",
       "role_ko": "석박사통합과정",
