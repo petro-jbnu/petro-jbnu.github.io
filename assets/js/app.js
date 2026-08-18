@@ -244,7 +244,7 @@
     var bar = q === "Q1" ? "bg-primary" : (q ? "bg-secondary" : "bg-outline-variant");
     var btn = p.url
       ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener" class="shrink-0 bg-primary text-on-primary px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">school</span> Google Scholar</a>'
-      : '<button data-toast-ko="Google Scholar 링크는 /admin의 url 항목으로 등록할 수 있습니다." data-toast-en="Add a Google Scholar link via the url field in /admin." class="shrink-0 bg-surface-container text-on-surface-variant border border-outline-variant px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">school</span> Google Scholar</button>';
+      : '<button data-toast-ko="링크가 등록되어 있지 않습니다." data-toast-en="Link is not registered yet." class="shrink-0 bg-surface-container text-on-surface-variant border border-outline-variant px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">school</span> Google Scholar</button>';
     return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex flex-col md:flex-row gap-md items-start group transition-shadow hover:shadow-md relative overflow-hidden">' +
       '<div class="absolute left-0 top-0 bottom-0 w-1 ' + bar + '"></div>' +
       '<div class="flex-1 flex flex-col gap-xs"><div class="flex gap-sm items-center mb-1 flex-wrap">' +
@@ -329,6 +329,17 @@
       var items = data.items || [];
       var gc = document.getElementById("grant-count");
       if (gc) gc.textContent = items.length;
+      // 진행 연구 과제: period의 종료 연월이 현재 이후인 과제 수 (해석 불가 시 진행으로 간주)
+      var ga = document.getElementById("grant-active-count");
+      if (ga) {
+        var now = new Date();
+        var cur = now.getFullYear() * 100 + (now.getMonth() + 1);
+        ga.textContent = items.filter(function (g) {
+          var m = String(g.period || "").match(/(\d{4})\s*[.\-\/]\s*(\d{1,2})(?!.*\d{4})/);
+          if (!m) return true;
+          return (parseInt(m[1], 10) * 100 + parseInt(m[2], 10)) >= cur;
+        }).length;
+      }
       grantList.innerHTML = items.map(function (g) {
         var roleCls = (g.role_ko || "") === "주관" ? "bg-primary-container text-on-primary-container" : "bg-surface-container text-on-surface-variant border border-outline-variant";
         return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex flex-col md:flex-row md:items-center gap-sm transition-shadow hover:shadow-md relative overflow-hidden">' +
