@@ -18,7 +18,7 @@
       "name_ko": "노현영",
       "name_en": "Hyunyoung Roh",
       "role_ko": "박사과정 · 연구실 대표 학생",
-      "role_en": "Ph.D. Student · Lab Representative",
+      "role_en": "Ph.D. Course · Lab Representative",
       "note_ko": "2026 ~",
       "note_en": "Joined 2026",
       "email": "gusdud819@jbnu.ac.kr"
@@ -29,7 +29,7 @@
       "name_ko": "유현명",
       "name_en": "Hyunmyung Yoo",
       "role_ko": "박사과정",
-      "role_en": "Ph.D. Student",
+      "role_en": "Ph.D. Course",
       "note_ko": "2026 ~",
       "note_en": "Joined 2026",
       "email": ""
@@ -40,10 +40,21 @@
       "name_ko": "주관우",
       "name_en": "Gwanwoo Ju",
       "role_ko": "석박사통합과정",
-      "role_en": "Integrated Ph.D. Student",
+      "role_en": "Integrated Ph.D Course",
       "note_ko": "2025 ~",
       "note_en": "Joined 2025",
       "email": "gwanwoo7835@jbnu.ac.kr"
+    },
+    {
+      "initial": "김",
+      "photo": "",
+      "name_ko": "김민기",
+      "name_en": "Minki Kim",
+      "role_ko": "박사과정 (Part-time)",
+      "role_en": "Ph.D Course (Part-time)",
+      "note_ko": "",
+      "note_en": "",
+      "email": ""
     }
   ],
   "careers": [
