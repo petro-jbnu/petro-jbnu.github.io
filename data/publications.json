@@ -13,6 +13,32 @@
       "journal_ko": "Journal of Cleaner Production",
       "journal_en": "Journal of Cleaner Production",
       "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=10.1016%2Fj.jclepro.2026.147969&btnG="
+    },
+    {
+      "sci": "SCI",
+      "quartile": "Q1",
+      "year": "2026",
+      "doi": "https://doi.org/10.1021/acs.energyfuels.5c06419",
+      "title_ko": "Mechanistic Evaluation of Al2O3 and TiO2 Nanofluids on Wettability and Interfacial Properties for Geological CO2 Storage in Sandstone Reservoir",
+      "title_en": "Mechanistic Evaluation of Al2O3 and TiO2 Nanofluids on Wettability and Interfacial Properties for Geological CO2 Storage in Sandstone Reservoir",
+      "authors": "Han S.*, Roh, H., Lee, S., Lee, Y.",
+      "authors_ko": "한선이*, 노현영, 이시훈, 이영수",
+      "journal_ko": "ENERGY & FUELS",
+      "journal_en": "ENERGY & FUELS",
+      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=Mechanistic+Evaluation+of+Al2O3+and+TiO2+Nanofluids+on+Wettability+and+Interfacial+Properties+for+Geological+CO2+Storage+in+Sandstone+Reservoir&btnG="
+    },
+    {
+      "sci": "SCI",
+      "quartile": "Q1",
+      "year": "2026",
+      "doi": "https://doi.org/10.1016/j.rser.2026.116832",
+      "title_ko": "Bioenergy with carbon capture and storage (BECCS): Interconnected technological challenges and advances using biomass thermochemical conversion towards negative emissions",
+      "title_en": "Bioenergy with carbon capture and storage (BECCS): Interconnected technological challenges and advances using biomass thermochemical conversion towards negative emissions",
+      "authors": "Wong, M.*, Han, S., Park, S., Roh, H., Kuppusamy, M., Oh, J., Nam, H., Lee, Y., Lee, S.",
+      "authors_ko": "Min Jin Karen Wong*, 한선이, 박세은, 노현영, Madhan Kuppusamy, 오주원, 남형석, 이영수, 이시훈",
+      "journal_ko": "Renewable and Sustainable Energy Reviews",
+      "journal_en": "Renewable and Sustainable Energy Reviews",
+      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=Bioenergy+with+carbon+capture+and+storage+%28BECCS%29%3A+Interconnected+technological+challenges+and+advances+using+biomass+thermochemical+conversion+towards+negative+emissions&btnG="
     }
   ],
   "presentations": [
