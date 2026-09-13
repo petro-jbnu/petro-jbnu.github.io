@@ -12,7 +12,7 @@
       "authors_ko": "이하은*, 진태영, 이영수, 이시훈",
       "journal_ko": "Journal of Cleaner Production",
       "journal_en": "Journal of Cleaner Production",
-      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=10.1016%2Fj.jclepro.2026.147969&btnG="
+      "url": "https://www.sciencedirect.com/science/article/pii/S0959652626005081"
     },
     {
       "sci": "SCI",
@@ -25,7 +25,7 @@
       "authors_ko": "한선이*, 노현영, 이시훈, 이영수",
       "journal_ko": "ENERGY & FUELS",
       "journal_en": "ENERGY & FUELS",
-      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=Mechanistic+Evaluation+of+Al2O3+and+TiO2+Nanofluids+on+Wettability+and+Interfacial+Properties+for+Geological+CO2+Storage+in+Sandstone+Reservoir&btnG="
+      "url": "https://pubs.acs.org/enfuem/article/40/11/5743/5072094/Mechanistic-Evaluation-of-Al2O3-and-TiO2"
     },
     {
       "sci": "SCI",
@@ -35,10 +35,10 @@
       "title_ko": "Bioenergy with carbon capture and storage (BECCS): Interconnected technological challenges and advances using biomass thermochemical conversion towards negative emissions",
       "title_en": "Bioenergy with carbon capture and storage (BECCS): Interconnected technological challenges and advances using biomass thermochemical conversion towards negative emissions",
       "authors": "Wong, M.*, Han, S., Park, S., Roh, H., Kuppusamy, M., Oh, J., Nam, H., Lee, Y., Lee, S.",
-      "authors_ko": "Min Jin Karen Wong*, 한선이, 박세은, 노현영, Madhan Kuppusamy, 오주원, 남형석, 이영수, 이시훈",
+      "authors_ko": "Wong, M.*, 한선이, 박세은, 노현영, Kuppusamy, M., 오주원, 남형석, 이영수, 이시훈",
       "journal_ko": "Renewable and Sustainable Energy Reviews",
       "journal_en": "Renewable and Sustainable Energy Reviews",
-      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=Bioenergy+with+carbon+capture+and+storage+%28BECCS%29%3A+Interconnected+technological+challenges+and+advances+using+biomass+thermochemical+conversion+towards+negative+emissions&btnG="
+      "url": "https://www.sciencedirect.com/science/article/pii/S1364032126001310?via%3Dihub"
     },
     {
       "sci": "Non-SCI",
@@ -51,7 +51,7 @@
       "authors_ko": "윤찬영*, 한선이, 오유빈, 김대희, 이영수",
       "journal_ko": "한국가스학회지",
       "journal_en": "Journal of the Korean Institute of Gas",
-      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=%EC%84%9C%ED%95%B4+%EA%B5%B0%EC%82%B0+%EB%B6%84%EC%A7%80%EC%9D%98+CO%E2%82%82+%EC%A7%80%EC%A4%91%EC%A0%80%EC%9E%A5+%3A+%EC%A3%BC%EC%9E%85+%EA%B0%80%EB%8A%A5%EC%84%B1+%EB%B0%8F+%EC%B5%9C%EC%A0%81+%EC%A3%BC%EC%9E%85+%EC%A1%B0%EA%B1%B4+%EB%B6%84%EC%84%9D&btnG="
+      "url": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12273346"
     },
     {
       "sci": "SCI",
@@ -64,7 +64,7 @@
       "authors_ko": "이영수, Florian Sacchetti, 한선이",
       "journal_ko": "Geosystem Engineering",
       "journal_en": "Geosystem Engineering",
-      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=Simulation+study+of+CO2+geological+storage+in+a+tight+sand+reservoir+with+hydraulic+fractured+horizontal+well&btnG="
+      "url": "https://www.tandfonline.com/doi/full/10.1080/12269328.2025.2505786"
     },
     {
       "sci": "SCI",
@@ -77,20 +77,33 @@
       "authors_ko": "한선이, 이영수",
       "journal_ko": "Journal of Petroleum Exploration and Production Technology",
       "journal_en": "Journal of Petroleum Exploration and Production Technology",
-      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=Optimizing+nanoparticle+selection+for+enhanced+oil+recovery+in+carbonate+rock+using+hybrid+low+salinity+water+flooding&btnG="
+      "url": "https://link.springer.com/article/10.1007/s13202-024-01886-5"
     },
     {
       "sci": "SCI",
       "quartile": "Q3",
       "year": "2024",
-      "doi": "",
+      "doi": "https://doi.org/10.3390/en17215517",
       "title_ko": "Gas Pipeline Leak Detection by Integrating Dynamic Modeling and Machine Learning Under the Transient State",
       "title_en": "Gas Pipeline Leak Detection by Integrating Dynamic Modeling and Machine Learning Under the Transient State",
       "authors": "Kim, J.*, Han, S., Kim, D., Lee, Y.",
       "authors_ko": "김주현*, 한선이, 김대희, 이영수",
       "journal_ko": "Energies",
       "journal_en": "Energies",
-      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=Gas+Pipeline+Leak+Detection+by+Integrating+Dynamic+Modeling+and+Machine+Learning+Under+the+Transient+State&btnG="
+      "url": "https://www.mdpi.com/1996-1073/17/21/5517"
+    },
+    {
+      "sci": "SCI",
+      "quartile": "",
+      "year": "2024",
+      "doi": "https://doi.org/10.3390/en17215268",
+      "title_ko": "Development of Machine Learning-Based Production Forecasting for Offshore Gas Fields Using a Dynamic Material Balance Equation",
+      "title_en": "Development of Machine Learning-Based Production Forecasting for Offshore Gas Fields Using a Dynamic Material Balance Equation",
+      "authors": "Hyoung, J.*, Lee, Y., Han, S.",
+      "authors_ko": "형준혁*, 이영수, 한선이",
+      "journal_ko": "Energies",
+      "journal_en": "Energies",
+      "url": "https://www.mdpi.com/1996-1073/17/21/5268"
     }
   ],
   "presentations": [
