@@ -243,8 +243,8 @@
     var qcls = q === "Q1" ? "bg-primary-container text-on-primary-container" : "bg-secondary-container text-on-secondary-container";
     var bar = q === "Q1" ? "bg-primary" : (q ? "bg-secondary" : "bg-outline-variant");
     var btn = p.url
-      ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener" class="shrink-0 bg-primary text-on-primary px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">school</span> Google Scholar</a>'
-      : '<button data-toast-ko="링크가 등록되어 있지 않습니다." data-toast-en="Link is not registered yet." class="shrink-0 bg-surface-container text-on-surface-variant border border-outline-variant px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">school</span> Google Scholar</button>';
+      ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener" class="shrink-0 bg-primary text-on-primary px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">open_in_new</span> Visit</a>'
+      : '<button data-toast-ko="링크가 등록되어 있지 않습니다." data-toast-en="Link is not registered yet." class="shrink-0 bg-surface-container text-on-surface-variant border border-outline-variant px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">open_in_new</span> Visit</button>';
     return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex flex-col md:flex-row gap-md items-start group transition-shadow hover:shadow-md relative overflow-hidden">' +
       '<div class="absolute left-0 top-0 bottom-0 w-1 ' + bar + '"></div>' +
       '<div class="flex-1 flex flex-col gap-xs"><div class="flex gap-sm items-center mb-1 flex-wrap">' +
