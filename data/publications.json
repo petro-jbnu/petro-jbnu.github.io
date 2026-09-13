@@ -39,6 +39,58 @@
       "journal_ko": "Renewable and Sustainable Energy Reviews",
       "journal_en": "Renewable and Sustainable Energy Reviews",
       "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=Bioenergy+with+carbon+capture+and+storage+%28BECCS%29%3A+Interconnected+technological+challenges+and+advances+using+biomass+thermochemical+conversion+towards+negative+emissions&btnG="
+    },
+    {
+      "sci": "Non-SCI",
+      "quartile": "",
+      "year": "2025",
+      "doi": "https://doi.org/10.7842/kigas.2025.29.2.29",
+      "title_ko": "서해 군산 분지의 CO₂ 지중저장 : 주입 가능성 및 최적 주입 조건 분석",
+      "title_en": "CO₂ Underground Storage in the Gunsan Basin, West Sea : Analysis of Injection Feasibility and Optimal Injection Conditions",
+      "authors": "Yun, C.*, Han, S., Oh, Y., Kim, D., Lee, Y.",
+      "authors_ko": "윤찬영*, 한선이, 오유빈, 김대희, 이영수",
+      "journal_ko": "한국가스학회지",
+      "journal_en": "Journal of the Korean Institute of Gas",
+      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=%EC%84%9C%ED%95%B4+%EA%B5%B0%EC%82%B0+%EB%B6%84%EC%A7%80%EC%9D%98+CO%E2%82%82+%EC%A7%80%EC%A4%91%EC%A0%80%EC%9E%A5+%3A+%EC%A3%BC%EC%9E%85+%EA%B0%80%EB%8A%A5%EC%84%B1+%EB%B0%8F+%EC%B5%9C%EC%A0%81+%EC%A3%BC%EC%9E%85+%EC%A1%B0%EA%B1%B4+%EB%B6%84%EC%84%9D&btnG="
+    },
+    {
+      "sci": "SCI",
+      "quartile": "Q4",
+      "year": "2025",
+      "doi": "https://doi.org/10.1080/12269328.2025.2505786",
+      "title_ko": "Simulation study of CO2 geological storage in a tight sand reservoir with hydraulic fractured horizontal well",
+      "title_en": "Simulation study of CO2 geological storage in a tight sand reservoir with hydraulic fractured horizontal well",
+      "authors": "Lee, Y.*, Sacchetti, F., Han, S.",
+      "authors_ko": "이영수, Florian Sacchetti, 한선이",
+      "journal_ko": "Geosystem Engineering",
+      "journal_en": "Geosystem Engineering",
+      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=Simulation+study+of+CO2+geological+storage+in+a+tight+sand+reservoir+with+hydraulic+fractured+horizontal+well&btnG="
+    },
+    {
+      "sci": "SCI",
+      "quartile": "Q2",
+      "year": "2025",
+      "doi": "https://doi.org/10.1007/s13202-024-01886-5",
+      "title_ko": "Optimizing nanoparticle selection for enhanced oil recovery in carbonate rock using hybrid low salinity water flooding",
+      "title_en": "Optimizing nanoparticle selection for enhanced oil recovery in carbonate rock using hybrid low salinity water flooding",
+      "authors": "Han, S*., Lee, Y.",
+      "authors_ko": "한선이, 이영수",
+      "journal_ko": "Journal of Petroleum Exploration and Production Technology",
+      "journal_en": "Journal of Petroleum Exploration and Production Technology",
+      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=Optimizing+nanoparticle+selection+for+enhanced+oil+recovery+in+carbonate+rock+using+hybrid+low+salinity+water+flooding&btnG="
+    },
+    {
+      "sci": "SCI",
+      "quartile": "Q3",
+      "year": "2024",
+      "doi": "",
+      "title_ko": "Gas Pipeline Leak Detection by Integrating Dynamic Modeling and Machine Learning Under the Transient State",
+      "title_en": "Gas Pipeline Leak Detection by Integrating Dynamic Modeling and Machine Learning Under the Transient State",
+      "authors": "Kim, J.*, Han, S., Kim, D., Lee, Y.",
+      "authors_ko": "김주현*, 한선이, 김대희, 이영수",
+      "journal_ko": "Energies",
+      "journal_en": "Energies",
+      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=Gas+Pipeline+Leak+Detection+by+Integrating+Dynamic+Modeling+and+Machine+Learning+Under+the+Transient+State&btnG="
     }
   ],
   "presentations": [
