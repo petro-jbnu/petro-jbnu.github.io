@@ -94,7 +94,7 @@
     },
     {
       "sci": "SCI",
-      "quartile": "",
+      "quartile": "Q3",
       "year": "2024",
       "doi": "https://doi.org/10.3390/en17215268",
       "title_ko": "Development of Machine Learning-Based Production Forecasting for Offshore Gas Fields Using a Dynamic Material Balance Equation",
@@ -104,6 +104,58 @@
       "journal_ko": "Energies",
       "journal_en": "Energies",
       "url": "https://www.mdpi.com/1996-1073/17/21/5268"
+    },
+    {
+      "sci": "SCI",
+      "quartile": "Q2",
+      "year": "2024",
+      "doi": "https://doi.org/10.1007/s13202-024-01754-2",
+      "title_ko": "Evaluating the intake plugging effects on the electrical submersible pump (ESP) operating conditions using nodal analysis",
+      "title_en": "Evaluating the intake plugging effects on the electrical submersible pump (ESP) operating conditions using nodal analysis",
+      "authors": "Iranzi, J.*, Wang, J., Lee, Y., Sohn, H.",
+      "authors_ko": "Joseph Iranzi*, 왕지훈, 이영수, 손한암",
+      "journal_ko": "Journal of Petroleum Exploration and Production Technology",
+      "journal_en": "Journal of Petroleum Exploration and Production Technology",
+      "url": "https://link.springer.com/article/10.1007/s13202-024-01754-2"
+    },
+    {
+      "sci": "Non-SCI",
+      "quartile": "",
+      "year": "2023",
+      "doi": "https://doi.org/10.32390/ksmer.2023.60.5.366",
+      "title_ko": "화순 탄광의 이산화탄소 탐사 저장자원량 평가",
+      "title_en": "A Study on Prospective Carbon Dioxide Storage Resources at Hwasun Coal Mine",
+      "authors": "Han, S.*, Roh, H., Lee, Y., Yun, C., Lee, Y.",
+      "authors_ko": "한선이*, 노현영, 이영빈, 윤찬영, 이영수",
+      "journal_ko": "한국자원공학회지",
+      "journal_en": "Journal of The Korean Society of Mineral and Energy Resources Engineers",
+      "url": "https://www.jksmer.or.kr/articles/article/d0RA/#Information"
+    },
+    {
+      "sci": "SCI",
+      "quartile": "Q1",
+      "year": "2023",
+      "doi": "https://doi.org/10.1016/j.ijhydene.2023.01.156",
+      "title_ko": "Feasibility analysis of blending hydrogen into natural gas networks",
+      "title_en": "Feasibility analysis of blending hydrogen into natural gas networks",
+      "authors": "Cristello, J. B.*, Yang, J. M., Hugo, R., Lee, Y., Park, S. S.",
+      "authors_ko": "Josmar B. Cristello*, Jaehyun M. Yang, Ron Hugo, 이영수, Simon S. Park",
+      "journal_ko": "International Journal of Hydrogen Energy",
+      "journal_en": "International Journal of Hydrogen Energy",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0360319923002951?via%3Dihub"
+    },
+    {
+      "sci": "SCI",
+      "quartile": "Q3",
+      "year": "2022",
+      "doi": "",
+      "title_ko": "The Study for Technical Analysis on the Development Potential of Multi-Zone Oil, Gas in Crossfield, Canada",
+      "title_en": "The Study for Technical Analysis on the Development Potential of Multi-Zone Oil, Gas in Crossfield, Canada",
+      "authors": "Moon, Bryan S.*, Lee, W., Lee, Y.",
+      "authors_ko": "문상호*, 이왕도, 이영수",
+      "journal_ko": "Energies",
+      "journal_en": "Energies",
+      "url": "https://www.mdpi.com/1996-1073/15/18/6860"
     }
   ],
   "presentations": [
