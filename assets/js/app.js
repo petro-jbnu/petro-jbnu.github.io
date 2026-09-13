@@ -262,7 +262,7 @@
       '<div class="flex gap-sm items-center"><span class="material-symbols-outlined text-tertiary">podium</span>' +
       '<span class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(c.date) + "</span></div>" +
       '<h3 class="font-body-lg font-bold text-on-surface">' + bi(esc(c.title_ko || c.title || ""), esc(c.title_en || c.title_ko || c.title || "")) + "</h3>" +
-      '<p class="font-body-md text-on-surface-variant">' + esc(c.authors || "") + "</p>" +
+      '<p class="font-body-md text-on-surface-variant">' + (c.authors_ko ? bi(esc(c.authors_ko), esc(c.authors || c.authors_ko)) : esc(c.authors || "")) + "</p>" +
       '<div class="mt-auto pt-sm font-data-tabular text-data-tabular text-tertiary">' + bi(esc(c.venue_ko || c.venue || ""), esc(c.venue_en || c.venue_ko || c.venue || "")) + "</div></div>";
   }
   function awardCard(a) {
@@ -271,7 +271,7 @@
       '<div>' +
       '<div class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(a.date) + "</div>" +
       '<h3 class="font-body-lg font-bold text-on-surface mt-0.5">' + bi(esc(a.name_ko), esc(a.name_en || a.name_ko)) + "</h3>" +
-      '<p class="font-body-md text-[14.5px] text-on-surface-variant mt-0.5">' + esc(a.recipient || "") + " · " + bi(esc(a.org_ko || ""), esc(a.org_en || a.org_ko || "")) + "</p></div></div>";
+      '<p class="font-body-md text-[14.5px] text-on-surface-variant mt-0.5">' + (a.recipient_ko ? bi(esc(a.recipient_ko), esc(a.recipient || a.recipient_ko)) : esc(a.recipient || "")) + " · " + bi(esc(a.org_ko || ""), esc(a.org_en || a.org_ko || "")) + "</p></div></div>";
   }
   function miniRow(dateStr, title) {
     return '<div class="py-1.5 border-b border-outline-variant/40 last:border-0">' +
