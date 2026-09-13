@@ -279,6 +279,52 @@
       '<div class="font-body-md text-[13.5px] font-semibold text-on-surface leading-snug line-clamp-2">' + title + "</div></div>";
   }
 
+  /* ===== 목록 길이 제어: PC 내부 스크롤(800px) / 모바일 더보기 ===== */
+  var PUB_VISIBLE = 5;
+  function injectPubStyle() {
+    if (document.getElementById("pub-scroll-style")) return;
+    var s = document.createElement("style");
+    s.id = "pub-scroll-style";
+    s.textContent =
+      "@media (min-width:768px){" +
+      ".pub-scroll{max-height:800px;overflow-y:auto;padding:2px 12px 2px 2px;scrollbar-width:thin;scrollbar-color:#c2ced5 transparent}" +
+      ".pub-scroll>*{flex-shrink:0}" +
+      ".pub-scroll::-webkit-scrollbar{width:8px}" +
+      ".pub-scroll::-webkit-scrollbar-thumb{background:#c2ced5;border-radius:8px}" +
+      ".pub-scroll::-webkit-scrollbar-track{background:transparent}" +
+      ".pub-more{display:none}" +
+      "}" +
+      "@media (max-width:767px){.pub-collapsed>*:nth-child(n+" + (PUB_VISIBLE + 1) + "){display:none}}";
+    document.head.appendChild(s);
+  }
+  function setupPubList(el, total) {
+    if (!el) return;
+    injectPubStyle();
+    el.classList.add("pub-scroll");
+    var nx = el.nextElementSibling;
+    if (nx && nx.classList.contains("pub-more")) nx.parentNode.removeChild(nx);
+    el.classList.remove("pub-collapsed");
+    if (!total || total <= PUB_VISIBLE) return;
+    el.classList.add("pub-collapsed");
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pub-more";
+    btn.style.cssText = "width:100%;margin-top:12px;padding:11px 10px;border:1px solid #d5dde2;border-radius:10px;background:#fff;color:#4f6472;font-weight:700;font-size:13px;letter-spacing:.06em;cursor:pointer";
+    function paint() {
+      var hidden = el.classList.contains("pub-collapsed");
+      var rest = total - PUB_VISIBLE;
+      btn.innerHTML = hidden
+        ? bi("더보기 (+" + rest + ")", "Show more (+" + rest + ")")
+        : bi("접기", "Show less");
+    }
+    btn.addEventListener("click", function () {
+      el.classList.toggle("pub-collapsed");
+      paint();
+    });
+    paint();
+    el.parentNode.insertBefore(btn, el.nextSibling);
+  }
+
   var paperList = document.getElementById("paper-list");
   var homePub = document.getElementById("home-pub");
   if (paperList || homePub) {
@@ -288,12 +334,13 @@
         var el = document.getElementById("stat-" + k);
         if (el) el.textContent = [papers, pres, awards][i].length;
       });
-      if (paperList) paperList.innerHTML = papers.map(paperCard).join("");
+      if (paperList) { paperList.innerHTML = papers.map(paperCard).join(""); setupPubList(paperList, papers.length); }
       var presList = document.getElementById("pres-list");
-      if (presList) presList.innerHTML = pres.map(presCard).join("");
+      if (presList) { presList.innerHTML = pres.map(presCard).join(""); setupPubList(presList, pres.length); }
       var awardList = document.getElementById("award-list");
       if (awardList) awardList.innerHTML = awards.length ? awards.map(awardCard).join("")
         : '<p class="font-body-md text-on-surface-variant">' + bi("등록된 수상 내역이 없습니다.", "No awards registered yet.") + "</p>";
+      setupPubList(awardList, awards.length);
       if (homePub) {
         var h = "";
         h += '<div class="font-label-caps text-primary mb-1">PAPER <span class="text-on-surface-variant">(' + papers.length + ")</span></div>";
