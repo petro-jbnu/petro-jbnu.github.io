@@ -148,7 +148,7 @@ collections:
               - { label: "논문 제목(한국어) — 국문지 논문은 국문 제목, 영문지는 영문 제목을 그대로 입력", name: "title_ko", widget: "string" }
               - { label: "논문 제목(영어)", name: "title_en", widget: "string" }
               - { label: "저자 (로마자, 예: G.W. Ju, Y.S. Lee)", name: "authors", widget: "string" }
-              - { label: "저자(한국어, 선택 — 국문지일 때만)", name: "authors_ko", widget: "string", required: false }
+              - { label: "저자(한국어, 예: 주관우, 이영수 — 비우면 로마자 표기가 표시됩니다)", name: "authors_ko", widget: "string", required: false }
               - { label: "저널명(한국어) — 국문지는 국문 학회지명, 영문지는 영문지명 그대로", name: "journal_ko", widget: "string" }
               - { label: "저널명(영어)", name: "journal_en", widget: "string" }
               - { label: "Google Scholar 링크 URL (선택)", name: "url", widget: "string", required: false }
@@ -160,7 +160,8 @@ collections:
               - { label: "발표 시기 (예: May 2026)", name: "date", widget: "string" }
               - { label: "발표 제목(한국어) — 국내 학회 국문 발표는 국문 제목", name: "title_ko", widget: "string" }
               - { label: "발표 제목(영어)", name: "title_en", widget: "string" }
-              - { label: "저자 (로마자)", name: "authors", widget: "string" }
+              - { label: "저자 (로마자, 예: G.W. Ju, Y.S. Lee)", name: "authors", widget: "string" }
+              - { label: "저자(한국어, 예: 주관우, 이영수 — 비우면 로마자 표기가 표시됩니다)", name: "authors_ko", widget: "string", required: false }
               - { label: "학술대회명(한국어, 예: 한국자원공학회 춘계학술대회)", name: "venue_ko", widget: "string" }
               - { label: "학술대회명(영어, 예: KSMER Spring Conference)", name: "venue_en", widget: "string" }
 
@@ -172,7 +173,8 @@ collections:
               - { label: "수상 시기 (예: 2026.05)", name: "date", widget: "string" }
               - { label: "상 이름(한국어)", name: "name_ko", widget: "string" }
               - { label: "상 이름(영어)", name: "name_en", widget: "string" }
-              - { label: "수상자 (예: G.W. Ju)", name: "recipient", widget: "string" }
+              - { label: "수상자 (로마자, 예: G.W. Ju)", name: "recipient", widget: "string" }
+              - { label: "수상자(한국어, 예: 주관우 — 비우면 로마자 표기가 표시됩니다)", name: "recipient_ko", widget: "string", required: false }
               - { label: "수여기관(한국어)", name: "org_ko", widget: "string" }
               - { label: "수여기관(영어)", name: "org_en", widget: "string" }
 
