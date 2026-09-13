@@ -47,6 +47,7 @@
       "title_ko": "심부 대수층 CO2 지중저장을 위한 다중 유정 배치·운영의 최적화 프레임워크 개발 (Poster Session)",
       "title_en": "Development of an Integrated Optimization Framework for Multi-Well Placement and Operation in Deep Saline Aquifer CO2 Storage (Poster Session)",
       "authors": "Ju, G., You, H., Lee, Y.",
+      "authors_ko": "주관우, 유현명, 이영수",
       "venue_ko": "한국지오에너지학회 (춘계)",
       "venue_en": "KSGE Spring Conference"
     },
@@ -55,6 +56,7 @@
       "title_ko": "대수층 내 CO2 저장 효율 향상을 위한 나노유체 선주입 기반 젖음성 변화 연구 (Poster Session)",
       "title_en": "(preparing)",
       "authors": "Roh, H., Han, S., Lee, Y.",
+      "authors_ko": "",
       "venue_ko": "한국지오에너지학회 (춘계)",
       "venue_en": "KSGE Spring Conference"
     },
@@ -63,6 +65,7 @@
       "title_ko": "대염수층 내 이산화탄소 저장 가능성 및 안정성 평가를 위한 머신러닝 예측모델 개발 (Poster Session)",
       "title_en": "(preparing)",
       "authors": "Lee, Y., Ju, G., Lee, Y.",
+      "authors_ko": "",
       "venue_ko": "한국가스학회 (춘계)",
       "venue_en": "KIGAS Spring Conference"
     },
@@ -71,6 +74,7 @@
       "title_ko": "대수층 지질 조건에 따른 이산화탄소 주입 효율 및 안정성 극대화를 위한 다중 유정 운영 최적화 프레임워크 (Oral Session)",
       "title_en": "Optimization of Multi­Well Operations to Maximize CO2 Injection Efficiency and Stability Based on Aquifer Geological Characteristic (Oral Session)",
       "authors": "Ju, G., You, H., Sohn, J., Lee, Y.",
+      "authors_ko": "",
       "venue_ko": "한국가스학회 (춘계)",
       "venue_en": "KIGAS Spring Conference"
     },
@@ -79,6 +83,7 @@
       "title_ko": "사암 대수층 내 SiO2 나노유체 선주입을 통한 젖음성 변화가 CO2 유동 양상 및 저장 효율에 미치는 영향 (Oral Session)",
       "title_en": "(preparing)",
       "authors": "Roh, H., Han, S., Yang, S., Lee, Y.",
+      "authors_ko": "",
       "venue_ko": "한국가스학회 (춘계)",
       "venue_en": "KIGAS Spring Conference"
     },
@@ -87,6 +92,7 @@
       "title_ko": "사암 대수층에서 Al2O3 나노유체를 이용한 젖음성 조절 기반 CO2 주입 효율 향상 (Poster Session)",
       "title_en": "(preparing)",
       "authors": "Han, S.",
+      "authors_ko": "",
       "venue_ko": "한국가스학회 (춘계)",
       "venue_en": "KIGAS Spring Conference"
     },
@@ -95,6 +101,7 @@
       "title_ko": "이산화탄소 지중저장을 위한 다목적 최적화 프레임워크: 탐색 공간 단일화 기반 다중 유정 배치의 가변 차원 통제 (Oral Session)",
       "title_en": "A Multi­Objective Optimization Framework for Geological CO2 Storage: Search Space Unification for Variable­Dimensional Multi­Well Placement (Oral Session)",
       "authors": "Ju, G.",
+      "authors_ko": "",
       "venue_ko": "한국가스학회 제1회 수소·가스 AI 활용 경진대회",
       "venue_en": "The 1st Competition for Best Practices in AI Application in the Hydrogen and Gas Industry"
     },
@@ -103,6 +110,7 @@
       "title_ko": "사암층 내 SiO2 나노유체 선주입 기반 계면 특성 제어와 CO2 지중저장 효율 관계 분석 (Oral Session)",
       "title_en": "(preparing)",
       "authors": "Roh, H., Han, S., Lee, Y.",
+      "authors_ko": "",
       "venue_ko": "한국에너지학회 (춘계)",
       "venue_en": "KOES Spring Conference"
     },
@@ -111,6 +119,7 @@
       "title_ko": "캐나다 셰일 저류층 대상 이산화탄소 흡착량 예측을 위한 머신러닝 회귀 모델 개발 (Oral Session)",
       "title_en": "(preparing)",
       "authors": "You, H., Lee, Y.",
+      "authors_ko": "",
       "venue_ko": "한국가스학회 (추계)",
       "venue_en": "KIGAS Autumn Conference"
     },
@@ -119,6 +128,7 @@
       "title_ko": "노르웨이 Smeaheia CCS 저장소에 대한 저장가능성 평가 및 탄성파 모니터링과 연계 연구 (Oral Session)",
       "title_en": "(preparing)",
       "authors": "Yun, C., Kim, M., Lee, Y.",
+      "authors_ko": "",
       "venue_ko": "한국지오에너지학회 (추계)",
       "venue_en": "KSGE Autumn Conference"
     },
@@ -127,6 +137,7 @@
       "title_ko": "대염수층의 이산화탄소 저장가능성 평가를 위한 머신러닝 기반 예측모델 개발 (Oral Session)",
       "title_en": "(preparing)",
       "authors": "Lee, Y.",
+      "authors_ko": "",
       "venue_ko": "한국지오에너지학회 (추계)",
       "venue_en": "KSGE Autumn Conference"
     },
@@ -135,6 +146,7 @@
       "title_ko": "Smeaheia CCS 저장소의 정적 모델 구축 및 동적 모델링 연구 (Oral Session)",
       "title_en": "(preparing)",
       "authors": "Yun, C., You, H., Lee, Y., Ju, G., Lee, Y.",
+      "authors_ko": "",
       "venue_ko": "한국에너지기후변화학회 (춘계)",
       "venue_en": "KOSECC Spring Conference"
     }
@@ -145,6 +157,7 @@
       "name_ko": "[예시] 한국자원공학회 춘계학술대회 우수발표논문상",
       "name_en": "[Example] Best Presentation Award, KSMER Spring Conference",
       "recipient": "G.W. Ju",
+      "recipient_ko": "",
       "org_ko": "한국자원공학회",
       "org_en": "KSMER"
     },
@@ -153,6 +166,7 @@
       "name_ko": "[예시] BK21 우수 대학원생 표창",
       "name_en": "[Example] BK21 Outstanding Graduate Student Award",
       "recipient": "H.Y. Noh",
+      "recipient_ko": "",
       "org_ko": "전북대학교",
       "org_en": "Jeonbuk National University"
     }
