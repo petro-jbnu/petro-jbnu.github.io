@@ -5,40 +5,14 @@
       "sci": "SCI",
       "quartile": "Q1",
       "year": "2026",
-      "doi": "10.0000/example.2026.000001",
-      "title_ko": "[Example] Experimental study on nanofluid pre-injection for CO₂ storage efficiency in sandstone",
-      "title_en": "[Example] Experimental study on nanofluid pre-injection for CO₂ storage efficiency in sandstone",
-      "authors": "S. Han, H.Y. Noh, Y.S. Lee",
-      "authors_ko": "",
-      "journal_ko": "International Journal of Greenhouse Gas Control",
-      "journal_en": "International Journal of Greenhouse Gas Control",
-      "url": ""
-    },
-    {
-      "sci": "SCI",
-      "quartile": "Q1",
-      "year": "2025",
-      "doi": "10.0000/example.2025.000002",
-      "title_ko": "[Example] Machine-learning prediction of CO₂ adsorption capacity in shale reservoirs",
-      "title_en": "[Example] Machine-learning prediction of CO₂ adsorption capacity in shale reservoirs",
-      "authors": "H.M. Yoo, G.W. Ju, Y.S. Lee",
-      "authors_ko": "",
-      "journal_ko": "Applied Energy",
-      "journal_en": "Applied Energy",
-      "url": ""
-    },
-    {
-      "sci": "Non-SCI",
-      "quartile": "",
-      "year": "2025",
-      "doi": "10.0000/example.2025.000003",
-      "title_ko": "[예시] 인공지능을 활용한 운영 중 가스배관 누출 규모·위치 동시 진단",
-      "title_en": "[Example] Simultaneous diagnosis of leak size and location in operating gas pipelines using AI",
-      "authors": "S. Han, Y.S. Lee",
-      "authors_ko": "한선호, 이영수",
-      "journal_ko": "한국가스학회지",
-      "journal_en": "Journal of the Korean Institute of Gas",
-      "url": ""
+      "doi": "10.1016/j.jclepro.2026.147969",
+      "title_ko": "Incorporating life cycle assessment into energy transition policy: displacing coal with natural gas",
+      "title_en": "Incorporating life cycle assessment into energy transition policy: displacing coal with natural gas",
+      "authors": "Lee, H.*, Jin, T., Lee, Y., Lee, S.",
+      "authors_ko": "이하은*, 진태영, 이영수, 이시훈",
+      "journal_ko": "Journal of Cleaner Production",
+      "journal_en": "Journal of Cleaner Production",
+      "url": "https://scholar.google.co.kr/scholar?hl=ko&as_sdt=0%2C5&q=10.1016%2Fj.jclepro.2026.147969&btnG="
     }
   ],
   "presentations": [
@@ -92,7 +66,7 @@
       "title_ko": "사암 대수층에서 Al2O3 나노유체를 이용한 젖음성 조절 기반 CO2 주입 효율 향상 (Poster Session)",
       "title_en": "(preparing)",
       "authors": "Han, S.*",
-      "authors_ko": "",
+      "authors_ko": "한선이*",
       "venue_ko": "한국가스학회 (춘계)",
       "venue_en": "KIGAS Spring Conference"
     },
