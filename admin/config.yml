@@ -139,6 +139,7 @@ collections:
           - label: "저널 논문 (Paper)"
             name: "papers"
             widget: "list"
+            add_to_top: true
             summary: "{{fields.year}} — {{fields.title_en}}"
             fields:
               - { label: "SCI 구분", name: "sci", widget: "select", options: ["SCI", "Non-SCI"], default: "SCI" }
@@ -151,10 +152,11 @@ collections:
               - { label: "저자(한국어, 예: 주관우, 이영수 — 비우면 로마자 표기가 표시됩니다)", name: "authors_ko", widget: "string", required: false }
               - { label: "저널명(한국어) — 국문지는 국문 학회지명, 영문지는 영문지명 그대로", name: "journal_ko", widget: "string" }
               - { label: "저널명(영어)", name: "journal_en", widget: "string" }
-              - { label: "Google Scholar 링크 URL (선택)", name: "url", widget: "string", required: false }
+              - { label: "저널 링크 URL (선택) — 논문 원문/저널 페이지 주소", name: "url", widget: "string", required: false }
           - label: "학술대회 발표 (Presentation)"
             name: "presentations"
             widget: "list"
+            add_to_top: true
             summary: "{{fields.date}} — {{fields.title_en}}"
             fields:
               - { label: "발표 시기 (예: May 2026)", name: "date", widget: "string" }
@@ -168,6 +170,7 @@ collections:
           - label: "수상 (Awards)"
             name: "awards"
             widget: "list"
+            add_to_top: true
             summary: "{{fields.date}} — {{fields.name_ko}}"
             fields:
               - { label: "수상 시기 (예: 2026.05)", name: "date", widget: "string" }
