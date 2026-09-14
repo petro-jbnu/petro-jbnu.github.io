@@ -156,6 +156,58 @@
       "journal_ko": "Energies",
       "journal_en": "Energies",
       "url": "https://www.mdpi.com/1996-1073/15/18/6860"
+    },
+    {
+      "sci": "SCI",
+      "quartile": "Q1",
+      "year": "2022",
+      "doi": "10.1016/j.petrol.2022.110608",
+      "title_ko": "A study of nanofluid stability in low–salinity water to enhance oil recovery: An extended physicochemical approach",
+      "title_en": "A study of nanofluid stability in low–salinity water to enhance oil recovery: An extended physicochemical approach",
+      "authors": "Han, S.*, Allan Gomez-Flores, Choi, S., Kim, H., Lee, Y.",
+      "authors_ko": "한선이*, Allan Gomez-Flores, 최소원, 김현정, 이영수",
+      "journal_ko": "Journal of Petroleum Science and Engineering",
+      "journal_en": "Journal of Petroleum Science and Engineering",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0920410522004831"
+    },
+    {
+      "sci": "SCI",
+      "quartile": "Q2",
+      "year": "2022",
+      "doi": "https://doi.org/10.3390/app12062825",
+      "title_ko": "A Nodal Analysis Based Monitoring of an Electric Submersible Pump Operation in Multiphase Flow",
+      "title_en": "A Nodal Analysis Based Monitoring of an Electric Submersible Pump Operation in Multiphase Flow",
+      "authors": "Iranzi, J.*, Son, H., Lee, Y., Wang, J.",
+      "authors_ko": "Joseph Iranzi*, 손한암, 이영수, 왕지훈",
+      "journal_ko": "Applied Sciences",
+      "journal_en": "Applied Sciences",
+      "url": "https://www.mdpi.com/2076-3417/12/6/2825"
+    },
+    {
+      "sci": "SCI",
+      "quartile": "",
+      "year": "2022",
+      "doi": "https://doi.org/10.1007/s11814-021-0960-8",
+      "title_ko": "The present condition and outlook for hydrogen-natural gas blending technology",
+      "title_en": "The present condition and outlook for hydrogen-natural gas blending technology",
+      "authors": "Chae, M.*, Kim, J., Moon, B., Park, S., Lee, Y.",
+      "authors_ko": "채민주, 김주현, Bryan Moon, Simon Park, 이영수",
+      "journal_ko": "Korean Journal of Chemical Engineering (한국화학공학회지)",
+      "journal_en": "Korean Journal of Chemical Engineering",
+      "url": "https://link.springer.com/article/10.1007/s11814-021-0960-8"
+    },
+    {
+      "sci": "SCI",
+      "quartile": "",
+      "year": "2021",
+      "doi": "10.1016/j.petrol.2021.109813",
+      "title_ko": "The development of an AI-based model to predict the location and amount of wax in oil pipelines",
+      "title_en": "The development of an AI-based model to predict the location and amount of wax in oil pipelines",
+      "authors": "Kim, J.*, Han, S., Seo, Y., Moon, B., Lee, Y.",
+      "authors_ko": "김주현*, 한선이, 서영진, Bryan Moon, 이영수",
+      "journal_ko": "Journal of Petroleum Science and Engineering",
+      "journal_en": "Journal of Petroleum Science and Engineering",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0920410521014327"
     }
   ],
   "presentations": [
