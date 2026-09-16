@@ -48,23 +48,23 @@
       "desc_en": "Experiments, simulation, and AI research to store CO₂ in deep formations <strong>safely and at greater capacity</strong>."
     },
     {
-      "title_ko": "유체 분석 실험",
-      "title_en": "Fluid Analysis",
+      "title_ko": "유체/물성 분석",
+      "title_en": "Fluid/Property Analysis",
       "desc_ko": "<strong>코어 주입 실험</strong>과 <strong>접촉각·계면장력 측정</strong>으로 암석–유체 상호작용과 유동 메커니즘을 규명합니다.",
       "desc_en": "<strong>Core flooding</strong> and <strong>contact angle/IFT measurements</strong> to characterize rock–fluid interactions and flow mechanisms."
     },
     {
       "title_ko": "인공지능",
       "title_en": "Artificial Intelligence",
-      "desc_ko": "머신러닝·최적화 알고리즘으로 <strong>생산량·저장량을 예측</strong>하고, 상충하는 목표를 동시에 만족하는 <strong>다목적 최적화</strong>를 수행합니다.",
-      "desc_en": "Machine learning and optimization to <strong>forecast production/storage</strong> and to perform <strong>multi-objective optimization</strong> of competing goals."
+      "desc_ko": "머신러닝·최적화 알고리즘으로 <strong>생산량·저장량을 예측</strong>하고, <strong>유정 배치, 유량 등의 다양한 최적화</strong>를 수행합니다.",
+      "desc_en": "Machine learning and optimization to <strong>forecast production/storage</strong> and to perform <strong>various optimizations such as well location and rate optimization</strong>."
     }
   ],
   "cta": {
     "show": true,
     "title_ko": "Reservoir부터 CCS까지 — 관심 있다면?",
     "title_en": "From Reservoir to CCS — interested?",
-    "text_ko": "함께 연구할 <strong>학부연구생·대학원생</strong>을 모집합니다. Reservoir · Production · Well · Pipeline · CCS 전 분야에서 <strong>실험·시뮬레이션·AI</strong>를 경험할 수 있습니다.",
+    "text_ko": "함께 연구할 <strong>학부연구생·대학원생</strong>을 모집합니다. Oil & Gas Reservoir · Production · Well · Pipeline · CCS 전 분야에서 <strong>실험·시뮬레이션·AI</strong>를 경험할 수 있습니다.",
     "text_en": "Recruiting <strong>undergraduate and graduate researchers</strong>. Gain hands-on experience in <strong>experiments, simulation, and AI</strong> across reservoir, production, well, pipeline, and CCS.",
     "btn_ko": "지원 문의하기",
     "btn_en": "Get in touch"
