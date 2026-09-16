@@ -753,4 +753,80 @@
       }).join("");
     }, ["pj-sections", "pj-figures", "pj-related"]);
   }
+
+  /* ============ 14. 지도교수 · 연락처 (data/pi.json)
+     단일 출처: 이 파일 하나가 소개·구성원·문의 페이지 + 전 페이지 푸터를 채웁니다.
+     푸터는 구조(CONTACT 제목 + 목록)로 찾아 채우므로 페이지 HTML 수정이 필요 없습니다. ============ */
+  if (document.querySelector("[data-pi]") || document.querySelector("footer")) {
+    load("data/pi.json", function (d) {
+      var c = d.contact || {};
+      function mi(name) { return '<span class="material-symbols-outlined text-[16px] align-middle text-primary">' + name + "</span> "; }
+      function mailLink(addr, cls) {
+        return '<a class="' + cls + '" href="mailto:' + esc(addr) + '">' + esc(addr) + "</a>";
+      }
+      function piContactLine() {
+        var parts = [];
+        if (c.pi_office_ko || c.pi_office_en) parts.push(mi("location_on") + biText(c.pi_office_ko || c.pi_office_en, c.pi_office_en));
+        if (c.phone) parts.push(mi("call") + esc(c.phone));
+        if (c.email) parts.push(mailLink(c.email, "text-primary hover:underline"));
+        return parts.join(" · ");
+      }
+
+      /* 14-A. 소개 / 구성원 페이지의 지도교수 카드 */
+      ["about", "members"].forEach(function (key) {
+        var box = document.querySelector('[data-pi="' + key + '"]');
+        if (!box) return;
+        var img = box.querySelector("img");
+        if (img && d.photo) { img.setAttribute("src", d.photo); img.setAttribute("alt", d.name_en || d.name_ko || ""); }
+        var h3 = box.querySelector("h3");
+        if (h3 && d.name_ko) h3.innerHTML = biText(d.name_ko, d.name_en);
+        var tt = box.querySelector("p.font-label-caps");
+        if (tt && d.title_ko) tt.innerHTML = biText(d.title_ko, d.title_en);
+        var intro = box.querySelector("p.font-body-lg");
+        if (intro && (d.intro_ko || d.intro_en)) intro.innerHTML = biRich(d.intro_ko || d.intro_en, d.intro_en);
+        var line = box.querySelector("p.font-body-md");
+        if (line) line.innerHTML = piContactLine();
+        var ul = box.querySelector("ul");
+        if (ul && (d.career || []).length) {
+          ul.innerHTML = d.career.map(function (r) {
+            return '<li class="flex gap-sm"><span class="font-data-tabular text-data-tabular font-semibold text-primary w-32 shrink-0">' +
+              biText(r.period_ko || r.period_en || "", r.period_en) + '</span>' +
+              '<span class="font-body-md text-on-surface-variant">' + biText(r.desc_ko || r.desc_en || "", r.desc_en) + "</span></li>";
+          }).join("");
+        }
+      });
+
+      /* 14-B. 문의 페이지 연락처 표 (주소·교수 연구실·학생 연구실·전화·이메일·대표 학생) */
+      var tbl = document.querySelector('[data-pi="contact"]');
+      if (tbl) {
+        var vals = [
+          biText(c.address_ko || "", c.address_en),
+          biText(c.pi_office_ko || "", c.pi_office_en),
+          biText(c.lab_office_ko || "", c.lab_office_en),
+          esc(c.phone || ""),
+          (c.email ? mailLink(c.email, "text-primary hover:underline") + " " : "") + biText(c.email_note_ko || "", c.email_note_en),
+          biText(c.rep_ko || "", c.rep_en) + (c.rep_email ? " · " + mailLink(c.rep_email, "text-primary hover:underline") : "")
+        ];
+        for (var ri = 0; ri < vals.length; ri++) {
+          var row = tbl.children[ri];
+          if (!row) continue;
+          var cell = row.children[1];
+          if (cell && vals[ri]) cell.innerHTML = vals[ri];
+        }
+      }
+
+      /* 14-C. 전 페이지 하단 푸터 (HTML 수정 없이 구조로 탐색) */
+      var heads = document.querySelectorAll("footer h4"), fUl = null;
+      for (var hi = 0; hi < heads.length; hi++) {
+        if (/CONTACT/i.test(heads[hi].textContent || "")) { fUl = heads[hi].parentNode.querySelector("ul"); break; }
+      }
+      if (fUl && fUl.children.length >= 4) {
+        var f = fUl.children;
+        if (c.address_short_ko) f[0].innerHTML = biText(c.address_short_ko, c.address_short_en);
+        if (c.rooms_ko) f[1].innerHTML = biText(c.rooms_ko, c.rooms_en);
+        if (c.phone) f[2].innerHTML = "Tel. " + esc(c.phone);
+        if (c.email) f[3].innerHTML = mailLink(c.email, "hover:text-white transition-colors");
+      }
+    }, []);
+  }
 })();
