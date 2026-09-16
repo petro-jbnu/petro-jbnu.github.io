@@ -303,6 +303,52 @@ collections:
               - { label: "설명(영어)", name: "desc_en", widget: "text" }
               - { label: "사진 (선택)", name: "image", widget: "image", required: false }
 
+      # ---------------- PI (지도교수 · 연락처) ----------------
+      - name: "pi"
+        label: "지도교수 · 연락처 (PI)"
+        file: "data/pi.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - { label: "교수님 사진", name: "photo", widget: "image", required: false }
+          - { label: "이름(한국어)  예: 이영수 | Youngsoo Lee", name: "name_ko", widget: "string" }
+          - { label: "이름(영어)", name: "name_en", widget: "string", required: false }
+          - { label: "직함(한국어)  ※ 소개·구성원 페이지에 함께 표시됩니다", name: "title_ko", widget: "string", required: false }
+          - { label: "직함(영어, 대문자 권장)", name: "title_en", widget: "string", required: false }
+          - { label: "한 줄 연구 소개(한국어)  ※ 구성원 페이지. 굵게: <strong>글자</strong>", name: "intro_ko", widget: "text", required: false }
+          - { label: "한 줄 연구 소개(영어)", name: "intro_en", widget: "text", required: false }
+          - label: "학력 및 경력 (소개 페이지)"
+            name: "career"
+            widget: "list"
+            required: false
+            summary: "{{fields.period_ko}} — {{fields.desc_ko}}"
+            fields:
+              - { label: "기간(한국어)  예: 2013 – 현재", name: "period_ko", widget: "string" }
+              - { label: "기간(영어)  예: 2013 – Present", name: "period_en", widget: "string", required: false }
+              - { label: "내용(한국어)", name: "desc_ko", widget: "string" }
+              - { label: "내용(영어)", name: "desc_en", widget: "string", required: false }
+          - label: "연락처 (소개·구성원·문의 페이지 + 모든 페이지 하단에 함께 반영)"
+            name: "contact"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "주소(한국어) — 문의 페이지용, 건물명 포함", name: "address_ko", widget: "string", required: false }
+              - { label: "주소(영어) — 문의 페이지용", name: "address_en", widget: "string", required: false }
+              - { label: "주소 짧게(한국어) — 페이지 하단용", name: "address_short_ko", widget: "string", required: false }
+              - { label: "주소 짧게(영어) — 페이지 하단용", name: "address_short_en", widget: "string", required: false }
+              - { label: "교수 연구실(한국어)", name: "pi_office_ko", widget: "string", required: false }
+              - { label: "교수 연구실(영어)", name: "pi_office_en", widget: "string", required: false }
+              - { label: "학생 연구실(한국어)", name: "lab_office_ko", widget: "string", required: false }
+              - { label: "학생 연구실(영어)", name: "lab_office_en", widget: "string", required: false }
+              - { label: "호실 한 줄 표기(한국어) — 페이지 하단용", name: "rooms_ko", widget: "string", required: false }
+              - { label: "호실 한 줄 표기(영어) — 페이지 하단용", name: "rooms_en", widget: "string", required: false }
+              - { label: "대표 전화", name: "phone", widget: "string", required: false }
+              - { label: "대표 이메일", name: "email", widget: "string", required: false }
+              - { label: "이메일 옆 표기(한국어)  예: (이영수 교수)", name: "email_note_ko", widget: "string", required: false }
+              - { label: "이메일 옆 표기(영어)", name: "email_note_en", widget: "string", required: false }
+              - { label: "대표 학생(한국어)", name: "rep_ko", widget: "string", required: false }
+              - { label: "대표 학생(영어)", name: "rep_en", widget: "string", required: false }
+              - { label: "대표 학생 이메일", name: "rep_email", widget: "string", required: false }
+
       # ---------------- Members ----------------
       - name: "members"
         label: "구성원 (Members)"
