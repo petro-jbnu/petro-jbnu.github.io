@@ -1,0 +1,55 @@
+{
+ "_comment": "지도교수 정보와 연구실 공통 연락처. 이 파일 하나를 고치면 소개·구성원·문의 페이지와 모든 페이지 하단(푸터)이 함께 바뀝니다. 굵게는 <strong>글자</strong>.",
+ "photo": "assets/img/prof-lee.jpg",
+ "name_ko": "이영수 | Youngsoo Lee",
+ "name_en": "Youngsoo Lee",
+ "title_ko": "지도교수 · 전북대학교 기후환경에너지융합학과",
+ "title_en": "DIRECTOR · DEPT. OF CLIMATE, ENVIRONMENT & ENERGY CONVERGENCE, JBNU",
+ "intro_ko": "<strong>저류공학</strong>, <strong>CO₂ 지중저장</strong>, 유정·파이프라인 유동 해석을 연구합니다.",
+ "intro_en": "<strong>Reservoir engineering</strong>, <strong>CO₂ geological storage</strong>, and well & pipeline flow analysis.",
+ "career": [
+  {
+   "period_ko": "2013 – 현재",
+   "period_en": "2013 – Present",
+   "desc_ko": "전북대학교 기후환경에너지융합학과 교수",
+   "desc_en": "Professor, Jeonbuk National University"
+  },
+  {
+   "period_ko": "2011 – 2013",
+   "period_en": "2011 – 2013",
+   "desc_ko": "한국가스공사 연구개발원 선임연구원",
+   "desc_en": "Senior Researcher, KOGAS R&D Division"
+  },
+  {
+   "period_ko": "2009 – 2011",
+   "period_en": "2009 – 2011",
+   "desc_ko": "한양대학교 지구환경시스템공학 연구조교수",
+   "desc_en": "Research Assistant Professor, Hanyang University"
+  },
+  {
+   "period_ko": "2005 – 2009",
+   "period_en": "2005 – 2009",
+   "desc_ko": "한양대학교 지구환경시스템공학 박사",
+   "desc_en": "Ph.D. in Geoenvironmental System Engineering, Hanyang University"
+  }
+ ],
+ "contact": {
+  "address_ko": "전북특별자치도 전주시 덕진구 백제대로 567, 전북대학교 공과대학 2호관",
+  "address_en": "567 Baekje-daero, Deokjin-gu, Jeonju 54896, Korea — Engineering Bldg. 2, JBNU",
+  "address_short_ko": "전북특별자치도 전주시 덕진구 백제대로 567",
+  "address_short_en": "567 Baekje-daero, Deokjin-gu, Jeonju 54896, Korea",
+  "pi_office_ko": "공과대학 2호관 307호",
+  "pi_office_en": "Rm 307, Engineering Bldg. 2",
+  "lab_office_ko": "공과대학 2호관 403호",
+  "lab_office_en": "Rm 403, Engineering Bldg. 2",
+  "rooms_ko": "공과대학 2호관 307호(교수) · 403호(연구실)",
+  "rooms_en": "Eng. Bldg. 2, Rm 307 (Prof.) · Rm 403 (Lab)",
+  "phone": "063-270-2392",
+  "email": "youngsoo.lee@jbnu.ac.kr",
+  "email_note_ko": "(이영수 교수)",
+  "email_note_en": "(Prof. Youngsoo Lee)",
+  "rep_ko": "노현영(박사과정)",
+  "rep_en": "Hyun-Young Noh (Ph.D. student)",
+  "rep_email": "gusdud819@jbnu.ac.kr"
+ }
+}
