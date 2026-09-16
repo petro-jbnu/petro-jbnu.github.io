@@ -21,17 +21,60 @@ collections:
     files:
       # ---------------- Home ----------------
       - name: "home"
-        label: "홈 화면 (Hero 이미지)"
+        label: "홈 화면 (메인)"
         file: "data/home.json"
         fields:
           - { label: "메모", name: "_comment", widget: "hidden", required: false }
-          - label: "히어로 슬라이드 이미지 (3장 권장)"
+          - { label: "히어로 상단 소속 표기 (한국어)", name: "dept_ko", widget: "string", required: false }
+          - { label: "히어로 상단 소속 표기 (영어, 대문자 권장)", name: "dept_en", widget: "string", required: false }
+          - label: "히어로 슬라이드 (이미지 + 문구, 3장 권장)"
             name: "hero"
             widget: "list"
             max: 3
-            summary: "{{fields.image}}"
+            summary: "{{fields.title_ko}}"
             fields:
               - { label: "배경 이미지", name: "image", widget: "image" }
+              - { label: "큰 제목(한국어)", name: "title_ko", widget: "string", required: false }
+              - { label: "큰 제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "설명 문구(한국어)  ※ 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "body_ko", widget: "text", required: false }
+              - { label: "설명 문구(영어)", name: "body_en", widget: "text", required: false }
+          - label: "모집 배너 (히어로 바로 아래 띠)"
+            name: "recruit"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - { label: "홈 화면에 표시", name: "show", widget: "boolean", default: true, required: false }
+              - { label: "배지 문구(한국어)", name: "badge_ko", widget: "string", required: false }
+              - { label: "배지 문구(영어)", name: "badge_en", widget: "string", required: false }
+              - { label: "안내 문구(한국어)  ※ 굵게: <strong>글자</strong>", name: "text_ko", widget: "text", required: false }
+              - { label: "안내 문구(영어)", name: "text_en", widget: "text", required: false }
+              - { label: "링크 문구(한국어)  ※ 이동 주소는 문의 페이지로 고정", name: "link_ko", widget: "string", required: false }
+              - { label: "링크 문구(영어)", name: "link_en", widget: "string", required: false }
+          - label: "연구 카드 (최대 4장, 이동 주소는 프로젝트 페이지로 고정)"
+            name: "cards"
+            widget: "list"
+            max: 4
+            required: false
+            summary: "{{fields.title_ko}}"
+            fields:
+              - { label: "카드 제목(한국어)", name: "title_ko", widget: "string" }
+              - { label: "카드 제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "카드 설명(한국어)  ※ 굵게: <strong>글자</strong>", name: "desc_ko", widget: "text", required: false }
+              - { label: "카드 설명(영어)", name: "desc_en", widget: "text", required: false }
+          - label: "하단 지원 안내 배너"
+            name: "cta"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - { label: "홈 화면에 표시", name: "show", widget: "boolean", default: true, required: false }
+              - { label: "제목(한국어)", name: "title_ko", widget: "string", required: false }
+              - { label: "제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "설명(한국어)  ※ 굵게: <strong>글자</strong>", name: "text_ko", widget: "text", required: false }
+              - { label: "설명(영어)", name: "text_en", widget: "text", required: false }
+              - { label: "버튼 문구(한국어)  ※ 이동 주소는 문의 페이지로 고정", name: "btn_ko", widget: "string", required: false }
+              - { label: "버튼 문구(영어)", name: "btn_en", widget: "string", required: false }
 
       # ---------------- Projects ----------------
       - name: "projects"
