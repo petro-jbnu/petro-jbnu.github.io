@@ -76,6 +76,107 @@ collections:
               - { label: "버튼 문구(한국어)  ※ 이동 주소는 문의 페이지로 고정", name: "btn_ko", widget: "string", required: false }
               - { label: "버튼 문구(영어)", name: "btn_en", widget: "string", required: false }
 
+      # ---------------- 각 페이지 상단 문구 ----------------
+      - name: "pages"
+        label: "각 페이지 상단 문구"
+        file: "data/pages.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - label: "소개 페이지"
+            name: "about"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - { label: "큰 제목(한국어)", name: "title_ko", widget: "string", required: false }
+              - { label: "큰 제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "소개 문구(한국어)  ※ 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "lead_ko", widget: "text", required: false }
+              - { label: "소개 문구(영어)", name: "lead_en", widget: "text", required: false }
+              - { label: "이동 경로 표기(한국어)  예: Home / 구성원", name: "crumb_ko", widget: "string", required: false }
+              - { label: "이동 경로 표기(영어)", name: "crumb_en", widget: "string", required: false }
+          - label: "연구 분야 페이지"
+            name: "research-area"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - { label: "큰 제목(한국어)", name: "title_ko", widget: "string", required: false }
+              - { label: "큰 제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "소개 문구(한국어)  ※ 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "lead_ko", widget: "text", required: false }
+              - { label: "소개 문구(영어)", name: "lead_en", widget: "text", required: false }
+              - { label: "이동 경로 표기(한국어)  예: Home / 구성원", name: "crumb_ko", widget: "string", required: false }
+              - { label: "이동 경로 표기(영어)", name: "crumb_en", widget: "string", required: false }
+          - label: "연구 프로젝트 페이지"
+            name: "research-projects"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - { label: "큰 제목(한국어)", name: "title_ko", widget: "string", required: false }
+              - { label: "큰 제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "소개 문구(한국어)  ※ 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "lead_ko", widget: "text", required: false }
+              - { label: "소개 문구(영어)", name: "lead_en", widget: "text", required: false }
+              - { label: "이동 경로 표기(한국어)  예: Home / 구성원", name: "crumb_ko", widget: "string", required: false }
+              - { label: "이동 경로 표기(영어)", name: "crumb_en", widget: "string", required: false }
+          - label: "연구실 활동 페이지"
+            name: "activities"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - { label: "큰 제목(한국어)", name: "title_ko", widget: "string", required: false }
+              - { label: "큰 제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "소개 문구(한국어)  ※ 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "lead_ko", widget: "text", required: false }
+              - { label: "소개 문구(영어)", name: "lead_en", widget: "text", required: false }
+              - { label: "이동 경로 표기(한국어)  예: Home / 구성원", name: "crumb_ko", widget: "string", required: false }
+              - { label: "이동 경로 표기(영어)", name: "crumb_en", widget: "string", required: false }
+          - label: "연구 성과 페이지"
+            name: "publications"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - { label: "큰 제목(한국어)", name: "title_ko", widget: "string", required: false }
+              - { label: "큰 제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "소개 문구(한국어)  ※ 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "lead_ko", widget: "text", required: false }
+              - { label: "소개 문구(영어)", name: "lead_en", widget: "text", required: false }
+          - label: "구성원 페이지"
+            name: "members"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - { label: "큰 제목(한국어)", name: "title_ko", widget: "string", required: false }
+              - { label: "큰 제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "소개 문구(한국어)  ※ 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "lead_ko", widget: "text", required: false }
+              - { label: "소개 문구(영어)", name: "lead_en", widget: "text", required: false }
+              - { label: "이동 경로 표기(한국어)  예: Home / 구성원", name: "crumb_ko", widget: "string", required: false }
+              - { label: "이동 경로 표기(영어)", name: "crumb_en", widget: "string", required: false }
+          - label: "연구실 장비 페이지"
+            name: "equipment"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - { label: "큰 제목(한국어)", name: "title_ko", widget: "string", required: false }
+              - { label: "큰 제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "소개 문구(한국어)  ※ 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "lead_ko", widget: "text", required: false }
+              - { label: "소개 문구(영어)", name: "lead_en", widget: "text", required: false }
+              - { label: "이동 경로 표기(한국어)  예: Home / 구성원", name: "crumb_ko", widget: "string", required: false }
+              - { label: "이동 경로 표기(영어)", name: "crumb_en", widget: "string", required: false }
+          - label: "Contact 페이지"
+            name: "contact"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - { label: "큰 제목(한국어)", name: "title_ko", widget: "string", required: false }
+              - { label: "큰 제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "소개 문구(한국어)  ※ 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "lead_ko", widget: "text", required: false }
+              - { label: "소개 문구(영어)", name: "lead_en", widget: "text", required: false }
+              - { label: "이동 경로 표기(한국어)  예: Home / 구성원", name: "crumb_ko", widget: "string", required: false }
+              - { label: "이동 경로 표기(영어)", name: "crumb_en", widget: "string", required: false }
+
       # ---------------- Projects ----------------
       - name: "projects"
         label: "연구 프로젝트 (Projects)"
