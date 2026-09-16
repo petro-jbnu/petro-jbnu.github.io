@@ -99,8 +99,11 @@
       <div id="cal-full"></div>
     </div>
     <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/50 p-md">
-      <div class="font-label-caps text-on-surface-variant mb-xs"><span class="ko">다가오는 일정</span><span class="en">UPCOMING EVENTS</span></div>
-      <div id="upcoming-list-full"></div>
+      <div class="flex items-center gap-xs mb-sm flex-wrap">
+        <button type="button" data-sch="up" class="sch-tab px-sm py-1 rounded-lg font-label-caps bg-primary text-white"><span class="ko">다가오는 일정</span><span class="en">UPCOMING</span></button>
+        <button type="button" data-sch="past" class="sch-tab px-sm py-1 rounded-lg font-label-caps bg-surface-container-lowest text-on-surface-variant border border-outline-variant"><span class="ko">지난 일정</span><span class="en">PAST</span></button>
+      </div>
+      <div id="upcoming-list-full" class="sch-scroll"></div>
     </div>
   </div>
 </section>
