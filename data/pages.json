@@ -1,0 +1,65 @@
+{
+ "_comment": "각 페이지 맨 위의 제목·소개 문구·이동 경로 표기. 굵게는 <strong>글자</strong>, 줄바꿈은 Enter. 홈 화면은 '홈 화면 (메인)'에서, 프로젝트·활동 상세 페이지는 각 항목 제목이 자동으로 표시됩니다.",
+ "about": {
+  "title_ko": "연구실 소개",
+  "title_en": "About Our Laboratory",
+  "lead_ko": "전북대학교 기후환경에너지융합학과 <strong>지하유체유동연구실(GeoFlow Engineering Lab)</strong>은 2013년 설립 이후 지하 유체 유동에 대한 깊은 이해를 바탕으로, <strong>전통 자원개발</strong>과 <strong>탄소중립 기술</strong>을 아우르는 연구를 수행하고 있습니다.",
+  "lead_en": "Since 2013, the <strong>GeoFlow Engineering Lab</strong> in the Department of Climate, Environment & Energy Convergence at Jeonbuk National University has pursued research spanning <strong>conventional resource development</strong> and <strong>carbon-neutral technologies</strong>, grounded in a deep understanding of subsurface fluid flow.",
+  "crumb_ko": "소개",
+  "crumb_en": "About"
+ },
+ "research-area": {
+  "title_ko": "연구 분야",
+  "title_en": "Research Areas",
+  "lead_ko": "<strong>석유·천연가스</strong>와 <strong>CO₂ 지중저장</strong>의 두 분야를 중심으로, 시뮬레이션·실험·인공지능을 결합한 연구를 수행합니다. 세부 연구 내용은 프로젝트 페이지에서 제공합니다.",
+  "lead_en": "Our research is organized around two pillars — <strong>oil & natural gas</strong> and <strong>CO₂ geological storage</strong> — combining simulation, experiments, and AI. Detailed content is provided on the Projects page.",
+  "crumb_ko": "연구 분야",
+  "crumb_en": "Research Areas"
+ },
+ "research-projects": {
+  "title_ko": "연구 프로젝트",
+  "title_en": "Research Projects",
+  "lead_ko": "진행 중인 <strong>상세 연구</strong>와 수행 중인 <strong>연구 과제</strong>입니다. 각 프로젝트에서 연구 배경·내용·주요 결과를 제공합니다.",
+  "lead_en": "Our detailed ongoing research and funded projects. Each project page provides its background, scope, and selected results.",
+  "crumb_ko": "프로젝트",
+  "crumb_en": "Projects"
+ },
+ "activities": {
+  "title_ko": "연구실 활동",
+  "title_en": "Lab Activities",
+  "lead_ko": "교육·워크샵 등 연구실 활동 기록과 일정을 공유합니다.",
+  "lead_en": "Records of lab activities — training, workshops, and events — together with the lab schedule.",
+  "crumb_ko": "연구 활동",
+  "crumb_en": "Activities"
+ },
+ "publications": {
+  "title_ko": "연구 성과",
+  "title_en": "Publications",
+  "lead_ko": "학술 논문, 학술대회 발표, 수상 내역입니다.",
+  "lead_en": "Journal papers, conference presentations, and awards."
+ },
+ "members": {
+  "title_ko": "구성원",
+  "title_en": "Members",
+  "lead_ko": "연구실 <strong>구성원</strong> 및 <strong>졸업생 진로</strong> 현황입니다.",
+  "lead_en": "Current <strong>members</strong> and <strong>alumni</strong> of the laboratory.",
+  "crumb_ko": "구성원",
+  "crumb_en": "Members"
+ },
+ "equipment": {
+  "title_ko": "연구실 장비",
+  "title_en": "Laboratory Equipment",
+  "lead_ko": "연구에 사용하는 실험 장비와 전산 자원입니다.",
+  "lead_en": "Experimental apparatus and computational resources used in our research.",
+  "crumb_ko": "연구실 장비",
+  "crumb_en": "Equipment"
+ },
+ "contact": {
+  "title_ko": "찾아오시는 길 · 문의",
+  "title_en": "Contact & Directions",
+  "lead_ko": "연구실 방문, 공동연구, 대학원 진학 관련 문의처입니다.",
+  "lead_en": "Inquiries about visits, collaboration, and graduate study.",
+  "crumb_ko": "Contact",
+  "crumb_en": "Contact"
+ }
+}
