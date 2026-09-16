@@ -351,6 +351,19 @@
       "journal_ko": "Journal of Petroleum Science and Engineering",
       "journal_en": "Journal of Petroleum Science and Engineering",
       "url": "https://www.sciencedirect.com/science/article/pii/S0920410517309397?via%3Dihub"
+    },
+    {
+      "sci": "SCI",
+      "quartile": "Q4",
+      "year": "2017",
+      "doi": "https://doi.org/10.1504/IJOGCT.2017.084836",
+      "title_ko": "Relative permeability prediction considering complex pore geometry and wetting characteristics in carbonate reservoirs",
+      "title_en": "Relative permeability prediction considering complex pore geometry and wetting characteristics in carbonate reservoirs",
+      "authors": "Han, S.*, Kwak, D., Lee, Y., Jang, Y., Sung, W.",
+      "authors_ko": "한선이*, 곽대웅, 이영수, 장영호, 성원모",
+      "journal_ko": "International Journal of Oil, Gas and Coal Technology",
+      "journal_en": "International Journal of Oil, Gas and Coal Technology",
+      "url": "https://www.inderscienceonline.com/doi/abs/10.1504/IJOGCT.2017.084836"
     }
   ],
   "presentations": [
