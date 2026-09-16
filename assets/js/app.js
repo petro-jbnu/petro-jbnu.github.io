@@ -829,4 +829,25 @@
       }
     }, []);
   }
+
+  /* ============ 15. 각 페이지 상단 문구 (data/pages.json)
+     HTML 기본값 + JSON 덮어쓰기. 현재 주소(파일명)로 해당 페이지 항목을 찾아 적용합니다. ============ */
+  var phBox = document.querySelector("[data-ph]");
+  if (phBox) {
+    load("data/pages.json", function (d) {
+      var file = location.pathname.split("/").pop() || "index.html";
+      var key = file.replace(/\.html?$/i, "") || "index";
+      var v = d[key];
+      if (!v) return;
+      var h1 = phBox.querySelector("h1");
+      if (h1 && (v.title_ko || v.title_en)) h1.innerHTML = biText(v.title_ko || v.title_en, v.title_en);
+      var lead = phBox.querySelector("h1 ~ p") || phBox.querySelector("p");
+      if (lead && (v.lead_ko || v.lead_en)) lead.innerHTML = biRich(v.lead_ko || v.lead_en, v.lead_en);
+      var crumb = phBox.querySelector(".font-data-tabular");
+      if (crumb && (v.crumb_ko || v.crumb_en)) {
+        var home = crumb.querySelector("a");
+        crumb.innerHTML = (home ? home.outerHTML : "") + " / " + biText(v.crumb_ko || v.crumb_en, v.crumb_en);
+      }
+    }, []);
+  }
 })();
