@@ -2,36 +2,12 @@
   "_comment": "연구실 활동 게시판. category는 교육/워크샵/기타 중 하나. /admin 또는 이 파일에서 수정. 홈에는 최신 3개가 표시됩니다.",
   "items": [
     {
-      "date": "2026-07-21",
-      "category": "교육",
-      "title_ko": "[예시] 하계 신입생 시뮬레이터 교육 (1주차)",
-      "title_en": "[Example] Summer simulator training for new members (Week 1)",
-      "body_ko": "신입 구성원을 대상으로 저류층 시뮬레이터 기초 교육을 진행했습니다.",
-      "body_en": "Introductory reservoir-simulator training for new lab members."
-    },
-    {
-      "date": "2026-06-13",
-      "category": "워크샵",
-      "title_ko": "[예시] 상반기 연구 워크샵 — 진행 과제 중간 점검",
-      "title_en": "[Example] First-half research workshop — mid-term project review",
-      "body_ko": "구성원 전원이 진행 중인 연구의 중간 결과를 발표하고 토의했습니다.",
-      "body_en": "All members presented and discussed interim results of ongoing research."
-    },
-    {
-      "date": "2026-05-15",
+      "date": "2026-09-01",
       "category": "기타",
-      "title_ko": "[예시] 2026 오픈랩 개최",
-      "title_en": "[Example] Open Lab 2026",
-      "body_ko": "학부생을 대상으로 연구실의 CO₂ 지중저장·AI 연구를 소개했습니다.",
-      "body_en": "Introduced our CO₂ storage and AI research to undergraduate students."
-    },
-    {
-      "date": "2026-03-02",
-      "category": "기타",
-      "title_ko": "[예시] 신입 대학원생 합류",
-      "title_en": "[Example] New graduate students joined",
-      "body_ko": "박사과정 노현영·유현명 학생이 합류했습니다.",
-      "body_en": "Ph.D. students Hyun-Young Noh and Hyun-Myung Yoo joined the lab."
+      "title_ko": "전북대학교 지하유체유동연구실 홈페이지 개설 (GeoFlow Engineering Lab.)",
+      "title_en": "Welcome to GeoFlow Enginerring Laboratory website",
+      "body_ko": "2026년 9월 1일 부로 <strong>전북대학교 지하유체유동연구실</strong> 홈페이지가 개설·운영됩니다 🎉\n\n다양한 연구실 소식과 연구 현황 등을 공유할 예정이오니, 많은 관심 부탁드립니다 😃\n\n\n\n*기존 '전북대학교 석유공학연구실'에서 '지하유체유동연구실'로 변경되었습니다 😊",
+      "body_en": "As of September 1, 2026, the <strong>Jeonbuk National University GeoFlow Laboratory</strong> website has been launched and is now being operated 🎉\n\nWe plan to share various lab news and research updates, so we ask for your active interest 😃\n\n\n\n*The existing 'Jeonbuk National University Petroleum Engineering Laboratory' has been renamed to the 'GeoFlow Laboratory' 😊"
     }
   ]
 }
