@@ -112,6 +112,21 @@
 
   /* ============ 5. Data helpers ============ */
   var esc = function (s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); };
+  /* 본문 서식: 안전하게 이스케이프한 뒤 허용 태그만 복원하고 줄바꿈을 <br>로 */
+  function rich(s) {
+    var t = esc(s).replace(/>/g, "&gt;");
+    t = t.replace(/&lt;(\/?)(strong|b|em|i|u|sub|sup|br)\s*\/?&gt;/gi, function (m, close, tag) {
+      return "<" + (close || "") + tag.toLowerCase() + ">";
+    });
+    return t.replace(/\n/g, "<br/>");
+  }
+  /* 활동 고유 링크 키 (날짜+제목 기반 안정 해시) */
+  function actId(a) {
+    var s = (a.date || "") + "|" + (a.title_ko || a.title_en || "");
+    var h = 5381;
+    for (var i = 0; i < s.length; i++) { h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; }
+    return h.toString(36);
+  }
   function offlineNotice(el) {
     el.innerHTML = '<div class="bg-surface-container rounded-lg p-md font-body-md text-[14px] text-on-surface-variant">' +
       bi("이 목록은 data/ 폴더의 데이터 파일에서 자동 표시됩니다. 로컬 미리보기(file://)에서는 보이지 않으며, 웹 서버(GitHub Pages 등)에서는 정상 표시됩니다.",
@@ -200,12 +215,12 @@
 
   /* ============ 7. 연구실 활동 ============ */
   function activityItem(a, compact) {
-    return '<article class="py-sm border-b border-outline-variant/40 last:border-0">' +
+    var href = "activity.html?id=" + actId(a);
+    return '<a href="' + href + '" class="block py-sm border-b border-outline-variant/40 last:border-0 group">' +
       '<div class="flex items-center gap-xs mb-1">' + catBadge(a.category || "기타") +
       '<time class="font-data-tabular text-[12.5px] text-on-surface-variant">' + esc(a.date) + "</time></div>" +
-      '<h4 class="font-body-md text-[15px] font-bold text-on-surface leading-snug">' + bi(esc(a.title_ko), esc(a.title_en || a.title_ko)) + "</h4>" +
-      (compact ? "" : '<p class="font-body-md text-[14px] text-on-surface-variant mt-1">' + bi(esc(a.body_ko || ""), esc(a.body_en || a.body_ko || "")) + "</p>") +
-      "</article>";
+      '<h4 class="font-body-md text-[15px] font-bold text-on-surface leading-snug group-hover:text-primary transition-colors">' + bi(esc(a.title_ko), esc(a.title_en || a.title_ko)) + "</h4>" +
+      "</a>";
   }
   var homeAct = document.getElementById("home-activities");
   var actList = document.getElementById("activity-list");
@@ -496,6 +511,52 @@
         if (slides[i] && h.image) slides[i].style.backgroundImage = "url('" + h.image + "')";
       });
     }, []);
+  }
+
+  /* ============ 12b. 연구실 활동 상세 (activity.html) ============ */
+  var acTitle = document.getElementById("ac-title");
+  if (acTitle) {
+    load("data/activities.json", function (data) {
+      var items = (data.items || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+      var id = null;
+      try { id = new URLSearchParams(window.location.search).get("id"); } catch (e) {}
+      var a = null;
+      for (var i = 0; i < items.length; i++) { if (actId(items[i]) === id) { a = items[i]; break; } }
+      if (!a) a = items[0];
+      if (!a) return;
+      document.getElementById("ac-meta").innerHTML = catBadge(a.category || "기타") +
+        '<time class="font-data-tabular text-data-tabular text-inverse-primary">' + esc(a.date) + "</time>";
+      acTitle.innerHTML = bi(esc(a.title_ko), esc(a.title_en || a.title_ko));
+      var t = document.querySelector("title");
+      if (t) {
+        t.setAttribute("data-ko", a.title_ko + " | GeoFlow Engineering Lab");
+        t.setAttribute("data-en", (a.title_en || a.title_ko) + " | GeoFlow Engineering Lab");
+        t.textContent = (lang() === "ko" ? a.title_ko : (a.title_en || a.title_ko)) + " | GeoFlow Engineering Lab";
+      }
+      document.getElementById("ac-body").innerHTML =
+        bi(rich(a.body_ko || ""), rich(a.body_en || a.body_ko || ""));
+      var imgs = (a.images || []).filter(function (x) { return x && x.image; }).slice(0, 3);
+      document.getElementById("ac-images").innerHTML = imgs.map(function (g) {
+        return '<figure class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/40">' +
+          '<img class="w-full h-auto object-cover" alt="" src="' + esc(g.image) + '"/>' +
+          ((g.caption_ko || g.caption_en)
+            ? '<figcaption class="px-sm py-xs font-body-md text-[13.5px] text-on-surface-variant">' +
+              bi(esc(g.caption_ko || g.caption_en || ""), esc(g.caption_en || g.caption_ko || "")) + "</figcaption>"
+            : "") +
+          "</figure>";
+      }).join("");
+      var rel = document.getElementById("ac-related");
+      if (rel) {
+        var others = items.filter(function (x) { return actId(x) !== actId(a); }).slice(0, 3);
+        rel.innerHTML = others.length ? others.map(function (x) {
+          return '<a href="activity.html?id=' + actId(x) + '" class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-md shadow-sm hover:shadow-md transition-shadow group block">' +
+            '<div class="flex items-center gap-xs mb-1">' + catBadge(x.category || "기타") +
+            '<time class="font-data-tabular text-[12.5px] text-on-surface-variant">' + esc(x.date) + "</time></div>" +
+            '<h3 class="font-body-md text-[15px] font-bold text-on-surface leading-snug group-hover:text-primary transition-colors">' +
+            bi(esc(x.title_ko), esc(x.title_en || x.title_ko)) + "</h3></a>";
+        }).join("") : '<p class="font-body-md text-on-surface-variant">' + bi("다른 활동이 없습니다.", "No other activities.") + "</p>";
+      }
+    }, ["ac-body", "ac-related"]);
   }
 
   /* ============ 13. 연구 프로젝트 (목록·상세 공용 템플릿) ============ */
