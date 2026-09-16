@@ -1,72 +1,72 @@
 {
- "_comment": "홈 화면 설정. 히어로 배경 이미지와 문구, 모집 배너, 연구 카드 4장, 하단 배너 문구를 여기서 수정합니다. 굵게는 <strong>글자</strong>, 줄바꿈은 Enter. 버튼과 카드의 이동 주소는 고정입니다.",
- "dept_ko": "전북대학교 기후환경에너지융합학과",
- "dept_en": "DEPT. OF CLIMATE, ENVIRONMENT & ENERGY CONVERGENCE, JBNU",
- "hero": [
-  {
-   "image": "assets/img/hero-slide1.jpg",
-   "title_ko": "자원개발부터 탄소중립까지",
-   "title_en": "From Resource Development\nto Carbon Neutrality",
-   "body_ko": "저희 연구실은 <strong>실험</strong>으로 데이터를 확보하고, <strong>시뮬레이션</strong>으로 업스케일하며, <strong>인공지능</strong>으로 확장합니다.\nHydrocarbon과 CO₂의 유체 유동 메커니즘을 규명하여, 현장 적용 가능한 최적 기법을 연구·개발합니다.",
-   "body_en": "We acquire data through <strong>experiments</strong>, upscale it with <strong>simulation</strong>, and extend it with <strong>AI</strong>.\nBy characterizing the flow mechanisms of hydrocarbons and CO₂,\nwe develop optimized techniques ready for field application."
+  "_comment": "홈 화면 설정. 히어로 배경 이미지와 문구, 모집 배너, 연구 카드 4장, 하단 배너 문구를 여기서 수정합니다. 굵게는 <strong>글자</strong>, 줄바꿈은 Enter. 버튼과 카드의 이동 주소는 고정입니다.",
+  "dept_ko": "전북대학교 기후환경에너지융합학과",
+  "dept_en": "DEPT. OF CLIMATE, ENVIRONMENT & ENERGY CONVERGENCE, JBNU",
+  "hero": [
+    {
+      "image": "assets/img/hero-slide1.jpg",
+      "title_ko": "자원개발부터 탄소중립까지",
+      "title_en": "From Resource Development\nto Carbon Neutrality",
+      "body_ko": "저희 연구실은 <strong>실험</strong>으로 데이터를 확보하고, <strong>시뮬레이션</strong>으로 업스케일하며, <strong>인공지능</strong>으로 확장합니다.\nHydrocarbon과 CO₂의 유체 유동 메커니즘을 규명하여, 현장 적용 가능한 최적 기법을 연구·개발합니다.",
+      "body_en": "We acquire data through <strong>experiments</strong>, upscale it with <strong>simulation</strong>, and extend it with <strong>AI</strong>.\nBy characterizing the flow mechanisms of hydrocarbons and CO₂,\nwe develop optimized techniques ready for field application."
+    },
+    {
+      "image": "assets/img/hero-slide2.jpg",
+      "title_ko": "2050 탄소중립",
+      "title_en": "2050 Carbon Neutrality",
+      "body_ko": "기후위기 시대, <strong>2050 탄소중립</strong>은 반드시 이루어야 할 과제입니다.\n지하 자원을 생산하던 기술은, 이제 지하에 <strong>탄소를 저장하는 기술로</strong> 전환됩니다.\n이건 <strong>자원공학만의 영역</strong>입니다.",
+      "body_en": "In the era of climate crisis, achieving <strong>2050 Carbon Neutrality</strong> is an imperative goal.\nTechnologies once used to produce subsurface resources\nnow <strong>transition to storing carbon</strong> underground.\nThis is <strong>the role of our discipline</strong>."
+    },
+    {
+      "image": "assets/img/hero-slide3.jpg",
+      "title_ko": "Well, also Transport",
+      "title_en": "Well, also Transport",
+      "body_ko": "자원 개발과 CO₂ 지중저장은 모두 파이프라인으로 이어집니다.\n지층과 연결되는 유정(Well)부터 지상 설비로 향하는 파이프라인(Pipeline)까지,\n<strong>Production, Well Testing, Flow Assurance</strong>를 아우르는\n통합 솔루션을 연구·개발합니다.",
+      "body_en": "Resource development and CO₂ storage both end up in pipelines.\nFrom the wells that reach the formation to the pipelines feeding surface facilities,\nwe develop integrated solutions across <strong>production, well testing, and flow assurance</strong>."
+    }
+  ],
+  "recruit": {
+    "show": true,
+    "badge_ko": "모집 중",
+    "badge_en": "Recruiting",
+    "text_ko": "<strong>학부연구생</strong>과 <strong>석사과정(석박사통합과정 포함)</strong> 학생을 모집 중입니다. 소속 학생에게는 심화 강의와 실무용 소프트웨어 교육을 제공합니다.",
+    "text_en": "We are recruiting <strong>undergraduate interns</strong> and <strong>M.S. (or integrated) students</strong>. In-depth courses and industry software training are provided.",
+    "link_ko": "모집 안내 →",
+    "link_en": "Learn more →"
   },
-  {
-   "image": "assets/img/hero-slide2.jpg",
-   "title_ko": "2050 탄소중립",
-   "title_en": "2050 Carbon Neutrality",
-   "body_ko": "기후위기 시대, <strong>2050 탄소중립</strong>은 반드시 이루어야 할 과제입니다.\n지하 자원을 생산하던 기술은, 이제 지하에 <strong>탄소를 저장하는 기술로</strong> 전환됩니다.\n이건 <strong>자원공학만의 영역</strong>입니다.",
-   "body_en": "In the era of climate crisis, achieving <strong>2050 Carbon Neutrality</strong> is an imperative goal.\nTechnologies once used to produce subsurface resources\nnow <strong>transition to storing carbon</strong> underground.\nThis is <strong>the role of our discipline</strong>."
-  },
-  {
-   "image": "assets/img/hero-slide3.jpg",
-   "title_ko": "Well, also Transport",
-   "title_en": "Well, also Transport",
-   "body_ko": "자원 개발과 CO₂ 지중저장은 모두 파이프라인으로 이어집니다.\n지층과 연결되는 유정(Well)부터 지상 설비로 향하는 파이프라인(Pipeline)까지,\n<strong>Production, Well Testing, Flow Assurance</strong>를 아우르는\n통합 솔루션을 연구·개발합니다.",
-   "body_en": "Resource development and CO₂ storage both end up in pipelines.\nFrom the wells that reach the formation to the pipelines feeding surface facilities,\nwe develop integrated solutions across <strong>production, well testing, and flow assurance</strong>."
+  "cards": [
+    {
+      "title_ko": "시뮬레이션",
+      "title_en": "Simulation",
+      "desc_ko": "<strong>저류층·유정·파이프라인</strong> 전 구간의 유동을 수치 모델링하여 현장 문제를 해석하고 장기 거동을 예측합니다.",
+      "desc_en": "Numerical modeling of flow across <strong>reservoirs, wells, and pipelines</strong> to interpret field problems and predict long-term behavior."
+    },
+    {
+      "title_ko": "CO₂ 지중저장",
+      "title_en": "CO₂ Storage",
+      "desc_ko": "CO₂를 심부 지층에 <strong>안전하게, 더 많이</strong> 저장하기 위한 실험·시뮬레이션·AI 연구를 수행합니다.",
+      "desc_en": "Experiments, simulation, and AI research to store CO₂ in deep formations <strong>safely and at greater capacity</strong>."
+    },
+    {
+      "title_ko": "유체 분석 실험",
+      "title_en": "Fluid Analysis",
+      "desc_ko": "<strong>코어 주입 실험</strong>과 <strong>접촉각·계면장력 측정</strong>으로 암석–유체 상호작용과 유동 메커니즘을 규명합니다.",
+      "desc_en": "<strong>Core flooding</strong> and <strong>contact angle/IFT measurements</strong> to characterize rock–fluid interactions and flow mechanisms."
+    },
+    {
+      "title_ko": "인공지능",
+      "title_en": "Artificial Intelligence",
+      "desc_ko": "머신러닝·최적화 알고리즘으로 <strong>생산량·저장량을 예측</strong>하고, 상충하는 목표를 동시에 만족하는 <strong>다목적 최적화</strong>를 수행합니다.",
+      "desc_en": "Machine learning and optimization to <strong>forecast production/storage</strong> and to perform <strong>multi-objective optimization</strong> of competing goals."
+    }
+  ],
+  "cta": {
+    "show": true,
+    "title_ko": "Reservoir부터 CCS까지 — 관심 있다면?",
+    "title_en": "From Reservoir to CCS — interested?",
+    "text_ko": "함께 연구할 <strong>학부연구생·대학원생</strong>을 모집합니다. Reservoir · Production · Well · Pipeline · CCS 전 분야에서 <strong>실험·시뮬레이션·AI</strong>를 경험할 수 있습니다.",
+    "text_en": "Recruiting <strong>undergraduate and graduate researchers</strong>. Gain hands-on experience in <strong>experiments, simulation, and AI</strong> across reservoir, production, well, pipeline, and CCS.",
+    "btn_ko": "지원 문의하기",
+    "btn_en": "Get in touch"
   }
- ],
- "recruit": {
-  "show": true,
-  "badge_ko": "모집 중",
-  "badge_en": "Recruiting",
-  "text_ko": "<strong>학부연구생</strong>과 <strong>석사과정(석박사통합과정 포함)</strong> 학생을 모집 중입니다. 소속 학생에게는 심화 강의와 상용 소프트웨어 교육을 제공합니다.",
-  "text_en": "We are recruiting <strong>undergraduate interns</strong> and <strong>M.S. (or integrated) students</strong>. In-depth courses and industry software training are provided.",
-  "link_ko": "모집 안내 →",
-  "link_en": "Learn more →"
- },
- "cards": [
-  {
-   "title_ko": "시뮬레이션",
-   "title_en": "Simulation",
-   "desc_ko": "<strong>저류층·유정·파이프라인</strong> 전 구간의 유동을 수치 모델링하여 현장 문제를 해석하고 장기 거동을 예측합니다.",
-   "desc_en": "Numerical modeling of flow across <strong>reservoirs, wells, and pipelines</strong> to interpret field problems and predict long-term behavior."
-  },
-  {
-   "title_ko": "CO₂ 지중저장",
-   "title_en": "CO₂ Storage",
-   "desc_ko": "CO₂를 심부 지층에 <strong>안전하게, 더 많이</strong> 저장하기 위한 실험·시뮬레이션·AI 연구를 수행합니다.",
-   "desc_en": "Experiments, simulation, and AI research to store CO₂ in deep formations <strong>safely and at greater capacity</strong>."
-  },
-  {
-   "title_ko": "유체 분석 실험",
-   "title_en": "Fluid Analysis",
-   "desc_ko": "<strong>코어 주입 실험</strong>과 <strong>접촉각·계면장력 측정</strong>으로 암석–유체 상호작용과 유동 메커니즘을 규명합니다.",
-   "desc_en": "<strong>Core flooding</strong> and <strong>contact angle/IFT measurements</strong> to characterize rock–fluid interactions and flow mechanisms."
-  },
-  {
-   "title_ko": "인공지능",
-   "title_en": "Artificial Intelligence",
-   "desc_ko": "머신러닝·최적화 알고리즘으로 <strong>생산량·저장량을 예측</strong>하고, 상충하는 목표를 동시에 만족하는 <strong>다목적 최적화</strong>를 수행합니다.",
-   "desc_en": "Machine learning and optimization to <strong>forecast production/storage</strong> and to perform <strong>multi-objective optimization</strong> of competing goals."
-  }
- ],
- "cta": {
-  "show": true,
-  "title_ko": "Reservoir부터 CCS까지 — 관심 있다면?",
-  "title_en": "From Reservoir to CCS — interested?",
-  "text_ko": "함께 연구할 <strong>학부연구생·대학원생</strong>을 모집합니다. Reservoir · Production · Well · Pipeline · CCS 전 분야에서 <strong>실험·시뮬레이션·AI</strong>를 경험할 수 있습니다.",
-  "text_en": "Recruiting <strong>undergraduate and graduate researchers</strong>. Gain hands-on experience in <strong>experiments, simulation, and AI</strong> across reservoir, production, well, pipeline, and CCS.",
-  "btn_ko": "지원 문의하기",
-  "btn_en": "Get in touch"
- }
 }
