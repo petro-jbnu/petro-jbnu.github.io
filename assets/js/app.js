@@ -83,6 +83,8 @@
   var slides = document.querySelectorAll(".hero-slide");
   var dots = document.querySelectorAll(".hero-dot");
   var captions = document.querySelectorAll(".hero-caption");
+  var heroN = slides.length;
+  var setHeroCount = function () {};
   if (slides.length > 1 && dots.length === slides.length) {
     var current = 0, interval = null;
     function setCaption(idx, on) {
@@ -95,12 +97,24 @@
       slides[current].classList.remove("opacity-100"); slides[current].classList.add("opacity-0");
       dots[current].classList.remove("bg-white"); dots[current].classList.add("bg-white/40");
       setCaption(current, false);
-      current = (i + slides.length) % slides.length;
+      current = (i + heroN) % heroN;
       slides[current].classList.remove("opacity-0"); slides[current].classList.add("opacity-100");
       dots[current].classList.remove("bg-white/40"); dots[current].classList.add("bg-white");
       setCaption(current, true);
     }
     function reset() { clearInterval(interval); interval = setInterval(function () { show(current + 1); }, 5000); }
+    /* 등록된 히어로 장수가 DOM보다 적으면 초과 슬라이드·도트·캡션을 숨기고 회전 범위를 줄임 */
+    setHeroCount = function (n) {
+      if (!n || n < 1 || n >= slides.length) return;
+      for (var k = n; k < slides.length; k++) {
+        slides[k].style.display = "none";
+        if (dots[k]) dots[k].style.display = "none";
+        if (captions[k]) captions[k].style.display = "none";
+      }
+      if (current >= n) show(0);
+      heroN = n;
+      if (n === 1) clearInterval(interval);
+    };
     dots.forEach(function (d, i) { d.addEventListener("click", function () { show(i); reset(); }); });
     var hero = document.getElementById("hero");
     if (hero) {
@@ -543,12 +557,77 @@
     }, ["whatwedo-list", "partner-list"]);
   }
 
-  /* ============ 12. 홈 히어로 이미지 (data/home.json) ============ */
-  if (slides.length) {
+  /* ============ 12. 홈 화면 (data/home.json)
+     설계: HTML의 기존 문구가 기본값이고, JSON에 값이 있을 때만 덮어씁니다(override).
+     → 검색엔진은 HTML 원문을, 방문자는 최신 JSON 문구를 봅니다. ============ */
+  function biRich(ko, en) { return bi(rich(ko), rich(en == null || en === "" ? ko : en)); }
+  function biText(ko, en) { return bi(esc(ko), esc(en == null || en === "" ? ko : en)); }
+  if (slides.length || document.querySelector("[data-home]")) {
     load("data/home.json", function (data) {
-      (data.hero || []).forEach(function (h, i) {
+      var el, i;
+
+      /* 12-A. 히어로 배경 이미지 + 캡션 */
+      var hero = data.hero || [];
+      hero.forEach(function (h, i) {
         if (slides[i] && h.image) slides[i].style.backgroundImage = "url('" + h.image + "')";
+        var cap = captions[i];
+        if (!cap) return;
+        var h1 = cap.querySelector("h1"), hp = cap.querySelector("p");
+        if (h1 && (h.title_ko || h.title_en)) h1.innerHTML = biRich(h.title_ko || h.title_en, h.title_en);
+        if (hp && (h.body_ko || h.body_en)) hp.innerHTML = biRich(h.body_ko || h.body_en, h.body_en);
       });
+      if (hero.length) setHeroCount(hero.length);
+
+      /* 12-B. 학과 태그라인 */
+      el = document.querySelector('[data-home="dept"]');
+      if (el && data.dept_ko) el.innerHTML = biText(data.dept_ko, data.dept_en);
+
+      /* 12-C. 모집 배너 */
+      var rc = data.recruit || {};
+      el = document.querySelector('[data-home="recruit"]');
+      if (el) {
+        if (rc.show === false) {
+          el.style.display = "none";
+        } else {
+          var rb = el.querySelector("span.shrink-0"), rp = el.querySelector("p"), ra = el.querySelector("p a");
+          if (rb && rc.badge_ko) rb.innerHTML = biText(rc.badge_ko, rc.badge_en);
+          if (rp && (rc.text_ko || rc.text_en)) {
+            rp.innerHTML = biRich(rc.text_ko || rc.text_en, rc.text_en) + " ";
+            if (ra) rp.appendChild(ra);
+          }
+          if (ra && rc.link_ko) ra.innerHTML = biText(rc.link_ko, rc.link_en);
+        }
+      }
+
+      /* 12-D. 연구 카드 (최대 4장, 이동 주소는 HTML 고정) */
+      var cards = document.querySelectorAll('[data-home="cards"] > div');
+      var cl = data.cards || [];
+      cl.forEach(function (c, i) {
+        var card = cards[i];
+        if (!card) return;
+        var ch = card.querySelector("h3"), cp = card.querySelector("p");
+        if (ch && (c.title_ko || c.title_en)) ch.innerHTML = biText(c.title_ko || c.title_en, c.title_en);
+        if (cp && (c.desc_ko || c.desc_en)) cp.innerHTML = biRich(c.desc_ko || c.desc_en, c.desc_en);
+      });
+      if (cl.length) { for (i = cl.length; i < cards.length; i++) cards[i].style.display = "none"; }
+
+      /* 12-E. 하단 CTA 배너 */
+      var ct = data.cta || {};
+      el = document.querySelector('[data-home="cta"]');
+      if (el) {
+        if (ct.show === false) {
+          el.style.display = "none";
+        } else {
+          var th = el.querySelector("h2"), tp = el.querySelector("p"), ta = el.querySelector("a");
+          if (th && ct.title_ko) th.innerHTML = biText(ct.title_ko, ct.title_en);
+          if (tp && (ct.text_ko || ct.text_en)) tp.innerHTML = biRich(ct.text_ko || ct.text_en, ct.text_en);
+          if (ta && ct.btn_ko) {
+            var icon = ta.querySelector(".material-symbols-outlined");
+            ta.innerHTML = biText(ct.btn_ko, ct.btn_en);
+            if (icon) ta.appendChild(icon);
+          }
+        }
+      }
     }, []);
   }
 
