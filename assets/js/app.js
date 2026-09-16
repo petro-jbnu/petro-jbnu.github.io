@@ -182,16 +182,36 @@
     if (prev) prev.addEventListener("click", function () { renderCalendar(el, events, m === 0 ? y - 1 : y, m === 0 ? 11 : m - 1, compact); });
     if (next) next.addEventListener("click", function () { renderCalendar(el, events, m === 11 ? y + 1 : y, m === 11 ? 0 : m + 1, compact); });
   }
+  function eventRow(e, past) {
+    var dateCls = past ? "text-on-surface-variant" : "text-primary";
+    return '<div class="flex items-start gap-xs py-1.5 border-b border-outline-variant/40 last:border-0">' +
+      '<span class="font-data-tabular text-[12.5px] font-semibold ' + dateCls + ' shrink-0 w-[74px]">' + esc(e.date.slice(5).replace("-", ".")) + "</span>" +
+      '<span class="font-body-md text-[13.5px] text-on-surface-variant">' + bi(esc(e.title_ko), esc(e.title_en || e.title_ko)) + "</span></div>";
+  }
   function upcomingList(events, n) {
     var now = new Date(); now.setHours(0, 0, 0, 0);
     var up = (events || []).filter(function (e) { return new Date(e.date + "T00:00:00") >= now; })
-      .sort(function (a, b) { return a.date < b.date ? -1 : 1; }).slice(0, n);
+      .sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+    if (n) up = up.slice(0, n);
     if (!up.length) return '<p class="font-body-md text-[13.5px] text-on-surface-variant">' + bi("예정된 일정이 없습니다.", "No upcoming events.") + "</p>";
-    return up.map(function (e) {
-      return '<div class="flex items-start gap-xs py-1.5 border-b border-outline-variant/40 last:border-0">' +
-        '<span class="font-data-tabular text-[12.5px] font-semibold text-primary shrink-0 w-[74px]">' + esc(e.date.slice(5).replace("-", ".")) + "</span>" +
-        '<span class="font-body-md text-[13.5px] text-on-surface-variant">' + bi(esc(e.title_ko), esc(e.title_en || e.title_ko)) + "</span></div>";
-    }).join("");
+    return up.map(function (e) { return eventRow(e, false); }).join("");
+  }
+  function pastListHtml(events, n) {
+    var now = new Date(); now.setHours(0, 0, 0, 0);
+    var pastEv = (events || []).filter(function (e) { return new Date(e.date + "T00:00:00") < now; })
+      .sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    if (n) pastEv = pastEv.slice(0, n);
+    if (!pastEv.length) return '<p class="font-body-md text-[13.5px] text-on-surface-variant">' + bi("지난 일정이 없습니다.", "No past events.") + "</p>";
+    return pastEv.map(function (e) { return eventRow(e, true); }).join("");
+  }
+  function injectSchStyle() {
+    if (document.getElementById("sch-scroll-style")) return;
+    var s = document.createElement("style");
+    s.id = "sch-scroll-style";
+    s.textContent = "@media (min-width:768px){.sch-scroll{max-height:420px;overflow-y:auto;padding-right:6px;scrollbar-width:thin;scrollbar-color:#c2ced5 transparent}" +
+      ".sch-scroll::-webkit-scrollbar{width:7px}.sch-scroll::-webkit-scrollbar-thumb{background:#c2ced5;border-radius:8px}" +
+      ".sch-scroll::-webkit-scrollbar-track{background:transparent}}";
+    document.head.appendChild(s);
   }
 
   var miniCal = document.getElementById("mini-cal");
@@ -208,7 +228,26 @@
       if (calFull) {
         renderCalendar(calFull, ev, now.getFullYear(), now.getMonth(), false);
         var ul2 = document.getElementById("upcoming-list-full");
-        if (ul2) ul2.innerHTML = upcomingList(ev, 8);
+        if (ul2) {
+          injectSchStyle();
+          var tabs = document.querySelectorAll(".sch-tab");
+          function paintSch(mode) {
+            ul2.innerHTML = mode === "past" ? pastListHtml(ev, 0) : upcomingList(ev, 0);
+            tabs.forEach(function (t) {
+              var on = t.getAttribute("data-sch") === mode;
+              t.classList.toggle("bg-primary", on);
+              t.classList.toggle("text-white", on);
+              t.classList.toggle("bg-surface-container-lowest", !on);
+              t.classList.toggle("text-on-surface-variant", !on);
+              t.classList.toggle("border", !on);
+              t.classList.toggle("border-outline-variant", !on);
+            });
+          }
+          tabs.forEach(function (t) {
+            t.addEventListener("click", function () { paintSch(t.getAttribute("data-sch")); });
+          });
+          paintSch("up");
+        }
       }
     }, ["mini-cal", "cal-full"]);
   }
