@@ -196,8 +196,18 @@ collections:
               - { label: "분류", name: "category", widget: "select", options: ["교육", "워크샵", "기타"], default: "기타" }
               - { label: "제목(한국어)", name: "title_ko", widget: "string" }
               - { label: "제목(영어)", name: "title_en", widget: "string" }
-              - { label: "내용(한국어)", name: "body_ko", widget: "text" }
+              - { label: "내용(한국어) — 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "body_ko", widget: "text" }
               - { label: "내용(영어)", name: "body_en", widget: "text" }
+              - label: "사진 (최대 3장, 상세 화면에 표시)"
+                name: "images"
+                widget: "list"
+                max: 3
+                required: false
+                summary: "{{fields.caption_ko}}"
+                fields:
+                  - { label: "사진", name: "image", widget: "image" }
+                  - { label: "설명(한국어, 선택)", name: "caption_ko", widget: "string", required: false }
+                  - { label: "설명(영어, 선택)", name: "caption_en", widget: "string", required: false }
 
       # ---------------- Schedule ----------------
       - name: "schedule"
