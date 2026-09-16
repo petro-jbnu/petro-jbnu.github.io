@@ -79,28 +79,38 @@
   ],
   "partners": [
     {
-      "name_ko": "한국에너지기술평가원",
-      "name_en": "KETEP",
+      "name_ko": "한국가스공사",
+      "name_en": "Korea Gas Corporation",
+      "highlight": true
+    },
+    {
+      "name_ko": "한국석유공사",
+      "name_en": "Korea National Oil Corporation",
       "highlight": true
     },
     {
       "name_ko": "한국지질자원연구원",
-      "name_en": "KIGAM",
+      "name_en": "Korea Institute of Geoscience and Mineral Resources",
       "highlight": true
     },
     {
-      "name_ko": "한국가스공사",
-      "name_en": "KOGAS",
+      "name_ko": "한국 CCUS 추진단",
+      "name_en": "Korea CCUS Association",
+      "highlight": true
+    },
+    {
+      "name_ko": "한국에너지기술평가원",
+      "name_en": "Korea Institute of Energy Technology Evaluation and Planning",
+      "highlight": true
+    },
+    {
+      "name_ko": "정보통신기술평가원",
+      "name_en": "Institute for Information & communications Technology Planning & evaluation",
       "highlight": true
     },
     {
       "name_ko": "포스코인터내셔널",
       "name_en": "POSCO International",
-      "highlight": false
-    },
-    {
-      "name_ko": "HD현대중공업",
-      "name_en": "HD Hyundai Heavy Industries",
       "highlight": false
     },
     {
