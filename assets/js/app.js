@@ -437,6 +437,33 @@
     }, ["equipment-list"]);
   }
 
+  /* ---- 연구 과제 기간·상태 helper ----
+     기간: start_year/start_month/end_year/end_month (드롭다운). 종료가 "미정"이면 진행 중으로 표시.
+     상태: "진행 중"/"종료"를 직접 고르면 그 값을 쓰고, "자동(기간 기준)"이면 종료 연월로 판정.
+     구 형식(period 문자열)도 계속 표시되도록 호환 유지. */
+  var GRANT_ST_EN = { "진행 중": "Ongoing", "종료": "Completed" };
+  function gPeriod(g) {
+    if (g.start_year) {
+      var s = String(g.start_year) + (g.start_month ? "." + g.start_month : "");
+      var openEnd = !g.end_year || g.end_year === "미정";
+      var e = openEnd ? null : String(g.end_year) + (g.end_month && g.end_month !== "미정" ? "." + g.end_month : "");
+      return {
+        ko: s + " – " + (e || "진행 중"),
+        en: s + " – " + (e || "Present"),
+        endNum: openEnd ? null : parseInt(g.end_year, 10) * 100 + parseInt(g.end_month && g.end_month !== "미정" ? g.end_month : "12", 10)
+      };
+    }
+    var m = String(g.period || "").match(/(\d{4})\s*[.\-\/]\s*(\d{1,2})(?!.*\d{4})/);
+    return { ko: g.period || "", en: g.period || "", endNum: m ? parseInt(m[1], 10) * 100 + parseInt(m[2], 10) : null };
+  }
+  function gStatus(g) {
+    if (g.status === "진행 중" || g.status === "종료") return g.status;
+    var end = gPeriod(g).endNum;
+    if (end == null) return "진행 중";
+    var n = new Date();
+    return end >= n.getFullYear() * 100 + (n.getMonth() + 1) ? "진행 중" : "종료";
+  }
+
   /* ============ 9b. 연구 과제 (Grants) ============ */
   var grantList = document.getElementById("grant-list");
   if (grantList) {
@@ -446,25 +473,18 @@
       if (gc) gc.textContent = items.length;
       // 진행 연구 과제: period의 종료 연월이 현재 이후인 과제 수 (해석 불가 시 진행으로 간주)
       var ga = document.getElementById("grant-active-count");
-      if (ga) {
-        var now = new Date();
-        var cur = now.getFullYear() * 100 + (now.getMonth() + 1);
-        ga.textContent = items.filter(function (g) {
-          var m = String(g.period || "").match(/(\d{4})\s*[.\-\/]\s*(\d{1,2})(?!.*\d{4})/);
-          if (!m) return true;
-          return (parseInt(m[1], 10) * 100 + parseInt(m[2], 10)) >= cur;
-        }).length;
-      }
+      if (ga) ga.textContent = items.filter(function (g) { return gStatus(g) === "진행 중"; }).length;
       grantList.innerHTML = items.map(function (g) {
-        var roleCls = (g.role_ko || "") === "주관" ? "bg-primary-container text-on-primary-container" : "bg-surface-container text-on-surface-variant border border-outline-variant";
+        var pd = gPeriod(g), st = gStatus(g);
+        var stCls = st === "진행 중" ? "bg-primary-container text-on-primary-container" : "bg-surface-container text-on-surface-variant border border-outline-variant";
         return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex flex-col md:flex-row md:items-center gap-sm transition-shadow hover:shadow-md relative overflow-hidden">' +
           '<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>' +
           '<div class="flex-1">' +
           '<h3 class="font-body-lg font-bold text-on-surface">' + bi(esc(g.title_ko), esc(g.title_en || g.title_ko)) + "</h3>" +
           '<p class="font-body-md text-[14.5px] text-on-surface-variant mt-1">' + bi(esc(g.agency_ko || ""), esc(g.agency_en || g.agency_ko || "")) + "</p></div>" +
           '<div class="flex items-center gap-sm shrink-0">' +
-          '<span class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(g.period || "") + "</span>" +
-          '<span class="inline-flex items-center px-sm py-1 rounded-full font-label-caps ' + roleCls + '">' + bi(esc(g.role_ko || ""), esc(g.role_en || g.role_ko || "")) + "</span>" +
+          '<span class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + bi(esc(pd.ko), esc(pd.en)) + "</span>" +
+          '<span class="inline-flex items-center px-sm py-1 rounded-full font-label-caps ' + stCls + '">' + bi(esc(st), esc(GRANT_ST_EN[st] || st)) + "</span>" +
           "</div></div>";
       }).join("");
     }, ["grant-list"]);
