@@ -33,6 +33,17 @@
       "end_year": "2027",
       "end_month": "04",
       "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "인공지능과 디지털 트윈 융합을 통한 스마트 이산화탄소 저장소 운영 혁신 글로벌 인력양성사업",
+      "title_en": "Global Talent Development Program for Innovative Smart Carbon Capture and Storage Operations through Artificial Intelligence and Digital Twin Integration",
+      "agency_ko": "정보통신기획평가원 (IITP)",
+      "agency_en": "Institute for Information & communications Technology Planning & Evaluation (IITP)",
+      "start_year": "2024",
+      "start_month": "04",
+      "end_year": "2026",
+      "end_month": "12",
+      "status": "자동(기간 기준)"
     }
   ]
 }
