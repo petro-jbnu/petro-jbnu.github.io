@@ -487,6 +487,7 @@
           '<span class="inline-flex items-center px-sm py-1 rounded-full font-label-caps ' + stCls + '">' + bi(esc(st), esc(GRANT_ST_EN[st] || st)) + "</span>" +
           "</div></div>";
       }).join("");
+      setupPubList(grantList, items.length);
     }, ["grant-list"]);
   }
 
@@ -835,6 +836,10 @@
         }
       }
 
+      /* 14-B2. Contact JOIN US의 '이메일 보내기' 버튼 주소 */
+      var joinMail = document.querySelector('[data-join] a[href^="mailto:"]');
+      if (joinMail && c.email) joinMail.setAttribute("href", "mailto:" + c.email);
+
       /* 14-C. 전 페이지 하단 푸터 (HTML 수정 없이 구조로 탐색) */
       var heads = document.querySelectorAll("footer h4"), fUl = null;
       for (var hi = 0; hi < heads.length; hi++) {
@@ -867,6 +872,28 @@
       if (crumb && (v.crumb_ko || v.crumb_en)) {
         var home = crumb.querySelector("a");
         crumb.innerHTML = (home ? home.outerHTML : "") + " / " + biText(v.crumb_ko || v.crumb_en, v.crumb_en);
+      }
+      /* 15-B. Contact 페이지 JOIN US 섹션 (제목 + 카드 최대 3장 + 이메일 버튼 문구) */
+      var joinBox = document.querySelector("[data-join]");
+      if (joinBox) {
+        var jh = joinBox.querySelector("h2");
+        if (jh && (v.join_title_ko || v.join_title_en)) jh.innerHTML = biRich(v.join_title_ko || v.join_title_en, v.join_title_en);
+        var jcards = joinBox.querySelectorAll(".grid > div");
+        var jl = v.join_cards || [];
+        jl.forEach(function (c, i) {
+          var card = jcards[i];
+          if (!card) return;
+          var t3 = card.querySelector("h3"), tp = card.querySelector("p");
+          if (t3 && (c.title_ko || c.title_en)) t3.innerHTML = biText(c.title_ko || c.title_en, c.title_en);
+          if (tp && (c.body_ko || c.body_en)) tp.innerHTML = biRich(c.body_ko || c.body_en, c.body_en);
+        });
+        if (jl.length) { for (var ji = jl.length; ji < jcards.length; ji++) jcards[ji].style.display = "none"; }
+        var jb = joinBox.querySelector('a[href^="mailto:"]');
+        if (jb && (v.join_btn_ko || v.join_btn_en)) {
+          var jic = jb.querySelector(".material-symbols-outlined");
+          jb.innerHTML = biText(v.join_btn_ko || v.join_btn_en, v.join_btn_en);
+          if (jic) jb.appendChild(jic);
+        }
       }
     }, []);
   }
