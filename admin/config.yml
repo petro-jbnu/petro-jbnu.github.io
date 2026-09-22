@@ -176,6 +176,21 @@ collections:
               - { label: "소개 문구(영어)", name: "lead_en", widget: "text", required: false }
               - { label: "이동 경로 표기(한국어)  예: Home / 구성원", name: "crumb_ko", widget: "string", required: false }
               - { label: "이동 경로 표기(영어)", name: "crumb_en", widget: "string", required: false }
+              - { label: "JOIN US 제목(한국어)", name: "join_title_ko", widget: "string", required: false }
+              - { label: "JOIN US 제목(영어)", name: "join_title_en", widget: "string", required: false }
+              - label: "JOIN US 안내 카드 (최대 3장, 3번째 카드에 '이메일 보내기' 버튼이 붙습니다)"
+                name: "join_cards"
+                widget: "list"
+                max: 3
+                required: false
+                summary: "{{fields.title_ko}}"
+                fields:
+                  - { label: "카드 제목(한국어)", name: "title_ko", widget: "string" }
+                  - { label: "카드 제목(영어)", name: "title_en", widget: "string", required: false }
+                  - { label: "카드 내용(한국어)  ※ 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "body_ko", widget: "text", required: false }
+                  - { label: "카드 내용(영어)", name: "body_en", widget: "text", required: false }
+              - { label: "이메일 버튼 문구(한국어)  ※ 받는 주소는 '지도교수 · 연락처'의 대표 이메일", name: "join_btn_ko", widget: "string", required: false }
+              - { label: "이메일 버튼 문구(영어)", name: "join_btn_en", widget: "string", required: false }
 
       # ---------------- Projects ----------------
       - name: "projects"
