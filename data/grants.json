@@ -44,6 +44,149 @@
       "end_year": "2026",
       "end_month": "12",
       "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "대수층 내 CO2 주입증진공법 선정기준 및 기법별 적정주입공 패턴방안 도출",
+      "title_en": "Development of Screening Criteria for Enhanced CO2 Injection and Optimal Injection Well Patterns into the Aquifer",
+      "agency_ko": "한국가스공사 (KOGAS)",
+      "agency_en": "Korea Gas Corporation (KOGAS)",
+      "start_year": "2024",
+      "start_month": "08",
+      "end_year": "2026",
+      "end_month": "07",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "온실가스 감축을 위한 호남권 CCUS 혁신인재양성 프로그램",
+      "title_en": "온실가스 감축을 위한 호남권 CCUS 혁신인재양성 프로그램",
+      "agency_ko": "K-CCUS 추진단",
+      "agency_en": "Korea CCUS Association",
+      "start_year": "2022",
+      "start_month": "07",
+      "end_year": "2025",
+      "end_month": "02",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "블루수소 생산 대상국 기술시장 자료 조사 및 경제성 분석모듈 개발",
+      "title_en": "Technology Market Survey and Development of Economic Analysis Module for the Blue Hydrogen Production Countries",
+      "agency_ko": "한국지질자원연구원 (KIGAM)",
+      "agency_en": "Korea Institute of Geoscience and Mineral Resources (KIGAM)",
+      "start_year": "2024",
+      "start_month": "01",
+      "end_year": "2024",
+      "end_month": "11",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "Canada-South Korea Climate Action Partnership: Emission Reduction Paths and Effects Evaluation",
+      "title_en": "Canada-South Korea Climate Action Partnership: Emission Reduction Paths and Effects Evaluation",
+      "agency_ko": "Canada-China Energy & Environment Forum Inc.",
+      "agency_en": "Canada-China Energy & Environment Forum Inc.",
+      "start_year": "2024",
+      "start_month": "04",
+      "end_year": "2024",
+      "end_month": "09",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "탄산염암 유전의 나노유체 주입을 통한 오일회수 증진기법 개발",
+      "title_en": "The technology development of nano-fluid flooding for enhanced  oil recovery in carbonate oil reservoir",
+      "agency_ko": "한국연구재단 (NRF)",
+      "agency_en": "National Research Foundation of Korea (NRF)",
+      "start_year": "2019",
+      "start_month": "03",
+      "end_year": "2023",
+      "end_month": "05",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "블루수소 연계 배관망 내 수소 및 이산화탄소 누출 감지를 위한 인공지능 기술 개발",
+      "title_en": "Development of artificial intelligence technology to detect hydrogen and carbon dioxide leaks in pipeline networks linked with blue hydrogen",
+      "agency_ko": "정보통신기획평가원 (IITP)",
+      "agency_en": "Institute for Information & communications Technology Planning & Evaluation (IITP)",
+      "start_year": "2021",
+      "start_month": "09",
+      "end_year": "2022",
+      "end_month": "08",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "CCS와 연계한 인공지능 기반 CO2-EOR 평가모델 개발",
+      "title_en": "Development of assessment model based on AI for CO2-EOR coupled with CCS",
+      "agency_ko": "한국연구재단 (NRF)",
+      "agency_en": "National Research Foundation of Korea (NRF)",
+      "start_year": "2019",
+      "start_month": "06",
+      "end_year": "2022",
+      "end_month": "05",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "지하 배관망의 안정적 운영 및 관리를 위한 실시간 AI/IoT 통합 솔루션 개발",
+      "title_en": "Development of a real-time AI/ICT solution for the stable operation and maintainance of underground pipeline network",
+      "agency_ko": "정보통신기획평가원 (IITP)",
+      "agency_en": "Institute for Information & communications Technology Planning & Evaluation (IITP)",
+      "start_year": "2020",
+      "start_month": "06",
+      "end_year": "2021",
+      "end_month": "05",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "해양 유․가스전 생산시설 역설계 및 유지보수 스마트 운영솔루션 개발",
+      "title_en": "Development of the smart management solutions for offshore oil & gas field using ICT and reverse engineering methods",
+      "agency_ko": "한국가스공사 (KOGAS)",
+      "agency_en": "Korea Gas Corporation (KOGAS)",
+      "start_year": "2017",
+      "start_month": "12",
+      "end_year": "2020",
+      "end_month": "11",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "유전 생산시설의 파라핀 침전 진단 및 예측 전산시뮬레이션 설계",
+      "title_en": "Prediction of paraffin deposition through the computer simulation in oil production system",
+      "agency_ko": "전북대학교",
+      "agency_en": "Jeonbuk National University (JBNU)",
+      "start_year": "2018",
+      "start_month": "08",
+      "end_year": "2018",
+      "end_month": "10",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "4차 산업혁명 기반기술을 활용한 가스산업 기술개발 전략 수립 연구",
+      "title_en": "The Study for the Establishment of Technology Development Strategy in Gas Industry by applying Fourth Industrial Revolution Technology",
+      "agency_ko": "한국가스공사 (KOGAS)",
+      "agency_en": "Korea Gas Corporation (KOGAS)",
+      "start_year": "2017",
+      "start_month": "09",
+      "end_year": "2018",
+      "end_month": "08",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "셰일가스층 파쇄효율 향상을 위한 탐사프로세스 및 실증연구",
+      "title_en": "Research on Exploration Technologies and an On-site Verification to Enhance the Fracturing Efficiency of a Shale Gas Formation",
+      "agency_ko": "한국가스공사 (KOGAS)",
+      "agency_en": "Korea Gas Corporation (KOGAS)",
+      "start_year": "2013",
+      "start_month": "12",
+      "end_year": "2017",
+      "end_month": "09",
+      "status": "자동(기간 기준)"
+    },
+    {
+      "title_ko": "탄산염암 유전에서의 이산화탄소 지중저장과 오일 회수증진을 위한 CO2 공법 적용성 평가",
+      "title_en": "탄산염암 유전에서의 이산화탄소 지중저장과 오일 회수증진을 위한 CO2 공법 적용성 평가",
+      "agency_ko": "한국연구재단 (NRF)",
+      "agency_en": "National Research Foundation of Korea (NRF)",
+      "start_year": "2014",
+      "start_month": "07",
+      "end_year": "2017",
+      "end_month": "06",
+      "status": "자동(기간 기준)"
     }
   ]
 }
