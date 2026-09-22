@@ -60,6 +60,30 @@
   "lead_ko": "연구실 방문, 공동연구, 대학원 진학 관련 문의처입니다.",
   "lead_en": "Inquiries about visits, collaboration, and graduate study.",
   "crumb_ko": "Contact",
-  "crumb_en": "Contact"
+  "crumb_en": "Contact",
+  "join_title_ko": "학부연구생과 대학원생 생활에 관심있는 학생은 연락바랍니다.",
+  "join_title_en": "Interested in undergraduate research or graduate study? Contact us.",
+  "join_cards": [
+   {
+    "title_ko": "배웁니다",
+    "title_en": "What You Learn",
+    "body_ko": "<strong>저류공학·CCS 이론</strong>부터 실험 장비 운용, <strong>상용 시뮬레이터</strong>, 머신러닝까지 — 소속 학생 대상 심화 강의와 소프트웨어 교육을 별도로 진행합니다.",
+    "body_en": "From <strong>reservoir engineering and CCS theory</strong> to lab equipment, <strong>commercial simulators</strong>, and machine learning — with dedicated in-depth courses and software training."
+   },
+   {
+    "title_ko": "찾습니다",
+    "title_en": "Who We Seek",
+    "body_ko": "에너지·환경 문제에 관심이 있고, <strong>실험이나 프로그래밍, 시뮬레이션 S/W</strong>를 배우고 싶은 학생을 환영합니다.",
+    "body_en": "Students interested in energy and environmental problems who want to learn <strong>experiments, programming, and simulation software</strong>."
+   },
+   {
+    "title_ko": "지원 방법",
+    "title_en": "How to Apply",
+    "body_ko": "간단한 자기소개와 관심 분야를 <strong>이메일</strong>로 보내거나, <strong>공과대학 2호관 307호</strong>로 방문해주세요.",
+    "body_en": "Send a brief introduction with your areas of interest by <strong>email</strong>, or visit <strong>Rm 307, Engineering Bldg. 2</strong>."
+   }
+  ],
+  "join_btn_ko": "이메일 보내기",
+  "join_btn_en": "Send an email"
  }
 }
