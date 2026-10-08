@@ -47,12 +47,12 @@
     "crumb_en": "Members"
   },
   "equipment": {
-    "title_ko": "",
-    "title_en": "",
-    "lead_ko": "",
-    "lead_en": "",
-    "crumb_ko": "",
-    "crumb_en": ""
+    "title_ko": "연구실 장비",
+    "title_en": "Laboratory Equipment",
+    "lead_ko": "연구실에서 보유 중인 다양한 실험 및 전산 장비입니다.",
+    "lead_en": "Experimental apparatus and computational resources used in our research.",
+    "crumb_ko": "Home / 연구실 장비",
+    "crumb_en": "Home / Equipment"
   },
   "contact": {
     "title_ko": "찾아오시는 길 · 문의",
