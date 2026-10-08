@@ -20,3 +20,11 @@
   font-display: block;
   src: url("../fonts/material-symbols-outlined.woff2") format("woff2-variations");
 }
+
+/* ---- 줄바꿈 규칙 (v25) ----
+   한글은 어절(띄어쓰기) 단위로만 줄바꿈하고, 공백 없는 긴 영문·주소(DOI, URL, 이메일)는
+   칸을 넘칠 때에만 예외적으로 끊습니다. 제목은 줄 길이를 고르게, 본문은 마지막 줄에 한 단어만 남지 않게 합니다.
+   (text-wrap은 지원 브라우저에서만 적용되는 보조 기능이며, 미지원 브라우저에서도 어절 단위 줄바꿈은 유지됩니다) */
+html { word-break: keep-all; overflow-wrap: anywhere; }
+h1, h2, h3, h4 { text-wrap: balance; }
+p, li, figcaption, td, th, blockquote { text-wrap: pretty; }
