@@ -285,16 +285,6 @@
           "cap_en": "Well/pipeline system schematic"
         },
         {
-          "image": "assets/img/fig-production-forecast.png",
-          "cap_ko": "운영 데이터 기반 모델 검증",
-          "cap_en": "Model validation with operating data"
-        },
-        {
-          "image": "assets/img/fig-neural-network.png",
-          "cap_ko": "누출 진단 AI 모델 구조",
-          "cap_en": "AI diagnosis model architecture"
-        },
-        {
           "image": "assets/img/fig-nodal.png",
           "cap_ko": "수송 시스템 설계",
           "cap_en": "Transportation System Design"
