@@ -192,6 +192,65 @@ collections:
               - { label: "이메일 버튼 문구(한국어)  ※ 받는 주소는 '지도교수 · 연락처'의 대표 이메일", name: "join_btn_ko", widget: "string", required: false }
               - { label: "이메일 버튼 문구(영어)", name: "join_btn_en", widget: "string", required: false }
 
+      # ---------------- 연구 분야 페이지 본문 ----------------
+      - name: "research_area"
+        label: "연구 분야 페이지 (본문)"
+        file: "data/research-area.json"
+        fields:
+          - { label: "메모", name: "_comment", widget: "hidden", required: false }
+          - { label: "표 위 소제목(한국어)", name: "matrix_title_ko", widget: "string", required: false }
+          - { label: "표 위 소제목(영어)", name: "matrix_title_en", widget: "string", required: false }
+          - { label: "표 위 설명(한국어)  ※ 굵게: <strong>글자</strong>", name: "matrix_lead_ko", widget: "text", required: false }
+          - { label: "표 위 설명(영어)", name: "matrix_lead_en", widget: "text", required: false }
+          - { label: "표 1열 머리글", name: "col_sim", widget: "string", default: "SIMULATION" }
+          - { label: "표 2열 머리글", name: "col_exp", widget: "string", default: "EXPERIMENT" }
+          - { label: "표 3열 머리글", name: "col_ai", widget: "string", default: "AI" }
+          - label: "표 — 연구 분야(행)"
+            name: "rows"
+            widget: "list"
+            summary: "{{fields.title_ko}}"
+            fields:
+              - { label: "분야명(한국어)", name: "title_ko", widget: "string" }
+              - { label: "분야명(영어)", name: "title_en", widget: "string", required: false }
+              - label: "1열 항목 (기본: SIMULATION)"
+                name: "sim"
+                widget: "list"
+                required: false
+                summary: "{{fields.ko}}"
+                fields:
+                  - { label: "항목(한국어)  ※ 굵게: <strong>글자</strong>", name: "ko", widget: "string" }
+                  - { label: "항목(영어)", name: "en", widget: "string", required: false }
+              - label: "2열 항목 (기본: EXPERIMENT)"
+                name: "exp"
+                widget: "list"
+                required: false
+                summary: "{{fields.ko}}"
+                fields:
+                  - { label: "항목(한국어)  ※ 굵게: <strong>글자</strong>", name: "ko", widget: "string" }
+                  - { label: "항목(영어)", name: "en", widget: "string", required: false }
+              - label: "3열 항목 (기본: AI)"
+                name: "ai"
+                widget: "list"
+                required: false
+                summary: "{{fields.ko}}"
+                fields:
+                  - { label: "항목(한국어)  ※ 굵게: <strong>글자</strong>", name: "ko", widget: "string" }
+                  - { label: "항목(영어)", name: "en", widget: "string", required: false }
+          - label: "분야 카드 (한 줄에 2장씩 배치)"
+            name: "cards"
+            widget: "list"
+            summary: "{{fields.label}} — {{fields.title_ko}}"
+            fields:
+              - { label: "카드 사진", name: "image", widget: "image", required: false }
+              - { label: "작은 라벨  예: PILLAR 1", name: "label", widget: "string", required: false }
+              - { label: "제목(한국어)", name: "title_ko", widget: "string" }
+              - { label: "제목(영어)", name: "title_en", widget: "string", required: false }
+              - { label: "설명(한국어)  ※ 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "body_ko", widget: "text", required: false }
+              - { label: "설명(영어)", name: "body_en", widget: "text", required: false }
+              - { label: "태그 (쉼표로 구분)", name: "tags", widget: "list", required: false }
+          - { label: "맨 아래 버튼 문구(한국어)", name: "cta_ko", widget: "string", required: false }
+          - { label: "맨 아래 버튼 문구(영어)", name: "cta_en", widget: "string", required: false }
+
       # ---------------- Projects ----------------
       - name: "projects"
         label: "연구 프로젝트 (Projects)"
