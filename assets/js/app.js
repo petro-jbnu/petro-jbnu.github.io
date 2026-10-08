@@ -729,48 +729,69 @@
   }
   var pjTitle = document.getElementById("pj-title");
   if (pjTitle) {
+    /* 프로젝트 상세 (v24 리디자인): 히어로 이미지 + 번호형 섹션 + 결과 갤러리(확대 보기) + 이미지형 관련 프로젝트 */
     load("data/projects.json", function (data) {
       var items = data.items || [];
       var id = null;
       try { id = new URLSearchParams(window.location.search).get("id"); } catch (e) {}
       var p = items.filter(function (x) { return x.id === id; })[0] || items[0];
       if (!p) return;
+      var c = p.card || {};
       var t = document.querySelector("title");
       if (t) {
         t.setAttribute("data-ko", p.title_ko + " | GeoFlow Engineering Lab");
         t.setAttribute("data-en", (p.title_en || p.title_ko) + " | GeoFlow Engineering Lab");
         t.textContent = (lang() === "ko" ? p.title_ko : (p.title_en || p.title_ko)) + " | GeoFlow Engineering Lab";
       }
-      document.getElementById("pj-status").innerHTML = statusChip(p.status, true);
+      var stCls = p.status === "종료" ? " is-done" : (p.status === "진행 예정" ? " is-planned" : "");
+      document.getElementById("pj-status").innerHTML =
+        (c.chip ? '<span class="pj-chip">' + esc(c.chip) + '</span><span class="pj-dot"></span>' : "") +
+        '<span class="pj-status' + stCls + '"><i></i>' + bi(esc(p.status || "진행 중"), esc(STATUS_EN[p.status] || p.status || "ONGOING")) + "</span>";
       pjTitle.innerHTML = bi(esc(p.title_ko), esc(p.title_en || p.title_ko));
-      document.getElementById("pj-lead").innerHTML = bi(esc(p.lead_ko || ""), esc(p.lead_en || p.lead_ko || ""));
-      document.getElementById("pj-keywords").innerHTML = (p.keywords || []).map(function (k) {
-        return '<span class="inline-flex items-center px-xs py-base bg-white/10 text-secondary-fixed font-data-tabular text-data-tabular rounded-sm">' + esc(k) + "</span>";
-      }).join("");
-      document.getElementById("pj-bg").innerHTML = bi(esc(p.bg_ko || ""), esc(p.bg_en || p.bg_ko || ""));
+      document.getElementById("pj-lead").innerHTML = biRich(p.lead_ko || "", p.lead_en);
+      document.getElementById("pj-keywords").innerHTML = (p.keywords || []).map(function (k) { return "<span>" + esc(k) + "</span>"; }).join("");
+      var vis = document.getElementById("pj-visual");
+      if (vis && c.image) { vis.innerHTML = '<img alt="" src="' + esc(c.image) + '"/>'; vis.hidden = false; }
+      var bgBlk = document.getElementById("pj-blk-bg");
+      if (p.bg_ko || p.bg_en) document.getElementById("pj-bg").innerHTML = biRich(p.bg_ko || p.bg_en, p.bg_en);
+      else if (bgBlk) bgBlk.style.display = "none";
       document.getElementById("pj-sections").innerHTML = (p.sections || []).slice(0, 4).map(function (s, i) {
-        var lis = (s.bullets || []).map(function (b) {
-          return '<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-[18px] mt-[3px]">check</span><span>' + bi(esc(b.ko), esc(b.en || b.ko)) + "</span></li>";
-        }).join("");
-        return '<div class="flex gap-md">' +
-          '<div class="shrink-0 w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-headline-md text-[15px]">' + (i + 1) + "</div>" +
-          '<div class="flex-1"><h3 class="font-headline-md text-[20px] text-on-surface mb-xs">' + bi(esc(s.title_ko), esc(s.title_en || s.title_ko)) + "</h3>" +
-          '<ul class="space-y-xs font-body-md text-[15.5px] text-on-surface-variant">' + lis + "</ul></div></div>";
+        var lis = (s.bullets || []).map(function (b) { return "<li>" + biRich(b.ko || b.en || "", b.en) + "</li>"; }).join("");
+        return '<div class="pj-step"><div class="pj-num">' + (i < 9 ? "0" : "") + (i + 1) + "</div><div><h3>" +
+          bi(esc(s.title_ko), esc(s.title_en || s.title_ko)) + "</h3>" + (lis ? "<ul>" + lis + "</ul>" : "") + "</div></div>";
       }).join("");
+      var figs = (p.figures || []).slice(0, 4);
       var res = document.getElementById("pj-results");
-      if (p.results_ko || p.results_en) {
-        res.classList.remove("hidden");
-        res.innerHTML = bi(esc(p.results_ko || ""), esc(p.results_en || p.results_ko || ""));
-      }
-      document.getElementById("pj-figures").innerHTML = (p.figures || []).slice(0, 4).map(function (fg) {
-        return '<figure class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden group hover:shadow-md transition-shadow border border-outline-variant/40">' +
-          '<div class="h-44 w-full overflow-hidden bg-surface-container-high"><img alt="" class="w-full h-full object-contain p-sm bg-surface-container-lowest transform group-hover:scale-105 transition-transform duration-700" src="' + esc(fg.image) + '"/></div>' +
-          '<figcaption class="px-md py-sm font-body-md text-[13px] text-on-surface-variant border-t border-outline-variant/50">' + bi(esc(fg.cap_ko || ""), esc(fg.cap_en || fg.cap_ko || "")) + "</figcaption></figure>";
+      var hasRes = !!(p.results_ko || p.results_en);
+      if (hasRes) { res.innerHTML = biRich(p.results_ko || p.results_en, p.results_en); res.hidden = false; }
+      var figBox = document.getElementById("pj-figures");
+      figBox.innerHTML = figs.map(function (fg, i) {
+        return '<figure class="pj-fig" data-i="' + i + '"><div class="pj-img"><img alt="" loading="lazy" src="' + esc(fg.image) + '"/></div>' +
+          "<figcaption><b>FIG. " + (i + 1) + "</b>" + bi(esc(fg.cap_ko || ""), esc(fg.cap_en || fg.cap_ko || "")) + "</figcaption></figure>";
       }).join("");
+      if (!figs.length && !hasRes) { var rb = document.getElementById("pj-blk-res"); if (rb) rb.style.display = "none"; }
+      var lb = document.getElementById("pj-lightbox");
+      if (lb) {
+        var lbImg = lb.querySelector("img"), lbCap = lb.querySelector("figcaption");
+        figBox.addEventListener("click", function (e) {
+          var f = e.target.closest ? e.target.closest(".pj-fig") : null;
+          if (!f) return;
+          var fg = figs[parseInt(f.getAttribute("data-i"), 10)];
+          if (!fg) return;
+          lbImg.setAttribute("src", fg.image);
+          lbCap.innerHTML = bi(esc(fg.cap_ko || ""), esc(fg.cap_en || fg.cap_ko || ""));
+          lb.classList.add("on");
+        });
+        lb.addEventListener("click", function () { lb.classList.remove("on"); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") lb.classList.remove("on"); });
+      }
       document.getElementById("pj-related").innerHTML = items.filter(function (x) { return x.id !== p.id; }).slice(0, 3).map(function (x) {
-        return '<a class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl shadow-sm p-md group hover:shadow-md hover:-translate-y-0.5 transition-all block" href="project.html?id=' + encodeURIComponent(x.id) + '">' +
-          '<h3 class="font-headline-md text-[17px] text-on-surface group-hover:text-primary transition-colors mb-sm">' + bi(esc(x.title_ko), esc(x.title_en || x.title_ko)) + "</h3>" +
-          '<span class="inline-flex items-center gap-1 font-label-caps text-primary">' + bi("보러 가기", "VIEW") + ' <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span></a>';
+        var xc = x.card || {};
+        return '<a class="pj-rel" href="project.html?id=' + encodeURIComponent(x.id) + '">' +
+          '<div class="pj-rel-img">' + (xc.image ? '<img alt="" src="' + esc(xc.image) + '"/>' : "") + "</div>" +
+          '<div class="pj-rel-body">' + (xc.chip ? '<span class="pj-rel-chip">' + esc(xc.chip) + "</span>" : "") +
+          "<h3>" + bi(esc(x.title_ko), esc(x.title_en || x.title_ko)) + "</h3>" +
+          '<span class="pj-rel-go">' + bi("자세히 보기", "VIEW PROJECT") + ' <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span></div></a>';
       }).join("");
     }, ["pj-sections", "pj-figures", "pj-related"]);
   }
@@ -896,5 +917,92 @@
         }
       }
     }, []);
+  }
+
+  /* ============ 16. 연구 분야 페이지 본문 (data/research-area.json)
+     매트릭스 표(열 3개 고정, 분야 행·칸 항목 가변) + 분야 카드(가변, 한 줄 2장) + 하단 버튼.
+     HTML 기본값 + JSON 덮어쓰기: 값이 있는 부분만 교체합니다. ============ */
+  var raMatrix = document.getElementById("matrix");
+  if (raMatrix) {
+    load("data/research-area.json", function (d) {
+      var RA_ROW = [
+        { th: "bg-primary-container/40", title: "text-primary", arrow: "text-primary", tag: "bg-secondary-container text-on-secondary-container" },
+        { th: "bg-tertiary-container/40", title: "text-on-tertiary-container", arrow: "text-tertiary", tag: "bg-tertiary-container text-on-tertiary-container" }
+      ];
+      var mh = raMatrix.querySelector("h2"), mp = raMatrix.querySelector("h2 + p");
+      if (mh && (d.matrix_title_ko || d.matrix_title_en)) mh.innerHTML = biText(d.matrix_title_ko || d.matrix_title_en, d.matrix_title_en);
+      if (mp && (d.matrix_lead_ko || d.matrix_lead_en)) mp.innerHTML = biRich(d.matrix_lead_ko || d.matrix_lead_en, d.matrix_lead_en);
+      var heads = raMatrix.querySelectorAll("thead th");
+      [d.col_sim, d.col_exp, d.col_ai].forEach(function (v, i) { if (v && heads[i + 1]) heads[i + 1].textContent = v; });
+      var rows = d.rows || [];
+      var tbody = raMatrix.querySelector("tbody");
+      if (tbody && rows.length) {
+        tbody.innerHTML = rows.map(function (r, ri) {
+          var pal = RA_ROW[ri % RA_ROW.length];
+          function cell(list) {
+            return '<td class="py-md px-md"><ul class="space-y-1 font-body-md text-[14px] text-on-surface-variant">' +
+              (list || []).map(function (it) {
+                return '<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[15px] mt-[4px] ' + pal.arrow + '">arrow_right</span>' +
+                  "<span>" + biRich(it.ko || it.en || "", it.en) + "</span></li>";
+              }).join("") + "</ul></td>";
+          }
+          return '<tr><th class="py-md px-md text-left ' + pal.th + '"><span class="font-headline-md text-[17px] ' + pal.title + ' block">' +
+            biText(r.title_ko || r.title_en || "", r.title_en) + "</span></th>" + cell(r.sim) + cell(r.exp) + cell(r.ai) + "</tr>";
+        }).join("");
+      }
+      var grid = document.querySelector('[data-ra="cards"]');
+      var cards = d.cards || [];
+      if (grid && cards.length) {
+        grid.innerHTML = cards.map(function (c, ci) {
+          var pal = RA_ROW[ci % RA_ROW.length];
+          var media = c.image
+            ? '<div class="h-48 w-full overflow-hidden bg-surface-container-high"><img class="w-full h-full object-cover" alt="" src="' + esc(c.image) + '"/></div>'
+            : '<div class="h-48 w-full flex items-center justify-center bg-surface-container-high"><span class="material-symbols-outlined text-[44px] text-outline">imagesmode</span></div>';
+          return '<div class="group relative bg-surface-container-lowest rounded-xl flex flex-col h-full overflow-hidden hover:-translate-y-1 transition-transform duration-300 shadow-md border border-outline-variant/40">' + media +
+            '<div class="p-md flex flex-col flex-grow">' +
+            (c.label ? '<div class="flex items-center gap-xs mb-sm"><span class="font-label-caps text-on-surface-variant uppercase tracking-widest">' + esc(c.label) + "</span></div>" : "") +
+            '<h2 class="font-headline-md text-on-surface mb-sm">' + biText(c.title_ko || c.title_en || "", c.title_en) + "</h2>" +
+            '<p class="font-body-md text-[15px] text-on-surface-variant mb-md flex-grow">' + biRich(c.body_ko || c.body_en || "", c.body_en) + "</p>" +
+            '<div class="flex flex-wrap gap-xs mt-auto">' + (c.tags || []).map(function (t) {
+              return '<span class="inline-flex items-center px-xs py-base ' + pal.tag + ' font-data-tabular text-data-tabular rounded-sm">' + esc(t) + "</span>";
+            }).join("") + "</div></div></div>";
+        }).join("");
+      }
+      var cta = document.querySelector('[data-ra="cta"]');
+      if (cta && (d.cta_ko || d.cta_en)) {
+        var ic = cta.querySelector(".material-symbols-outlined");
+        cta.innerHTML = biText(d.cta_ko || d.cta_en, d.cta_en);
+        if (ic) cta.appendChild(ic);
+      }
+    }, []);
+  }
+
+  /* ============ 17. 줄바꿈 보정: 가운뎃점(·)이 줄 맨 앞에 오지 않도록
+     '연구·개발'처럼 붙어 있는 가운뎃점 앞에 보이지 않는 연결 문자(U+2060)를 넣어
+     '연구|·개발'로 끊기는 것을 막습니다. 점 뒤에서 끊기는 '연구·|개발'은 허용됩니다.
+     화면 글자에만 적용하며, 링크 주소 등 속성 값은 건드리지 않습니다. ============ */
+  var WJ = "\u2060";
+  function glueDots(root) {
+    if (!root) return;
+    var wk = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n;
+    while ((n = wk.nextNode())) {
+      var v = n.nodeValue;
+      if (v.indexOf("\u00b7") < 0) continue;
+      var nv = v.replace(/([^\s\u2060])\u00b7/g, "$1" + WJ + "\u00b7");
+      if (nv !== v) n.nodeValue = nv;
+    }
+  }
+  glueDots(document.body);
+  if (window.MutationObserver) {
+    new MutationObserver(function (muts) {
+      for (var i = 0; i < muts.length; i++) {
+        var added = muts[i].addedNodes;
+        for (var j = 0; j < added.length; j++) {
+          var nd = added[j];
+          if (nd.nodeType === 1) glueDots(nd);
+          else if (nd.nodeType === 3 && nd.parentNode) glueDots(nd.parentNode);
+        }
+      }
+    }).observe(document.body, { childList: true, subtree: true });
   }
 })();
