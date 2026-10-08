@@ -28,3 +28,8 @@
 html { word-break: keep-all; overflow-wrap: anywhere; }
 h1, h2, h3, h4 { text-wrap: balance; }
 p, li, figcaption, td, th, blockquote { text-wrap: pretty; }
+
+/* ---- 페이지 상단 소개 문구 폭 (v26) ----
+   각 페이지 맨 위 큰 제목 아래 소개 문구의 최대 폭. 기존 768px(연구 성과 672px) → 1080px.
+   PC처럼 넓은 화면에서만 차이가 나며, 태블릿·폰에서는 화면 폭에 맞춰집니다. */
+[data-ph] h1 ~ p { max-width: 1080px; }
