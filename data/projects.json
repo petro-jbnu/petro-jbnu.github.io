@@ -3,7 +3,7 @@
   "items": [
     {
       "id": "co2-experiment",
-      "status": "진행 중",
+      "status": "종료",
       "title_ko": "CO₂ 저장 효율 분석을 위한 실험 연구",
       "title_en": "CO₂ Storage Efficiency Analysis",
       "keywords": [
@@ -78,8 +78,130 @@
       }
     },
     {
-      "id": "co2-adsorption-ai",
+      "id": "co2-simulation",
       "status": "진행 중",
+      "title_ko": "CO₂ 지중저장 시뮬레이션 연구: 저장소 3D 모델링, 주입 전략 설계, 저장량 평가 등",
+      "title_en": "CO₂ Storage Evaluation",
+      "keywords": [
+        "Geological CO₂ Storage (GCS)",
+        "Static/Dynamic Modeling",
+        "Numerical Simulation"
+      ],
+      "lead_ko": "다양한 국내외 지질 데이터를 기반으로 3D 모델링을 수행하고, 특정 지질 구조에 최적화된 CO₂ 주입 시나리오 설계부터 최종 저장 용량 평가에 이르기까지의 과정을 다룹니다.",
+      "lead_en": "This study involves 3D modeling based on diverse domestic and international geological data and covers the entire process—from designing CO₂ injection scenarios optimized for specific geological structures to evaluating final storage capacity.",
+      "bg_ko": "현장 상용화 규모의 CCS는 수십 년에 걸친 주입·운영 계획이 필요하며, 다양한 운영 시나리오를 시뮬레이션을 통해 사전에 평가합니다.\n\n실제 상용화 규모의 CO2 지중저장은 장기간에 걸친 주입·운영 계획이 요구되며, 이를 위해 많은 변수들을 고려한 사전 의사결정이 필요합니다. 저희 연구실은 Schlumberger, CMG 사의 상용 저류연산 시뮬레이터를 기반으로 다양한 시나리오를 평가하고 있습니다.",
+      "bg_en": "On-site and commercial-scale Geological CO2 Storage Projects require long-term injection and operation planning, necessitating advance decision-making that considers numerous variables.\n\nOur laboratory is evaluating various scenarios based on commercial reservoir computation simulators from Schlumberger and CMG.",
+      "sections": [
+        {
+          "title_ko": "국내 저장소 대상 CO₂ 지중저장 가능성 평가",
+          "title_en": "Storage feasibility assessment of real sites",
+          "bullets": [
+            {
+              "ko": "국내 유망 CO₂ 저장 부지의 주입 시나리오 설계 및 저장량 평가",
+              "en": "Design of Injection Scenarios and Storage Capacity Evaluation for Promising Domestic CO₂ Storage Sites"
+            }
+          ]
+        },
+        {
+          "title_ko": "현장 데이터 기반 정적·동적 모델링",
+          "title_en": "Field data-based static and dynamic modeling",
+          "bullets": [
+            {
+              "ko": "Smeaheia 지질·물리탐사 데이터 기반 정적/동적 모델링",
+              "en": "Static and Dynamic Modeling Based on Geological and Geophysical Survey Data for Smeaheia"
+            },
+            {
+              "ko": "Smeaheia 주입 시나리오 설계 및 저장량 평가: 오픈 소스 데이터 재설계 기반",
+              "en": "Smeaheia Injection Scenario Design and Storage Evaluation: Based on Open Source Data Redesign"
+            }
+          ]
+        }
+      ],
+      "results_ko": "",
+      "results_en": "",
+      "figures": [
+        {
+          "image": "assets/img/fig-geomodel.png",
+          "cap_ko": "현장 데이터 기반 3D 지질 모델",
+          "cap_en": "3D geological model from field data"
+        },
+        {
+          "image": "assets/img/fig-sim-saturation.png",
+          "cap_ko": "CO₂ 주입 시뮬레이션 — 포화도 분포",
+          "cap_en": "CO₂ injection simulation — saturation"
+        }
+      ],
+      "card": {
+        "image": "assets/img/fig-sim-saturation.png",
+        "chip": "SIMULATION · AI",
+        "desc_ko": "국내외 현장 데이터 정적·동적 모델링을 기반으로 저장량 평가 및 분석을 수행합니다.",
+        "desc_en": "We conduct storage capacity assessments and analyses based on static and dynamic modeling using domestic and international field data.",
+        "tag": "Multi-objective"
+      }
+    },
+    {
+      "id": "Optimization",
+      "status": "진행 중",
+      "title_ko": "CO₂ 지중저장 - AI 연계 연구",
+      "title_en": "Geological CO₂ Storage – AI Integrated Study",
+      "keywords": [
+        "Geological CO₂ Storage (GCS)",
+        "Machine Learning",
+        "Deep Learning",
+        "Optimization",
+        "Prediction"
+      ],
+      "lead_ko": "CO₂ 지중저장(CCS) 프로젝트의 핵심은 불확실성이 높은 지하 환경에서 최적의 주입 시나리오를 찾아내는 것입니다. 본 연구는 AI 모델을 기반으로 대상 저장소에 적합한 주입 공법을 제안하고, 유정 운용 전략을 최적화하는 의사결정 보조 시스템을 개발합니다",
+      "lead_en": "The core challenge of CO₂ geological storage (CCS) projects lies in identifying optimal injection scenarios within highly uncertain subsurface environments. This study develops an AI-driven decision-support system to recommend suitable injection methods for target reservoirs and optimize well operation strategies.",
+      "bg_ko": "CO₂ 지중저장(CCS) 설계의 핵심은 수많은 지질학적 변수 속에서 최적의 주입 시나리오를 찾아내는 것입니다. 본 연구는 데이터 기반의 AI 알고리즘을 도입하여 복잡한 설계 과정의 불확실성을 줄이고, 저장소 맞춤형 주입 공법 및 유정 운용 전략을 도출하는 워크플로우를 확립합니다.",
+      "bg_en": "The key to designing CO₂ geological storage (CCS) lies in identifying the optimal injection scenario among countless geological variables. This study adopts data-driven AI algorithms to mitigate uncertainties in the complex design process, developing a workflow that generates tailored injection techniques and well operation strategies.",
+      "sections": [
+        {
+          "title_ko": "s",
+          "title_en": "s",
+          "bullets": [
+            {
+              "ko": "s",
+              "en": "s"
+            }
+          ]
+        }
+      ],
+      "results_ko": "",
+      "results_en": "",
+      "figures": [
+        {
+          "image": "assets/img/fig-reservoir-3d.png",
+          "cap_ko": "3D 저류층 시뮬레이션 모델",
+          "cap_en": "3D reservoir simulation model"
+        },
+        {
+          "image": "assets/img/fig-field-sim.png",
+          "cap_ko": "현장 규모 유동 시뮬레이션",
+          "cap_en": "Field-scale flow simulation"
+        },
+        {
+          "image": "assets/img/fig-nodal.png",
+          "cap_ko": "생산 시스템 유동 해석",
+          "cap_en": "Production system nodal analysis"
+        },
+        {
+          "image": "assets/img/fig-production-forecast.png",
+          "cap_ko": "생산 데이터 히스토리 매칭",
+          "cap_en": "History matching of production data"
+        }
+      ],
+      "card": {
+        "image": "assets/img/fig-reservoir-3d.png",
+        "chip": "CORE FOCUS",
+        "desc_ko": "매장량 평가, 회수증진(EOR), 비전통자원, 데이터 기반 생산량 예측 등 전통 자원개발 전반을 수행합니다.",
+        "desc_en": "Reserves estimation, EOR, unconventional resources, and data-driven production forecasting.",
+        "tag": "Reservoir Simulation"
+      }
+    },
+    {
+      "id": "co2-adsorption-ai",
+      "status": "종료",
       "title_ko": "CO₂ 흡착량 평가·예측 모델 개발 연구",
       "title_en": "CO₂ Adsorption Assessment & AI Prediction",
       "keywords": [
@@ -172,55 +294,8 @@
       }
     },
     {
-      "id": "co2-simulation",
-      "status": "진행 중",
-      "title_ko": "CO₂ 저장량 평가 연구 (시뮬레이션)",
-      "title_en": "CO₂ Storage Evaluation",
-      "keywords": [
-        "Simulation",
-        "Field Data"
-      ],
-      "lead_ko": "국내외 실제 현장 데이터를 기반으로 정적·동적 모델링을 수행하여, 저장량 평가 및 분석을 수행합니다.",
-      "lead_en": "We perform static and dynamic modeling based on actual field data from domestic and international sites to evaluate and analyze storage capacity.",
-      "bg_ko": "현장 상용화 규모의 CCS는 수십 년에 걸친 주입·운영 계획이 필요하며, 다양한 운영 시나리오를 시뮬레이션을 통해 사전에 평가합니다.",
-      "bg_en": "Commercial-scale CCS projects require injection and operational plans spanning decades, and various operational scenarios are evaluated in advance through simulation.",
-      "sections": [
-        {
-          "title_ko": "국내외 저장소 대상 CO₂ 지중저장 가능성 평가",
-          "title_en": "Storage feasibility assessment of real sites",
-          "bullets": [
-            {
-              "ko": "한국·노르웨이 지층/탄성파 데이터 기반 3D 모델링",
-              "en": "3D modeling from Korean and Norwegian stratigraphic/seismic data"
-            }
-          ]
-        }
-      ],
-      "results_ko": "",
-      "results_en": "",
-      "figures": [
-        {
-          "image": "assets/img/fig-geomodel.png",
-          "cap_ko": "현장 데이터 기반 3D 지질 모델",
-          "cap_en": "3D geological model from field data"
-        },
-        {
-          "image": "assets/img/fig-sim-saturation.png",
-          "cap_ko": "CO₂ 주입 시뮬레이션 — 포화도 분포",
-          "cap_en": "CO₂ injection simulation — saturation"
-        }
-      ],
-      "card": {
-        "image": "assets/img/fig-sim-saturation.png",
-        "chip": "SIMULATION · AI",
-        "desc_ko": "국내외 현장 데이터 정적·동적 모델링을 기반으로 저장량 평가 및 분석을 수행합니다.",
-        "desc_en": "We conduct storage capacity assessments and analyses based on static and dynamic modeling using domestic and international field data.",
-        "tag": "Multi-objective"
-      }
-    },
-    {
       "id": "pipeline-ai",
-      "status": "진행 중",
+      "status": "종료",
       "title_ko": "가스 파이프라인 누출 진단 연구",
       "title_en": "AI Leak Diagnosis for Gas Pipelines",
       "keywords": [
@@ -296,104 +371,6 @@
         "desc_ko": "동적 모델링과 AI를 결합하여 실제 운영 파이프라인의 누출 규모·위치를 동시 진단합니다.",
         "desc_en": "Dynamic modeling and AI to diagnose leak size and location simultaneously on operating pipelines.",
         "tag": "Flow Assurance"
-      }
-    },
-    {
-      "id": "Optimization",
-      "status": "진행 중",
-      "title_ko": "이산화탄소 지중저장(CCS) 관련 최적화 기법 연구",
-      "title_en": "Optimization Study for Carbon Capture and Storage (CCS)",
-      "keywords": [
-        "AI",
-        "Simulation",
-        "Optimization"
-      ],
-      "lead_ko": "CO₂ 지중저장(CCS) 프로젝트의 핵심은 불확실성이 높은 지하 환경에서 최적의 주입 시나리오를 찾아내는 것입니다. 본 연구는 AI 모델을 기반으로 대상 저장소에 적합한 주입 공법을 제안하고, 유정 운용 전략을 최적화하는 의사결정 보조 시스템을 개발합니다",
-      "lead_en": "The core challenge of CO₂ geological storage (CCS) projects lies in identifying optimal injection scenarios within highly uncertain subsurface environments. This study develops an AI-driven decision-support system to recommend suitable injection methods for target reservoirs and optimize well operation strategies.",
-      "bg_ko": "CO₂ 지중저장(CCS) 설계의 핵심은 수많은 지질학적 변수 속에서 최적의 주입 시나리오를 찾아내는 것입니다. 본 연구는 데이터 기반의 AI 알고리즘을 도입하여 복잡한 설계 과정의 불확실성을 줄이고, 저장소 맞춤형 주입 공법 및 유정 운용 전략을 도출하는 워크플로우를 확립합니다.",
-      "bg_en": "The key to designing CO₂ geological storage (CCS) lies in identifying the optimal injection scenario among countless geological variables. This study adopts data-driven AI algorithms to mitigate uncertainties in the complex design process, developing a workflow that generates tailored injection techniques and well operation strategies.",
-      "sections": [
-        {
-          "title_ko": "저류층 특성화 및 매장량 평가",
-          "title_en": "Reservoir characterization & reserves estimation",
-          "bullets": [
-            {
-              "ko": "석유·천연가스 물성 분석 및 상거동 해석",
-              "en": "Fluid property analysis and phase-behavior interpretation"
-            },
-            {
-              "ko": "지층 내 유체 유동 해석 및 매장량 평가",
-              "en": "Subsurface flow analysis and reserves estimation"
-            },
-            {
-              "ko": "셰일가스·치밀가스·석탄층 메탄 등 비전통자원 개발",
-              "en": "Unconventional resources: shale gas, tight gas, coalbed methane"
-            }
-          ]
-        },
-        {
-          "title_ko": "생산 최적화 및 회수증진(EOR)",
-          "title_en": "Production optimization & EOR",
-          "bullets": [
-            {
-              "ko": "생산 조건(유량·위치) 최적화 및 회수증진 설계",
-              "en": "Optimization of production conditions (rate, placement) and EOR design"
-            },
-            {
-              "ko": "탄산염암 저류층 대상 다양한 주입유체 적용 — CO₂ 지중저장과 연계",
-              "en": "Various injection fluids for carbonate reservoirs — linked with CO₂ storage"
-            },
-            {
-              "ko": "파라핀 침적 예측 등 생산 시스템 유동 안정성 확보",
-              "en": "Flow assurance including paraffin deposition prediction"
-            }
-          ]
-        },
-        {
-          "title_ko": "데이터 기반 생산량 예측 (AI)",
-          "title_en": "Data-driven production forecasting (AI)",
-          "bullets": [
-            {
-              "ko": "현장 데이터 기반 생산량 예측 모델 개발",
-              "en": "Production forecasting models trained on field data"
-            },
-            {
-              "ko": "실시간 현장 운영 솔루션 개발",
-              "en": "Real-time field operation solutions"
-            }
-          ]
-        }
-      ],
-      "results_ko": "",
-      "results_en": "",
-      "figures": [
-        {
-          "image": "assets/img/fig-reservoir-3d.png",
-          "cap_ko": "3D 저류층 시뮬레이션 모델",
-          "cap_en": "3D reservoir simulation model"
-        },
-        {
-          "image": "assets/img/fig-field-sim.png",
-          "cap_ko": "현장 규모 유동 시뮬레이션",
-          "cap_en": "Field-scale flow simulation"
-        },
-        {
-          "image": "assets/img/fig-nodal.png",
-          "cap_ko": "생산 시스템 유동 해석",
-          "cap_en": "Production system nodal analysis"
-        },
-        {
-          "image": "assets/img/fig-production-forecast.png",
-          "cap_ko": "생산 데이터 히스토리 매칭",
-          "cap_en": "History matching of production data"
-        }
-      ],
-      "card": {
-        "image": "assets/img/fig-reservoir-3d.png",
-        "chip": "CORE FOCUS",
-        "desc_ko": "매장량 평가, 회수증진(EOR), 비전통자원, 데이터 기반 생산량 예측 등 전통 자원개발 전반을 수행합니다.",
-        "desc_en": "Reserves estimation, EOR, unconventional resources, and data-driven production forecasting.",
-        "tag": "Reservoir Simulation"
       }
     }
   ]
