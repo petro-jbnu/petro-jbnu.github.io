@@ -3,18 +3,19 @@
   "items": [
     {
       "id": "co2-experiment",
-      "status": "종료",
-      "title_ko": "CO₂ 저장 효율 분석을 위한 실험 연구",
-      "title_en": "CO₂ Storage Efficiency Analysis",
+      "status": "진행 중",
+      "title_ko": "유체 유동 분석 기반 실험 연구",
+      "title_en": "Experimental research based on fluid flow analysis",
       "keywords": [
         "Core Flooding",
         "CA · IFT",
-        "Nano Particle"
+        "EOR",
+        "Geological CO₂ Storage"
       ],
-      "lead_ko": "사암 시료 내 CO₂ 주입 실험과 계면 특성 변화 연구를 통해, CO₂를 더 안전하고 효율적으로 저장하는 방법을 탐구합니다.",
-      "lead_en": "Core-scale CO₂ injection experiments and interfacial property studies to store CO₂ more safely and efficiently.",
-      "bg_ko": "CO₂ 지중저장(CCS)의 핵심은 주입한 CO₂가 지층 내에서 어떻게 흘러가고, 얼마나 안정적으로 갇히는가입니다. 본 연구는 실제 암석 시료를 이용한 주입 실험으로 공극 규모의 유동 양상을 직접 관찰하고, 저장 효율을 높이는 방법을 실험적으로 검증합니다.",
-      "bg_en": "The success of CO₂ geological storage depends on how injected CO₂ flows through the formation and how securely it is trapped. We directly observe pore-scale flow behavior through core flooding experiments and experimentally verify ways to improve storage efficiency.",
+      "lead_ko": "암석 시료 내 다양한 유체의 주입 실험과 계면 특성 변화 연구를 통해, 유가스 또는 CO₂를 더 안전하고 효율적으로 추가 생산(증진)/저장하는 방법을 탐구합니다.",
+      "lead_en": "We explore methods for the safer and more efficient enhanced production or storage of oil, gas, or CO₂ by conducting experiments involving the injection of various fluids into rock samples and studying changes in interfacial properties.",
+      "bg_ko": "유가스 회수 증진 기법과 CO₂ 지중저장에서는 주입한 유체가 지층 내에서 어떻게 흘러가고, 지층 내 유체와 어떻게 반응하는지, 얼마나 안정적으로 유동/저장되는지가 중요합니다. \n\n본 연구는 실제 암석 시료를 이용한 주입 실험으로 공극 규모의 유동 양상을 직접 관찰하고, 회수/저장 효율을 높이는 방법을 실험적으로 검증합니다.",
+      "bg_en": "In oil and gas recovery enhancement techniques and Geological CO₂ Storage, it is important how the injected fluid flows within the geological formations, how it reacts with the fluids within the formations, and how stably it flows or is stored. \n\nThis study directly observes pore-scale flow patterns through injection experiments using actual rock samples and experimentally verifies methods to improve recovery and storage efficiency.",
       "sections": [
         {
           "title_ko": "저장 효율 평가를 위한 CO₂ 주입 실험",
@@ -41,6 +42,24 @@
             {
               "ko": "접촉각·계면장력 감소에 따른 유동 양상 해석",
               "en": "Interpretation of flow behavior following reductions in contact angle and IFT"
+            }
+          ]
+        },
+        {
+          "title_ko": "탄산염암 내 오일회수증진기법 적용 연구",
+          "title_en": "Research on the Application of Oil Recovery Enhancement Techniques in Carbonate Rocks",
+          "bullets": [
+            {
+              "ko": "다양한 주입유체(물, CO₂, 탄산수, 나노입자)에 의한 오일회수 증진 효율성 분석",
+              "en": "Analysis of Enhanced Oil Recovery Efficiency Using Various Injection Fluids (Water, CO2, Carbonated Water, Nanoparticles)"
+            },
+            {
+              "ko": "오일생산 증진 기술을 연계한 CO₂ 지중저장 기술 개발",
+              "en": "Development of Geological CO2 Storage Technology Integrated with Enhanced Oil Recovery (EOR) Techniques"
+            },
+            {
+              "ko": "주입유체-암석-저류층유체 간 반응 메커니즘 규명 및 암석 물성 변화 분석",
+              "en": "Elucidation of reaction mechanisms among injected fluids, rock, and reservoir fluids, and analysis of changes in rock properties."
             }
           ]
         }
@@ -72,9 +91,9 @@
       "card": {
         "image": "assets/img/fig-pore-flow.png",
         "chip": "Experiment",
-        "desc_ko": "암석 내 CO₂ 주입 실험과 접촉각·계면장력 분석을 통해 저장 효율과 주입성 향상 방안을 도출합니다.",
-        "desc_en": "Core-scale CO₂ injection experiments and interfacial property analysis to improve storage efficiency and injectivity.",
-        "tag": "Core Flooding"
+        "desc_ko": "암석 내 유체 주입 실험과 접촉각·계면장력 분석을 통해 회수증진·저장 효율과 주입성 향상 방안을 도출합니다.",
+        "desc_en": "We derive methods to enhance recovery and storage efficiency, as well as improve injectability, through experiments on fluid injection into rocks and analyses of contact angles and interfacial tensions.",
+        "tag": "Oil & Gas, Geological CO₂ Storage"
       }
     },
     {
@@ -147,7 +166,7 @@
         "chip": "Simulation",
         "desc_ko": "국내외 현장 데이터 정적·동적 모델링을 기반으로 CO₂ 주입 시나리오 설계부터 저장량 평가 및 분석까지 다양한 연구를 수행합니다.",
         "desc_en": "We conduct various studies ranging from designing CO₂ injection scenarios to evaluating and analyzing storage capacity, based on static and dynamic modeling of domestic and international field data.",
-        "tag": "2D·3D Modeling"
+        "tag": "Geological CO₂ Storage"
       }
     },
     {
@@ -156,10 +175,10 @@
       "title_ko": "실험·시뮬레이션-AI 연계 연구",
       "title_en": "Integrated research on experiments, simulations, and AI",
       "keywords": [
-        "Geological CO₂ Storage (GCS)",
         "AI",
         "Prediction",
-        "Optimization"
+        "Optimization",
+        "Risk Diagnosis"
       ],
       "lead_ko": "최근 다양한 공학 분야와 연계되고 있는 AI와 유가스·CO₂ 지중저장 분야를 연계하여 예측·최적화·리스크 제어 등의 다양한 연구개발을 수행합니다.",
       "lead_en": "We conduct various research and development activities—including prediction, optimization, and risk control—by integrating AI, which is increasingly linked to diverse engineering fields, with the oil and gas and geological CO₂ storage sectors.",
@@ -219,6 +238,20 @@
               "en": "Machine-learning prediction models"
             }
           ]
+        },
+        {
+          "title_ko": "해양 가스전 실시간 데이터활용 설비진단/대응기술 및 스마트 운영솔루션 개발",
+          "title_en": "Development of Real-time Data Utilization Facility Diagnosis/Response Technology and Smart Operation Solutions for Offshore Gas Fields",
+          "bullets": [
+            {
+              "ko": "해양 유·가스전 개별 생산인자 특성 분석 및 학습 데이터 전처리",
+              "en": "Analysis of Individual Production Factor Characteristics and Preprocessing of Training Data for Offshore Oil and Gas Fields"
+            },
+            {
+              "ko": "해양 유·가스전의 실시간 데이터를 활용한 설비진단 및 대응기술 설계",
+              "en": "Design of Facility Diagnosis and Response Technologies Using Real-time Data from Offshore Oil and Gas Fields"
+            }
+          ]
         }
       ],
       "results_ko": "",
@@ -229,7 +262,7 @@
         "chip": "Simulation·Experiment·AI",
         "desc_ko": "최근 다양한 공학 분야와 연계되고 있는 AI와 유가스·CO₂ 지중저장 분야를 연계하여 예측·최적화·리스크 제어 등의 다양한 연구개발을 수행합니다.",
         "desc_en": "We conduct various research and development activities—including prediction, optimization, and risk control—by integrating AI, which is increasingly linked to diverse engineering fields, with the oil and gas and geological CO₂ storage sectors.",
-        "tag": "Based on Experiment·Simulation"
+        "tag": "Oil & Gas, Geological CO₂ Storage"
       }
     },
     {
@@ -329,17 +362,18 @@
     {
       "id": "pipeline",
       "status": "종료",
-      "title_ko": "수송관(Pipeline) 내 누출 진단 연구",
-      "title_en": "Research on Leak Detection in Pipelines",
+      "title_ko": "수송관(Pipeline) 내 유동 안정성 연구",
+      "title_en": "Research on Flow Assurance in Pipelines",
       "keywords": [
         "Dynamic Modeling",
         "Flow Assurance",
-        "AI"
+        "Leak Detection",
+        "Paraffin precipitation"
       ],
-      "lead_ko": "동적 모델링과 AI를 결합하여, 실제 운영 중인 가스 파이프라인의 누출 규모와 위치를 동시에 진단하는 모델을 개발합니다.",
-      "lead_en": "Combining dynamic modeling and AI to simultaneously diagnose leak size and location in operating gas pipelines.",
-      "bg_ko": "천연가스와 CO₂ 수송의 핵심 인프라인 파이프라인에서 누출은 안전과 환경에 직결되는 문제입니다. 누출을 빠르게, 그리고 '어디서 얼마나' 새는지까지 정확히 진단하는 기술은 운영 안전성을 크게 높입니다.",
-      "bg_en": "Pipelines are critical infrastructure for transporting natural gas and CO₂; leaks directly threaten safety and the environment. Rapidly diagnosing not just whether, but where and how much a pipeline leaks dramatically improves operational safety.",
+      "lead_ko": "글로벌 업계 표준 소프트웨어인 Schlumberger 사의 수송관 내 유체 유동 소프트웨어 OLGA 를 활용하여 수송관(pipeline) 내 침전물 및 누출 진단·예측 모델을 개발합니다.",
+      "lead_en": "We develop a model for diagnosing and predicting sediment and leaks in pipelines using OLGA, a fluid flow software for pipelines from Schlumberger, a global industry standard.",
+      "bg_ko": "천연가스와 CO₂ 수송의 핵심 인프라인 수송관(pipeline)에서 <strong>침전물 누적과 수송 유체 누출은 안전과 환경, 비용에 직결</strong>되는 문제입니다. '어디서 얼마나' 발생했는지를 정확하고 빠르게 파악하는 기술은 운영 안전성을 크게 높입니다.",
+      "bg_en": "The accumulation of sediment and leakage of transport fluids in pipelines, which are the core infrastructure for natural gas and CO₂ transportation, are issues directly linked to safety, the environment, and costs. \n\nTechnology that accurately and rapidly identifies the location and extent of these occurrences significantly enhances operational safety.",
       "sections": [
         {
           "title_ko": "동적 모델링 기반 누출 분석",
@@ -370,16 +404,20 @@
           ]
         },
         {
-          "title_ko": "CO₂ 파이프라인으로의 확장",
-          "title_en": "Extension to CO₂ pipelines",
+          "title_ko": "유전 생산시설의 파라핀 침전 진단 및 예측 전산시뮬레이션 설계",
+          "title_en": "Design of Computational Simulation for Diagnosis and Prediction of Paraffin Precipitation in Oilfield Production Facilities",
           "bullets": [
             {
-              "ko": "CO₂ 파이프라인 수송 및 운영 분석·설계",
-              "en": "Transport and operation analysis/design of CO₂ pipelines"
+              "ko": "석유생산시스템 수송관 내 파라핀 생성의 영향조건 및 매커니즘 특성 분석",
+              "en": "Analysis of Influencing Conditions and Mechanism Characteristics of Paraffin Formation in Oil Production System Pipelines"
             },
             {
-              "ko": "CCS 전주기(포집–수송–저장) 안전 운영 기술 확보",
-              "en": "Safe-operation technology across the full CCS chain"
+              "ko": "수송관 내 발생 가능한 파라핀 생성 조건 및 규모 산출",
+              "en": "Calculation of conditions and scale of potential paraffin formation within the pipeline"
+            },
+            {
+              "ko": "다상유동 시뮬레이션 모델(OLGA) 기반 파라핀 생성 억제 방안 모색 및 적용성 평가기술 구축",
+              "en": "Development of paraffin formation inhibition strategies and applicability assessment techniques based on multiphase flow simulation models (OLGA)"
             }
           ]
         }
@@ -403,7 +441,7 @@
         "chip": "Simulation·AI",
         "desc_ko": "동적 모델링과 AI를 결합하여 실제 운영 파이프라인의 누출 규모·위치를 동시 진단합니다.",
         "desc_en": "Dynamic modeling and AI to diagnose leak size and location simultaneously on operating pipelines.",
-        "tag": "Flow Assurance"
+        "tag": "Oil & Gas, Geological CO₂ Storage"
       }
     },
     {
