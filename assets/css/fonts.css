@@ -36,7 +36,7 @@ p, li, figcaption, td, th, blockquote { text-wrap: pretty; }
 
 /* ---- 휴대폰 화면 크기 조정 (v30) ----
    폭 639px 이하(휴대폰)에서만 적용됩니다. PC·태블릿 화면은 바뀌지 않습니다.
-   제목·여백·사진·카드를 줄이고 본문은 약 1px 줄입니다(14px 이하 작은 글자는 그대로).
+   제목·여백·사진·카드를 줄이고 본문은 약 1.5px 줄입니다(v31: 한 단계 추가 축소, 가장 작은 글자는 13px 유지).
    이 파일은 tw.css보다 먼저 불러오므로, 우선순위를 높이려고 선택자 앞에 :root 를 붙였습니다. */
 #ac-title { font-size: clamp(26px, 3.4vw, 40px); } /* 소식 상세 제목: 누락된 크기 규칙 보완(모든 화면) */
 @media (max-width: 639px) {
@@ -46,27 +46,29 @@ p, li, figcaption, td, th, blockquote { text-wrap: pretty; }
   :root main.pt-20 { padding-top: 60px; }
 
   /* 제목 */
-  :root main h1, :root #ac-title { font-size: 24px; line-height: 1.25; }
-  :root #hero h1 { font-size: 21px; }
-  :root .font-headline-lg:not([class*="text-["]) { font-size: 22px; line-height: 1.3; }
-  :root .text-\[clamp\(21px\2c 2\.6vw\2c 28px\)\] { font-size: 19px; }
-  :root h2.font-headline-md { font-size: 18px; }
-  :root .text-\[20px\] { font-size: 17px; }
-  :root .text-\[19px\] { font-size: 16.5px; }
-  :root .text-\[18px\] { font-size: 16px; }
-  :root h4.text-\[17px\] { font-size: 15.5px; }
-  :root h3.font-body-lg { font-size: 16px; }
+  :root main h1, :root #ac-title { font-size: 22px; line-height: 1.25; }
+  :root #hero h1 { font-size: 19.5px; }
+  :root .font-headline-lg:not([class*="text-["]) { font-size: 20px; line-height: 1.3; }
+  :root .text-\[clamp\(21px\2c 2\.6vw\2c 28px\)\] { font-size: 18px; }
+  :root h2.font-headline-md { font-size: 17px; }
+  :root .text-\[20px\] { font-size: 16px; }
+  :root .text-\[19px\] { font-size: 15.5px; }
+  :root .text-\[18px\] { font-size: 15px; }
+  :root h4.text-\[17px\] { font-size: 14.5px; }
+  :root h3.font-body-lg:not([class*="text-["]) { font-size: 15px; }
   :root .text-\[38px\], :root .text-\[40px\] { font-size: 28px; }
   :root .text-\[44px\] { font-size: 34px; }
   :root .text-\[36px\] { font-size: 30px; }
 
-  /* 본문 (약 1px 축소) */
-  :root .font-body-lg:not([class*="text-["]) { font-size: 15.5px; line-height: 1.6; }
-  :root .font-body-md:not([class*="text-["]) { font-size: 15px; }
-  :root .text-\[16\.5px\] { font-size: 15px; }
-  :root .text-\[15px\] { font-size: 14px; }
-  :root .text-\[14\.5px\] { font-size: 14px; }
-  :root .text-\[16px\] { font-size: 15px; }
+  /* 본문 (약 1.5px 축소, v31) — 13px 미만으로는 줄이지 않음 */
+  :root .font-body-lg:not([class*="text-["]) { font-size: 14.5px; line-height: 1.6; }
+  :root .font-body-md:not([class*="text-["]) { font-size: 14.5px; }
+  :root .text-\[16\.5px\] { font-size: 14.5px; }
+  :root .text-\[15px\] { font-size: 13.5px; }
+  :root .text-\[14\.5px\] { font-size: 13.5px; }
+  :root .text-\[14px\] { font-size: 13.5px; }
+  :root .font-data-tabular, :root .text-data-tabular { font-size: 13px; }
+  :root .text-\[16px\] { font-size: 14.5px; }
 
   /* 여백: 섹션 위아래 64px → 24px 등 */
   :root .py-xl { padding-top: 24px; padding-bottom: 24px; }
@@ -106,17 +108,17 @@ p, li, figcaption, td, th, blockquote { text-wrap: pretty; }
   /* 연구 프로젝트 상세 페이지 */
   :root .pj-hero-in { gap: 24px; padding: 28px 0 32px; }
   :root .pj-meta { margin: 16px 0 10px; }
-  :root .pj-lead { font-size: 15.5px; line-height: 1.7; margin-top: 14px; }
+  :root .pj-lead { font-size: 14.5px; line-height: 1.7; margin-top: 14px; }
   :root .pj-kw { margin-top: 18px; }
   :root .pj-body { padding-top: 32px; }
   :root .pj-block { padding: 28px 0; gap: 14px; }
-  :root .pj-label h2 { font-size: 19px; }
-  :root .pj-prose { font-size: 15px; line-height: 1.8; }
+  :root .pj-label h2 { font-size: 17.5px; }
+  :root .pj-prose { font-size: 14.5px; line-height: 1.8; }
   :root .pj-step { grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; padding: 18px 0; }
-  :root .pj-num { font-size: 22px; }
-  :root .pj-step h3 { font-size: 17px; }
-  :root .pj-step li { font-size: 14.5px; }
-  :root .pj-results-text { font-size: 15px; }
+  :root .pj-num { font-size: 20px; }
+  :root .pj-step h3 { font-size: 16px; }
+  :root .pj-step li { font-size: 14px; }
+  :root .pj-results-text { font-size: 14.5px; }
   :root .pj-related { padding: 32px 0 36px; margin-top: 28px; }
-  :root .pj-rel h3 { font-size: 15.5px; }
+  :root .pj-rel h3 { font-size: 14.5px; }
 }
