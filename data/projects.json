@@ -7,9 +7,9 @@
       "title_ko": "CO₂ 저장 효율 분석을 위한 실험 연구",
       "title_en": "CO₂ Storage Efficiency Analysis",
       "keywords": [
-        "Experiment",
         "Core Flooding",
-        "CA · IFT"
+        "CA · IFT",
+        "Nano Particle"
       ],
       "lead_ko": "사암 시료 내 CO₂ 주입 실험과 계면 특성 변화 연구를 통해, CO₂를 더 안전하고 효율적으로 저장하는 방법을 탐구합니다.",
       "lead_en": "Core-scale CO₂ injection experiments and interfacial property studies to store CO₂ more safely and efficiently.",
@@ -71,15 +71,15 @@
       ],
       "card": {
         "image": "assets/img/fig-pore-flow.png",
-        "chip": "EXPERIMENT",
-        "desc_ko": "사암 시료 CO₂ 주입 실험과 접촉각·계면장력 분석을 통해 저장 효율과 주입성 향상 방안을 도출합니다.",
+        "chip": "Experiment",
+        "desc_ko": "암석 내 CO₂ 주입 실험과 접촉각·계면장력 분석을 통해 저장 효율과 주입성 향상 방안을 도출합니다.",
         "desc_en": "Core-scale CO₂ injection experiments and interfacial property analysis to improve storage efficiency and injectivity.",
         "tag": "Core Flooding"
       }
     },
     {
       "id": "co2-simulation",
-      "status": "종료",
+      "status": "진행 중",
       "title_ko": "CO₂ 지중저장 시뮬레이션 연구",
       "title_en": "Geological CO₂ Storage Simulation Study",
       "keywords": [
@@ -93,26 +93,48 @@
       "bg_en": "Geological CO2 storage projects on a commercial scale require the recognition of uncertainties arising from various variables within the geological strata during the long-term injection process, and a preliminary decision-making process based on accurate predictions is essential.\n\nSimulation studies are fundamentally required to 3D model storage strata based on actual field data, and to evaluate injection scenarios, storage capacity, and geomechanical stability suitable for the characteristics of the strata.\n\nOur lab is conducting the above research <strong>based on the global standard practical software from Schlumberger & CMG used in the E&P (Upstream) industry.</strong>",
       "sections": [
         {
+          "title_ko": "국내 고갈가스전 대상 CO₂ 지중저장 운영 조건 연구",
+          "title_en": "Study on Operational Conditions for Geological CO₂ Storage in Depleted Gas Fields",
+          "bullets": [
+            {
+              "ko": "CO₂ 주입정 내 유동 안정성 분석",
+              "en": "Analysis of Flow Stability in CO₂ Injection Wells"
+            },
+            {
+              "ko": "주입 기간에 따른 최적 운영 조건 분석",
+              "en": "Analysis of Optimal Operating Conditions Based on Injection Duration"
+            },
+            {
+              "ko": "물질평형법(MBE) 기반 CO₂ 주입성 분석",
+              "en": "CO₂ Injectivity Analysis Based on the Material Balance Equation (MBE)"
+            }
+          ]
+        },
+        {
+          "title_ko": "Smeaheia (Norway) 현장 데이터 기반 정적·동적 모델링",
+          "title_en": "Field data-based static and dynamic modeling (Smeaheia, Norway)",
+          "bullets": [
+            {
+              "ko": "물리 탐사 데이터 기반 정적/동적 모델링",
+              "en": "Static and Dynamic Modeling Based on Geological and Geophysical Survey Data"
+            },
+            {
+              "ko": "CO₂ 주입 시나리오 설계 및 저장량 평가: 오픈 소스 데이터 기반 재설계",
+              "en": "CO2 Injection Scenario Design and Storage Evaluation at the Smeaheia (Norway) Site: Redesign Based on Open Source Data"
+            }
+          ]
+        },
+        {
           "title_ko": "국내 저장소 대상 CO₂ 지중저장 가능성 평가",
           "title_en": "Evaluation of Geological CO₂ Storage Potential in South Korea",
           "bullets": [
             {
               "ko": "국내 유망 CO₂ 저장 부지의 주입 시나리오 설계 및 저장량 평가",
               "en": "Design of Injection Scenarios and Storage Capacity Evaluation for Promising Geological CO₂ Storage Sites in South Korea"
-            }
-          ]
-        },
-        {
-          "title_ko": "현장 데이터 기반 정적·동적 모델링",
-          "title_en": "Field data-based static and dynamic modeling",
-          "bullets": [
-            {
-              "ko": "Smeaheia 지질·물리탐사 데이터 기반 정적/동적 모델링",
-              "en": "Static and Dynamic Modeling Based on Geological and Geophysical Survey Data for Smeaheia (Norway)"
             },
             {
-              "ko": "Smeaheia (Norway) 부지의 CO₂ 주입 시나리오 설계 및 저장량 평가: 오픈 소스 데이터 기반 재설계",
-              "en": "CO2 Injection Scenario Design and Storage Evaluation at the Smeaheia (Norway) Site: Redesign Based on Open Source Data"
+              "ko": "주입 유체(CO₂) 온도에 따른 동적 변화 분석",
+              "en": "Analysis of Dynamic Changes Based on Injection Fluid (CO₂) Temperature"
             }
           ]
         }
@@ -122,76 +144,99 @@
       "figures": [],
       "card": {
         "image": "assets/img/fig-sim-saturation.png",
-        "chip": "SIMULATION · AI",
-        "desc_ko": "국내외 현장 데이터 정적·동적 모델링을 기반으로 저장량 평가 및 분석을 수행합니다.",
-        "desc_en": "We conduct storage capacity assessments and analyses based on static and dynamic modeling using domestic and international field data.",
-        "tag": "Multi-objective"
+        "chip": "Simulation",
+        "desc_ko": "국내외 현장 데이터 정적·동적 모델링을 기반으로 CO₂ 주입 시나리오 설계부터 저장량 평가 및 분석까지 다양한 연구를 수행합니다.",
+        "desc_en": "We conduct various studies ranging from designing CO₂ injection scenarios to evaluating and analyzing storage capacity, based on static and dynamic modeling of domestic and international field data.",
+        "tag": "2D·3D Modeling"
       }
     },
     {
       "id": "AI",
       "status": "진행 중",
-      "title_ko": "CO₂ 지중저장 - AI 연계 연구",
-      "title_en": "Geological CO₂ Storage – AI Integrated Study",
+      "title_ko": "실험·시뮬레이션-AI 연계 연구",
+      "title_en": "Integrated research on experiments, simulations, and AI",
       "keywords": [
         "Geological CO₂ Storage (GCS)",
-        "ML·DL·RL",
+        "AI",
         "Prediction",
         "Optimization"
       ],
-      "lead_ko": "CO₂ 지중저장(CCS) 프로젝트의 핵심은 불확실성이 높은 지하 환경에서 최적의 주입 시나리오를 찾아내는 것입니다. 본 연구는 AI 모델을 기반으로 대상 저장소에 적합한 주입 공법을 제안하고, 유정 운용 전략을 최적화하는 의사결정 보조 시스템을 개발합니다",
-      "lead_en": "The core challenge of CO₂ geological storage (CCS) projects lies in identifying optimal injection scenarios within highly uncertain subsurface environments. This study develops an AI-driven decision-support system to recommend suitable injection methods for target reservoirs and optimize well operation strategies.",
-      "bg_ko": "CO₂ 지중저장(CCS) 설계의 핵심은 수많은 지질학적 변수 속에서 최적의 주입 시나리오를 찾아내는 것입니다. 본 연구는 데이터 기반의 AI 알고리즘을 도입하여 복잡한 설계 과정의 불확실성을 줄이고, 저장소 맞춤형 주입 공법 및 유정 운용 전략을 도출하는 워크플로우를 확립합니다.",
-      "bg_en": "The key to designing CO₂ geological storage (CCS) lies in identifying the optimal injection scenario among countless geological variables. This study adopts data-driven AI algorithms to mitigate uncertainties in the complex design process, developing a workflow that generates tailored injection techniques and well operation strategies.",
+      "lead_ko": "최근 다양한 공학 분야와 연계되고 있는 AI와 유가스·CO₂ 지중저장 분야를 연계하여 예측·최적화·리스크 제어 등의 다양한 연구개발을 수행합니다.",
+      "lead_en": "We conduct various research and development activities—including prediction, optimization, and risk control—by integrating AI, which is increasingly linked to diverse engineering fields, with the oil and gas and geological CO₂ storage sectors.",
+      "bg_ko": "유가스 생산과 CO₂ 지중저장의 결과는 저류층의 <strong>지질학적 변수와 운영 조건</strong>에 따라 크게 좌우됩니다. 최적의 생산·주입 시나리오를 도출하기 위해서는 시뮬레이션을 통해 다양한 변수 조합을 검토해야 하나, <strong>높은 연산 비용</strong>으로 인해 이를 모두 수행하는 데 제약이 따릅니다. AI는 학습 자료를 기반으로 <strong>시뮬레이션 결과를 근사</strong>함으로써 이러한 제약을 완화할 수 있습니다. 본 연구실은 축적된 자료와 신규 실험·시뮬레이션 결과를 바탕으로 AI 모델을 구축하여, 생산·주입 시나리오를 비롯한 다양한 문제의 <strong>예측 및 최적화</strong>를 연구합니다.",
+      "bg_en": "The outcomes of oil and gas production and CO₂ geological storage are largely governed by the reservoir's <strong>geological parameters and operating conditions</strong>. Deriving an optimal production and injection scenario requires evaluating diverse combinations of variables through simulation, but <strong>high computational costs</strong> limit the number of runs that can be performed. AI can alleviate this constraint by <strong>approximating simulation results</strong> based on training data. Building on both accumulated data and newly conducted experiments and simulations, our lab develops AI models for the <strong>prediction and optimization</strong> of various problems, including production and injection scenarios.",
       "sections": [
         {
-          "title_ko": "s",
-          "title_en": "s",
+          "title_ko": "대염수층 내 적정 CO₂ 주입공법 스크리닝 모델 개발",
+          "title_en": "Development of a Screening Model for Optimal CO₂ Injection Methods in Saline Aquifers",
           "bullets": [
             {
-              "ko": "s",
-              "en": "s"
+              "ko": "지질학적 조건에 따른 CO2 주입공법별 민감도 분석",
+              "en": "Sensitivity Analysis of CO₂ Injection Methods Based on Geological Conditions"
+            },
+            {
+              "ko": "머신러닝 기반 CO₂ 주입공법별 예측 모델",
+              "en": "Machine Learning-Based Prediction Models for CO₂ Injection Methods"
+            },
+            {
+              "ko": "지질학적 특성 및 운영 조건에 따른 적정 CO2 주입공법 제안 소프트웨어 (프로그램 등록 완료)",
+              "en": "Software for Proposing Optimal CO₂ Injection Methods Based on Geological Characteristics and Operational Conditions (Program Registration Completed)"
+            }
+          ]
+        },
+        {
+          "title_ko": "NSGA-II 기반 최적 유정 배치·운영 최적화 기법 개발",
+          "title_en": "Development of an NSGA-II-Based Optimization Technique for Well Placement and Operation",
+          "bullets": [
+            {
+              "ko": "저장성, 안정성 등을 반영한 평가 지표 개발",
+              "en": "Development of an evaluation index reflecting storability, stability, and economic feasibility"
+            },
+            {
+              "ko": "현장 데이터 3D 모델링 기반 최적화 워크플로우 적용 및 검증",
+              "en": "Application and validation of an optimization workflow based on 3D modeling using field data"
+            },
+            {
+              "ko": "의사결정 보조를 위한 소프트웨어 개발 및 배포",
+              "en": "Development and deployment of software for decision support"
+            }
+          ]
+        },
+        {
+          "title_ko": "CO₂ 흡착량 예측 모델 개발",
+          "title_en": "Development of a CO₂ Adsorption Prediction Model",
+          "bullets": [
+            {
+              "ko": "셰일 시료 물성 및 지질 특성 분석",
+              "en": "Shale characterization"
+            },
+            {
+              "ko": "최적화 기반 CO₂ 흡착량 경험식 개발",
+              "en": "Optimization-based empirical correlations"
+            },
+            {
+              "ko": "AI 기반 CO₂ 흡착량 예측 모델 구축",
+              "en": "Machine-learning prediction models"
             }
           ]
         }
       ],
       "results_ko": "",
       "results_en": "",
-      "figures": [
-        {
-          "image": "assets/img/fig-reservoir-3d.png",
-          "cap_ko": "3D 저류층 시뮬레이션 모델",
-          "cap_en": "3D reservoir simulation model"
-        },
-        {
-          "image": "assets/img/fig-field-sim.png",
-          "cap_ko": "현장 규모 유동 시뮬레이션",
-          "cap_en": "Field-scale flow simulation"
-        },
-        {
-          "image": "assets/img/fig-nodal.png",
-          "cap_ko": "생산 시스템 유동 해석",
-          "cap_en": "Production system nodal analysis"
-        },
-        {
-          "image": "assets/img/fig-production-forecast.png",
-          "cap_ko": "생산 데이터 히스토리 매칭",
-          "cap_en": "History matching of production data"
-        }
-      ],
+      "figures": [],
       "card": {
         "image": "assets/img/fig-reservoir-3d.png",
-        "chip": "CORE FOCUS",
-        "desc_ko": "매장량 평가, 회수증진(EOR), 비전통자원, 데이터 기반 생산량 예측 등 전통 자원개발 전반을 수행합니다.",
-        "desc_en": "Reserves estimation, EOR, unconventional resources, and data-driven production forecasting.",
-        "tag": "Reservoir Simulation"
+        "chip": "Simulation·Experiment·AI",
+        "desc_ko": "최근 다양한 공학 분야와 연계되고 있는 AI와 유가스·CO₂ 지중저장 분야를 연계하여 예측·최적화·리스크 제어 등의 다양한 연구개발을 수행합니다.",
+        "desc_en": "We conduct various research and development activities—including prediction, optimization, and risk control—by integrating AI, which is increasingly linked to diverse engineering fields, with the oil and gas and geological CO₂ storage sectors.",
+        "tag": "Based on Experiment·Simulation"
       }
     },
     {
-      "id": "co2-adsorption-ai",
+      "id": "co2-adsorption",
       "status": "종료",
-      "title_ko": "CO₂ 흡착량 평가·예측 모델 개발 연구",
-      "title_en": "CO₂ Adsorption Assessment & AI Prediction",
+      "title_ko": "CO₂ 흡착 실험 연구",
+      "title_en": "CO₂ Adsorption Experiment Study",
       "keywords": [
         "Experiment",
         "Machine Learning",
@@ -275,21 +320,21 @@
       ],
       "card": {
         "image": "assets/img/fig-neural-network.png",
-        "chip": "EXPERIMENT · AI",
+        "chip": "Experiment",
         "desc_ko": "셰일 지질 특성 분석과 흡착 실험을 수행하고, 머신러닝 기반 흡착량 예측 모델을 구축합니다.",
         "desc_en": "Shale characterization, adsorption experiments, and ML models predicting CO₂ adsorption capacity.",
-        "tag": "Machine Learning"
+        "tag": "CO₂ Adsorption"
       }
     },
     {
-      "id": "pipeline-ai",
+      "id": "pipeline",
       "status": "종료",
-      "title_ko": "가스 파이프라인 누출 진단 연구",
-      "title_en": "AI Leak Diagnosis for Gas Pipelines",
+      "title_ko": "수송관(Pipeline) 내 누출 진단 연구",
+      "title_en": "Research on Leak Detection in Pipelines",
       "keywords": [
-        "AI",
         "Dynamic Modeling",
-        "Flow Assurance"
+        "Flow Assurance",
+        "AI"
       ],
       "lead_ko": "동적 모델링과 AI를 결합하여, 실제 운영 중인 가스 파이프라인의 누출 규모와 위치를 동시에 진단하는 모델을 개발합니다.",
       "lead_en": "Combining dynamic modeling and AI to simultaneously diagnose leak size and location in operating gas pipelines.",
@@ -355,7 +400,7 @@
       ],
       "card": {
         "image": "assets/img/fig-well-pipeline.png",
-        "chip": "AI · INFRASTRUCTURE",
+        "chip": "Simulation·AI",
         "desc_ko": "동적 모델링과 AI를 결합하여 실제 운영 파이프라인의 누출 규모·위치를 동시 진단합니다.",
         "desc_en": "Dynamic modeling and AI to diagnose leak size and location simultaneously on operating pipelines.",
         "tag": "Flow Assurance"
@@ -393,7 +438,7 @@
       "figures": [],
       "card": {
         "image": "",
-        "chip": "",
+        "chip": "Coming Soon",
         "desc_ko": "",
         "desc_en": "",
         "tag": ""
