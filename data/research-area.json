@@ -115,13 +115,13 @@
       "image": "assets/img/fig-screen2.png",
       "label": "Area 2",
       "title_ko": "CO₂ 지중저장",
-      "title_en": "CO₂ Geological Storage",
+      "title_en": "Geological CO₂ Storage",
       "body_ko": "CO₂를 심부 지층에 안전하게, 더 많이 저장하기 위한 연구입니다. <strong>주입·흡착 실험 기반 저장량 평가</strong>부터 저장소 시뮬레이션, <strong>AI 기반 예측·다목적 최적화</strong>까지 전주기를 다룹니다.",
       "body_en": "Research to store CO₂ safely and at greater capacity — from <strong>experiment-based capacity assessment</strong> and site simulation to <strong>AI-driven prediction and multi-objective optimization</strong>.",
       "tags": [
-        "Capacity Assessment",
+        "Capacity Evaluation",
         "Interfacial Analysis",
-        "CCS Optimization"
+        "Prediction · Optimization"
       ]
     }
   ],
