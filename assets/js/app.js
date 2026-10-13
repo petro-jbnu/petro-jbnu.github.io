@@ -66,16 +66,25 @@
   var mobileMenu = document.getElementById("mobile-menu");
   if (menuBtn && mobileMenu) {
     var icon = menuBtn.querySelector(".material-symbols-outlined");
+    function setMenu(open) {
+      mobileMenu.classList.toggle("hidden", !open);
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      if (icon) icon.textContent = open ? "close" : "menu";
+    }
     menuBtn.addEventListener("click", function () {
-      var open = !mobileMenu.classList.contains("hidden");
-      mobileMenu.classList.toggle("hidden");
-      if (icon) icon.textContent = open ? "menu" : "close";
+      setMenu(mobileMenu.classList.contains("hidden"));
     });
     mobileMenu.addEventListener("click", function (ev) {
-      if (ev.target.closest("a")) {
-        mobileMenu.classList.add("hidden");
-        if (icon) icon.textContent = "menu";
-      }
+      if (ev.target.closest("a")) setMenu(false);
+    });
+    /* 메뉴가 열린 상태에서 메뉴 바깥을 누르면 닫기 (iOS에서도 동작하도록 pointerdown 사용) */
+    document.addEventListener("pointerdown", function (ev) {
+      if (mobileMenu.classList.contains("hidden")) return;
+      if (mobileMenu.contains(ev.target) || menuBtn.contains(ev.target)) return;
+      setMenu(false);
+    });
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape" && !mobileMenu.classList.contains("hidden")) setMenu(false);
     });
   }
 
@@ -812,13 +821,17 @@
     load("data/pi.json", function (d) {
       var c = d.contact || {};
       function mi(name) { return '<span class="material-symbols-outlined text-[16px] align-middle text-primary">' + name + "</span> "; }
+      /* 전화번호: 휴대폰에서 누르면 바로 전화 연결 */
+      function telLink(num, cls) {
+        return '<a class="' + cls + '" href="tel:' + String(num).replace(/[^0-9+]/g, "") + '">' + esc(num) + "</a>";
+      }
       function mailLink(addr, cls) {
         return '<a class="' + cls + '" href="mailto:' + esc(addr) + '">' + esc(addr) + "</a>";
       }
       function piContactLine() {
         var parts = [];
         if (c.pi_office_ko || c.pi_office_en) parts.push(mi("location_on") + biText(c.pi_office_ko || c.pi_office_en, c.pi_office_en));
-        if (c.phone) parts.push(mi("call") + esc(c.phone));
+        if (c.phone) parts.push(mi("call") + telLink(c.phone, "hover:underline"));
         if (c.email) parts.push(mailLink(c.email, "text-primary hover:underline"));
         return parts.join(" · ");
       }
@@ -854,7 +867,7 @@
           biText(c.address_ko || "", c.address_en),
           biText(c.pi_office_ko || "", c.pi_office_en),
           biText(c.lab_office_ko || "", c.lab_office_en),
-          esc(c.phone || ""),
+          c.phone ? telLink(c.phone, "text-primary hover:underline") : "",
           (c.email ? mailLink(c.email, "text-primary hover:underline") + " " : "") + biText(c.email_note_ko || "", c.email_note_en),
           biText(c.rep_ko || "", c.rep_en) + (c.rep_email ? " · " + mailLink(c.rep_email, "text-primary hover:underline") : "")
         ];
@@ -879,7 +892,7 @@
         var f = fUl.children;
         if (c.address_short_ko) f[0].innerHTML = biText(c.address_short_ko, c.address_short_en);
         if (c.rooms_ko) f[1].innerHTML = biText(c.rooms_ko, c.rooms_en);
-        if (c.phone) f[2].innerHTML = "Tel. " + esc(c.phone);
+        if (c.phone) f[2].innerHTML = "Tel. " + telLink(c.phone, "hover:text-white transition-colors");
         if (c.email) f[3].innerHTML = mailLink(c.email, "hover:text-white transition-colors");
       }
     }, []);
