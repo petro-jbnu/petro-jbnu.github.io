@@ -156,6 +156,16 @@
               "en": "Analysis of Dynamic Changes Based on Injection Fluid (CO₂) Temperature"
             }
           ]
+        },
+        {
+          "title_ko": "셰일가스층 파쇄효율 향상을 위한 탐사프로세스 및 실증연구",
+          "title_en": "셰일가스층 파쇄효율 향상을 위한 탐사프로세스 및 실증연구",
+          "bullets": [
+            {
+              "ko": "셰일가스 매장량 및 생산성 평가를 위한 균열망 모델링 및 동적 시뮬레이션 모델 구축",
+              "en": "셰일가스 매장량 및 생산성 평가를 위한 균열망 모델링 및 동적 시뮬레이션 모델 구축"
+            }
+          ]
         }
       ],
       "results_ko": "",
