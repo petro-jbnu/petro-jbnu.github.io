@@ -366,7 +366,7 @@
         "chip": "Experiment",
         "desc_ko": "셰일 지질 특성 분석과 흡착 실험을 수행하고, 머신러닝 기반 흡착량 예측 모델을 구축합니다.",
         "desc_en": "Shale characterization, adsorption experiments, and ML models predicting CO₂ adsorption capacity.",
-        "tag": "CO₂ Adsorption"
+        "tag": "Geological CO₂ Storage"
       }
     },
     {
