@@ -79,9 +79,9 @@
     },
     {
       "id": "co2-simulation",
-      "status": "진행 중",
-      "title_ko": "CO₂ 지중저장 시뮬레이션 연구: 저장소 3D 모델링, 주입 전략 설계, 저장량 평가 등",
-      "title_en": "CO₂ Storage Evaluation",
+      "status": "종료",
+      "title_ko": "CO₂ 지중저장 시뮬레이션 연구",
+      "title_en": "Geological CO₂ Storage Simulation Study",
       "keywords": [
         "Geological CO₂ Storage (GCS)",
         "Static/Dynamic Modeling",
@@ -89,16 +89,16 @@
       ],
       "lead_ko": "다양한 국내외 지질 데이터를 기반으로 3D 모델링을 수행하고, 특정 지질 구조에 최적화된 CO₂ 주입 시나리오 설계부터 최종 저장 용량 평가에 이르기까지의 과정을 다룹니다.",
       "lead_en": "This study involves 3D modeling based on diverse domestic and international geological data and covers the entire process—from designing CO₂ injection scenarios optimized for specific geological structures to evaluating final storage capacity.",
-      "bg_ko": "현장 상용화 규모의 CCS는 수십 년에 걸친 주입·운영 계획이 필요하며, 다양한 운영 시나리오를 시뮬레이션을 통해 사전에 평가합니다.\n\n실제 상용화 규모의 CO2 지중저장은 장기간에 걸친 주입·운영 계획이 요구되며, 이를 위해 많은 변수들을 고려한 사전 의사결정이 필요합니다. 저희 연구실은 Schlumberger, CMG 사의 상용 저류연산 시뮬레이터를 기반으로 다양한 시나리오를 평가하고 있습니다.",
-      "bg_en": "On-site and commercial-scale Geological CO2 Storage Projects require long-term injection and operation planning, necessitating advance decision-making that considers numerous variables.\n\nOur laboratory is evaluating various scenarios based on commercial reservoir computation simulators from Schlumberger and CMG.",
+      "bg_ko": "현장 상용화 규모의 CO₂ 지중저장 프로젝트는 장기간의 주입 과정에서 지층 내 다양한 변수에 의해 발생하는 불확실성을 인지할 필요가 있으며, 정확한 예측에 기반한 사전 의사결정 과정은 필수적입니다. \n\n실제 현장 데이터를 기반으로 <strong>저장 지층을 3D 모델링하고, 지층 특성에 적합한 주입 시나리오 및 저장 용량 평가, 지질역학적 안정성 평가를 수행하는 시뮬레이션 연구</strong>가 기본적으로 요구됩니다. \n\n이에 저희 연구실은 <strong>글로벌 E&P(Upstream) 업계에서 사용하는 Schlumberger·CMG 사의 실무 소프트웨어를 기반</strong>으로 위 연구들을 수행 중입니다.",
+      "bg_en": "Geological CO2 storage projects on a commercial scale require the recognition of uncertainties arising from various variables within the geological strata during the long-term injection process, and a preliminary decision-making process based on accurate predictions is essential.\n\nSimulation studies are fundamentally required to 3D model storage strata based on actual field data, and to evaluate injection scenarios, storage capacity, and geomechanical stability suitable for the characteristics of the strata.\n\nOur lab is conducting the above research <strong>based on the global standard practical software from Schlumberger & CMG used in the E&P (Upstream) industry.</strong>",
       "sections": [
         {
           "title_ko": "국내 저장소 대상 CO₂ 지중저장 가능성 평가",
-          "title_en": "Storage feasibility assessment of real sites",
+          "title_en": "Evaluation of Geological CO₂ Storage Potential in South Korea",
           "bullets": [
             {
               "ko": "국내 유망 CO₂ 저장 부지의 주입 시나리오 설계 및 저장량 평가",
-              "en": "Design of Injection Scenarios and Storage Capacity Evaluation for Promising Domestic CO₂ Storage Sites"
+              "en": "Design of Injection Scenarios and Storage Capacity Evaluation for Promising Geological CO₂ Storage Sites in South Korea"
             }
           ]
         },
@@ -108,11 +108,11 @@
           "bullets": [
             {
               "ko": "Smeaheia 지질·물리탐사 데이터 기반 정적/동적 모델링",
-              "en": "Static and Dynamic Modeling Based on Geological and Geophysical Survey Data for Smeaheia"
+              "en": "Static and Dynamic Modeling Based on Geological and Geophysical Survey Data for Smeaheia (Norway)"
             },
             {
-              "ko": "Smeaheia 주입 시나리오 설계 및 저장량 평가: 오픈 소스 데이터 재설계 기반",
-              "en": "Smeaheia Injection Scenario Design and Storage Evaluation: Based on Open Source Data Redesign"
+              "ko": "Smeaheia (Norway) 부지의 CO₂ 주입 시나리오 설계 및 저장량 평가: 오픈 소스 데이터 기반 재설계",
+              "en": "CO2 Injection Scenario Design and Storage Evaluation at the Smeaheia (Norway) Site: Redesign Based on Open Source Data"
             }
           ]
         }
@@ -120,11 +120,6 @@
       "results_ko": "",
       "results_en": "",
       "figures": [
-        {
-          "image": "assets/img/fig-geomodel.png",
-          "cap_ko": "현장 데이터 기반 3D 지질 모델",
-          "cap_en": "3D geological model from field data"
-        },
         {
           "image": "assets/img/fig-sim-saturation.png",
           "cap_ko": "CO₂ 주입 시뮬레이션 — 포화도 분포",
@@ -140,16 +135,15 @@
       }
     },
     {
-      "id": "Optimization",
+      "id": "AI",
       "status": "진행 중",
       "title_ko": "CO₂ 지중저장 - AI 연계 연구",
       "title_en": "Geological CO₂ Storage – AI Integrated Study",
       "keywords": [
         "Geological CO₂ Storage (GCS)",
-        "Machine Learning",
-        "Deep Learning",
-        "Optimization",
-        "Prediction"
+        "ML·DL·RL",
+        "Prediction",
+        "Optimization"
       ],
       "lead_ko": "CO₂ 지중저장(CCS) 프로젝트의 핵심은 불확실성이 높은 지하 환경에서 최적의 주입 시나리오를 찾아내는 것입니다. 본 연구는 AI 모델을 기반으로 대상 저장소에 적합한 주입 공법을 제안하고, 유정 운용 전략을 최적화하는 의사결정 보조 시스템을 개발합니다",
       "lead_en": "The core challenge of CO₂ geological storage (CCS) projects lies in identifying optimal injection scenarios within highly uncertain subsurface environments. This study develops an AI-driven decision-support system to recommend suitable injection methods for target reservoirs and optimize well operation strategies.",
@@ -371,6 +365,44 @@
         "desc_ko": "동적 모델링과 AI를 결합하여 실제 운영 파이프라인의 누출 규모·위치를 동시 진단합니다.",
         "desc_en": "Dynamic modeling and AI to diagnose leak size and location simultaneously on operating pipelines.",
         "tag": "Flow Assurance"
+      }
+    },
+    {
+      "id": "Previous-Study",
+      "status": "종료",
+      "title_ko": "업데이트 예정 (기존 연구 프로젝트들)",
+      "title_en": "Update coming soon (existing research projects)",
+      "keywords": [
+        "Previous Study",
+        "Experiment",
+        "Simulation",
+        "AI"
+      ],
+      "lead_ko": "기존 연구 프로젝트들을 정리하여 업데이트 예정입니다.",
+      "lead_en": "We plan to organize and update the existing research projects.",
+      "bg_ko": "(업데이트 예정)",
+      "bg_en": "(Update coming soon)",
+      "sections": [
+        {
+          "title_ko": "-",
+          "title_en": "-",
+          "bullets": [
+            {
+              "ko": "-",
+              "en": "-"
+            }
+          ]
+        }
+      ],
+      "results_ko": "",
+      "results_en": "",
+      "figures": [],
+      "card": {
+        "image": "",
+        "chip": "",
+        "desc_ko": "",
+        "desc_en": "",
+        "tag": ""
       }
     }
   ]
