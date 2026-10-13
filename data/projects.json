@@ -119,13 +119,7 @@
       ],
       "results_ko": "",
       "results_en": "",
-      "figures": [
-        {
-          "image": "assets/img/fig-sim-saturation.png",
-          "cap_ko": "CO₂ 주입 시뮬레이션 — 포화도 분포",
-          "cap_en": "CO₂ injection simulation — saturation"
-        }
-      ],
+      "figures": [],
       "card": {
         "image": "assets/img/fig-sim-saturation.png",
         "chip": "SIMULATION · AI",
