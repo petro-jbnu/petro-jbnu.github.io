@@ -29,8 +29,8 @@
     "show": true,
     "badge_ko": "모집 중",
     "badge_en": "Recruiting",
-    "text_ko": "<strong>학부연구생</strong>과 <strong>석사과정(석박사통합과정 포함)</strong> 학생을 모집 중입니다. 소속 학생에게는 심화 강의와 실무용 소프트웨어 교육을 제공합니다.",
-    "text_en": "We are recruiting <strong>undergraduate interns</strong> and <strong>M.S. (or integrated) students</strong>. In-depth courses and industry software training are provided.",
+    "text_ko": "<strong>학부연구생</strong>과 <strong>대학원생(석사,석·박사통합과정)</strong> 학생을 모집합니다. 심화 강의와 실무 소프트웨어 교육훈련(서울)이 예정되어 있습니다.",
+    "text_en": "We are recruiting <strong>undergraduate research assistants and graduate students (Master’s and combined Master’s/Ph.D. programs).</strong> Advanced coursework and practical software training (in Seoul) are scheduled.",
     "link_ko": "모집 안내 →",
     "link_en": "Learn more →"
   },
@@ -38,8 +38,8 @@
     {
       "title_ko": "시뮬레이션",
       "title_en": "Simulation",
-      "desc_ko": "<strong>저류층·유정·파이프라인</strong> 전 구간의 유동을 수치 모델링하여 현장 문제를 해석하고 장기 거동을 예측합니다.",
-      "desc_en": "Numerical modeling of flow across <strong>reservoirs, wells, and pipelines</strong> to interpret field problems and predict long-term behavior."
+      "desc_ko": "<strong>저류층·유정·파이프라인</strong> 전 구간의 유동을 수치 모델링하여 <strong>유가스(Upstream)분야</strong>의 현장 문제를 해석하고 장기 거동을 예측합니다.",
+      "desc_en": "We numerically model the flow across <strong>the entire length of reservoirs, wells, and pipelines</strong> to analyze field issues and predict long-term behavior in <strong>the oil and gas sector.</strong>"
     },
     {
       "title_ko": "CO₂ 지중저장",
@@ -48,16 +48,16 @@
       "desc_en": "Experiments, simulation, and AI research to store CO₂ in deep formations <strong>safely and at greater capacity</strong>."
     },
     {
-      "title_ko": "유체/물성 분석",
-      "title_en": "Fluid/Property Analysis",
+      "title_ko": "유체/물성 분석 실험",
+      "title_en": "Fluid/Property Analysis Experiment",
       "desc_ko": "<strong>코어 주입 실험</strong>과 <strong>접촉각·계면장력 측정</strong>으로 암석–유체 상호작용과 유동 메커니즘을 규명합니다.",
       "desc_en": "<strong>Core flooding</strong> and <strong>contact angle/IFT measurements</strong> to characterize rock–fluid interactions and flow mechanisms."
     },
     {
-      "title_ko": "인공지능",
+      "title_ko": "AI",
       "title_en": "Artificial Intelligence",
-      "desc_ko": "머신러닝·최적화 알고리즘으로 <strong>생산량·저장량을 예측</strong>하고, <strong>유정 배치, 유량 등의 다양한 최적화</strong>를 수행합니다.",
-      "desc_en": "Machine learning and optimization to <strong>forecast production/storage</strong> and to perform <strong>various optimizations such as well location and rate optimization</strong>."
+      "desc_ko": "AI와 다양한 연구를 결합하여 <strong>생산량·저장량을 예측</strong>하고, <strong>유정 배치, 유량 등의 다양한 최적화</strong>를 수행합니다.",
+      "desc_en": "AI와 다양한 연구를 결합하여 <strong>생산량·저장량을 예측</strong>하고, <strong>유정 배치, 유량 등의 다양한 최적화</strong>를 수행합니다."
     }
   ],
   "cta": {
