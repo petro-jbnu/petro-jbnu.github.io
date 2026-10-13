@@ -33,3 +33,90 @@ p, li, figcaption, td, th, blockquote { text-wrap: pretty; }
    각 페이지 맨 위 큰 제목 아래 소개 문구의 최대 폭. 기존 768px(연구 성과 672px) → 1080px.
    PC처럼 넓은 화면에서만 차이가 나며, 태블릿·폰에서는 화면 폭에 맞춰집니다. */
 [data-ph] h1 ~ p { max-width: 1080px; }
+
+/* ---- 휴대폰 화면 크기 조정 (v30) ----
+   폭 639px 이하(휴대폰)에서만 적용됩니다. PC·태블릿 화면은 바뀌지 않습니다.
+   제목·여백·사진·카드를 줄이고 본문은 약 1px 줄입니다(14px 이하 작은 글자는 그대로).
+   이 파일은 tw.css보다 먼저 불러오므로, 우선순위를 높이려고 선택자 앞에 :root 를 붙였습니다. */
+#ac-title { font-size: clamp(26px, 3.4vw, 40px); } /* 소식 상세 제목: 누락된 크기 규칙 보완(모든 화면) */
+@media (max-width: 639px) {
+  /* 상단 메뉴 막대 80px → 60px */
+  :root header .h-20 { height: 60px; }
+  :root header img.h-10 { height: 34px; width: 34px; }
+  :root main.pt-20 { padding-top: 60px; }
+
+  /* 제목 */
+  :root main h1, :root #ac-title { font-size: 24px; line-height: 1.25; }
+  :root #hero h1 { font-size: 21px; }
+  :root .font-headline-lg:not([class*="text-["]) { font-size: 22px; line-height: 1.3; }
+  :root .text-\[clamp\(21px\2c 2\.6vw\2c 28px\)\] { font-size: 19px; }
+  :root h2.font-headline-md { font-size: 18px; }
+  :root .text-\[20px\] { font-size: 17px; }
+  :root .text-\[19px\] { font-size: 16.5px; }
+  :root .text-\[18px\] { font-size: 16px; }
+  :root h4.text-\[17px\] { font-size: 15.5px; }
+  :root h3.font-body-lg { font-size: 16px; }
+  :root .text-\[38px\], :root .text-\[40px\] { font-size: 28px; }
+  :root .text-\[44px\] { font-size: 34px; }
+  :root .text-\[36px\] { font-size: 30px; }
+
+  /* 본문 (약 1px 축소) */
+  :root .font-body-lg:not([class*="text-["]) { font-size: 15.5px; line-height: 1.6; }
+  :root .font-body-md:not([class*="text-["]) { font-size: 15px; }
+  :root .text-\[16\.5px\] { font-size: 15px; }
+  :root .text-\[15px\] { font-size: 14px; }
+  :root .text-\[14\.5px\] { font-size: 14px; }
+  :root .text-\[16px\] { font-size: 15px; }
+
+  /* 여백: 섹션 위아래 64px → 24px 등 */
+  :root .py-xl { padding-top: 24px; padding-bottom: 24px; }
+  :root .pt-xl { padding-top: 24px; }
+  :root .pb-xl { padding-bottom: 24px; }
+  :root .mt-xl { margin-top: 24px; }
+  :root .mb-xl { margin-bottom: 24px; }
+  :root .gap-xl { gap: 24px; }
+  :root .mt-lg { margin-top: 20px; }
+  :root .mb-lg { margin-bottom: 20px; }
+  :root .pb-lg { padding-bottom: 20px; }
+  :root .gap-lg { gap: 20px; }
+  :root .space-y-lg > :not([hidden]) ~ :not([hidden]) { margin-top: 20px; }
+  :root .p-lg { padding: 20px; }
+  :root .p-md { padding: 16px; }
+  :root .mb-md { margin-bottom: 14px; }
+  :root .gap-md, :root .gap-gutter { gap: 14px; }
+  :root td.py-md, :root th.py-md { padding-top: 12px; padding-bottom: 12px; }
+  :root td.px-md, :root th.px-md { padding-left: 12px; padding-right: 12px; }
+  :root .px-8 { padding-left: 20px; padding-right: 20px; }
+  :root .py-3 { padding-top: 10px; padding-bottom: 10px; }
+
+  /* 홈 첫 화면 이미지 영역 600px → 460px */
+  :root #hero { height: 460px; }
+
+  /* 사진·카드 */
+  :root img.w-48, :root img.w-44 { width: 140px; height: auto; }
+  :root .w-\[132px\] { width: 96px; height: 96px; }
+  :root div.w-\[132px\] { font-size: 30px; }
+  :root .h-48 { height: 150px; }
+
+  /* 숫자 카드(논문·발표·수상 / 연구 프로젝트 요약): 한 줄에 3장 */
+  :root .grid:has(> .h-36) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  :root .grid > .h-36 { height: auto; min-height: 88px; padding: 12px 8px; gap: 6px; }
+  :root .grid > .h-36 .font-label-caps { font-size: min(10.5px, 2.9vw); letter-spacing: .02em; overflow-wrap: normal; } /* 단어 중간에서는 끊지 않음 */
+
+  /* 연구 프로젝트 상세 페이지 */
+  :root .pj-hero-in { gap: 24px; padding: 28px 0 32px; }
+  :root .pj-meta { margin: 16px 0 10px; }
+  :root .pj-lead { font-size: 15.5px; line-height: 1.7; margin-top: 14px; }
+  :root .pj-kw { margin-top: 18px; }
+  :root .pj-body { padding-top: 32px; }
+  :root .pj-block { padding: 28px 0; gap: 14px; }
+  :root .pj-label h2 { font-size: 19px; }
+  :root .pj-prose { font-size: 15px; line-height: 1.8; }
+  :root .pj-step { grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; padding: 18px 0; }
+  :root .pj-num { font-size: 22px; }
+  :root .pj-step h3 { font-size: 17px; }
+  :root .pj-step li { font-size: 14.5px; }
+  :root .pj-results-text { font-size: 15px; }
+  :root .pj-related { padding: 32px 0 36px; margin-top: 28px; }
+  :root .pj-rel h3 { font-size: 15.5px; }
+}
