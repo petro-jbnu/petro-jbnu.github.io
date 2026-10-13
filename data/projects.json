@@ -66,28 +66,7 @@
       ],
       "results_ko": "",
       "results_en": "",
-      "figures": [
-        {
-          "image": "assets/img/fig-co2-injection.png",
-          "cap_ko": "CO₂ 주입에 따른 접촉각 변화 개념도",
-          "cap_en": "Contact-angle change upon CO₂ injection"
-        },
-        {
-          "image": "assets/img/fig-pore-flow.png",
-          "cap_ko": "공극 규모 CO₂ 유동 양상",
-          "cap_en": "Pore-scale CO₂ flow behavior"
-        },
-        {
-          "image": "assets/img/fig-contact-angle-1.png",
-          "cap_ko": "접촉각 측정 실험",
-          "cap_en": "Contact angle measurement"
-        },
-        {
-          "image": "assets/img/fig-contact-angle-2.png",
-          "cap_ko": "계면장력 측정 (pendant drop)",
-          "cap_en": "IFT measurement (pendant drop)"
-        }
-      ],
+      "figures": [],
       "card": {
         "image": "assets/img/fig-pore-flow.png",
         "chip": "Experiment",
