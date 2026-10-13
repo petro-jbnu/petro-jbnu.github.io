@@ -253,7 +253,7 @@ collections:
 
       # ---------------- Projects ----------------
       - name: "projects"
-        label: "연구 프로젝트 분류 (Projects)"
+        label: "분야별 연구 현황 (Projects)"
         file: "data/projects.json"
         fields:
           - { label: "메모", name: "_comment", widget: "hidden", required: false }
