@@ -2,7 +2,7 @@
   "_comment": "연구 분야 페이지 본문. 표의 각 칸 항목은 자유롭게 추가·삭제·순서 변경할 수 있고, 분야(행)와 카드도 늘릴 수 있습니다(카드는 한 줄에 2장씩). 굵게는 <strong>글자</strong>.",
   "matrix_title_ko": "연구 대상·방법",
   "matrix_title_en": "What we study, and how",
-  "matrix_lead_ko": "분야별 <strong>시뮬레이션·실험·AI</strong> 연구 항목",
+  "matrix_lead_ko": "분야별 <strong>시뮬레이션·실험·AI</strong> 연구 항목은 다음과 같습니다.",
   "matrix_lead_en": "<strong>Oil & natural gas</strong> and <strong>CO₂ geological storage</strong> — both approached through simulation, experiments, and AI.",
   "col_sim": "SIMULATION",
   "col_exp": "EXPERIMENT",
