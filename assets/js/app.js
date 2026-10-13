@@ -760,16 +760,25 @@
         return '<div class="pj-step"><div class="pj-num">' + (i < 9 ? "0" : "") + (i + 1) + "</div><div><h3>" +
           bi(esc(s.title_ko), esc(s.title_en || s.title_ko)) + "</h3>" + (lis ? "<ul>" + lis + "</ul>" : "") + "</div></div>";
       }).join("");
-      var figs = (p.figures || []).slice(0, 4);
+      /* 참고 자료: 이미지가 실제로 올라간 항목만 사용. 이미지가 하나도 없으면 섹션 전체(설명 문구 포함)를 숨김 */
+      var figs = (p.figures || []).filter(function (f) { return f && f.image; }).slice(0, 4);
       var res = document.getElementById("pj-results");
       var hasRes = !!(p.results_ko || p.results_en);
-      if (hasRes) { res.innerHTML = biRich(p.results_ko || p.results_en, p.results_en); res.hidden = false; }
+      if (hasRes && figs.length) { res.innerHTML = biRich(p.results_ko || p.results_en, p.results_en); res.hidden = false; }
       var figBox = document.getElementById("pj-figures");
       figBox.innerHTML = figs.map(function (fg, i) {
         return '<figure class="pj-fig" data-i="' + i + '"><div class="pj-img"><img alt="" loading="lazy" src="' + esc(fg.image) + '"/></div>' +
           "<figcaption><b>FIG. " + (i + 1) + "</b>" + bi(esc(fg.cap_ko || ""), esc(fg.cap_en || fg.cap_ko || "")) + "</figcaption></figure>";
       }).join("");
-      if (!figs.length && !hasRes) { var rb = document.getElementById("pj-blk-res"); if (rb) rb.style.display = "none"; }
+      if (!figs.length) { var rb = document.getElementById("pj-blk-res"); if (rb) rb.style.display = "none"; }
+      /* 보이는 단락만 01, 02, 03… 순서로 다시 번호 매김 */
+      var bn = 0;
+      [].forEach.call(document.querySelectorAll(".pj-block"), function (blk) {
+        if (blk.style.display === "none") return;
+        var num = blk.querySelector(".pj-label b");
+        bn++;
+        if (num) num.textContent = (bn < 10 ? "0" : "") + bn;
+      });
       var lb = document.getElementById("pj-lightbox");
       if (lb) {
         var lbImg = lb.querySelector("img"), lbCap = lb.querySelector("figcaption");
