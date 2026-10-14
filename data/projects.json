@@ -359,7 +359,7 @@
         "Leak Detection",
         "Paraffin precipitation"
       ],
-      "lead_ko": "글로벌 업계 표준 소프트웨어인 Schlumberger 사의 수송관 내 유체 유동 소프트웨어 OLGA 를 활용하여 수송관(pipeline) 내 침전물 및 누출 진단·예측 모델을 개발합니다.",
+      "lead_ko": "글로벌 업계 표준 소프트웨어인 Schlumberger 사의 소프트웨어 OLGA 를 활용하여 수송관(pipeline) 내 침전물 및 누출 진단·예측 모델을 개발합니다.",
       "lead_en": "We develop a model for diagnosing and predicting sediment and leaks in pipelines using OLGA, a fluid flow software for pipelines from Schlumberger, a global industry standard.",
       "bg_ko": "천연가스와 CO₂ 수송의 핵심 인프라인 수송관(pipeline)에서 <strong>침전물 누적과 수송 유체 누출은 안전과 환경, 비용에 직결</strong>되는 문제입니다. '어디서 얼마나' 발생했는지를 정확하고 빠르게 파악하는 기술은 운영 안전성을 크게 높입니다.",
       "bg_en": "The accumulation of sediment and leakage of transport fluids in pipelines, which are the core infrastructure for natural gas and CO₂ transportation, are issues directly linked to safety, the environment, and costs. \n\nTechnology that accurately and rapidly identifies the location and extent of these occurrences significantly enhances operational safety.",
