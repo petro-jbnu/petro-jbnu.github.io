@@ -719,8 +719,6 @@
   if (pjCards) {
     load("data/projects.json", function (data) {
       var items = data.items || [];
-      var cnt = document.getElementById("proj-count");
-      if (cnt) cnt.textContent = items.length;
       pjCards.innerHTML = items.map(function (p) {
         var c = p.card || {};
         return '<a class="group relative bg-surface-container-lowest rounded-xl flex flex-col h-full overflow-hidden hover:-translate-y-1 transition-transform duration-300 shadow-md border border-outline-variant/40" href="project.html?id=' + encodeURIComponent(p.id) + '">' +
