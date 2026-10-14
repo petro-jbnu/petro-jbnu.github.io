@@ -114,7 +114,8 @@
           /* 연구 과제 숫자 2칸: 아래 과제 목록과 같은 가로 폭(목록이 스크롤 상자일 때는 좌우 여백까지 동일) */
           .gt-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
           @media (min-width:768px){.gt-grid:has(+ #grant-list.pub-scroll){padding:0 12px 0 2px}}
-          @media (max-width:767px){.gt-tile{flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;padding:12px 14px}}
+          @media (min-width:768px){.gt-tile{padding-top:28px;padding-bottom:28px}} /* 칸 높이 약 96px */
+          @media (max-width:767px){.gt-tile{flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;padding:16px 14px}}
         </style>
         <div class="gt-grid gap-md mb-md">
           <div class="gt-tile bg-surface-container-lowest shadow-md rounded-xl px-md py-sm flex items-center justify-between gap-sm border border-outline-variant/40">
