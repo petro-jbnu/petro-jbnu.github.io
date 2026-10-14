@@ -912,7 +912,13 @@
       var crumb = phBox.querySelector(".font-data-tabular");
       if (crumb && (v.crumb_ko || v.crumb_en)) {
         var home = crumb.querySelector("a");
-        crumb.innerHTML = (home ? home.outerHTML : "") + " / " + biText(v.crumb_ko || v.crumb_en, v.crumb_en);
+        // 관리자 입력값 앞에 'Home /'(또는 '홈 /')를 적어도 중복되지 않도록 제거 — Home은 자동으로 붙음
+        var noHome = function (s) {
+          var t = String(s == null ? "" : s).trim();
+          while (/^(home|홈)$/i.test(t.split("/")[0].trim()) && t.indexOf("/") > -1) t = t.slice(t.indexOf("/") + 1).trim();
+          return t;
+        };
+        crumb.innerHTML = (home ? home.outerHTML : "") + " / " + biText(noHome(v.crumb_ko || v.crumb_en), noHome(v.crumb_en));
       }
       /* 15-B. Contact 페이지 JOIN US 섹션 (제목 + 카드 최대 3장 + 이메일 버튼 문구) */
       var joinBox = document.querySelector("[data-join]");
