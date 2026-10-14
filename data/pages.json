@@ -5,8 +5,8 @@
     "title_en": "About Our Laboratory",
     "lead_ko": "전북대학교 기후환경에너지융합학과 <strong>지하유체유동연구실(GeoFlow Engineering Lab)</strong>은 지하 유체 유동에 대한 깊은 이해를 바탕으로, <strong>석유, 가스와 같은 전통 자원개발</strong>과 탄소중립에 기여하는  <strong>CO₂ 지중저장 기술</strong>을 아우르는 연구를 수행하고 있습니다.",
     "lead_en": "Since 2013, the <strong>GeoFlow Engineering Lab</strong> in the Department of Climate, Environment & Energy Convergence at Jeonbuk National University has pursued research spanning <strong>conventional resource development</strong> and <strong>carbon-neutral technologies</strong>, grounded in a deep understanding of subsurface fluid flow.",
-    "crumb_ko": "소개",
-    "crumb_en": "About"
+    "crumb_ko": "연구실 소개",
+    "crumb_en": "About the Lab"
   },
   "research-area": {
     "title_ko": "연구 분야",
@@ -20,7 +20,7 @@
     "title_ko": "연구 프로젝트",
     "title_en": "Research Projects",
     "lead_ko": "현재 수행 중인 <strong>주요 연구 및 연구 과제</strong>입니다. 이외에도 다양한 연구들을 계획, 수행하고 있습니다.",
-    "lead_en": "Our detailed ongoing research and funded projects. Each project page provides its background, scope, and selected results.",
+    "lead_en": "Our <strong>main ongoing research and funded projects</strong>. We are also planning and carrying out a variety of other studies.",
     "crumb_ko": "프로젝트",
     "crumb_en": "Projects"
   },
@@ -29,14 +29,16 @@
     "title_en": "Lab Activities",
     "lead_ko": "<strong>대학원생 외부 교육, 국내외 학술대회 발표, 실무자 세미나 등</strong> 다양한 연구실 활동을 진행하고 있습니다.",
     "lead_en": "Records of lab activities — training, workshops, and events — together with the lab schedule.",
-    "crumb_ko": "연구 활동",
-    "crumb_en": "Activities"
+    "crumb_ko": "연구실 활동",
+    "crumb_en": "Lab Activities"
   },
   "publications": {
     "title_ko": "연구 성과",
     "title_en": "Publications",
     "lead_ko": "학술 논문, 학술대회 발표, 수상 내역입니다.",
-    "lead_en": "Journal papers, conference presentations, and awards."
+    "lead_en": "Journal papers, conference presentations, and awards.",
+    "crumb_ko": "연구 성과",
+    "crumb_en": "Publications"
   },
   "members": {
     "title_ko": "구성원",
@@ -51,8 +53,8 @@
     "title_en": "Laboratory Equipment",
     "lead_ko": "연구실에서 보유 중인 다양한 실험 및 전산 장비입니다.",
     "lead_en": "Experimental apparatus and computational resources used in our research.",
-    "crumb_ko": "Home / 연구실 장비",
-    "crumb_en": "Home / Equipment"
+    "crumb_ko": "연구실 장비",
+    "crumb_en": "Equipment"
   },
   "contact": {
     "title_ko": "찾아오시는 길 · 문의",
