@@ -108,18 +108,24 @@
         <div class="w-0.5 h-16 bg-primary/20 mt-4"></div>
       </div>
       <div class="flex-1">
-        <div class="grid gap-md mb-lg max-w-2xl" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-          <div class="bg-surface-container-lowest shadow-md rounded-xl p-md flex flex-col justify-between h-36 border border-outline-variant/40">
-            <div class="flex justify-between items-start"><span class="font-label-caps text-[15px] text-on-surface-variant"><span class="ko">진행 연구 과제</span><span class="en">ACTIVE GRANTS</span></span></div>
+        <h2 class="font-headline-lg text-on-surface mb-xs"><span class="ko">연구 과제</span><span class="en">Funded Research Projects</span></h2>
+        <p class="font-body-md text-on-surface-variant mb-md"><span class="ko">정부·공공기관 및 산업체의 지원으로 수행 중인 연구 과제 목록입니다.</span><span class="en">Research projects funded by government agencies, public institutions, and industry.</span></p>
+        <style>
+          /* 연구 과제 숫자 2칸: 아래 과제 목록과 같은 가로 폭(목록이 스크롤 상자일 때는 좌우 여백까지 동일) */
+          .gt-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+          @media (min-width:768px){.gt-grid:has(+ #grant-list.pub-scroll){padding:0 12px 0 2px}}
+          @media (max-width:767px){.gt-tile{flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;padding:12px 14px}}
+        </style>
+        <div class="gt-grid gap-md mb-md">
+          <div class="gt-tile bg-surface-container-lowest shadow-md rounded-xl px-md py-sm flex items-center justify-between gap-sm border border-outline-variant/40">
+            <span class="font-label-caps text-[15px] text-on-surface-variant"><span class="ko">진행 연구 과제</span><span class="en">ACTIVE GRANTS</span></span>
             <div class="font-display-lg text-[40px] leading-none text-primary"><span id="grant-active-count">–</span></div>
           </div>
-          <div class="bg-surface-container-lowest shadow-md rounded-xl p-md flex flex-col justify-between h-36 border border-outline-variant/40">
-            <div class="flex justify-between items-start"><span class="font-label-caps text-[15px] text-on-surface-variant"><span class="ko">누적 연구 과제</span><span class="en">TOTAL GRANTS</span></span></div>
+          <div class="gt-tile bg-surface-container-lowest shadow-md rounded-xl px-md py-sm flex items-center justify-between gap-sm border border-outline-variant/40">
+            <span class="font-label-caps text-[15px] text-on-surface-variant"><span class="ko">누적 연구 과제</span><span class="en">TOTAL GRANTS</span></span>
             <div class="font-display-lg text-[40px] leading-none text-primary"><span id="grant-count">–</span></div>
           </div>
         </div>
-        <h2 class="font-headline-lg text-on-surface mb-xs"><span class="ko">연구 과제</span><span class="en">Funded Research Projects</span></h2>
-        <p class="font-body-md text-on-surface-variant mb-md"><span class="ko">정부·공공기관 및 산업체의 지원으로 수행 중인 연구 과제 목록입니다.</span><span class="en">Research projects funded by government agencies, public institutions, and industry.</span></p>
         <div id="grant-list" class="flex flex-col gap-sm"></div>
       </div>
     </div>
