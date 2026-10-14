@@ -354,7 +354,7 @@
       "title_ko": "수송관(Pipeline) 내 유동 안정성 연구",
       "title_en": "Research on Flow Assurance in Pipelines",
       "keywords": [
-        "Dynamic Modeling",
+        "Pipeline",
         "Flow Assurance",
         "Leak Detection",
         "Paraffin precipitation"
@@ -369,7 +369,7 @@
           "title_en": "Dynamic-model-based leak analysis",
           "bullets": [
             {
-              "ko": "파이프라인 동적 모델링 기반 누출 변수·경향 분석",
+              "ko": "수송관 내 동적 모델링(OLGA) 기반 누출 변수·경향 분석",
               "en": "Analysis of leak variables and trends via dynamic pipeline modeling"
             },
             {
@@ -379,11 +379,11 @@
           ]
         },
         {
-          "title_ko": "실제 운영 파이프라인 대상 AI 진단 모델",
-          "title_en": "AI diagnosis on operating pipelines",
+          "title_ko": "실제 수송관 대상 AI 진단 모델 개발",
+          "title_en": "Development of AI diagnosis on operating pipelines (In-situ)",
           "bullets": [
             {
-              "ko": "실제 운영 파이프라인 데이터 기반 학습",
+              "ko": "현장 수송관 데이터 기반 학습",
               "en": "Trained on data from real operating pipelines"
             },
             {
@@ -405,7 +405,7 @@
               "en": "Calculation of conditions and scale of potential paraffin formation within the pipeline"
             },
             {
-              "ko": "다상유동 시뮬레이션 모델(OLGA) 기반 파라핀 생성 억제 방안 모색 및 적용성 평가기술 구축",
+              "ko": "동적 모델링(OLGA) 기반 파라핀 생성 억제 방안 모색 및 적용성 평가기술 구축",
               "en": "Development of paraffin formation inhibition strategies and applicability assessment techniques based on multiphase flow simulation models (OLGA)"
             }
           ]
