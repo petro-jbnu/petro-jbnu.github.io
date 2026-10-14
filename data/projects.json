@@ -432,44 +432,6 @@
         "desc_en": "Dynamic modeling and AI to diagnose leak size and location simultaneously on operating pipelines.",
         "tag": "Oil & Gas, Geological CO₂ Storage"
       }
-    },
-    {
-      "id": "Previous-Study",
-      "status": "종료",
-      "title_ko": "업데이트 예정 (기존 연구 프로젝트들)",
-      "title_en": "Update coming soon (existing research projects)",
-      "keywords": [
-        "Previous Study",
-        "Experiment",
-        "Simulation",
-        "AI"
-      ],
-      "lead_ko": "기존 연구 프로젝트들을 정리하여 업데이트 예정입니다.",
-      "lead_en": "We plan to organize and update the existing research projects.",
-      "bg_ko": "(업데이트 예정)",
-      "bg_en": "(Update coming soon)",
-      "sections": [
-        {
-          "title_ko": "-",
-          "title_en": "-",
-          "bullets": [
-            {
-              "ko": "-",
-              "en": "-"
-            }
-          ]
-        }
-      ],
-      "results_ko": "",
-      "results_en": "",
-      "figures": [],
-      "card": {
-        "image": "",
-        "chip": "Coming Soon",
-        "desc_ko": "",
-        "desc_en": "",
-        "tag": ""
-      }
     }
   ]
 }
