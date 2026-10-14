@@ -11,8 +11,8 @@
   "research-area": {
     "title_ko": "연구 분야",
     "title_en": "Research Areas",
-    "lead_ko": "<strong>석유·천연가스</strong>와 <strong>CO₂ 지중저장 분야</strong>에서 <strong>시뮬레이션·실험·AI</strong>를 개별적으로 또는 연계하여 연구에 활용합니다.",
-    "lead_en": "<strong>Simulation, experiments, and AI</strong> are used individually or in conjunction with research in the fields of <strong>oil and natural gas</strong> and <strong>CO₂ underground storage</strong>.",
+    "lead_ko": "우리 연구실은 <strong>석유·천연가스</strong>와 <strong>CO₂ 지중저장 분야</strong>에서 <strong>시뮬레이션·실험·AI</strong>를 개별적으로 또는 연계하여 연구에 활용합니다.",
+    "lead_en": "Our lab utilizes simulations, experiments, and AI, either individually or in combination, in research within <strong>the fields of oil and natural gas and geological CO₂ storage.</strong>",
     "crumb_ko": "연구 분야",
     "crumb_en": "Research Areas"
   },
@@ -35,8 +35,8 @@
   "publications": {
     "title_ko": "연구 성과",
     "title_en": "Publications",
-    "lead_ko": "논문 게재, 학술대회 발표, 장학·수상 등의 다양한 연구 성과를 만들어 가고 있습니다.",
-    "lead_en": "We are achieving various research outcomes, including journal publications, conference presentations, and awards.",
+    "lead_ko": "우리 연구실은 논문 게재, 학술대회 발표, 장학·수상 등의 다양한 연구 성과를 만들어 가고 있습니다.",
+    "lead_en": "Our lab is producing various research achievements, including the publication of papers, presentations at academic conferences, and awards.",
     "crumb_ko": "연구 성과",
     "crumb_en": "Publications"
   },
