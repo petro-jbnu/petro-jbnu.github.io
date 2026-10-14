@@ -29,8 +29,8 @@
     "show": true,
     "badge_ko": "모집 중",
     "badge_en": "Recruiting",
-    "text_ko": "<strong>학부연구생</strong>과 <strong>대학원생(석사,석·박사통합과정)</strong> 학생을 모집합니다. 심화 강의와 실무 소프트웨어 교육훈련(서울)이 예정되어 있습니다.",
-    "text_en": "We are recruiting <strong>undergraduate research assistants and graduate students (Master’s and combined Master’s/Ph.D. programs).</strong> Advanced coursework and practical software training (in Seoul) are scheduled.",
+    "text_ko": "<strong>학부연구생</strong>과 <strong>대학원생(석사,석·박사통합과정)</strong> 학생을 모집합니다. 전공 심화 강의와 실무 소프트웨어 교육훈련(반기) 등 다양한 활동을 경험할 수 있습니다.",
+    "text_en": "We are recruiting <strong>undergraduate research assistants and graduate students (Master’s and combined Master’s/Ph.D. programs).</strong> Advanced coursework and practical software training are scheduled.",
     "link_ko": "모집 안내 →",
     "link_en": "Learn more →"
   },
