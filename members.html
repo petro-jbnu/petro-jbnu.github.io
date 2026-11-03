@@ -81,7 +81,7 @@
 </div>
 </header>
 <main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
-<section data-ph class="w-full border-b border-outline-variant" style="background: radial-gradient(900px 380px at 90% -20%, #d2e9f3, transparent 60%), #fbfdfe;">
+<section data-ph="members" class="w-full border-b border-outline-variant" style="background: radial-gradient(900px 380px at 90% -20%, #d2e9f3, transparent 60%), #fbfdfe;">
   <div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop py-xl">
     <div class="font-data-tabular text-data-tabular font-semibold text-outline mb-sm"><a class="hover:text-primary" href="index.html">Home</a> / <span class="ko">구성원</span><span class="en">Members</span></div>
     <h1 class="font-display-lg text-[clamp(30px,4vw,48px)] leading-tight text-on-surface mb-md"><span class="ko">구성원</span><span class="en">Members</span></h1>
@@ -91,13 +91,11 @@
 
 <section class="max-w-7xl mx-auto w-full px-margin-mobile lg:px-margin-desktop py-xl">
 <div class="mb-md"><div class="font-label-caps text-primary tracking-widest mb-xs">PRINCIPAL INVESTIGATOR</div><h2 class="font-headline-lg text-on-surface"><span class="ko">지도교수</span><span class="en">Principal Investigator</span></h2></div>
-  <div data-pi="members" class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/40 p-md lg:p-lg flex flex-col md:flex-row gap-lg items-start mb-xl">
-    <img class="w-44 rounded-xl shadow-sm shrink-0 object-cover" alt="Prof. Youngsoo Lee" src="assets/img/prof-lee.jpg"/>
-    <div class="flex-1 space-y-sm">
-      <div>
-        <h3 class="font-headline-md text-[26px] text-on-surface"><span class="ko">이영수 <span class="font-body-md text-[15px] font-semibold text-on-surface-variant ml-1">Youngsoo Lee</span></span><span class="en">Youngsoo Lee</span></h3>
-        <p data-pi-title class="font-body-md text-[14px] font-semibold text-primary mt-base"><span class="ko">교수 · 지도교수</span><span class="en">Professor · Principal Investigator</span></p>
-      </div>
+  <div data-pi="members" class="mbr-pi bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/40 mb-xl">
+    <img alt="Prof. Youngsoo Lee" src="assets/img/prof-lee.jpg"/>
+    <div class="mbr-pi-body">
+      <p data-pi-title class="mbr-pi-title"><span class="ko">교수 · 지도교수</span><span class="en">Professor · Principal Investigator</span></p>
+      <h3 class="font-headline-md text-[26px] text-on-surface"><span class="ko">이영수 <span class="font-body-md text-[15px] font-semibold text-on-surface-variant ml-1">Youngsoo Lee</span></span><span class="en">Youngsoo Lee</span></h3>
       <p class="font-body-lg text-on-surface-variant max-w-3xl"><span class="ko"><strong>저류공학</strong>, <strong>CO₂ 지중저장</strong>, 유정·파이프라인 유동 해석을 연구합니다.</span><span class="en"><strong>Reservoir engineering</strong>, <strong>CO₂ geological storage</strong>, and well &amp; pipeline flow analysis.</span></p>
       <p data-pi-line class="font-body-md text-on-surface-variant">
         <span class="material-symbols-outlined text-[16px] align-middle text-primary">location_on</span> <span class="ko">공과대학 2호관 307호</span><span class="en">Rm 307, Engineering Bldg. 2</span> ·
@@ -109,14 +107,13 @@
   </div>
 
 <div class="mb-md"><div class="font-label-caps text-primary tracking-widest mb-xs">MEMBERS</div><h2 class="font-headline-lg text-on-surface"><span class="ko">연구원 · 대학원생</span><span class="en">Researchers &amp; Students</span></h2></div>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+  <div class="mbr-grid">
     <div id="member-list" class="contents"></div>
-    <div class="bg-surface-container border border-dashed border-outline rounded-xl p-md flex flex-col">
-      <div class="w-[132px] h-[132px] rounded-full bg-primary text-white flex items-center justify-center font-headline-md text-[40px] mb-sm">+</div>
-      <h3 class="font-headline-md text-[18px] text-on-surface"><span class="ko">신입 구성원 모집</span><span class="en">Open Positions</span></h3>
-      <p class="font-label-caps text-primary tracking-wider mt-1"><span class="ko">학부연구생 · 석사과정 모집 중</span><span class="en">RECRUITING UNDERGRADS &amp; M.S. STUDENTS</span></p>
-      <p class="font-body-md text-on-surface-variant mt-xs"><span class="ko">에너지·환경 분야 연구에 참여할 학생을 모집합니다.</span><span class="en">Recruiting students to join research in energy and the environment.</span></p>
-      <a class="mt-auto pt-sm font-label-caps text-primary hover:underline inline-flex items-center gap-1" href="contact.html#join"><span class="ko">모집 안내 보기</span><span class="en">HOW TO JOIN</span> <span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+    <div class="mbr-recruit">
+      <h3 class="font-headline-md text-[20px] text-on-surface"><span class="ko">신입 구성원 모집</span><span class="en">Open Positions</span></h3>
+      <p class="font-label-caps text-primary tracking-wider"><span class="ko">학부연구생 · 석사과정 모집 중</span><span class="en">RECRUITING UNDERGRADS &amp; M.S. STUDENTS</span></p>
+      <p class="font-body-md text-on-surface-variant"><span class="ko">에너지·환경 분야 연구에 참여할 학생을 모집합니다.</span><span class="en">Recruiting students to join research in energy and the environment.</span></p>
+      <a class="pt-xs font-label-caps text-primary hover:underline inline-flex items-center gap-1" href="contact.html#join"><span class="ko">모집 안내 보기</span><span class="en">HOW TO JOIN</span> <span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
     </div>
   </div>
 </section>
@@ -125,25 +122,22 @@
   <div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop">
 <div class="mb-md"><div class="font-label-caps text-primary tracking-widest mb-xs">ALUMNI</div><h2 class="font-headline-lg text-on-surface"><span class="ko">졸업생</span><span class="en">Alumni</span></h2></div>
     <p class="font-body-md text-on-surface-variant mb-md max-w-2xl"><span class="ko">졸업생들은 <strong>국내외 에너지 기업, 공기업, 정부출연연구원</strong>에 재직 중입니다.</span><span class="en">Our alumni work at <strong>global energy companies, public corporations, and government research institutes</strong>.</span></p>
-    <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/40 mb-lg">
-      <div id="alumni-cards" class="mo-only"></div>
-      <div class="pc-only">
-      <table class="w-full text-left border-collapse">
-        <thead><tr class="bg-surface-container-high border-b border-surface-container-highest">
-          <th class="py-sm px-md font-label-caps text-on-surface-variant uppercase tracking-wider"><span class="ko">소속</span><span class="en">Organization</span></th>
-          <th class="py-sm px-md font-label-caps text-on-surface-variant uppercase tracking-wider"><span class="ko">분야</span><span class="en">Role</span></th>
-          <th class="py-sm px-md font-label-caps text-on-surface-variant uppercase tracking-wider"><span class="ko">학위</span><span class="en">Degree</span></th>
-        </tr></thead>
-        <tbody id="alumni-body" class="font-body-md text-on-surface divide-y divide-surface-container-highest"></tbody>
-      </table>
-      </div>
+    <div class="alm-box mb-lg">
+      <div class="alm-head"><span><span class="ko">소속</span><span class="en">Organization</span></span><span><span class="ko">학위</span><span class="en">Degree</span></span><span><span class="ko">분야</span><span class="en">Role</span></span></div>
+      <div id="alumni-rows"></div>
     </div>
 
-    <h3 class="font-headline-md text-[18px] text-on-surface mb-sm"><span class="ko">진출 분야</span><span class="en">Career Destinations</span></h3>
-    <p class="font-body-md text-[14px] text-on-surface-variant mb-xs"><span class="ko">공기업 · 정부출연연구원</span><span class="en">Public Corporations &amp; Government Institutes</span></p>
-    <div id="career-public" class="flex flex-wrap gap-xs mb-sm"></div>
-    <p class="font-body-md text-[14px] text-on-surface-variant mb-xs"><span class="ko">국내외 산업체</span><span class="en">Domestic &amp; Global Industry</span></p>
-    <div id="career-industry" class="flex flex-wrap gap-xs"></div>
+    <h3 class="font-headline-md text-[20px] text-on-surface mb-sm"><span class="ko">진출 분야</span><span class="en">Career Destinations</span></h3>
+    <div class="car-grid">
+      <div class="car-box">
+        <p class="car-h"><span class="ko">공기업 · 정부출연연구원</span><span class="en">Public Corporations &amp; Government Institutes</span></p>
+        <div id="career-public" class="car-list"></div>
+      </div>
+      <div class="car-box">
+        <p class="car-h"><span class="ko">국내외 산업체</span><span class="en">Domestic &amp; Global Industry</span></p>
+        <div id="career-industry" class="car-list"></div>
+      </div>
+    </div>
   </div>
 </section>
 
