@@ -51,17 +51,20 @@ collections:
               - { label: "안내 문구(영어)", name: "text_en", widget: "text", required: false }
               - { label: "링크 문구(한국어)  ※ 이동 주소는 문의 페이지로 고정", name: "link_ko", widget: "string", required: false }
               - { label: "링크 문구(영어)", name: "link_en", widget: "string", required: false }
-          - label: "연구 카드 (최대 4장, 이동 주소는 프로젝트 페이지로 고정)"
+          - label: "연구 방법 카드 (최대 4장, 왼쪽부터 순서대로 표시, 이동 주소는 프로젝트 페이지로 고정)"
             name: "cards"
             widget: "list"
             max: 4
             required: false
             summary: "{{fields.title_ko}}"
             fields:
+              - { label: "아이콘 (선 그림)", name: "icon", widget: "select", options: [{ label: "실험 — 코어 홀더", value: "experiment" }, { label: "시뮬레이션 — 계산 격자", value: "simulation" }, { label: "AI — 신경망", value: "ai" }, { label: "없음", value: "none" }], required: false }
               - { label: "카드 제목(한국어)", name: "title_ko", widget: "string" }
               - { label: "카드 제목(영어)", name: "title_en", widget: "string", required: false }
               - { label: "카드 설명(한국어)  ※ 굵게: <strong>글자</strong>", name: "desc_ko", widget: "text", required: false }
               - { label: "카드 설명(영어)", name: "desc_en", widget: "text", required: false }
+          - { label: "연구 방법 카드 아래 한 줄 문구(한국어)  ※ 굵게: <strong>글자</strong>, 비우면 표시 안 함", name: "cards_note_ko", widget: "string", required: false }
+          - { label: "연구 방법 카드 아래 한 줄 문구(영어)", name: "cards_note_en", widget: "string", required: false }
           - label: "하단 지원 안내 배너"
             name: "cta"
             widget: "object"
@@ -380,6 +383,7 @@ collections:
             summary: "{{fields.date}} — {{fields.title_en}}"
             fields:
               - { label: "발표 시기 (예: May 2026)", name: "date", widget: "string" }
+              - { label: "발표 형식 (구두/포스터) — 제목 끝에 (Oral Session) 등을 적지 마세요", name: "format", widget: "select", options: [{ label: "구두 (Oral)", value: "oral" }, { label: "포스터 (Poster)", value: "poster" }], required: false }
               - { label: "발표 제목(한국어) — 국내 학회 국문 발표는 국문 제목", name: "title_ko", widget: "string" }
               - { label: "발표 제목(영어)", name: "title_en", widget: "string" }
               - { label: "저자 (로마자, 예: G.W. Ju, Y.S. Lee)", name: "authors", widget: "string" }
@@ -391,11 +395,13 @@ collections:
             name: "awards"
             widget: "list"
             add_to_top: true
-            summary: "{{fields.date}} — {{fields.name_ko}}"
+            summary: "{{fields.date}} — [{{fields.award_ko}}] {{fields.name_ko}}"
             fields:
               - { label: "수상 시기 (예: 2026.05)", name: "date", widget: "string" }
-              - { label: "상 이름(한국어)", name: "name_ko", widget: "string" }
-              - { label: "상 이름(영어)", name: "name_en", widget: "string" }
+              - { label: "상 종류(한국어, 예: 우수상·우수논문발표상)", name: "award_ko", widget: "string", required: false }
+              - { label: "상 종류(영어, 예: Excellent Award)", name: "award_en", widget: "string", required: false }
+              - { label: "수상 내용(한국어, 예: 2026 BK 상반기 참여대학원생 성과평가) — [상 종류]는 위 칸에", name: "name_ko", widget: "string" }
+              - { label: "수상 내용(영어)", name: "name_en", widget: "string" }
               - { label: "수상자 (로마자, 예: G.W. Ju)", name: "recipient", widget: "string" }
               - { label: "수상자(한국어, 예: 주관우 — 비우면 로마자 표기가 표시됩니다)", name: "recipient_ko", widget: "string", required: false }
               - { label: "수여기관(한국어)", name: "org_ko", widget: "string" }
@@ -418,6 +424,7 @@ collections:
               - { label: "제목(영어)", name: "title_en", widget: "string" }
               - { label: "내용(한국어) — 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "body_ko", widget: "text" }
               - { label: "내용(영어)", name: "body_en", widget: "text" }
+              - { label: "홈 대표 사진 (선택 — 비우면 아래 첫 사진, 사진이 없으면 로고)", name: "thumb", widget: "image", required: false }
               - label: "사진 (최대 3장, 상세 화면에 표시)"
                 name: "images"
                 widget: "list"
