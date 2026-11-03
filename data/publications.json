@@ -1,5 +1,5 @@
 {
-  "_comment": "연구 성과 데이터: papers(저널 논문), presentations(학술대회), awards(수상). 상단 지표는 각 목록의 개수로 자동 집계됩니다. [Example] 항목을 실제 내용으로 교체하세요. 국문지·국내학회는 _ko 칸에 국문, _en 칸에 영문을 각각 입력하고, 영문지는 두 칸에 같은 영문을 입력하면 됩니다.",
+  "_comment": "연구 성과 데이터: papers(저널 논문), presentations(학술대회), awards(수상). 건수(목차·제목 옆 숫자)는 각 목록의 개수로 자동 집계됩니다. 발표는 '발표 형식'(구두/포스터)을, 수상은 '상 종류'와 '수상 내용'을 나눠 입력합니다. [Example] 항목을 실제 내용으로 교체하세요. 국문지·국내학회는 _ko 칸에 국문, _en 칸에 영문을 각각 입력하고, 영문지는 두 칸에 같은 영문을 입력하면 됩니다.",
   "papers": [
     {
       "sci": "SCI",
@@ -447,6 +447,7 @@
   "presentations": [
     {
       "date": "October 2026",
+      "format": "oral",
       "title_ko": "이산화탄소 지중저장 프로젝트에서의 CO₂ 플룸 기반 최적 유정 운영 제안",
       "title_en": "CO₂ Plume-based Well Optimization in a Geological CO₂ Storage Project",
       "authors": "Ju, G.*, Roh, H., Lee, Y.",
@@ -456,8 +457,9 @@
     },
     {
       "date": "June 2026",
-      "title_ko": "심부 대수층 CO₂ 지중저장을 위한 다중 유정 배치·운영의 최적화 프레임워크 개발 (Poster Session)",
-      "title_en": "Development of an Integrated Optimization Framework for Multi-Well Placement and Operation in Deep Saline Aquifer CO₂ Storage (Poster Session)",
+      "format": "poster",
+      "title_ko": "심부 대수층 CO₂ 지중저장을 위한 다중 유정 배치·운영의 최적화 프레임워크 개발",
+      "title_en": "Development of an Integrated Optimization Framework for Multi-Well Placement and Operation in Deep Saline Aquifer CO₂ Storage",
       "authors": "Ju, G.*, You, H., Lee, Y.",
       "authors_ko": "주관우*, 유현명, 이영수",
       "venue_ko": "한국지오에너지학회 (춘계)",
@@ -465,8 +467,9 @@
     },
     {
       "date": "June 2026",
-      "title_ko": "대수층 내 CO₂ 저장 효율 향상을 위한 나노유체 선주입 기반 젖음성 변화 연구 (Poster Session)",
-      "title_en": "대수층 내 CO₂ 저장 효율 향상을 위한 나노유체 선주입 기반 젖음성 변화 연구 (Poster Session)",
+      "format": "poster",
+      "title_ko": "대수층 내 CO₂ 저장 효율 향상을 위한 나노유체 선주입 기반 젖음성 변화 연구",
+      "title_en": "대수층 내 CO₂ 저장 효율 향상을 위한 나노유체 선주입 기반 젖음성 변화 연구",
       "authors": "Roh, H.*, Han, S., Lee, Y.",
       "authors_ko": "노현영*, 한선이, 이영수",
       "venue_ko": "한국지오에너지학회 (춘계)",
@@ -474,8 +477,9 @@
     },
     {
       "date": "May 2026",
-      "title_ko": "대염수층 내 이산화탄소 저장 가능성 및 안정성 평가를 위한 머신러닝 예측모델 개발 (Poster Session)",
-      "title_en": "대염수층 내 이산화탄소 저장 가능성 및 안정성 평가를 위한 머신러닝 예측모델 개발 (Poster Session)",
+      "format": "poster",
+      "title_ko": "대염수층 내 이산화탄소 저장 가능성 및 안정성 평가를 위한 머신러닝 예측모델 개발",
+      "title_en": "대염수층 내 이산화탄소 저장 가능성 및 안정성 평가를 위한 머신러닝 예측모델 개발",
       "authors": "Lee, Y.*, Ju, G., Lee, Y.",
       "authors_ko": "이영빈*, 주관우, 이영수",
       "venue_ko": "한국가스학회 (춘계)",
@@ -483,8 +487,9 @@
     },
     {
       "date": "May 2026",
-      "title_ko": "대수층 지질 조건에 따른 이산화탄소 주입 효율 및 안정성 극대화를 위한 다중 유정 운영 최적화 프레임워크 (Oral Session)",
-      "title_en": "Optimization of Multi­Well Operations to Maximize CO₂ Injection Efficiency and Stability Based on Aquifer Geological Characteristic (Oral Session)",
+      "format": "oral",
+      "title_ko": "대수층 지질 조건에 따른 이산화탄소 주입 효율 및 안정성 극대화를 위한 다중 유정 운영 최적화 프레임워크",
+      "title_en": "Optimization of Multi­Well Operations to Maximize CO₂ Injection Efficiency and Stability Based on Aquifer Geological Characteristic",
       "authors": "Ju, G.*, You, H., Sohn, J., Lee, Y.",
       "authors_ko": "주관우*, 유현명, 손정민, 이영수",
       "venue_ko": "한국가스학회 (춘계)",
@@ -492,8 +497,9 @@
     },
     {
       "date": "May 2026",
-      "title_ko": "사암 대수층 내 SiO₂ 나노유체 선주입을 통한 젖음성 변화가 CO₂ 유동 양상 및 저장 효율에 미치는 영향 (Oral Session)",
-      "title_en": "사암 대수층 내 SiO₂ 나노유체 선주입을 통한 젖음성 변화가 CO₂ 유동 양상 및 저장 효율에 미치는 영향 (Oral Session)",
+      "format": "oral",
+      "title_ko": "사암 대수층 내 SiO₂ 나노유체 선주입을 통한 젖음성 변화가 CO₂ 유동 양상 및 저장 효율에 미치는 영향",
+      "title_en": "사암 대수층 내 SiO₂ 나노유체 선주입을 통한 젖음성 변화가 CO₂ 유동 양상 및 저장 효율에 미치는 영향",
       "authors": "Roh, H.*, Han, S., Yang, S., Lee, Y.",
       "authors_ko": "노현영*, 한선이, 양시영, 이영수",
       "venue_ko": "한국가스학회 (춘계)",
@@ -501,8 +507,9 @@
     },
     {
       "date": "May 2026",
-      "title_ko": "사암 대수층에서 Al₂O₃ 나노유체를 이용한 젖음성 조절 기반 CO₂ 주입 효율 향상 (Poster Session)",
-      "title_en": "사암 대수층에서 Al₂O₃ 나노유체를 이용한 젖음성 조절 기반 CO₂ 주입 효율 향상 (Poster Session)",
+      "format": "poster",
+      "title_ko": "사암 대수층에서 Al₂O₃ 나노유체를 이용한 젖음성 조절 기반 CO₂ 주입 효율 향상",
+      "title_en": "사암 대수층에서 Al₂O₃ 나노유체를 이용한 젖음성 조절 기반 CO₂ 주입 효율 향상",
       "authors": "Han, S.*",
       "authors_ko": "한선이*",
       "venue_ko": "한국가스학회 (춘계)",
@@ -510,8 +517,9 @@
     },
     {
       "date": "May 2026",
-      "title_ko": "이산화탄소 지중저장을 위한 다목적 최적화 프레임워크: 탐색 공간 단일화 기반 다중 유정 배치의 가변 차원 통제 (Oral Session)",
-      "title_en": "A Multi­Objective Optimization Framework for Geological CO₂ Storage: Search Space Unification for Variable­Dimensional Multi­Well Placement (Oral Session)",
+      "format": "oral",
+      "title_ko": "이산화탄소 지중저장을 위한 다목적 최적화 프레임워크: 탐색 공간 단일화 기반 다중 유정 배치의 가변 차원 통제",
+      "title_en": "A Multi­Objective Optimization Framework for Geological CO₂ Storage: Search Space Unification for Variable­Dimensional Multi­Well Placement",
       "authors": "Ju, G.*",
       "authors_ko": "주관우*",
       "venue_ko": "한국가스학회 제1회 수소·가스 AI 활용 경진대회",
@@ -519,7 +527,8 @@
     },
     {
       "date": "April 2026",
-      "title_ko": "사암층 내 SiO2 나노유체 선주입 기반 계면 특성 제어와 CO2 지중저장 효율 관계 분석 (Oral Session)",
+      "format": "oral",
+      "title_ko": "사암층 내 SiO2 나노유체 선주입 기반 계면 특성 제어와 CO2 지중저장 효율 관계 분석",
       "title_en": "(preparing)",
       "authors": "Roh, H.*, Han, S., Lee, Y.",
       "authors_ko": "노현영*, 한선이*, 이영수",
@@ -528,7 +537,8 @@
     },
     {
       "date": "Nov. 2025",
-      "title_ko": "캐나다 셰일 저류층 대상 이산화탄소 흡착량 예측을 위한 머신러닝 회귀 모델 개발 (Oral Session)",
+      "format": "oral",
+      "title_ko": "캐나다 셰일 저류층 대상 이산화탄소 흡착량 예측을 위한 머신러닝 회귀 모델 개발",
       "title_en": "(preparing)",
       "authors": "You, H.*, Lee, Y.",
       "authors_ko": "유현명*, 이영수",
@@ -537,7 +547,8 @@
     },
     {
       "date": "Nov. 2025",
-      "title_ko": "노르웨이 Smeaheia CCS 저장소에 대한 저장가능성 평가 및 탄성파 모니터링과 연계 연구 (Oral Session)",
+      "format": "oral",
+      "title_ko": "노르웨이 Smeaheia CCS 저장소에 대한 저장가능성 평가 및 탄성파 모니터링과 연계 연구",
       "title_en": "(preparing)",
       "authors": "Yun, C.*, Kim, M., Lee, Y.",
       "authors_ko": "윤찬영*, 김민기, 이영수",
@@ -546,7 +557,8 @@
     },
     {
       "date": "Nov. 2025",
-      "title_ko": "대염수층의 이산화탄소 저장가능성 평가를 위한 머신러닝 기반 예측모델 개발 (Oral Session)",
+      "format": "oral",
+      "title_ko": "대염수층의 이산화탄소 저장가능성 평가를 위한 머신러닝 기반 예측모델 개발",
       "title_en": "(preparing)",
       "authors": "Lee, Y.*",
       "authors_ko": "이영빈*",
@@ -555,7 +567,8 @@
     },
     {
       "date": "May 2025",
-      "title_ko": "Smeaheia CCS 저장소의 정적 모델 구축 및 동적 모델링 연구 (Oral Session)",
+      "format": "oral",
+      "title_ko": "Smeaheia CCS 저장소의 정적 모델 구축 및 동적 모델링 연구",
       "title_en": "(preparing)",
       "authors": "Yun, C.*, You, H., Lee, Y., Ju, G., Lee, Y.",
       "authors_ko": "윤찬영*, 유현명, 이영빈, 주관우, 이영수",
@@ -564,7 +577,8 @@
     },
     {
       "date": "May 2025",
-      "title_ko": "대수층 내 CO2 저장을 위한 최적 주입증진공법 선정 연구 (Oral Session)",
+      "format": "oral",
+      "title_ko": "대수층 내 CO2 저장을 위한 최적 주입증진공법 선정 연구",
       "title_en": "(preparing)",
       "authors": "Lee, Y.*, Ju, G., Lee, Y.",
       "authors_ko": "이영빈*, 주관우, 이영수",
@@ -573,7 +587,8 @@
     },
     {
       "date": "Nov. 2024",
-      "title_ko": "이산화탄소 지중저장을 위한 서해 군산분지 대수층 모델의 주입 시뮬레이션 연구 (Oral Session)",
+      "format": "oral",
+      "title_ko": "이산화탄소 지중저장을 위한 서해 군산분지 대수층 모델의 주입 시뮬레이션 연구",
       "title_en": "(preparing)",
       "authors": "Yun, C.*, Oh, Y., Lee, Y., Lee, Y.",
       "authors_ko": "윤찬영*, 오유빈, 이영빈, 이영수",
@@ -582,7 +597,8 @@
     },
     {
       "date": "Nov. 2024",
-      "title_ko": "캐나다 셰일 저류층 대상 이산화탄소 흡착 관계식 도출 (Oral Session)",
+      "format": "oral",
+      "title_ko": "캐나다 셰일 저류층 대상 이산화탄소 흡착 관계식 도출",
       "title_en": "(preparing)",
       "authors": "You, H.*, Ju, G., Lee, Y.",
       "authors_ko": "유현명*, 주관우, 이영수",
@@ -591,7 +607,8 @@
     },
     {
       "date": "Nov. 2024",
-      "title_ko": "나노유체에 의한 계면장력 변화가 모세관압과 상대투과도에 미치는 영향 (Poster Session)",
+      "format": "poster",
+      "title_ko": "나노유체에 의한 계면장력 변화가 모세관압과 상대투과도에 미치는 영향",
       "title_en": "(preparing)",
       "authors": "Roh, H.*, Han, S., Lee, Y.",
       "authors_ko": "노현영*, 한선이, 이영수",
@@ -600,7 +617,8 @@
     },
     {
       "date": "May 2024",
-      "title_ko": "캐나다 셰일 저류층을 활용한 이산화탄소 지중저장 가능성 평가 (Poster Session)",
+      "format": "poster",
+      "title_ko": "캐나다 셰일 저류층을 활용한 이산화탄소 지중저장 가능성 평가",
       "title_en": "(preparing)",
       "authors": "You, H.*, Han, S., Lee, Y.",
       "authors_ko": "유현명*, 한선이, 이영수",
@@ -609,7 +627,8 @@
     },
     {
       "date": "April 2024",
-      "title_ko": "실리카 나노유체를 활용한 대수층 내 CCS 적용 시 공극 크기 변화 연구 (Oral Session)",
+      "format": "oral",
+      "title_ko": "실리카 나노유체를 활용한 대수층 내 CCS 적용 시 공극 크기 변화 연구",
       "title_en": "(preparing)",
       "authors": "Roh, H.*, Han, S., Lee, Y.",
       "authors_ko": "노현영*, 한선이, 이영수",
@@ -620,7 +639,9 @@
   "awards": [
     {
       "date": "2026.08",
-      "name_ko": "[우수상🏆] 2026 BK 상반기 참여대학원생 성과평가",
+      "award_ko": "우수상",
+      "award_en": "Excellent Award",
+      "name_ko": "2026 BK 상반기 참여대학원생 성과평가",
       "name_en": "2026 BK 상반기 참여대학원생 성과평가",
       "recipient": "Roh, H.",
       "recipient_ko": "노현영",
@@ -629,7 +650,9 @@
     },
     {
       "date": "2026.08",
-      "name_ko": "[우수상🏆] 2026 BK 상반기 참여대학원생 성과평가",
+      "award_ko": "우수상",
+      "award_en": "Excellent Award",
+      "name_ko": "2026 BK 상반기 참여대학원생 성과평가",
       "name_en": "2026 BK 상반기 참여대학원생 성과평가",
       "recipient": "Ju, G.",
       "recipient_ko": "주관우",
@@ -638,8 +661,10 @@
     },
     {
       "date": "2026.05.",
-      "name_ko": "[우수상🏆] 한국가스학회 제1회 수소·가스 AI 활용 경진대회",
-      "name_en": "[Excellent Award 🏆] The 1st Competition for Best Practices in AI Application in the Hydrogen and Gas Industry",
+      "award_ko": "우수상",
+      "award_en": "Excellent Award",
+      "name_ko": "한국가스학회 제1회 수소·가스 AI 활용 경진대회",
+      "name_en": "The 1st Competition for Best Practices in AI Application in the Hydrogen and Gas Industry",
       "recipient": "Ju, G.",
       "recipient_ko": "주관우",
       "org_ko": "한국가스학회",
@@ -647,8 +672,10 @@
     },
     {
       "date": "2025.11.",
-      "name_ko": "[우수논문발표상 🏆] 한국지오에너지학회 (추계)",
-      "name_en": "[Best Oral Session Award 🏆] KSGE Autumn Conference",
+      "award_ko": "우수논문발표상",
+      "award_en": "Best Oral Session Award",
+      "name_ko": "한국지오에너지학회 (추계)",
+      "name_en": "KSGE Autumn Conference",
       "recipient": "Yun, C.",
       "recipient_ko": "윤찬영",
       "org_ko": "한국지오에너지학회",
@@ -656,8 +683,10 @@
     },
     {
       "date": "2025.05.",
-      "name_ko": "[우수논문상 🏆] 한국가스학회 (추계)",
-      "name_en": "[Best Oral Session Award 🏆] KIGAS Spring Conference",
+      "award_ko": "우수논문상",
+      "award_en": "Best Oral Session Award",
+      "name_ko": "한국가스학회 (추계)",
+      "name_en": "KIGAS Spring Conference",
       "recipient": "Yun, C.",
       "recipient_ko": "윤찬영",
       "org_ko": "한국가스학회",
@@ -665,8 +694,10 @@
     },
     {
       "date": "2024.11.",
-      "name_ko": "[우수논문발표상 🏆] 한국석유공학회 (춘계)",
-      "name_en": "[Best Oral Session Award 🏆] KSPE Spring Conference",
+      "award_ko": "우수논문발표상",
+      "award_en": "Best Oral Session Award",
+      "name_ko": "한국석유공학회 (춘계)",
+      "name_en": "KSPE Spring Conference",
       "recipient": "Roh, H.",
       "recipient_ko": "노현영",
       "org_ko": "한국석유공학회",

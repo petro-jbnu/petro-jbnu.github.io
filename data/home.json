@@ -1,5 +1,5 @@
 {
-  "_comment": "홈 화면 설정. 히어로 배경 이미지와 문구, 모집 배너, 연구 카드 4장, 하단 배너 문구를 여기서 수정합니다. 굵게는 <strong>글자</strong>, 줄바꿈은 Enter. 버튼과 카드의 이동 주소는 고정입니다.",
+  "_comment": "홈 화면 설정. 히어로 배경 이미지와 문구, 모집 배너, 연구 방법 카드(최대 4장, 카드마다 아이콘 선택)와 카드 아래 한 줄 문구, 하단 배너 문구를 여기서 수정합니다. 굵게는 <strong>글자</strong>, 줄바꿈은 Enter. 버튼과 카드의 이동 주소는 고정입니다.",
   "dept_ko": "전북대학교 기후환경에너지융합학과",
   "dept_en": "DEPT. OF CLIMATE, ENVIRONMENT & ENERGY CONVERGENCE, JBNU",
   "hero": [
@@ -36,30 +36,29 @@
   },
   "cards": [
     {
-      "title_ko": "시뮬레이션",
-      "title_en": "Simulation",
-      "desc_ko": "<strong>저류층·유정·파이프라인</strong> 전 구간의 유동을 수치 모델링하여 <strong>유가스(Upstream)분야</strong>의 현장 문제를 해석하고 장기 거동을 예측합니다.",
-      "desc_en": "We numerically model the flow across <strong>the entire length of reservoirs, wells, and pipelines</strong> to analyze field issues and predict long-term behavior in <strong>the oil and gas sector.</strong>"
-    },
-    {
-      "title_ko": "CO₂ 지중저장",
-      "title_en": "CO₂ Storage",
-      "desc_ko": "CO₂를 심부 지층에 <strong>안전하게, 더 많이</strong> 저장하기 위한 실험·시뮬레이션·AI 연구를 수행합니다.",
-      "desc_en": "Experiments, simulation, and AI research to store CO₂ in deep formations <strong>safely and at greater capacity</strong>."
-    },
-    {
+      "icon": "experiment",
       "title_ko": "유체/물성 분석 실험",
       "title_en": "Fluid/Property Analysis Experiment",
       "desc_ko": "<strong>코어 주입 실험</strong>과 <strong>접촉각·계면장력 측정</strong>으로 암석–유체 상호작용과 유동 메커니즘을 규명합니다.",
       "desc_en": "<strong>Core flooding</strong> and <strong>contact angle/IFT measurements</strong> to characterize rock–fluid interactions and flow mechanisms."
     },
     {
+      "icon": "simulation",
+      "title_ko": "시뮬레이션",
+      "title_en": "Simulation",
+      "desc_ko": "<strong>저류층·유정·파이프라인</strong> 전 구간의 유동을 수치 모델링하여 <strong>유가스(Upstream), 이산화탄소 지중저장(GCS) 분야</strong>의 현장 문제를 해석하고 장기 거동을 예측합니다.",
+      "desc_en": "We numerically model the flow across <strong>the entire length of reservoirs, wells, and pipelines</strong> to analyze field issues and predict long-term behavior in <strong>the oil and gas (upstream) and geological CO₂ storage (GCS) sectors</strong>."
+    },
+    {
+      "icon": "ai",
       "title_ko": "AI",
       "title_en": "Artificial Intelligence",
       "desc_ko": "AI와 다양한 연구를 결합하여 <strong>생산량·저장량을 예측</strong>하고, <strong>유정 배치, 유량 등의 다양한 최적화</strong>를 수행합니다.",
-      "desc_en": "AI와 다양한 연구를 결합하여 <strong>생산량·저장량을 예측</strong>하고, <strong>유정 배치, 유량 등의 다양한 최적화</strong>를 수행합니다."
+      "desc_en": "We combine AI with our broader research to <strong>predict production and storage volumes</strong> and to carry out <strong>a range of optimizations, including well placement and flow rates</strong>."
     }
   ],
+  "cards_note_ko": "실험으로 데이터를 확보하고, 시뮬레이션으로 업스케일하며, 인공지능으로 확장합니다.",
+  "cards_note_en": "We acquire data through experiments, upscale it with simulation, and extend it with AI.",
   "cta": {
     "show": true,
     "title_ko": "Reservoir부터 CCS까지 — 관심 있다면?",
