@@ -132,3 +132,10 @@ p, li, figcaption, td, th, blockquote { text-wrap: pretty; }
 
 /* 휴대폰: 홈 첫 화면 사진 위 글자 가독성 — 덮개 어둡게 */
 @media (max-width:639px){ :root #hero-overlay { background: linear-gradient(180deg, rgba(13,27,36,.9) 0%, rgba(13,27,36,.78) 70%, rgba(13,27,36,.6) 100%) !important; } }
+
+/* 화면 크기별 표시 전환 (tw.css에 md:hidden / md:block 이 없어 직접 정의) */
+.mo-only { display: none !important; }
+@media (max-width: 767px) {
+  .mo-only { display: block !important; }
+  .pc-only { display: none !important; }
+}
