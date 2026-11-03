@@ -123,3 +123,6 @@ p, li, figcaption, td, th, blockquote { text-wrap: pretty; }
   :root .pj-related { padding: 32px 0 36px; margin-top: 28px; }
   :root .pj-rel h3 { font-size: 15px; }
 }
+
+/* 연구실 활동 분류: 발표 */
+.cat-present { background-color: #dcefe3; color: #1b5e39; }
