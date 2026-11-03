@@ -320,24 +320,34 @@
     var qcls = q === "Q1" ? "bg-primary-container text-on-primary-container" : "bg-secondary-container text-on-secondary-container";
     var bar = q === "Q1" ? "bg-primary" : (q ? "bg-secondary" : "bg-outline-variant");
     var btn = p.url
-      ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener" class="shrink-0 bg-primary text-on-primary px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">open_in_new</span> Visit</a>'
-      : '<button data-toast-ko="링크가 등록되어 있지 않습니다." data-toast-en="Link is not registered yet." class="shrink-0 bg-surface-container text-on-surface-variant border border-outline-variant px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">open_in_new</span> Visit</button>';
+      ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener" class="shrink-0 bg-surface-container-lowest text-primary border border-primary/40 hover:bg-primary hover:text-on-primary px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs transition-colors mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">open_in_new</span>' + bi("원문", "Visit") + '</a>'
+      : '<button data-toast-ko="링크가 등록되어 있지 않습니다." data-toast-en="Link is not registered yet." class="shrink-0 bg-surface-container text-on-surface-variant border border-outline-variant px-4 py-2 font-label-caps rounded-lg flex items-center gap-xs shadow-sm transition-transform hover:-translate-y-0.5 mt-sm md:mt-0"><span class="material-symbols-outlined text-[18px]">open_in_new</span>' + bi("원문", "Visit") + '</button>';
     return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex flex-col md:flex-row gap-md items-start group transition-shadow hover:shadow-md relative overflow-hidden">' +
       '<div class="absolute left-0 top-0 bottom-0 w-1 ' + bar + '"></div>' +
       '<div class="flex-1 flex flex-col gap-xs"><div class="flex gap-sm items-center mb-1 flex-wrap">' +
       '<span class="px-2 py-0.5 ' + scicls + ' font-label-caps rounded-sm">' + esc(sci) + "</span>" +
       (q ? '<span class="px-2 py-0.5 ' + qcls + ' font-label-caps rounded-sm">' + esc(q) + "</span>" : "") +
       '<span class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(p.year) + "</span>" +
-      (p.doi ? '<span class="font-data-tabular text-[12px] text-outline">DOI: ' + esc(p.doi) + "</span>" : "") + "</div>" +
+      (p.doi ? '<span class="font-data-tabular text-[12px] text-outline">DOI: ' + esc(String(p.doi).replace(/^https?:\/\/(dx\.)?doi\.org\//i, "")) + "</span>" : "") + "</div>" +
       '<h3 class="font-headline-md text-[20px] text-on-surface group-hover:text-primary transition-colors">' + bi(esc(p.title_ko || p.title || ""), esc(p.title_en || p.title_ko || p.title || "")) + "</h3>" +
       '<p class="font-body-md text-on-surface-variant">' + (p.authors_ko ? bi(esc(p.authors_ko), esc(p.authors || p.authors_ko)) : esc(p.authors || "")) + "</p>" +
       '<div class="font-data-tabular text-data-tabular text-secondary mt-xs flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">menu_book</span>' + bi(esc(p.journal_ko || p.journal || ""), esc(p.journal_en || p.journal_ko || p.journal || "")) + "</div></div>" + btn + "</div>";
+  }
+  /* 날짜 표기 정규화(표시용): "October 2026" → "2026.10", "2026.08." → "2026.08", "2026-10-30" → "2026.10.30" */
+  var MON = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12, jan: 1, feb: 2, mar: 3, apr: 4, jun: 6, jul: 7, aug: 8, sep: 9, sept: 9, oct: 10, nov: 11, dec: 12 };
+  function fmtDate(v) {
+    var t = String(v == null ? "" : v).trim();
+    var m = t.match(/^([A-Za-z]+)\.?\s+(\d{4})$/);
+    if (m && MON[m[1].toLowerCase()]) return m[2] + "." + String(MON[m[1].toLowerCase()]).padStart(2, "0");
+    m = t.match(/^(\d{4})[.\-\/](\d{1,2})(?:[.\-\/](\d{1,2}))?\.?$/);
+    if (m) return m[1] + "." + m[2].padStart(2, "0") + (m[3] ? "." + m[3].padStart(2, "0") : "");
+    return t.replace(/\.$/, "");
   }
   function presCard(c) {
     return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex flex-col gap-sm transition-shadow hover:shadow-md relative overflow-hidden">' +
       '<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>' +
       '<div class="flex gap-sm items-center"><span class="material-symbols-outlined text-tertiary">podium</span>' +
-      '<span class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(c.date) + "</span></div>" +
+      '<span class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(fmtDate(c.date)) + "</span></div>" +
       '<h3 class="font-body-lg font-bold text-on-surface">' + bi(esc(c.title_ko || c.title || ""), esc(c.title_en || c.title_ko || c.title || "")) + "</h3>" +
       '<p class="font-body-md text-on-surface-variant">' + (c.authors_ko ? bi(esc(c.authors_ko), esc(c.authors || c.authors_ko)) : esc(c.authors || "")) + "</p>" +
       '<div class="mt-auto pt-sm font-data-tabular text-data-tabular text-tertiary">' + bi(esc(c.venue_ko || c.venue || ""), esc(c.venue_en || c.venue_ko || c.venue || "")) + "</div></div>";
@@ -346,7 +356,7 @@
     return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex items-start gap-sm transition-shadow hover:shadow-md relative overflow-hidden">' +
       '<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>' +
       '<div>' +
-      '<div class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(a.date) + "</div>" +
+      '<div class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + esc(fmtDate(a.date)) + "</div>" +
       '<h3 class="font-body-lg font-bold text-on-surface mt-0.5">' + bi(esc(a.name_ko), esc(a.name_en || a.name_ko)) + "</h3>" +
       '<p class="font-body-md text-[14.5px] text-on-surface-variant mt-0.5">' + (a.recipient_ko ? bi(esc(a.recipient_ko), esc(a.recipient || a.recipient_ko)) : esc(a.recipient || "")) + " · " + bi(esc(a.org_ko || ""), esc(a.org_en || a.org_ko || "")) + "</p></div></div>";
   }
@@ -356,48 +366,29 @@
       '<div class="font-body-md text-[13.5px] font-semibold text-on-surface leading-snug line-clamp-2">' + title + "</div></div>";
   }
 
-  /* ===== 목록 길이 제어: PC 내부 스크롤(800px) / 모바일 더보기 ===== */
-  var PUB_VISIBLE = 5;
-  function injectPubStyle() {
-    if (document.getElementById("pub-scroll-style")) return;
-    var s = document.createElement("style");
-    s.id = "pub-scroll-style";
-    s.textContent =
-      "@media (min-width:768px){" +
-      ".pub-scroll{max-height:800px;overflow-y:auto;padding:2px 12px 2px 2px;scrollbar-width:thin;scrollbar-color:#c2ced5 transparent}" +
-      ".pub-scroll>*{flex-shrink:0}" +
-      ".pub-scroll::-webkit-scrollbar{width:8px}" +
-      ".pub-scroll::-webkit-scrollbar-thumb{background:#c2ced5;border-radius:8px}" +
-      ".pub-scroll::-webkit-scrollbar-track{background:transparent}" +
-      ".pub-more{display:none}" +
-      "}" +
-      "@media (max-width:767px){.pub-collapsed>*:nth-child(n+" + (PUB_VISIBLE + 1) + "){display:none}}";
-    document.head.appendChild(s);
-  }
+  /* ===== 목록 길이 제어: 모든 화면에서 '더보기' 버튼 (안쪽 스크롤 상자 없음) =====
+     PC 8개 / 모바일 5개까지 보이고, 남은 항목이 2개 이하면 버튼 없이 전부 표시합니다. */
+  function pubVisible() { return window.matchMedia && window.matchMedia("(min-width:768px)").matches ? 8 : 5; }
   function setupPubList(el, total) {
     if (!el) return;
-    injectPubStyle();
-    el.classList.add("pub-scroll");
     var nx = el.nextElementSibling;
     if (nx && nx.classList.contains("pub-more")) nx.parentNode.removeChild(nx);
-    el.classList.remove("pub-collapsed");
-    if (!total || total <= PUB_VISIBLE) return;
-    el.classList.add("pub-collapsed");
+    var kids = Array.prototype.slice.call(el.children);
+    kids.forEach(function (k) { k.style.display = ""; });
+    var vis = pubVisible();
+    if (!total || total <= vis + 2) return;
+    var open = false;
+    function paint() {
+      kids.forEach(function (k, i) { k.style.display = (!open && i >= vis) ? "none" : ""; });
+      btn.innerHTML = open
+        ? bi("접기", "Show less") + '<span class="material-symbols-outlined text-[18px]">expand_less</span>'
+        : bi("더보기 (+" + (total - vis) + ")", "Show more (+" + (total - vis) + ")") + '<span class="material-symbols-outlined text-[18px]">expand_more</span>';
+    }
     var btn = document.createElement("button");
     btn.type = "button";
     btn.className = "pub-more";
-    btn.style.cssText = "width:100%;margin-top:12px;padding:11px 10px;border:1px solid #d5dde2;border-radius:10px;background:#fff;color:#4f6472;font-weight:700;font-size:13px;letter-spacing:.06em;cursor:pointer";
-    function paint() {
-      var hidden = el.classList.contains("pub-collapsed");
-      var rest = total - PUB_VISIBLE;
-      btn.innerHTML = hidden
-        ? bi("더보기 (+" + rest + ")", "Show more (+" + rest + ")")
-        : bi("접기", "Show less");
-    }
-    btn.addEventListener("click", function () {
-      el.classList.toggle("pub-collapsed");
-      paint();
-    });
+    btn.style.cssText = "width:100%;margin-top:12px;padding:11px 10px;border:1px solid #c5c6cd;border-radius:8px;background:#fff;color:#45474c;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px";
+    btn.addEventListener("click", function () { open = !open; paint(); if (!open) el.scrollIntoView({ block: "start", behavior: "smooth" }); });
     paint();
     el.parentNode.insertBefore(btn, el.nextSibling);
   }
@@ -418,6 +409,31 @@
       if (awardList) awardList.innerHTML = awards.length ? awards.map(awardCard).join("")
         : '<p class="font-body-md text-on-surface-variant">' + bi("등록된 수상 내역이 없습니다.", "No awards registered yet.") + "</p>";
       setupPubList(awardList, awards.length);
+      /* 순서 바: 건수 표시 + 현재 위치 강조 + 부드러운 이동 */
+      var pnav = document.getElementById("pub-nav");
+      if (pnav) {
+        var cnt = { papers: papers.length, pres: pres.length, awards: awards.length };
+        pnav.querySelectorAll("[data-n]").forEach(function (e) { e.textContent = cnt[e.getAttribute("data-n")]; });
+        var links = Array.prototype.slice.call(pnav.querySelectorAll("a[href^='#']"));
+        var secs = links.map(function (l) { return document.getElementById(l.getAttribute("href").slice(1)); });
+        function setActive(id) { links.forEach(function (l) { l.classList.toggle("is-active", l.getAttribute("href") === "#" + id); }); }
+        links.forEach(function (l) {
+          l.addEventListener("click", function (ev) {
+            var t = document.getElementById(l.getAttribute("href").slice(1));
+            if (!t) return;
+            ev.preventDefault(); t.scrollIntoView({ behavior: "smooth", block: "start" });
+            try { history.replaceState(null, "", l.getAttribute("href")); } catch (e) {}
+          });
+        });
+        function onScroll() {
+          var top = window.matchMedia("(min-width:1024px)").matches ? 120 : 140, cur = secs[0] && secs[0].id;
+          secs.forEach(function (sec) { if (sec && sec.getBoundingClientRect().top - top <= 0) cur = sec.id; });
+          if (cur) setActive(cur);
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+        if (location.hash) { var h = document.getElementById(location.hash.slice(1)); if (h) setTimeout(function () { h.scrollIntoView({ block: "start" }); }, 50); }
+      }
       if (homePub) {
         var h = "";
         h += '<div class="font-label-caps text-primary mb-1">PAPER <span class="text-on-surface-variant">(' + papers.length + ")</span></div>";
@@ -438,7 +454,7 @@
       eqList.innerHTML = (data.items || []).map(function (e) {
         var img = e.image
           ? '<div class="h-48 w-full overflow-hidden bg-surface-container-high"><img class="w-full h-full object-cover" alt="" src="' + esc(e.image) + '"/></div>'
-          : '<div class="h-48 w-full flex items-center justify-center bg-surface-container-high"><span class="material-symbols-outlined text-[44px] text-outline">imagesmode</span></div>';
+          : "";
         return '<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/40 overflow-hidden hover:shadow-md transition-shadow">' + img +
           '<div class="p-md"><h3 class="font-headline-md text-[19px] text-on-surface">' + bi(esc(e.name_ko), esc(e.name_en || e.name_ko)) + "</h3>" +
           '<p class="font-body-md text-[14.5px] text-on-surface-variant mt-xs">' + bi(esc(e.desc_ko || ""), esc(e.desc_en || e.desc_ko || "")) + "</p></div></div>";
@@ -520,13 +536,22 @@
         memberList.innerHTML = (data.members || []).map(function (m) {
           var avatar = m.photo
             ? '<img class="w-[132px] h-[132px] rounded-full object-cover mb-sm" alt="" src="' + esc(m.photo) + '"/>'
-            : '<div class="w-[132px] h-[132px] rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-headline-md text-[40px] mb-sm">' + esc(m.initial || (m.name_ko || "?").charAt(0)) + "</div>";
+            : '<div class="w-[132px] h-[132px] rounded-full bg-surface-container flex items-center justify-center mb-sm" aria-hidden="true"><span class="material-symbols-outlined text-[64px] text-outline-variant">person</span></div>';
           return '<div class="relative bg-surface-container-lowest border border-outline-variant/40 rounded-xl shadow-sm p-md flex flex-col hover:shadow-md transition-shadow">' + memberCorner(m) + avatar +
             '<h3 class="font-headline-md text-[18px] text-on-surface">' + bi(esc(m.name_ko), esc(m.name_en || m.name_ko)) + "</h3>" +
             '<p class="font-label-caps text-primary tracking-wider mt-1">' + bi(esc(m.role_ko || ""), esc(m.role_en || m.role_ko || "")) + "</p>" +
             (m.note_ko ? '<p class="font-body-md text-[14px] text-on-surface-variant mt-xs">' + bi(esc(m.note_ko).replace(/\n/g, "<br/>"), esc(m.note_en || m.note_ko).replace(/\n/g, "<br/>")) + "</p>" : "") +
             memberFoot(m) +
             "</div>";
+        }).join("");
+      }
+      var alumniCards = document.getElementById("alumni-cards");
+      if (alumniCards) {
+        alumniCards.innerHTML = (data.alumni || []).map(function (a) {
+          return '<div class="py-sm px-md border-b border-outline-variant/40 last:border-0">' +
+            '<div class="font-body-md font-semibold text-on-surface">' + bi(esc(a.org_ko), esc(a.org_en || a.org_ko)) + "</div>" +
+            '<div class="font-body-md text-[13.5px] text-on-surface-variant mt-0.5">' + bi(esc(a.role_ko || ""), esc(a.role_en || a.role_ko || "")) +
+            (a.degree_ko ? ' · ' + bi(esc(a.degree_ko), esc(a.degree_en || a.degree_ko)) : "") + "</div></div>";
         }).join("");
       }
       if (alumniBody) {
@@ -558,7 +583,7 @@
         wwd.innerHTML = (data.whatwedo || []).map(function (w) {
           var media = w.image
             ? '<div class="h-40 w-full rounded-lg overflow-hidden mb-md bg-surface-container-high"><img class="w-full h-full object-cover" alt="" src="' + esc(w.image) + '"/></div>'
-            : '<div class="h-40 w-full rounded-lg mb-md bg-surface-container-high border border-dashed border-outline-variant flex items-center justify-center"><span class="material-symbols-outlined text-[36px] text-outline">imagesmode</span></div>';
+            : "";
           return '<div class="bg-surface-container-lowest rounded-xl shadow-sm p-md border border-outline-variant/40">' + media +
             '<h3 class="font-headline-md text-[19px] text-on-surface mb-xs">' + bi(w.title_ko, w.title_en || w.title_ko) + "</h3>" +
             '<p class="font-body-md text-[15px] text-on-surface-variant">' + bi(w.desc_ko || "", w.desc_en || w.desc_ko || "") + "</p></div>";
@@ -749,8 +774,9 @@
             bi(esc(x.title_ko), esc(x.title_en || x.title_ko)) + "</span></a>";
         };
         nav.innerHTML = (older || newer)
-          ? cell(older, "prev", "이전 글", "Previous", "arrow_back") + cell(newer, "next", "다음 글", "Next", "arrow_forward")
+          ? (older ? cell(older, "prev", "이전 글", "Previous", "arrow_back") : "") + (newer ? cell(newer, "next", "다음 글", "Next", "arrow_forward") : "")
           : "";
+        nav.classList.toggle("ac-nav-single", !(older && newer));
         if (!older && !newer) nav.style.display = "none";
       }
     }, ["ac-body"]);
@@ -890,12 +916,17 @@
         var img = box.querySelector("img");
         if (img && d.photo) { img.setAttribute("src", d.photo); img.setAttribute("alt", d.name_en || d.name_ko || ""); }
         var h3 = box.querySelector("h3");
-        if (h3 && d.name_ko) h3.innerHTML = biText(d.name_ko, d.name_en);
-        var tt = box.querySelector("p.font-label-caps");
+        if (h3 && d.name_ko) {
+          // "이영수 | Youngsoo Lee"처럼 적혀 있어도 한글 이름 + 작은 영문 이름으로 표시
+          var nk = String(d.name_ko).split("|")[0].trim();
+          var ne = (d.name_en || String(d.name_ko).split("|")[1] || "").trim();
+          h3.innerHTML = bi(esc(nk) + (ne ? ' <span class="font-body-md text-[15px] font-semibold text-on-surface-variant ml-1">' + esc(ne) + "</span>" : ""), esc(ne || nk));
+        }
+        var tt = box.querySelector("[data-pi-title]") || box.querySelector("p.font-label-caps");
         if (tt && d.title_ko) tt.innerHTML = biText(d.title_ko, d.title_en);
         var intro = box.querySelector("p.font-body-lg");
         if (intro && (d.intro_ko || d.intro_en)) intro.innerHTML = biRich(d.intro_ko || d.intro_en, d.intro_en);
-        var line = box.querySelector("p.font-body-md");
+        var line = box.querySelector("[data-pi-line]") || box.querySelector("p.font-body-md");
         if (line) line.innerHTML = piContactLine();
         var ul = box.querySelector("ul");
         if (ul && (d.career || []).length) {
@@ -1025,6 +1056,24 @@
             biText(r.title_ko || r.title_en || "", r.title_en) + "</span></th>" + cell(r.sim) + cell(r.exp) + cell(r.ai) + "</tr>";
         }).join("");
       }
+      // 휴대폰용: 표 대신 분야별로 쌓는 카드 (표는 md 이상에서만 표시)
+      var stack = document.getElementById("matrix-stack");
+      if (stack && rows.length) {
+        var COLS = [["sim", d.col_sim || "SIMULATION"], ["exp", d.col_exp || "EXPERIMENT"], ["ai", d.col_ai || "AI"]];
+        stack.innerHTML = rows.map(function (r, ri) {
+          var pal = RA_ROW[ri % RA_ROW.length];
+          return '<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm overflow-hidden">' +
+            '<div class="px-md py-sm ' + pal.th + '"><span class="font-headline-md text-[16px] ' + pal.title + '">' + biText(r.title_ko || r.title_en || "", r.title_en) + "</span></div>" +
+            COLS.map(function (c) {
+              var list = r[c[0]] || [];
+              if (!list.length) return "";
+              return '<div class="px-md py-sm border-t border-outline-variant/40"><div class="font-label-caps text-on-surface-variant mb-1">' + esc(c[1]) + "</div>" +
+                '<ul class="space-y-1 font-body-md text-[14px] text-on-surface-variant">' + list.map(function (it) {
+                  return '<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[15px] mt-[3px] ' + pal.arrow + '">arrow_right</span><span>' + biRich(it.ko || it.en || "", it.en) + "</span></li>";
+                }).join("") + "</ul></div>";
+            }).join("") + "</div>";
+        }).join("");
+      }
       var grid = document.querySelector('[data-ra="cards"]');
       var cards = d.cards || [];
       if (grid && cards.length) {
@@ -1032,7 +1081,7 @@
           var pal = RA_ROW[ci % RA_ROW.length];
           var media = c.image
             ? '<div class="h-48 w-full overflow-hidden bg-surface-container-high"><img class="w-full h-full object-cover" alt="" src="' + esc(c.image) + '"/></div>'
-            : '<div class="h-48 w-full flex items-center justify-center bg-surface-container-high"><span class="material-symbols-outlined text-[44px] text-outline">imagesmode</span></div>';
+            : "";
           return '<div class="group relative bg-surface-container-lowest rounded-xl flex flex-col h-full overflow-hidden hover:-translate-y-1 transition-transform duration-300 shadow-md border border-outline-variant/40">' + media +
             '<div class="p-md flex flex-col flex-grow">' +
             (c.label ? '<div class="flex items-center gap-xs mb-sm"><span class="font-label-caps text-on-surface-variant uppercase tracking-widest">' + esc(c.label) + "</span></div>" : "") +
