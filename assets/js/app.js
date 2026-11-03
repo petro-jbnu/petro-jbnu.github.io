@@ -426,7 +426,7 @@
           });
         });
         function onScroll() {
-          var top = window.matchMedia("(min-width:1024px)").matches ? 120 : 140, cur = secs[0] && secs[0].id;
+          var top = window.matchMedia("(min-width:1440px)").matches ? 120 : 160, cur = secs[0] && secs[0].id;
           secs.forEach(function (sec) { if (sec && sec.getBoundingClientRect().top - top <= 0) cur = sec.id; });
           if (cur) setActive(cur);
         }
@@ -1062,7 +1062,7 @@
         var COLS = [["sim", d.col_sim || "SIMULATION"], ["exp", d.col_exp || "EXPERIMENT"], ["ai", d.col_ai || "AI"]];
         stack.innerHTML = rows.map(function (r, ri) {
           var pal = RA_ROW[ri % RA_ROW.length];
-          return '<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm overflow-hidden">' +
+          return '<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm overflow-hidden mb-sm">' +
             '<div class="px-md py-sm ' + pal.th + '"><span class="font-headline-md text-[16px] ' + pal.title + '">' + biText(r.title_ko || r.title_en || "", r.title_en) + "</span></div>" +
             COLS.map(function (c) {
               var list = r[c[0]] || [];
