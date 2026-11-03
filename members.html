@@ -90,31 +90,25 @@
 </section>
 
 <section class="max-w-7xl mx-auto w-full px-margin-mobile lg:px-margin-desktop py-xl">
-  <div class="flex items-center gap-xs mb-md">
-    <div class="w-1 h-6 bg-primary"></div>
-    <h2 class="font-headline-lg text-primary uppercase tracking-wide">Principal Investigator</h2>
-  </div>
-  <div data-pi="members" class="bg-surface-container rounded-xl shadow-md p-md lg:p-lg flex flex-col md:flex-row gap-lg items-start border-l-4 border-primary mb-xl">
+<div class="mb-md"><div class="font-label-caps text-primary tracking-widest mb-xs">PRINCIPAL INVESTIGATOR</div><h2 class="font-headline-lg text-on-surface"><span class="ko">지도교수</span><span class="en">Principal Investigator</span></h2></div>
+  <div data-pi="members" class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/40 p-md lg:p-lg flex flex-col md:flex-row gap-lg items-start mb-xl">
     <img class="w-44 rounded-xl shadow-sm shrink-0 object-cover" alt="Prof. Youngsoo Lee" src="assets/img/prof-lee.jpg"/>
     <div class="flex-1 space-y-sm">
       <div>
-        <h3 class="font-headline-lg text-on-surface"><span class="ko">이영수 | Youngsoo Lee</span><span class="en">Youngsoo Lee</span></h3>
-        <p class="font-label-caps text-primary tracking-widest mt-base"><span class="ko">교수 · 지도교수</span><span class="en">PROFESSOR · PRINCIPAL INVESTIGATOR</span></p>
+        <h3 class="font-headline-md text-[26px] text-on-surface"><span class="ko">이영수 <span class="font-body-md text-[15px] font-semibold text-on-surface-variant ml-1">Youngsoo Lee</span></span><span class="en">Youngsoo Lee</span></h3>
+        <p data-pi-title class="font-body-md text-[14px] font-semibold text-primary mt-base"><span class="ko">교수 · 지도교수</span><span class="en">Professor · Principal Investigator</span></p>
       </div>
       <p class="font-body-lg text-on-surface-variant max-w-3xl"><span class="ko"><strong>저류공학</strong>, <strong>CO₂ 지중저장</strong>, 유정·파이프라인 유동 해석을 연구합니다.</span><span class="en"><strong>Reservoir engineering</strong>, <strong>CO₂ geological storage</strong>, and well &amp; pipeline flow analysis.</span></p>
-      <p class="font-body-md text-on-surface-variant">
+      <p data-pi-line class="font-body-md text-on-surface-variant">
         <span class="material-symbols-outlined text-[16px] align-middle text-primary">location_on</span> <span class="ko">공과대학 2호관 307호</span><span class="en">Rm 307, Engineering Bldg. 2</span> ·
         <span class="material-symbols-outlined text-[16px] align-middle text-primary">call</span> 063-270-2392 ·
         <a class="text-primary hover:underline" href="mailto:youngsoo.lee@jbnu.ac.kr">youngsoo.lee@jbnu.ac.kr</a>
       </p>
-      <p><a class="inline-flex items-center gap-1 font-label-caps text-primary hover:underline" href="about.html"><span class="ko">교수 약력 보기</span><span class="en">FULL PROFILE</span> <span class="material-symbols-outlined text-[16px]">chevron_right</span></a></p>
+      <p><a class="inline-flex items-center gap-1 font-body-md text-[14px] font-semibold text-primary hover:underline" href="about.html"><span class="ko">교수 약력 보기</span><span class="en">Full profile</span><span class="material-symbols-outlined text-[16px]">chevron_right</span></a></p>
     </div>
   </div>
 
-  <div class="flex items-center gap-xs mb-md">
-    <div class="w-1 h-6 bg-secondary"></div>
-    <h2 class="font-headline-lg text-primary uppercase tracking-wide"><span class="ko">연구원 · 대학원생</span><span class="en">Researchers &amp; Students</span></h2>
-  </div>
+<div class="mb-md"><div class="font-label-caps text-primary tracking-widest mb-xs">MEMBERS</div><h2 class="font-headline-lg text-on-surface"><span class="ko">연구원 · 대학원생</span><span class="en">Researchers &amp; Students</span></h2></div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
     <div id="member-list" class="contents"></div>
     <div class="bg-surface-container border border-dashed border-outline rounded-xl p-md flex flex-col">
@@ -129,14 +123,12 @@
 
 <section class="w-full bg-surface-container-low border-t border-outline-variant py-xl">
   <div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop">
-    <div class="flex items-center gap-xs mb-md">
-      <div class="w-1 h-6 bg-tertiary-fixed-dim"></div>
-      <h2 class="font-headline-lg text-primary uppercase tracking-wide">Alumni</h2>
-    </div>
+<div class="mb-md"><div class="font-label-caps text-primary tracking-widest mb-xs">ALUMNI</div><h2 class="font-headline-lg text-on-surface"><span class="ko">졸업생</span><span class="en">Alumni</span></h2></div>
     <p class="font-body-md text-on-surface-variant mb-md max-w-2xl"><span class="ko">졸업생들은 <strong>국내외 에너지 기업, 공기업, 정부출연연구원</strong>에 재직 중입니다.</span><span class="en">Our alumni work at <strong>global energy companies, public corporations, and government research institutes</strong>.</span></p>
     <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/40 mb-lg">
-      <div class="overflow-x-auto">
-      <table class="w-full text-left border-collapse min-w-[560px]">
+      <div id="alumni-cards" class="md:hidden"></div>
+      <div class="hidden md:block">
+      <table class="w-full text-left border-collapse">
         <thead><tr class="bg-surface-container-high border-b border-surface-container-highest">
           <th class="py-sm px-md font-label-caps text-on-surface-variant uppercase tracking-wider"><span class="ko">소속</span><span class="en">Organization</span></th>
           <th class="py-sm px-md font-label-caps text-on-surface-variant uppercase tracking-wider"><span class="ko">분야</span><span class="en">Role</span></th>
@@ -156,7 +148,7 @@
 </section>
 
 </div></main>
-<footer class="w-full bg-deep text-[#b3c2cc] py-xl mt-xl">
+<footer class="w-full bg-deep text-[#b3c2cc] py-xl">
 <div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
     <div class="space-y-sm">
