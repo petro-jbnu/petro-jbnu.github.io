@@ -164,8 +164,8 @@
         (containers || []).forEach(function (id) { var el = document.getElementById(id); if (el) offlineNotice(el); });
       });
   }
-  var CAT_EN = { "교육": "Education", "워크샵": "Workshop", "기타": "Others" };
-  var CAT_CLS = { "교육": "bg-primary-container text-on-primary-container", "워크샵": "bg-tertiary-container text-on-tertiary-container", "기타": "bg-surface-variant text-on-surface-variant" };
+  var CAT_EN = { "교육": "Education", "워크샵": "Workshop", "발표": "Presentation", "기타": "Others" };
+  var CAT_CLS = { "교육": "bg-primary-container text-on-primary-container", "워크샵": "bg-tertiary-container text-on-tertiary-container", "발표": "cat-present", "기타": "bg-surface-variant text-on-surface-variant" };
   function catBadge(c) {
     return '<span class="inline-block px-2 py-0.5 rounded-sm font-label-caps ' + (CAT_CLS[c] || CAT_CLS["기타"]) + '">' + bi(esc(c), esc(CAT_EN[c] || c)) + "</span>";
   }
@@ -661,19 +661,26 @@
     }, []);
   }
 
-  /* ============ 12b. 연구실 활동 상세 (activity.html) ============ */
+  /* ============ 12b. 연구실 활동 상세 (activity.html) — 가운데 정렬 기사형 ============ */
   var acTitle = document.getElementById("ac-title");
   if (acTitle) {
+    // 빈 줄 → 문단, 한 줄 바꿈 → <br>
+    var acParas = function (s) {
+      var t = String(s == null ? "" : s).replace(/\r/g, "").trim();
+      if (!t) return "";
+      return t.split(/\n[ \t]*\n+/).map(function (p) { return "<p>" + rich(p.trim()) + "</p>"; }).join("");
+    };
     load("data/activities.json", function (data) {
       var items = (data.items || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
       var id = null;
       try { id = new URLSearchParams(window.location.search).get("id"); } catch (e) {}
-      var a = null;
-      for (var i = 0; i < items.length; i++) { if (actId(items[i]) === id) { a = items[i]; break; } }
-      if (!a) a = items[0];
+      var idx = -1;
+      for (var i = 0; i < items.length; i++) { if (actId(items[i]) === id) { idx = i; break; } }
+      if (idx < 0) idx = 0;
+      var a = items[idx];
       if (!a) return;
       document.getElementById("ac-meta").innerHTML = catBadge(a.category || "기타") +
-        '<time class="font-data-tabular text-data-tabular text-inverse-primary">' + esc(a.date) + "</time>";
+        '<span class="dot" aria-hidden="true"></span><time datetime="' + esc(a.date) + '">' + esc(a.date) + "</time>";
       acTitle.innerHTML = bi(esc(a.title_ko), esc(a.title_en || a.title_ko));
       var t = document.querySelector("title");
       if (t) {
@@ -682,29 +689,71 @@
         t.textContent = (lang() === "ko" ? a.title_ko : (a.title_en || a.title_ko)) + " | GeoFlow Engineering Lab";
       }
       document.getElementById("ac-body").innerHTML =
-        bi(rich(a.body_ko || ""), rich(a.body_en || a.body_ko || ""));
+        '<div class="ko">' + acParas(a.body_ko || "") + '</div><div class="en">' + acParas(a.body_en || a.body_ko || "") + "</div>";
+
+      // 사진: 한 줄에 한 장, 원래 비율, 가운데 — 누르면 크게 보기
       var imgs = (a.images || []).filter(function (x) { return x && x.image; }).slice(0, 3);
-      document.getElementById("ac-images").innerHTML = imgs.map(function (g) {
-        return '<figure class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/40">' +
-          '<img class="w-full h-auto object-cover" alt="" src="' + esc(g.image) + '"/>' +
-          ((g.caption_ko || g.caption_en)
-            ? '<figcaption class="px-sm py-xs font-body-md text-[13.5px] text-on-surface-variant">' +
-              bi(esc(g.caption_ko || g.caption_en || ""), esc(g.caption_en || g.caption_ko || "")) + "</figcaption>"
-            : "") +
+      var capKo = function (g) { return g.caption_ko || g.caption_en || ""; };
+      var capEn = function (g) { return g.caption_en || g.caption_ko || ""; };
+      document.getElementById("ac-images").innerHTML = imgs.map(function (g, k) {
+        var alt = capKo(g) || a.title_ko || "";
+        return '<figure class="ac-fig"><button type="button" class="ac-zoom" data-i="' + k + '" aria-label="' + esc(alt) + ' — 크게 보기">' +
+          '<img src="' + esc(g.image) + '" alt="' + esc(alt) + '" loading="lazy" decoding="async"/></button>' +
+          ((capKo(g) || capEn(g)) ? "<figcaption>" + bi(esc(capKo(g)), esc(capEn(g))) + "</figcaption>" : "") +
           "</figure>";
       }).join("");
-      var rel = document.getElementById("ac-related");
-      if (rel) {
-        var others = items.filter(function (x) { return actId(x) !== actId(a); }).slice(0, 3);
-        rel.innerHTML = others.length ? others.map(function (x) {
-          return '<a href="activity.html?id=' + actId(x) + '" class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-md shadow-sm hover:shadow-md transition-shadow group block">' +
-            '<div class="flex items-center gap-xs mb-1">' + catBadge(x.category || "기타") +
-            '<time class="font-data-tabular text-[12.5px] text-on-surface-variant">' + esc(x.date) + "</time></div>" +
-            '<h3 class="font-body-md text-[15px] font-bold text-on-surface leading-snug group-hover:text-primary transition-colors">' +
-            bi(esc(x.title_ko), esc(x.title_en || x.title_ko)) + "</h3></a>";
-        }).join("") : '<p class="font-body-md text-on-surface-variant">' + bi("다른 활동이 없습니다.", "No other activities.") + "</p>";
+      if (imgs.length) {
+        var lb = document.createElement("div");
+        lb.className = "ac-lb"; lb.setAttribute("role", "dialog"); lb.setAttribute("aria-modal", "true");
+        lb.innerHTML = '<span class="cnt"></span><img alt=""/><div class="cap"></div>' +
+          '<button type="button" class="x" aria-label="닫기"><span class="material-symbols-outlined">close</span></button>' +
+          (imgs.length > 1 ? '<button type="button" class="pv" aria-label="이전 사진"><span class="material-symbols-outlined">chevron_left</span></button>' +
+            '<button type="button" class="nx" aria-label="다음 사진"><span class="material-symbols-outlined">chevron_right</span></button>' : "");
+        document.body.appendChild(lb);
+        var cur = 0, lastFocus = null;
+        var show = function (k) {
+          cur = (k + imgs.length) % imgs.length;
+          var g = imgs[cur], im = lb.querySelector("img");
+          im.src = g.image; im.alt = capKo(g) || a.title_ko || "";
+          lb.querySelector(".cap").innerHTML = (capKo(g) || capEn(g)) ? bi(esc(capKo(g)), esc(capEn(g))) : "";
+          lb.querySelector(".cnt").textContent = imgs.length > 1 ? (cur + 1) + " / " + imgs.length : "";
+        };
+        var open = function (k) { lastFocus = document.activeElement; show(k); lb.classList.add("open"); document.documentElement.style.overflow = "hidden"; lb.querySelector(".x").focus(); };
+        var close = function () { lb.classList.remove("open"); document.documentElement.style.overflow = ""; if (lastFocus) lastFocus.focus(); };
+        document.getElementById("ac-images").addEventListener("click", function (ev) {
+          var b = ev.target.closest(".ac-zoom"); if (b) open(+b.getAttribute("data-i"));
+        });
+        lb.addEventListener("click", function (ev) {
+          if (ev.target.closest(".x") || ev.target === lb) { close(); return; }
+          if (ev.target.closest(".pv")) show(cur - 1);
+          if (ev.target.closest(".nx")) show(cur + 1);
+        });
+        document.addEventListener("keydown", function (ev) {
+          if (!lb.classList.contains("open")) return;
+          if (ev.key === "Escape") close();
+          else if (ev.key === "ArrowLeft" && imgs.length > 1) show(cur - 1);
+          else if (ev.key === "ArrowRight" && imgs.length > 1) show(cur + 1);
+        });
       }
-    }, ["ac-body", "ac-related"]);
+
+      // 이전 글(더 오래된 글) · 다음 글(더 최근 글)
+      var nav = document.getElementById("ac-nav");
+      if (nav) {
+        var older = items[idx + 1], newer = items[idx - 1];
+        var cell = function (x, cls, lblKo, lblEn, icon) {
+          if (!x) return '<span class="empty ' + cls + '"></span>';
+          var lbl = cls === "prev"
+            ? '<span class="material-symbols-outlined">' + icon + "</span>" + bi(lblKo, lblEn)
+            : bi(lblKo, lblEn) + '<span class="material-symbols-outlined">' + icon + "</span>";
+          return '<a class="' + cls + '" href="activity.html?id=' + actId(x) + '"><span class="lbl">' + lbl + '</span><span class="ttl">' +
+            bi(esc(x.title_ko), esc(x.title_en || x.title_ko)) + "</span></a>";
+        };
+        nav.innerHTML = (older || newer)
+          ? cell(older, "prev", "이전 글", "Previous", "arrow_back") + cell(newer, "next", "다음 글", "Next", "arrow_forward")
+          : "";
+        if (!older && !newer) nav.style.display = "none";
+      }
+    }, ["ac-body"]);
   }
 
   /* ============ 13. 연구 프로젝트 (목록·상세 공용 템플릿) ============ */
