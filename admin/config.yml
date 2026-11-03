@@ -413,7 +413,7 @@ collections:
             summary: "{{fields.date}} — {{fields.title_ko}}"
             fields:
               - { label: "날짜 (YYYY-MM-DD)", name: "date", widget: "string" }
-              - { label: "분류", name: "category", widget: "select", options: ["교육", "워크샵", "기타"], default: "기타" }
+              - { label: "분류", name: "category", widget: "select", options: ["교육", "워크샵", "발표", "기타"], default: "기타" }
               - { label: "제목(한국어)", name: "title_ko", widget: "string" }
               - { label: "제목(영어)", name: "title_en", widget: "string" }
               - { label: "내용(한국어) — 굵게: <strong>글자</strong>, 줄바꿈은 Enter", name: "body_ko", widget: "text" }
