@@ -318,3 +318,48 @@ a.hu-pub:hover .hu-pt { color: rgb(11 91 120); }
   .hu-pub { flex: none; }
 }
 @media (min-width: 1024px) { .hu-act-sm { flex: 1 1 0; } }
+
+/* v40: 홈 본문 B안(흐름 띠) — 제목 대신 첫 문장, 상자 제거, 세로선 구분 */
+.h2-wrap { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 1024px) { .h2-wrap { padding: 0 48px; } }
+.h2s { padding: 0 0 48px; }
+.h2s-first { padding-top: 48px; }
+.h2s + .h2s > .h2-wrap::before { content: ""; display: block; height: 1px; background: #dfe2e5; margin-bottom: 40px; }
+.hm2 [data-home="cta"] { padding-top: 8px; }
+.h2-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 32px; }
+.h2-lead { font-size: 30px; line-height: 1.4; max-width: 22em; font-weight: 700; letter-spacing: -.01em; color: rgb(25 28 30); }
+.h2-more { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: rgb(11 91 120); white-space: nowrap; }
+.h2-more:hover { text-decoration: underline; }
+.h2-h { font-size: 20px; font-weight: 800; line-height: 1.35; color: rgb(25 28 30); }
+.h2-methods { display: flex; align-items: stretch; }
+.hm2 .hm-card { background: none; border: 0; border-radius: 0; box-shadow: none; overflow: visible; padding: 0 28px; }
+.hm2 .hm-card:first-child { padding-left: 0; }
+.hm2 .hm-card:last-child { padding-right: 0; }
+.hm2 .hm-ic { height: auto; background: none; border: 0; justify-content: flex-start; padding: 0 0 18px; position: relative; }
+.hm2 .hm-ic svg { width: 160px; height: 90px; }
+.hm2 .hm-cb { padding: 0; gap: 8px; }
+.hm2 .hm-lab, .hm2 .hm-go { display: none; }
+.hm2 .hm-t { font-size: 20px; }
+.hm2 .hm-arrow { flex: 0 0 0; position: relative; }
+.hm2 .hm-arrow svg { position: absolute; top: 34px; left: -12px; width: 24px; height: 24px; color: rgb(11 91 120); background: #F7F9FB; }
+.hm2 .hm-card:not(:last-child) .hm-ic::after { content: ""; position: absolute; left: 176px; right: -28px; top: 45px; border-top: 1px solid #b8bcc2; }
+.h2-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.h2-col { display: flex; flex-direction: column; padding: 0 28px; border-left: 1px solid #dfe2e5; min-width: 0; }
+.h2-col:first-child { padding-left: 0; border-left: 0; }
+.h2-col:last-child { padding-right: 0; }
+@media (max-width: 1023px) {
+  .h2-row { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 24px; }
+  .h2-lead { font-size: 22px; }
+  .h2-methods { flex-direction: column; }
+  .hm2 .hm-card { padding: 0; flex: none; }
+  .hm2 .hm-arrow { flex: none; transform: none; height: 1px; width: 100%; background: #dfe2e5; margin: 20px 0; }
+  .hm2 .hm-arrow svg { display: none; }
+  .hm2 .hm-card:not(:last-child) .hm-ic::after { display: none; }
+  .hm2 .hm-ic svg { width: 128px; height: 72px; }
+  .h2-cols { grid-template-columns: 1fr; }
+  .h2-col { padding: 24px 0 0; border-left: 0; border-top: 1px solid #dfe2e5; margin-top: 24px; }
+  .h2-col:first-child { padding-top: 0; border-top: 0; margin-top: 0; }
+  .h2s-first { padding-top: 32px; }
+  .h2s { padding-bottom: 36px; }
+  .h2s + .h2s > .h2-wrap::before { margin-bottom: 28px; }
+}
