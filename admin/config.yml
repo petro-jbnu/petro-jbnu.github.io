@@ -329,6 +329,9 @@ collections:
               - { label: "설명(한국어)", name: "desc_ko", widget: "text" }
               - { label: "설명(영어)", name: "desc_en", widget: "text" }
               - { label: "사진 (비우면 자리 표시)", name: "image", widget: "image", required: false }
+              - { label: "연결 페이지 주소 (예: research-area.html)", name: "link", widget: "string", required: false }
+              - { label: "연결 문구(한국어) (예: 연구 분야 보기)", name: "link_ko", widget: "string", required: false }
+              - { label: "연결 문구(영어)", name: "link_en", widget: "string", required: false }
           - label: "교과목"
             name: "courses"
             widget: "list"
@@ -345,14 +348,6 @@ collections:
               - { label: "교과목명(한국어)", name: "name_ko", widget: "string" }
               - { label: "교과목명(영어)", name: "name_en", widget: "string" }
               - { label: "개설 학기 (예: 1학기)", name: "term", widget: "string" }
-          - label: "협력 기관"
-            name: "partners"
-            widget: "list"
-            summary: "{{fields.name_ko}}"
-            fields:
-              - { label: "기관명(한국어)", name: "name_ko", widget: "string" }
-              - { label: "기관명(영어)", name: "name_en", widget: "string" }
-              - { label: "강조 표시(공공·주요기관 색상)", name: "highlight", widget: "boolean", default: false }
       # ---------------- Publications ----------------
       - name: "publications"
         label: "연구 실적 (Publications)"
@@ -559,7 +554,7 @@ collections:
               - { label: "LinkedIn 버튼 노출", name: "show_linkedin", widget: "boolean", default: false, required: false }
               - { label: "CV 파일 (PDF 업로드)", name: "cv", widget: "file", required: false }
               - { label: "CV 버튼 노출", name: "show_cv", widget: "boolean", default: false, required: false }
-          - label: "진출 분야 (구성원 페이지 하단 배지)"
+          - label: "진출 분야 (연구실 소개 페이지에 표시)"
             name: "careers"
             widget: "list"
             summary: "{{fields.name_ko}} ({{fields.sector}})"
@@ -567,6 +562,7 @@ collections:
               - { label: "기관·기업명(한국어)", name: "name_ko", widget: "string" }
               - { label: "기관·기업명(영어)", name: "name_en", widget: "string" }
               - { label: "구분", name: "sector", widget: "select", options: ["공공", "산업체"], default: "산업체" }
+              - { label: "연구 협력 기관 (녹색 표식)", name: "partner", widget: "boolean", default: false, required: false }
           - label: "졸업생 진로표 (Alumni)"
             name: "alumni"
             widget: "list"
