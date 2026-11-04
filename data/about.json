@@ -1,26 +1,35 @@
 {
-  "_comment": "연구실 소개 페이지 데이터: whatwedo(사진은 image에 경로), courses(학부 교과목), grad_courses(대학원 교과목), partners(협력기관). [예시] 항목은 실제 내용으로 교체하세요.",
+  "_comment": "연구실 소개 페이지 데이터: whatwedo(사진은 image에 경로), courses(학부 교과목), grad_courses(대학원 교과목), 협력 기관 표시는 구성원 데이터 careers의 partner 체크로 관리(소개 페이지 진출 분야). [예시] 항목은 실제 내용으로 교체하세요.",
   "whatwedo": [
     {
       "title_ko": "유동 메커니즘 규명",
       "title_en": "Flow mechanisms",
       "desc_ko": "실험과 시뮬레이션에 기반하여 <strong>지층 내 유체 유동 메커니즘</strong>을 분석합니다.",
       "desc_en": "We analyze <strong>subsurface fluid-flow mechanisms</strong> based on experiments and simulation.",
-      "image": ""
+      "image": "",
+      "link": "research-area.html",
+      "link_ko": "연구 분야 보기",
+      "link_en": "Research areas"
     },
     {
       "title_ko": "개발·저장 최적화",
       "title_en": "Development & storage optimization",
       "desc_ko": "실험·현장 데이터를 기반으로 <strong>자원개발</strong>과 <strong>CO₂ 지중저장</strong>을 최적화합니다.",
       "desc_en": "We optimize <strong>resource development</strong> and <strong>CO₂ geological storage</strong> using experimental and field data.",
-      "image": ""
+      "image": "",
+      "link": "research-projects.html",
+      "link_ko": "연구 프로젝트 보기",
+      "link_en": "Projects"
     },
     {
-      "title_ko": "+ 실무형 교육",
-      "title_en": "+ Hands-on training",
+      "title_ko": "실무형 교육",
+      "title_en": "Hands-on training",
       "desc_ko": "실험 장비와 상용 소프트웨어를 직접 운용하며, 소속 학생 대상 <strong>심화 강의</strong>와 <strong>소프트웨어 교육</strong>을 별도로 진행합니다.",
       "desc_en": "Students operate lab equipment and industry software, with dedicated <strong>in-depth courses</strong> and <strong>software training</strong>.",
-      "image": ""
+      "image": "",
+      "link": "activities.html",
+      "link_ko": "교육 활동 보기",
+      "link_en": "Training activities"
     }
   ],
   "courses": [
@@ -75,48 +84,6 @@
       "name_ko": "회수증진공학",
       "name_en": "Enhanced Oil Recovery",
       "term": "변동"
-    }
-  ],
-  "partners": [
-    {
-      "name_ko": "한국가스공사",
-      "name_en": "Korea Gas Corporation",
-      "highlight": true
-    },
-    {
-      "name_ko": "한국석유공사",
-      "name_en": "Korea National Oil Corporation",
-      "highlight": true
-    },
-    {
-      "name_ko": "한국지질자원연구원",
-      "name_en": "Korea Institute of Geoscience and Mineral Resources",
-      "highlight": true
-    },
-    {
-      "name_ko": "한국 CCUS 추진단",
-      "name_en": "Korea CCUS Association",
-      "highlight": true
-    },
-    {
-      "name_ko": "한국에너지기술평가원",
-      "name_en": "Korea Institute of Energy Technology Evaluation and Planning",
-      "highlight": true
-    },
-    {
-      "name_ko": "정보통신기술평가원",
-      "name_en": "Institute for Information & communications Technology Planning & evaluation",
-      "highlight": true
-    },
-    {
-      "name_ko": "포스코인터내셔널",
-      "name_en": "POSCO International",
-      "highlight": false
-    },
-    {
-      "name_ko": "골든엔지니어링",
-      "name_en": "Golden Engineering",
-      "highlight": false
     }
   ]
 }
