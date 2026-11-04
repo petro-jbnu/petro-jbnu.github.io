@@ -9,7 +9,7 @@
 <link href="assets/css/fonts.css" rel="stylesheet"/>
 <link href="assets/css/tw.css" rel="stylesheet"/>
 </head>
-<body class="bg-background font-body-md text-on-surface">
+<body class="sb bg-background font-body-md text-on-surface">
 <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
 <div class="h-20 max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between">
   <a class="flex items-start gap-xs" href="index.html">
@@ -84,8 +84,7 @@
 <section data-ph="about" class="w-full border-b border-outline-variant" style="background: radial-gradient(900px 380px at 90% -20%, #d2e9f3, transparent 60%), #fbfdfe;">
   <div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop py-xl">
     <div class="font-data-tabular text-data-tabular font-semibold text-outline mb-sm"><a class="hover:text-primary" href="index.html">Home</a> / <span class="ko">연구실 소개</span><span class="en">About the Lab</span></div>
-    <h1 class="font-display-lg text-[clamp(30px,4vw,48px)] leading-tight text-on-surface mb-md"><span class="ko">연구실 소개</span><span class="en">About Our Laboratory</span></h1>
-    <p class="font-body-lg text-on-surface-variant max-w-3xl"><span class="ko">전북대학교 기후환경에너지융합학과 <strong>지하유체유동연구실(GeoFlow Engineering Lab)</strong>은 2013년 설립 이후 지하 유체 유동에 대한 깊은 이해를 바탕으로, <strong>전통 자원개발</strong>과 <strong>탄소중립 기술</strong>을 아우르는 연구를 수행하고 있습니다.</span><span class="en">Since 2013, the <strong>GeoFlow Engineering Lab</strong> in the Department of Climate, Environment &amp; Energy Convergence at Jeonbuk National University has pursued research spanning <strong>conventional resource development</strong> and <strong>carbon-neutral technologies</strong>, grounded in a deep understanding of subsurface fluid flow.</span></p>
+    <h1 class="font-display-lg text-[clamp(30px,4vw,48px)] leading-tight text-on-surface"><span class="ko">연구실 소개</span><span class="en">About Our Laboratory</span></h1>
   </div>
 </section>
 
@@ -116,16 +115,34 @@
   </div>
 </section>
 
+<section class="max-w-7xl mx-auto w-full px-margin-mobile lg:px-margin-desktop py-xl">
+  <div class="ab-intro">
+    <div>
+      <div class="font-label-caps text-primary tracking-widest mb-xs">ABOUT THE LAB</div>
+      <p data-page-lead class="ab-lead"><span class="ko">전북대학교 기후환경에너지융합학과 <strong>지하유체유동연구실(GeoFlow Engineering Lab)</strong>은 2013년 설립 이후 지하 유체 유동에 대한 깊은 이해를 바탕으로, <strong>전통 자원개발</strong>과 <strong>탄소중립 기술</strong>을 아우르는 연구를 수행하고 있습니다.</span><span class="en">Since 2013, the <strong>GeoFlow Engineering Lab</strong> in the Department of Climate, Environment &amp; Energy Convergence at Jeonbuk National University has pursued research spanning <strong>conventional resource development</strong> and <strong>carbon-neutral technologies</strong>, grounded in a deep understanding of subsurface fluid flow.</span></p>
+    </div>
+    <figure class="ab-logo">
+      <img src="assets/img/geoflow-mark.png" alt="GeoFlow Engineering Lab 로고"/>
+      <figcaption>
+        <p class="ab-logo-t"><span class="ko">연구실 로고</span><span class="en">Our mark</span></p>
+        <p class="ab-logo-d"><span class="ko">지층 레이어와 아래로 향하는 화살표는 지하에서의 유체 유동을 나타냅니다.</span><span class="en">The strata layers and the downward arrow represent fluid flow in the subsurface.</span></p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
 <section class="w-full bg-surface-container-low border-y border-outline-variant py-xl">
   <div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop">
     <div class="mb-lg">
-      <div class="font-label-caps text-primary tracking-widest">WHAT WE DO</div>
+      <div class="font-label-caps text-primary tracking-widest mb-xs">WHAT WE DO</div>
+      <h2 class="font-headline-lg text-on-surface"><span class="ko">코어 스케일에서 필드 스케일까지</span><span class="en">From core scale to field scale</span></h2>
     </div>
+    <figure class="wwd-fig"><img src="assets/img/whatwedo.svg" alt=""/></figure>
     <div id="whatwedo-list" class="grid grid-cols-1 md:grid-cols-3 gap-gutter"></div>
   </div>
 </section>
 
-<section class="max-w-7xl mx-auto w-full px-margin-mobile lg:px-margin-desktop py-xl">
+<section id="courses" class="max-w-7xl mx-auto w-full px-margin-mobile lg:px-margin-desktop py-xl">
 <div class="mb-md"><div class="font-label-caps text-primary tracking-widest mb-xs">COURSES</div><h2 class="font-headline-lg text-on-surface"><span class="ko">담당 교과목</span><span class="en">Courses</span></h2></div>
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-md items-start">
     <div>
@@ -156,11 +173,25 @@
     </div>
   </div>
 
-  <div class="mt-xl">
-    <div class="font-label-caps text-primary tracking-widest mb-xs">PARTNERS</div>
-    <h2 class="font-headline-lg text-on-surface mb-sm"><span class="ko">협력 기관</span><span class="en">Collaborators &amp; Sponsors</span></h2>
-    <div id="partner-list" class="flex flex-wrap gap-xs"></div>
+  <div class="mt-xl" id="careers">
+    <div class="font-label-caps text-primary tracking-widest mb-xs">CAREER PATHS</div>
+    <h2 class="font-headline-lg text-on-surface"><span class="ko">진출 분야</span><span class="en">Career Paths</span></h2>
+    <div class="car-top">
+      <p class="font-body-md text-on-surface-variant"><span class="ko">본 연구 분야를 통해 관련 기관·기업으로 진출할 수 있으며, 그중 일부와는 지속적인 연구 협력을 이어오고 있습니다.</span><span class="en">This field leads to careers at related institutions and companies, and we maintain ongoing research collaborations with several of them.</span></p>
+      <p class="car-legend"><i aria-hidden="true"></i><span class="ko">연구 협력 기관</span><span class="en">Research partner</span></p>
+    </div>
+    <div class="car-grid">
+      <div class="car-box">
+        <p class="car-h"><span class="ko">공기업 · 정부출연연구원</span><span class="en">Public Corporations &amp; Government Institutes</span></p>
+        <div id="career-public" class="car-list"></div>
+      </div>
+      <div class="car-box">
+        <p class="car-h"><span class="ko">국내외 산업체</span><span class="en">Domestic &amp; Global Industry</span></p>
+        <div id="career-industry" class="car-list"></div>
+      </div>
+    </div>
   </div>
+
 </section>
 
 </div></main>
