@@ -593,6 +593,17 @@
     }, ["member-list"]);
   }
 
+  /* 진출 분야(소개 페이지) — 데이터는 members.json careers */
+  if (document.getElementById("career-public") && !document.getElementById("member-list")) {
+    load("data/members.json", function (data) {
+      function item(c) { return '<span class="car-i' + (c.partner ? ' is-partner' : '') + '"><i aria-hidden="true"></i>' + bi(esc(c.name_ko), esc(c.name_en || c.name_ko)) + (c.partner ? '<span class="sr-only">' + bi(" (연구 협력 기관)", " (research partner)") + "</span>" : "") + "</span>"; }
+      var careers = data.careers || [];
+      document.getElementById("career-public").innerHTML = careers.filter(function (c) { return c.sector === "공공"; }).map(item).join("");
+      var ind = document.getElementById("career-industry");
+      if (ind) ind.innerHTML = careers.filter(function (c) { return c.sector !== "공공"; }).map(item).join("");
+    }, ["career-public"]);
+  }
+
   /* ============ 11. 소개 페이지 (What we do·교과목·협력기관) ============ */
   var wwd = document.getElementById("whatwedo-list");
   var courseBody = document.getElementById("course-body");
@@ -602,11 +613,13 @@
       if (wwd) {
         wwd.innerHTML = (data.whatwedo || []).map(function (w) {
           var media = w.image
-            ? '<div class="h-40 w-full rounded-lg overflow-hidden mb-md bg-surface-container-high"><img class="w-full h-full object-cover" alt="" src="' + esc(w.image) + '"/></div>'
+            ? '<div class="wwd-ph"><img alt="" src="' + esc(w.image) + '"/></div>'
             : "";
-          return '<div class="bg-surface-container-lowest rounded-xl shadow-sm p-md border border-outline-variant/40">' + media +
-            '<h3 class="font-headline-md text-[19px] text-on-surface mb-xs">' + bi(w.title_ko, w.title_en || w.title_ko) + "</h3>" +
-            '<p class="font-body-md text-[15px] text-on-surface-variant">' + bi(w.desc_ko || "", w.desc_en || w.desc_ko || "") + "</p></div>";
+          var kick = w.kicker_ko ? '<p class="wwd-k">' + bi(w.kicker_ko, w.kicker_en || w.kicker_ko) + "</p>" : "";
+          var go = w.link ? '<a class="wwd-go" href="' + esc(w.link) + '">' + bi(esc(w.link_ko || "자세히 보기"), esc(w.link_en || "Learn more")) + '<span aria-hidden="true">→</span></a>' : "";
+          return '<div class="wwd-item">' + media + kick +
+            '<h3 class="wwd-t">' + bi(w.title_ko, w.title_en || w.title_ko) + "</h3>" +
+            '<p class="wwd-d">' + bi(w.desc_ko || "", w.desc_en || w.desc_ko || "") + "</p>" + go + "</div>";
         }).join("");
       }
       function courseRows(list) {
@@ -1020,7 +1033,7 @@
       if (!v) return;
       var h1 = phBox.querySelector("h1");
       if (h1 && (v.title_ko || v.title_en)) h1.innerHTML = biText(v.title_ko || v.title_en, v.title_en);
-      var lead = phBox.querySelector("h1 ~ p") || phBox.querySelector("p");
+      var lead = document.querySelector("[data-page-lead]") || phBox.querySelector("h1 ~ p") || phBox.querySelector("p");
       if (lead && (v.lead_ko || v.lead_en)) lead.innerHTML = biRich(v.lead_ko || v.lead_en, v.lead_en);
       var crumb = phBox.querySelector(".font-data-tabular");
       if (crumb && (v.crumb_ko || v.crumb_en)) {
