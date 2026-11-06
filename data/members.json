@@ -194,6 +194,30 @@
       "name_en": "Golden Engineering",
       "sector": "산업체",
       "partner": true
+    },
+    {
+      "name_ko": "University of Calgary (UoC)",
+      "name_en": "University of Calgary (UoC)",
+      "sector": "국제",
+      "partner": true
+    },
+    {
+      "name_ko": "Norwegian Geotechnical Institute (NGI)",
+      "name_en": "Norwegian Geotechnical Institute (NGI)",
+      "sector": "국제",
+      "partner": true
+    },
+    {
+      "name_ko": "LNG Canada",
+      "name_en": "LNG Canada",
+      "sector": "국제",
+      "partner": false
+    },
+    {
+      "name_ko": "MKS Investment",
+      "name_en": "MKS Investment",
+      "sector": "국제",
+      "partner": false
     }
   ],
   "alumni": [

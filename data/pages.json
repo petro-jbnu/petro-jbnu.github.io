@@ -25,12 +25,12 @@
     "crumb_en": "Projects"
   },
   "activities": {
-    "title_ko": "연구실 활동",
-    "title_en": "Lab Activities",
+    "title_ko": "연구실 소식",
+    "title_en": "Lab News",
     "lead_ko": "<strong>대학원생 외부 교육, 국내외 학술대회 발표, 실무자 세미나 등</strong> 다양한 연구실 활동을 진행하고 있습니다.",
     "lead_en": "Records of lab activities — training, workshops, and events — together with the lab schedule.",
-    "crumb_ko": "연구실 활동",
-    "crumb_en": "Lab Activities"
+    "crumb_ko": "연구실 소식",
+    "crumb_en": "Lab News"
   },
   "publications": {
     "title_ko": "연구 성과",
