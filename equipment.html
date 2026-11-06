@@ -21,36 +21,11 @@
   </a>
   <nav class="hdr-nav hidden lg:flex items-center gap-lg h-full">
     <a class="h-full flex items-center gap-1 text-body-md font-semibold text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent" href="index.html"><span class="ko">홈</span><span class="en">Home</span></a>
-    <div class="relative h-full flex items-center group">
-      <a aria-current="page" class="h-full flex items-center gap-1 transition-colors text-primary font-semibold border-b-2 border-primary" href="about.html"><span class="ko">소개</span><span class="en">About</span><span class="material-symbols-outlined text-[18px]">expand_more</span></a>
-      <div class="dd absolute left-0 top-full hidden group-hover:block group-focus-within:block z-50 pt-1">
-        <div class="dd-box bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg py-xs w-48 overflow-hidden">
-          <a class="flex items-center gap-xs px-md py-sm text-body-md text-on-surface hover:bg-surface-container hover:text-primary transition-colors" href="about.html"><span class="ko">연구실 소개</span><span class="en">About the Lab</span></a>
-          <a class="flex items-center gap-xs px-md py-sm text-body-md text-on-surface hover:bg-surface-container hover:text-primary transition-colors" href="equipment.html"><span class="ko">연구실 장비</span><span class="en">Equipment</span></a>
-        </div>
-      </div>
-    </div>
-    <div class="relative h-full flex items-center group">
-      <a class="h-full flex items-center gap-1 text-body-md font-semibold text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent" href="research-area.html"><span class="ko">연구</span><span class="en">Research</span><span class="material-symbols-outlined text-[18px]">expand_more</span></a>
-      <div class="dd absolute left-0 top-full hidden group-hover:block group-focus-within:block z-50 pt-1">
-        <div class="dd-box bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg py-xs w-48 overflow-hidden">
-          <a class="flex items-center gap-xs px-md py-sm text-body-md text-on-surface hover:bg-surface-container hover:text-primary transition-colors" href="research-area.html"><span class="ko">연구 분야</span><span class="en">Research Areas</span></a>
-          <a class="flex items-center gap-xs px-md py-sm text-body-md text-on-surface hover:bg-surface-container hover:text-primary transition-colors" href="research-projects.html"><span class="ko">프로젝트</span><span class="en">Projects</span></a>
-        </div>
-      </div>
-    </div>
-    <div class="relative h-full flex items-center group">
-      <a class="h-full flex items-center gap-1 text-body-md font-semibold text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent" href="publications.html"><span class="ko">성과 및 소식</span><span class="en">Outputs &amp; News</span><span class="material-symbols-outlined text-[18px]">expand_more</span></a>
-      <div class="dd absolute left-0 top-full hidden group-hover:block group-focus-within:block z-50 pt-1">
-        <div class="dd-box bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg py-xs w-48 overflow-hidden">
-          <a class="flex items-center gap-xs px-md py-sm text-body-md text-on-surface hover:bg-surface-container hover:text-primary transition-colors" href="publications.html"><span class="ko">연구 성과</span><span class="en">Publications</span></a>
-          <a class="flex items-center gap-xs px-md py-sm text-body-md text-on-surface hover:bg-surface-container hover:text-primary transition-colors" href="activities.html"><span class="ko">연구실 소식</span><span class="en">Lab News</span></a>
-        </div>
-      </div>
-    </div>
-    <a class="h-full flex items-center gap-1 text-body-md font-semibold text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent" href="members.html"><span class="ko">구성원</span><span class="en">Members</span></a>
-    <a class="h-full flex items-center gap-1 text-body-md font-semibold text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent" href="contact.html"><span class="ko">Contact</span><span class="en">Contact</span></a>
-    <div class="mega-band" aria-hidden="true"></div>
+    <a data-band="about" aria-current="page" class="h-full flex items-center gap-1 transition-colors text-primary font-semibold border-b-2 border-primary" href="about.html"><span class="ko">소개</span><span class="en">About</span></a>
+    <a data-band="research" class="h-full flex items-center gap-1 text-body-md font-semibold text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent" href="research-area.html"><span class="ko">연구</span><span class="en">Research</span></a>
+    <a data-band="outputs" class="h-full flex items-center gap-1 text-body-md font-semibold text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent" href="publications.html"><span class="ko">성과 · 소식</span><span class="en">Publications · News</span></a>
+    <a data-band="members" class="h-full flex items-center gap-1 text-body-md font-semibold text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent" href="members.html"><span class="ko">구성원</span><span class="en">Members</span></a>
+    <a data-band="contact" class="h-full flex items-center gap-1 text-body-md font-semibold text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent" href="contact.html"><span class="ko">Contact</span><span class="en">Contact</span></a>
   </nav>
   <div class="flex items-center gap-sm">
     <button class="lang-btn hidden lg:inline-flex border border-outline-variant bg-surface-container-lowest text-on-surface-variant text-[13px] font-semibold px-sm py-1.5 rounded-full hover:border-primary hover:text-primary transition-colors" type="button">EN</button>
@@ -70,7 +45,7 @@
       <a class="block py-xs px-md rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md" href="research-area.html"><span class="ko">연구 분야</span><span class="en">Research Areas</span></a>
       <a class="block py-xs px-md rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md" href="research-projects.html"><span class="ko">프로젝트</span><span class="en">Projects</span></a>
     </div>
-    <button type="button" data-acc="m-activities-sub" style="" class="m-acc-btn w-full text-left flex items-center justify-between py-sm px-md rounded-lg font-body-md font-semibold"><span class="ko">성과 및 소식</span><span class="en">Outputs &amp; News</span><span class="material-symbols-outlined">expand_more</span></button>
+    <button type="button" data-acc="m-activities-sub" style="" class="m-acc-btn w-full text-left flex items-center justify-between py-sm px-md rounded-lg font-body-md font-semibold"><span class="ko">성과 · 소식</span><span class="en">Publications · News</span><span class="material-symbols-outlined">expand_more</span></button>
     <div id="m-activities-sub" class="hidden pl-md flex flex-col gap-base">
       <a class="block py-xs px-md rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md" href="publications.html"><span class="ko">연구 성과</span><span class="en">Publications</span></a>
       <a class="block py-xs px-md rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md" href="activities.html"><span class="ko">연구실 소식</span><span class="en">Lab News</span></a>
