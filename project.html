@@ -97,7 +97,11 @@
     <a data-band="contact" class="h-full flex items-center gap-1 text-body-md font-semibold text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent" href="contact.html"><span class="ko">Contact</span><span class="en">Contact</span></a>
   </nav>
   <div class="flex items-center gap-sm">
-    <button class="lang-btn hidden lg:inline-flex border border-outline-variant bg-surface-container-lowest text-on-surface-variant text-[13px] font-semibold px-sm py-1.5 rounded-full hover:border-primary hover:text-primary transition-colors" type="button">EN</button>
+    <div class="vc hidden lg:flex">
+      <p class="vc-l">Today: <b data-vc="today">–</b></p>
+      <p class="vc-l">Total: <b data-vc="total">–</b></p>
+      <button class="lang-btn vc-lang" type="button">→ View in English</button>
+    </div>
     <button id="menu-btn" aria-expanded="false" aria-label="Menu" class="lg:hidden text-on-surface w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">menu</span></button>
   </div>
 </div>
@@ -121,7 +125,10 @@
     </div>
     <a class="block py-sm px-md rounded-lg text-on-surface hover:bg-surface-container transition-colors font-body-md font-semibold" href="members.html"><span class="ko">구성원</span><span class="en">Members</span></a>
     <a class="block py-sm px-md rounded-lg text-on-surface hover:bg-surface-container transition-colors font-body-md font-semibold" href="contact.html"><span class="ko">Contact</span><span class="en">Contact</span></a>
-    <button class="lang-btn m-sm w-fit border border-outline-variant bg-surface-container-lowest text-on-surface-variant text-[13px] font-semibold px-sm py-1.5 rounded-full" type="button">EN</button>
+    <div class="vc-m">
+      <button class="lang-btn border border-outline-variant bg-surface-container-lowest text-on-surface-variant text-[13px] font-semibold px-sm py-1.5 rounded-full" type="button">→ View in English</button>
+      <span class="vc-mn">Today: <b data-vc="today">–</b> · Total: <b data-vc="total">–</b></span>
+    </div>
   </nav>
 </div>
 </header>
