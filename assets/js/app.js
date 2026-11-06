@@ -305,6 +305,7 @@
       var items = (data.items || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
       if (homeAct) homeAct.innerHTML = items.slice(0, 3).map(homeActItem).join("");
       if (actList) {
+        document.querySelectorAll('[data-n="acts"]').forEach(function (e) { e.textContent = items.length; });
         function paint(cat) {
           var f = cat === "전체" ? items : items.filter(function (a) { return (a.category || "기타") === cat; });
           actList.innerHTML = f.length ? f.map(function (a) { return activityItem(a, false); }).join("")
@@ -448,7 +449,7 @@
           });
         });
         function onScroll() {
-          var top = window.matchMedia("(min-width:1024px)").matches ? 120 : 160, cur = secs[0] && secs[0].id;
+          var top = window.matchMedia("(min-width:1024px)").matches ? 134 : 160, cur = secs[0] && secs[0].id;
           secs.forEach(function (sec) { if (sec && sec.getBoundingClientRect().top - top <= 0) cur = sec.id; });
           if (cur) setActive(cur);
         }
@@ -528,6 +529,7 @@
       var items = data.items || [];
       var gc = document.getElementById("grant-count");
       if (gc) gc.textContent = items.length;
+      document.querySelectorAll('[data-n="grants"]').forEach(function (e) { e.textContent = items.length; });
       // 진행 연구 과제: period의 종료 연월이 현재 이후인 과제 수 (해석 불가 시 진행으로 간주)
       var ga = document.getElementById("grant-active-count");
       if (ga) ga.textContent = items.filter(function (g) { return gStatus(g) === "진행 중"; }).length;
@@ -598,7 +600,7 @@
       function item(c) { return "<span>" + bi(esc(c.name_ko), esc(c.name_en || c.name_ko)) + "</span>"; }
       var careers = data.careers || [];
       if (pub) pub.innerHTML = careers.filter(function (c) { return c.sector === "공공"; }).map(item).join("");
-      if (ind) ind.innerHTML = careers.filter(function (c) { return c.sector !== "공공"; }).map(item).join("");
+      if (ind) ind.innerHTML = careers.filter(function (c) { return c.sector !== "공공" && c.sector !== "국제"; }).map(item).join("");
     }, ["member-list"]);
   }
 
@@ -609,7 +611,9 @@
       var careers = data.careers || [];
       document.getElementById("career-public").innerHTML = careers.filter(function (c) { return c.sector === "공공"; }).map(item).join("");
       var ind = document.getElementById("career-industry");
-      if (ind) ind.innerHTML = careers.filter(function (c) { return c.sector !== "공공"; }).map(item).join("");
+      if (ind) ind.innerHTML = careers.filter(function (c) { return c.sector !== "공공" && c.sector !== "국제"; }).map(item).join("");
+      var intl = document.getElementById("career-intl");
+      if (intl) intl.innerHTML = careers.filter(function (c) { return c.sector === "국제"; }).map(item).join("");
     }, ["career-public"]);
   }
 
@@ -851,10 +855,34 @@
     if (dark) base = "bg-white/15 text-white border border-white/30";
     return '<span class="inline-flex items-center px-sm py-1 rounded-full font-label-caps ' + base + '">' + bi(esc(s), esc(STATUS_EN[s] || s)) + "</span>";
   }
+  /* v44: 독립 사이드바 공용 동작([data-sidenav]) — 누르면 해당 항목으로, 스크롤하면 현재 항목 강조 */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-sidenav]"), function (nav) {
+    var links = Array.prototype.slice.call(nav.querySelectorAll("a[href^='#']"));
+    var secs = links.map(function (l) { return document.getElementById(l.getAttribute("href").slice(1)); });
+    function setActive(id) { links.forEach(function (l) { l.classList.toggle("is-active", l.getAttribute("href") === "#" + id); }); }
+    links.forEach(function (l) {
+      l.addEventListener("click", function (ev) {
+        var t = document.getElementById(l.getAttribute("href").slice(1));
+        if (!t) return;
+        ev.preventDefault(); t.scrollIntoView({ behavior: "smooth", block: "start" });
+        try { history.replaceState(null, "", l.getAttribute("href")); } catch (e) {}
+      });
+    });
+    function onScroll() {
+      var top = window.matchMedia("(min-width:1024px)").matches ? 134 : 160, cur = secs[0] && secs[0].id;
+      secs.forEach(function (sec) { if (sec && sec.getBoundingClientRect().top - top <= 0) cur = sec.id; });
+      if (cur) setActive(cur);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    if (location.hash) { var h = document.getElementById(location.hash.slice(1)); if (h) setTimeout(function () { h.scrollIntoView({ block: "start" }); }, 300); }
+  });
+
   var pjCards = document.getElementById("project-cards");
   if (pjCards) {
     load("data/projects.json", function (data) {
       var items = data.items || [];
+      document.querySelectorAll('[data-n="projects"]').forEach(function (e) { e.textContent = items.length; });
       pjCards.innerHTML = items.map(function (p) {
         var c = p.card || {};
         return '<a class="group relative bg-surface-container-lowest rounded-xl flex flex-col h-full overflow-hidden hover:-translate-y-1 transition-transform duration-300 shadow-md border border-outline-variant/40" href="project.html?id=' + encodeURIComponent(p.id) + '">' +
@@ -1064,7 +1092,7 @@
       /* 15-B. Contact 페이지 JOIN US 섹션 (제목 + 카드 최대 3장 + 이메일 버튼 문구) */
       var joinBox = document.querySelector("[data-join]");
       if (joinBox) {
-        var jh = joinBox.querySelector("h2");
+        var jh = joinBox.querySelector("[data-join-title]") || joinBox.querySelector("h2");
         if (jh && (v.join_title_ko || v.join_title_en)) jh.innerHTML = biRich(v.join_title_ko || v.join_title_en, v.join_title_en);
         var jcards = joinBox.querySelectorAll(".grid > div");
         var jl = v.join_cards || [];
@@ -1096,7 +1124,7 @@
         { th: "bg-primary-container/40", title: "text-primary", arrow: "text-primary", tag: "bg-secondary-container text-on-secondary-container" },
         { th: "bg-tertiary-container/40", title: "text-on-tertiary-container", arrow: "text-tertiary", tag: "bg-tertiary-container text-on-tertiary-container" }
       ];
-      var mh = raMatrix.querySelector("h2"), mp = raMatrix.querySelector("h2 + p");
+      var mh = raMatrix.querySelector("h2"), mp = raMatrix.querySelector("[data-ra-lead]") || raMatrix.querySelector("h2 + p");
       if (mh && (d.matrix_title_ko || d.matrix_title_en)) mh.innerHTML = biText(d.matrix_title_ko || d.matrix_title_en, d.matrix_title_en);
       if (mp && (d.matrix_lead_ko || d.matrix_lead_en)) mp.innerHTML = biRich(d.matrix_lead_ko || d.matrix_lead_en, d.matrix_lead_en);
       var heads = raMatrix.querySelectorAll("thead th");
