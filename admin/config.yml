@@ -121,7 +121,7 @@ collections:
               - { label: "소개 문구(영어)", name: "lead_en", widget: "text", required: false }
               - { label: "이동 경로 표기(한국어)  예: 구성원  ※ 앞의 'Home /'는 자동으로 붙습니다", name: "crumb_ko", widget: "string", required: false }
               - { label: "이동 경로 표기(영어)", name: "crumb_en", widget: "string", required: false }
-          - label: "연구실 활동 페이지"
+          - label: "연구실 소식 페이지"
             name: "activities"
             widget: "object"
             required: false
@@ -404,7 +404,7 @@ collections:
 
       # ---------------- Activities ----------------
       - name: "activities"
-        label: "연구실 활동 (Activities)"
+        label: "연구실 소식 (Activities)"
         file: "data/activities.json"
         fields:
           - { label: "메모", name: "_comment", widget: "hidden", required: false }
@@ -561,7 +561,7 @@ collections:
             fields:
               - { label: "기관·기업명(한국어)", name: "name_ko", widget: "string" }
               - { label: "기관·기업명(영어)", name: "name_en", widget: "string" }
-              - { label: "구분", name: "sector", widget: "select", options: ["공공", "산업체"], default: "산업체" }
+              - { label: "구분", name: "sector", widget: "select", options: ["공공", "산업체", "국제"], default: "산업체", hint: "공공 = 공기업·정부출연연구원, 산업체 = 국내외 산업체, 국제 = 국제 협력기관" }
               - { label: "연구 협력 기관 (녹색 표식)", name: "partner", widget: "boolean", default: false, required: false }
           - label: "졸업생 진로표 (Alumni)"
             name: "alumni"
