@@ -461,8 +461,7 @@ a.hu-pub:hover .hu-pt { color: rgb(11 91 120); }
 .ra-ill { border-bottom: 1px solid rgba(197,198,205,.45); background: #fff; }
 .ra-ill img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; }
 
-/* v44: 상단 배너(A안 큰 글씨형) — 배너 92px, 로고 56px, 메뉴 19px 굵게, 드롭다운 아이콘 제거,
-   메뉴 영역에 올리면 하위 메뉴 전체를 한 번에 보여 주는 전체 폭 패널 */
+/* v44: 상단 배너(A안 큰 글씨형) — 배너 92px, 로고 56px, 메뉴 19px 굵게 (v45: 하위 메뉴는 아래 그룹별 띠로 대체) */
 @media (min-width: 1024px) {
   header .h-20 { height: 92px; }
   main.pt-20 { padding-top: 92px; }
@@ -471,16 +470,58 @@ a.hu-pub:hover .hu-pt { color: rgb(11 91 120); }
   header a > img.h-10 + span > span:last-child { font-size: 13.5px; }
   .hdr-nav { gap: 56px; }
   .hdr-nav > a, .hdr-nav > div > a { font-size: 19px; font-weight: 700; }
-  .hdr-nav .dd { padding-top: 0; min-width: 180px; }
-  .hdr-nav .dd-box { width: auto; background: transparent; border: 0; border-radius: 0; box-shadow: none; padding: 16px 0 20px; }
-  .hdr-nav .dd-box a { padding: 8px 0; font-size: 17.5px; background: transparent !important; white-space: nowrap; }
-  .hdr-nav .dd-box a:hover { text-decoration: underline; text-underline-offset: 4px; }
-  .mega-band { display: none; position: absolute; left: 0; right: 0; top: 100%; height: 124px; background: #fff; border-top: 1px solid #e0e3e5; border-bottom: 1px solid #c5c6cd; box-shadow: 0 10px 24px rgba(25,28,30,.08); z-index: 40; }
-  .hdr-nav:hover .mega-band, .hdr-nav:focus-within .mega-band { display: block; }
-  .hdr-nav:hover .dd, .hdr-nav:focus-within .dd { display: block; }
-  .pub-nav { top: 116px !important; }
-  .pub-sec { scroll-margin-top: 126px !important; }
+  .hdr-nav > a.is-open { color: #0b5b78; border-bottom-color: #0b5b78; }
 }
+
+/* v45: 상단 메뉴 B안(그룹별 띠) — 메뉴에 올리면 그 그룹 하나만 전체 폭 띠로 표시(app.js가 띠를 만듦).
+   소개·연구·성과 · 소식·구성원·Contact 모두 띠가 있고, 홈은 없음. 휴대폰은 기존 접는 메뉴 유지. */
+.hb-band { display: none; }
+@media (min-width: 1024px) {
+  .hb-band:not([hidden]) { display: block; }
+  .hb-band { position: absolute; left: 0; right: 0; top: 100%; background: #fff; border-top: 1px solid #e0e3e5; border-bottom: 1px solid #c5c6cd; box-shadow: 0 12px 24px rgba(25,28,30,.08); opacity: 0; transform: translateY(-4px); transition: opacity .16s ease-out, transform .16s ease-out; z-index: 40; }
+  .hb-band.on { opacity: 1; transform: none; }
+  .hb-in { padding-top: 32px; padding-bottom: 32px; }
+  .hb-panel:not([hidden]) { display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 40px; min-height: 96px; animation: hbFade .12s ease-out; }
+  .hb-a { border-right: 1px solid #e0e3e5; padding-right: 32px; }
+  .hb-t { display: block; font-size: 22px; font-weight: 700; color: #191c1e; text-decoration: none; }
+  .hb-t:hover { color: #0b5b78; }
+  .hb-i { margin-top: 8px; font-size: 14px; line-height: 1.6; color: #45474c; }
+  .hb-b { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: flex-start; }
+  .hb-card { flex: 0 1 300px; display: block; padding: 14px 20px; text-decoration: none; border-left: 3px solid transparent; transition: border-color .15s; }
+  .hb-ct { display: flex; align-items: center; font-size: 17px; font-weight: 600; color: #191c1e; transition: color .15s; }
+  .hb-ar { margin-left: 8px; opacity: 0; transform: translateX(-4px); transition: opacity .15s, transform .15s; color: #0b5b78; }
+  .hb-card:hover .hb-ct, .hb-card:focus-visible .hb-ct, .hb-card[aria-current="page"] .hb-ct { color: #0b5b78; }
+  .hb-card:hover .hb-ar, .hb-card:focus-visible .hb-ar { opacity: 1; transform: none; }
+  .hb-card:hover, .hb-card:focus-visible { border-left-color: #c5c6cd; }
+  .hb-card[aria-current="page"] { border-left-color: #0b5b78; }
+  .hb-card:focus-visible, .hb-t:focus-visible { outline: 2px solid #0b5b78; outline-offset: 2px; }
+  .hb-cd { display: block; margin-top: 6px; font-size: 14px; line-height: 1.45; color: #45474c; max-width: 34ch; }
+  :lang(ko) .hb-band { word-break: keep-all; }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hb-panel:not([hidden]) { grid-template-columns: 200px minmax(0, 1fr); gap: 28px; }
+  .hb-i { display: none; }
+  .hb-a { padding-right: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { .hb-band, .hb-ar { transition: none; } .hb-panel:not([hidden]) { animation: none; } }
+@keyframes hbFade { from { opacity: 0; } to { opacity: 1; } }
+
+/* v45: 진출 분야 — 공공 / 산업체 2열(한 줄 2개 항목), 국제 협력기관은 아래 줄 첫 열 */
+@media (min-width: 768px) { .car-grid { row-gap: 56px; } }
+/* v44: 소개 About the Lab 본문 — 다른 페이지 본문 크기에 맞춤 */
+.ab-lead { font-size: 16.5px; line-height: 1.8; }
+.ab-logo { grid-template-columns: 88px 1fr; }
+.ab-logo img { width: 88px; height: 88px; }
+@media (max-width: 767px) { .ab-lead { font-size: 15.5px; } }
+/* v44: 로고 글자(워드마크)를 메뉴 글자와 같은 높이(헤더 세로 중앙)에 맞춤 — 이미지 위쪽 기준 정렬 해제 */
+header .h-20 > a.items-start { align-items: center; }
+header .h-20 > a.items-start > img + span { margin-top: 0 !important; }
+@media (max-width: 767px) { .wwd-fig img { max-width: 420px; margin: 0 auto; } }
+/* v45: 진출 분야 — 긴 기관명이 꺾여도 줄 간격이 벌어지지 않도록, 행 간격은 줄 높이 대신 위아래 여백으로 유지
+   (한 줄 항목은 이전과 같은 높이: PC 41.6px, 휴대폰 약 34px) */
+.car-list { line-height: 1.45; }
+.car-i { padding: 9.2px 0; }
+@media (max-width: 767px) { .car-i { padding: 6.5px 0; } }
 
 /* v44: 독립 사이드바(연구 성과 방식)를 공용으로 — 연구 분야·연구 프로젝트·연구실 활동·연락처·연구 성과 */
   /* v39 연구 성과(C안): PC는 왼쪽 고정 목차 + 본문, 좁은 화면은 본문 위 고정 탭 */
@@ -513,17 +554,24 @@ a.hu-pub:hover .hu-pt { color: rgb(11 91 120); }
 .gr-st.is-on::before { width: 8px; height: 8px; margin: 0; background: #16A34A; box-shadow: 0 0 0 3px rgba(22,163,74,.2); vertical-align: 0; }
 /* v44: 하위 페이지 전체에 sb(여백·상자 정리) 적용 — 사진이 들어간 카드는 상자 유지 */
 .sb #project-cards > a.rounded-xl, .sb [data-ra="cards"] > div.rounded-xl { background: #fff !important; border: 1px solid rgba(197,198,205,.4) !important; border-radius: 8px !important; box-shadow: 0 1px 2px rgba(0,0,0,.05) !important; padding: 0 !important; }
-/* v44: 진출 분야 3열(공공 / 산업체 / 국제 협력기관) */
-.car-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, .82fr); gap: 32px; }
-.car-list-1 { grid-template-columns: 1fr; }
-@media (max-width: 1023px) { .car-grid { grid-template-columns: 1fr 1fr; } .car-grid > :last-child { grid-column: 1 / -1; } }
-@media (max-width: 767px) { .car-grid { grid-template-columns: 1fr; } }
-/* v44: 소개 About the Lab 본문 — 다른 페이지 본문 크기에 맞춤 */
-.ab-lead { font-size: 16.5px; line-height: 1.8; }
-.ab-logo { grid-template-columns: 88px 1fr; }
-.ab-logo img { width: 88px; height: 88px; }
-@media (max-width: 767px) { .ab-lead { font-size: 15.5px; } }
-/* v44: 로고 글자(워드마크)를 메뉴 글자와 같은 높이(헤더 세로 중앙)에 맞춤 — 이미지 위쪽 기준 정렬 해제 */
-header .h-20 > a.items-start { align-items: center; }
-header .h-20 > a.items-start > img + span { margin-top: 0 !important; }
-@media (max-width: 767px) { .wwd-fig img { max-width: 420px; margin: 0 auto; } }
+/* v45: 1024~1279px 화면에서 상단 메뉴가 언어 버튼과 겹치지 않도록 글자·간격 축소(영문 기준 확인) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  header .hdr-nav { gap: 28px; }
+  .hdr-nav > a { font-size: 17px; }
+}
+
+/* v45: 사이드바 1안 — 본문은 페이지 제목과 같은 선에서 시작.
+   창 폭 1680px 이상: 사이드바를 제목 왼쪽 여백에 둠 / 1024~1679px: 본문 위 가로 탭(휴대폰과 같은 방식) */
+@media (min-width: 1680px) {
+  .pb-lay { margin-left: -216px; }
+  .pub-nav { top: 116px !important; }
+  .pub-sec { scroll-margin-top: 126px !important; }
+}
+@media (min-width: 1024px) and (max-width: 1679px) {
+  .pb-lay { grid-template-columns: minmax(0, 1fr); }
+  .pub-nav { top: 92px !important; z-index: 20; flex-direction: row; gap: 8px; overflow-x: auto; scrollbar-width: none; border-top: 0; background: rgba(247,249,251,.94); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); margin: 0 -48px 36px; padding: 12px 48px; border-bottom: 1px solid #e5e7eb; }
+  .pub-nav::-webkit-scrollbar { display: none; }
+  .pub-nav a { flex: 0 0 auto; gap: 8px; padding: 8px 16px; border: 1px solid #c5c6cd; border-radius: 999px; background: #fff; font-size: 15px; font-weight: 600; white-space: nowrap; }
+  .pub-nav a.is-active { background: #0b5b78; border-color: #0b5b78; color: #fff; }
+  .pub-sec { scroll-margin-top: 170px !important; }
+}
