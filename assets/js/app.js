@@ -15,7 +15,7 @@
     root.setAttribute("lang", lang);
     try { window.localStorage.setItem("lab-lang", lang); } catch (e) {}
     document.querySelectorAll(".lang-btn").forEach(function (b) {
-      b.textContent = lang === "ko" ? "EN" : "한국어";
+      b.textContent = lang === "ko" ? "→ View in English" : "→ 한국어로 보기";
     });
     var t = document.querySelector("title");
     if (t && t.getAttribute("data-ko") && t.getAttribute("data-en")) {
@@ -1295,5 +1295,29 @@
     document.addEventListener("click", function (ev) { if (cur && !ev.target.closest("header")) close(); });
     band.addEventListener("focusout", function (ev) { if (cur && !header.contains(ev.relatedTarget)) close(); });
     desk.addEventListener && desk.addEventListener("change", function () { if (!desk.matches) close(); });
+  })();
+
+  /* ============ v48: 방문자 수 (Today / Total) ============
+     Cloudflare Worker(geoflow-visits) + D1. 같은 브라우저는 한국 시간 하루에 한 번만 셉니다.
+     처음 방문(오늘 아직 안 셈) → POST /hit(1 증가 후 숫자 받기), 이미 셈 → GET /stats(숫자만).
+     방문자 IP·쿠키는 저장하지 않으며, '오늘 셌음' 표시는 방문자 브라우저 안(localStorage)에만 남습니다. */
+  (function () {
+    var VC_URL = "https://geoflow-visits.gwanwoo7835.workers.dev";
+    var els = document.querySelectorAll("[data-vc]");
+    if (!els.length || !window.fetch) return;
+    var KEY = "gf-visit-day";
+    function store() { try { var t = "__t"; window.localStorage.setItem(t, t); window.localStorage.removeItem(t); return window.localStorage; } catch (e) { try { return window.sessionStorage; } catch (e2) { return null; } } }
+    var st = store();
+    var today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+    var seen = null; try { seen = st && st.getItem(KEY); } catch (e) {}
+    var hit = seen !== today;
+    fetch(VC_URL + (hit ? "/hit" : "/stats"), { method: hit ? "POST" : "GET", cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (d) {
+        if (hit && d && d.day) { try { st && st.setItem(KEY, d.day); } catch (e) {} }
+        var fmt = function (n) { return (Number(n) || 0).toLocaleString("en-US"); };
+        Array.prototype.forEach.call(els, function (e) { e.textContent = fmt(d[e.getAttribute("data-vc")]); });
+      })
+      .catch(function () {});
   })();
 })();
