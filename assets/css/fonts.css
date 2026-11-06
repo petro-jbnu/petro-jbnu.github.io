@@ -575,3 +575,6 @@ header .h-20 > a.items-start > img + span { margin-top: 0 !important; }
   .pub-nav a.is-active { background: #0b5b78; border-color: #0b5b78; color: #fff; }
   .pub-sec { scroll-margin-top: 170px !important; }
 }
+/* v46: 홈 파이프라인 '더 자세히 (연구실 소개)' 링크가 가리키는 소개 페이지 What we do 위치 — 고정 상단 메뉴에 가리지 않게 */
+#whatwedo { scroll-margin-top: 80px; }
+@media (min-width: 1024px) { #whatwedo { scroll-margin-top: 93px; } }
