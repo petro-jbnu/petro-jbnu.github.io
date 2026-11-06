@@ -586,3 +586,21 @@ header .h-20 > a.items-start > img + span { margin-top: 0 !important; }
   .hb-cd { transition: color .15s; }
 }
 @media (prefers-reduced-motion: reduce) { .hb-card:hover .hb-ct, .hb-card:focus-visible .hb-ct { transform: none; } }
+/* v47: 홈 파이프라인 — 그림을 각 본문 폭의 가운데에 둠(PC 1024px 이상).
+   연결선은 이 그림 오른쪽 16px 뒤에서 다음 그림 왼쪽 16px 앞까지, 화살촉은 선 끝에 붙임.
+   (세 카드의 본문 폭이 같다는 전제: flex 1 1 0 + 양끝 패딩 0 → 본문 폭 W 동일, 카드 사이 28+28px)
+   선 오른쪽 끝 = -( (W-160)/2 + 56 - 16 ) = 40px - 50% */
+@media (min-width: 1024px) {
+  .hm2 .hm-ic { justify-content: center; }
+  .hm2 .hm-card:not(:last-child) .hm-ic::after { left: calc(50% + 96px); right: calc(40px - 50%); }
+  .hm2 .hm-card:not(:last-child) .hm-ic::before { content: ""; position: absolute; top: 40px; right: calc(40px - 50%); width: 9px; height: 9px; border-top: 1.5px solid rgb(11 91 120); border-right: 1.5px solid rgb(11 91 120); transform: rotate(45deg); }
+  .hm2 .hm-arrow svg { display: none; }
+}
+/* v47: 띠 메뉴 — 하위 항목에 올리면 제목과 아래 설명이 함께 강조(굵게 + 10% 확대) */
+@media (min-width: 1024px) {
+  .hb-cd { transform-origin: left top; transition: color .15s, transform .18s ease-out, font-weight .18s ease-out; }
+  .hb-card:hover .hb-cd, .hb-card:focus-visible .hb-cd { color: #191c1e; font-weight: 600; transform: scale(1.1); }
+}
+@media (prefers-reduced-motion: reduce) { .hb-card:hover .hb-cd, .hb-card:focus-visible .hb-cd { transform: none; } }
+/* v47: 지도교수 학력 및 경력 — 연도(14px)와 본문(16px)의 글자 기준선을 맞춤(기존: 위쪽 기준이라 연도가 약 2px 위로 뜸) */
+[data-pi] ul > li.flex { align-items: baseline; }
