@@ -604,3 +604,12 @@ header .h-20 > a.items-start > img + span { margin-top: 0 !important; }
 @media (prefers-reduced-motion: reduce) { .hb-card:hover .hb-cd, .hb-card:focus-visible .hb-cd { transform: none; } }
 /* v47: 지도교수 학력 및 경력 — 연도(14px)와 본문(16px)의 글자 기준선을 맞춤(기존: 위쪽 기준이라 연도가 약 2px 위로 뜸) */
 [data-pi] ul > li.flex { align-items: baseline; }
+/* v48: 방문자 수(Today / Total) + 언어 전환 — 상단 오른쪽(기존 EN 버튼 자리), 휴대폰은 메뉴 안 */
+.vc { flex-direction: column; align-items: flex-end; gap: 1px; line-height: 1.35; white-space: nowrap; }
+.vc-l { font-size: 13px; color: #45474c; font-variant-numeric: tabular-nums; }
+.vc-l b { font-weight: 700; color: #191c1e; }
+.vc-lang { margin-top: 3px; padding: 0; border: 0; background: none; font-size: 12px; font-weight: 600; color: #0b5b78; cursor: pointer; }
+.vc-lang:hover, .vc-lang:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.vc-m { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 16px; }
+.vc-mn { font-size: 13px; color: #45474c; font-variant-numeric: tabular-nums; }
+.vc-mn b { font-weight: 700; color: #191c1e; }
