@@ -449,7 +449,7 @@
           });
         });
         function onScroll() {
-          var top = window.matchMedia("(min-width:1024px)").matches ? 134 : 160, cur = secs[0] && secs[0].id;
+          var top = window.matchMedia("(min-width:1680px)").matches ? 134 : window.matchMedia("(min-width:1024px)").matches ? 176 : 160, cur = secs[0] && secs[0].id;
           secs.forEach(function (sec) { if (sec && sec.getBoundingClientRect().top - top <= 0) cur = sec.id; });
           if (cur) setActive(cur);
         }
@@ -869,7 +869,7 @@
       });
     });
     function onScroll() {
-      var top = window.matchMedia("(min-width:1024px)").matches ? 134 : 160, cur = secs[0] && secs[0].id;
+      var top = window.matchMedia("(min-width:1680px)").matches ? 134 : window.matchMedia("(min-width:1024px)").matches ? 176 : 160, cur = secs[0] && secs[0].id;
       secs.forEach(function (sec) { if (sec && sec.getBoundingClientRect().top - top <= 0) cur = sec.id; });
       if (cur) setActive(cur);
     }
@@ -1218,4 +1218,82 @@
       }
     }).observe(document.body, { childList: true, subtree: true });
   }
+
+  /* ============ v45: 상단 메뉴 B안(그룹별 띠) ============
+     PC(1024px 이상)에서 메뉴에 마우스를 올리면 그 그룹 하나만 헤더 아래 전체 폭 띠로 보여 줍니다.
+     홈은 띠 없음. 0.12초 뒤 열림, 다른 메뉴로 옮기면 0.08초 뒤 전환, 헤더 밖으로 나가면 0.3초 뒤 닫힘.
+     터치 화면: 첫 탭에 띠 열기, 둘째 탭에 이동. 키보드: ↓로 열고 첫 항목으로, Esc로 닫고 메뉴로 복귀. */
+  (function () {
+    var nav = document.querySelector(".hdr-nav"), header = document.querySelector("header");
+    if (!nav || !header) return;
+    var BAND = {
+      about: { ko: "소개", en: "About", href: "about.html", i: ["GeoFlow 연구실과 연구 환경을 소개합니다.", "Who we are and how we work."],
+        items: [["about.html", "연구실 소개", "About the Lab", "지도교수 · 교과목 · 진출 분야", "PI, courses and career paths"],
+                ["equipment.html", "연구실 장비", "Equipment", "실험 · 해석 장비 현황", "Lab instruments and analysis tools"]] },
+      research: { ko: "연구", en: "Research", href: "research-area.html", i: ["석유 · 가스와 CO₂ 지중저장을 잇는 연구 주제와 과제입니다.", "Research themes and funded projects across oil & gas and CO₂ storage."],
+        items: [["research-area.html", "연구 분야", "Research Areas", "석유 · 가스와 CO₂ 지중저장", "Oil & gas and CO₂ geological storage"],
+                ["research-projects.html", "프로젝트", "Projects", "분야별 연구 현황과 연구 과제", "Research by area and funded projects"]] },
+      outputs: { ko: "성과 · 소식", en: "Publications · News", href: "publications.html", i: ["논문 · 발표 · 수상과 연구실 일정 · 활동을 모았습니다.", "Papers, talks, awards and lab activities."],
+        items: [["publications.html", "연구 성과", "Publications", "논문 · 학술대회 발표 · 수상", "Papers, conference talks and awards"],
+                ["activities.html", "연구실 소식", "Lab News", "일정과 활동 기록", "Schedule and activity log"]] },
+      members: { ko: "구성원", en: "Members", href: "members.html", i: ["지도교수와 연구실 구성원을 소개합니다.", "Meet our professor and lab members."],
+        items: [["members.html", "구성원", "Members", "지도교수 · 연구원 · 대학원생 · 졸업생", "PI, researchers, students and alumni"]] },
+      contact: { ko: "Contact", en: "Contact", href: "contact.html", i: ["연구실 방문, 공동연구, 대학원 진학 관련 문의처입니다.", "Inquiries about visits, collaboration, and graduate study."],
+        items: [["contact.html#join", "모집 안내", "Join Us", "학부연구생 · 대학원 진학 안내", "Undergraduate research and graduate study"],
+                ["contact.html#contact-info", "연락처", "Get in Touch", "주소 · 전화 · 이메일 · 지도", "Address, phone, email and map"]] }
+    };
+    var page = location.pathname.split("/").pop() || "index.html";
+    if (page === "project.html") page = "research-projects.html";
+    if (page === "activity.html") page = "activities.html";
+    var trig = Array.prototype.slice.call(nav.querySelectorAll(":scope > a[data-band]"));
+    var band = document.createElement("div");
+    band.className = "hb-band"; band.hidden = true;
+    band.innerHTML = '<div class="hb-in max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop">' + trig.map(function (a) {
+      var k = a.getAttribute("data-band"), g = BAND[k]; if (!g) return "";
+      return '<div class="hb-panel" id="hb-' + k + '" hidden><div class="hb-a"><a class="hb-t" href="' + g.href + '">' + bi(g.ko, g.en) + '</a><p class="hb-i">' + bi(g.i[0], g.i[1]) + '</p></div><div class="hb-b">' +
+        g.items.map(function (it) {
+          return '<a class="hb-card" href="' + it[0] + '"' + (it[0] === page ? ' aria-current="page"' : "") + '><span class="hb-ct">' + bi(it[1], it[2]) + '<span class="hb-ar" aria-hidden="true">→</span></span><span class="hb-cd">' + bi(it[3], it[4]) + '</span></a>';
+        }).join("") + '</div></div>';
+    }).join("") + '</div>';
+    header.appendChild(band);
+    trig.forEach(function (a) { a.setAttribute("aria-controls", "hb-" + a.getAttribute("data-band")); a.setAttribute("aria-expanded", "false"); });
+    var desk = window.matchMedia("(min-width:1024px)"), fine = window.matchMedia("(hover:hover) and (pointer:fine)");
+    var cur = null, tOpen = null, tClose = null;
+    function open(k) {
+      clearTimeout(tClose); cur = k; band.hidden = false;
+      band.querySelectorAll(".hb-panel").forEach(function (p) { p.hidden = p.id !== "hb-" + k; });
+      trig.forEach(function (a) { var on = a.getAttribute("data-band") === k; a.classList.toggle("is-open", on); a.setAttribute("aria-expanded", on ? "true" : "false"); });
+      requestAnimationFrame(function () { band.classList.add("on"); });
+    }
+    function close() {
+      clearTimeout(tOpen); cur = null; band.classList.remove("on"); band.hidden = true;
+      trig.forEach(function (a) { a.classList.remove("is-open"); a.setAttribute("aria-expanded", "false"); });
+    }
+    Array.prototype.forEach.call(nav.children, function (el) {
+      el.addEventListener("mouseenter", function () {
+        if (!desk.matches || !fine.matches) return;
+        var k = el.getAttribute("data-band");
+        clearTimeout(tOpen);
+        if (!k) { clearTimeout(tClose); tClose = setTimeout(close, 150); return; }
+        clearTimeout(tClose); tOpen = setTimeout(function () { open(k); }, cur ? 80 : 120);
+      });
+    });
+    header.addEventListener("mouseenter", function () { clearTimeout(tClose); });
+    header.addEventListener("mouseleave", function () { if (!cur && !tOpen) return; clearTimeout(tOpen); clearTimeout(tClose); tClose = setTimeout(close, 300); });
+    trig.forEach(function (a) {
+      var k = a.getAttribute("data-band");
+      a.addEventListener("click", function (ev) { if (desk.matches && !fine.matches && cur !== k) { ev.preventDefault(); open(k); } });
+      a.addEventListener("keydown", function (ev) {
+        if (ev.key !== "ArrowDown" || !desk.matches) return;
+        ev.preventDefault(); open(k); var f = band.querySelector("#hb-" + k + " a"); if (f) f.focus();
+      });
+    });
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key !== "Escape" || !cur) return;
+      var k = cur; close(); var t = nav.querySelector('[data-band="' + k + '"]'); if (t) t.focus();
+    });
+    document.addEventListener("click", function (ev) { if (cur && !ev.target.closest("header")) close(); });
+    band.addEventListener("focusout", function (ev) { if (cur && !header.contains(ev.relatedTarget)) close(); });
+    desk.addEventListener && desk.addEventListener("change", function () { if (!desk.matches) close(); });
+  })();
 })();
