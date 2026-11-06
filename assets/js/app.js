@@ -531,20 +531,29 @@
       // 진행 연구 과제: period의 종료 연월이 현재 이후인 과제 수 (해석 불가 시 진행으로 간주)
       var ga = document.getElementById("grant-active-count");
       if (ga) ga.textContent = items.filter(function (g) { return gStatus(g) === "진행 중"; }).length;
-      grantList.innerHTML = items.map(function (g) {
-        var pd = gPeriod(g), st = gStatus(g);
-        var stCls = st === "진행 중" ? "bg-primary-container text-on-primary-container" : "bg-surface-container text-on-surface-variant border border-outline-variant";
-        return '<div class="bg-surface-container-lowest shadow-sm rounded-lg p-md flex flex-col md:flex-row md:items-center gap-sm transition-shadow hover:shadow-md relative overflow-hidden">' +
-          '<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>' +
-          '<div class="flex-1">' +
-          '<h3 class="font-body-lg font-bold text-on-surface">' + bi(esc(g.title_ko), esc(g.title_en || g.title_ko)) + "</h3>" +
-          '<p class="font-body-md text-[14.5px] text-on-surface-variant mt-1">' + bi(esc(g.agency_ko || ""), esc(g.agency_en || g.agency_ko || "")) + "</p></div>" +
-          '<div class="flex items-center gap-sm shrink-0">' +
-          '<span class="font-data-tabular text-data-tabular font-semibold text-on-surface-variant">' + bi(esc(pd.ko), esc(pd.en)) + "</span>" +
-          '<span class="inline-flex items-center px-sm py-1 rounded-full font-label-caps ' + stCls + '">' + bi(esc(st), esc(GRANT_ST_EN[st] || st)) + "</span>" +
-          "</div></div>";
+      // 연구 성과(논문)와 같은 형식: 종료연도별 묶음, 종료 연·월 내림차순(같으면 데이터 순서 유지)
+      var sorted = items.map(function (g, i) { return { g: g, i: i, e: gPeriod(g).endNum }; });
+      sorted.sort(function (x, y) {
+        var ex = x.e == null ? Infinity : x.e, ey = y.e == null ? Infinity : y.e;
+        return ex === ey ? x.i - y.i : ey - ex;
+      });
+      var ggroups = [], gcur = null;
+      sorted.forEach(function (o) {
+        var y = o.e == null ? "—" : String(Math.floor(o.e / 100));
+        if (!gcur || gcur.y !== y) { gcur = { y: y, items: [] }; ggroups.push(gcur); }
+        gcur.items.push(o.g);
+      });
+      grantList.innerHTML = ggroups.map(function (grp) {
+        return '<div class="pb-yr"><span class="pb-y">' + esc(grp.y) + '</span><div class="pb-rows">' + grp.items.map(function (g) {
+          var pd = gPeriod(g), st = gStatus(g);
+          return '<div class="pb-row pb-paper gr-row">' +
+            '<span class="pb-t">' + bi(esc(g.title_ko), esc(g.title_en || g.title_ko)) + "</span>" +
+            '<span class="pb-m"><span class="pb-j">' + bi(esc(g.agency_ko || ""), esc(g.agency_en || g.agency_ko || "")) + "</span>" +
+            '<span class="gr-pd">' + bi(esc(pd.ko), esc(pd.en)) + "</span>" +
+            '<span class="gr-st' + (st === "진행 중" ? " is-on" : "") + '">' + bi(esc(st), esc(GRANT_ST_EN[st] || st)) + "</span></span></div>";
+        }).join("") + "</div></div>";
       }).join("");
-      setupPubList(grantList, items.length);
+      setupPubList(grantList, items.length, ".gr-row");
     }, ["grant-list"]);
   }
 
@@ -611,15 +620,21 @@
   if (wwd || courseBody || partnerList) {
     load("data/about.json", function (data) {
       if (wwd) {
+        // 링크는 항목 안이 아니라, 세 항목 아래 한 줄(바로가기)로 모아 둠
+        var wwdLinks = (data.whatwedo || []).filter(function (w) { return w.link; }).map(function (w) {
+          return '<a class="wwd-go" href="' + esc(w.link) + '">' + bi(esc(w.link_ko || "자세히 보기"), esc(w.link_en || "Learn more")) + '<span aria-hidden="true">→</span></a>';
+        }).join("");
+        var wl = document.getElementById("whatwedo-links");
+        if (!wl && wwdLinks) { wwd.insertAdjacentHTML("afterend", '<nav id="whatwedo-links" class="wwd-links" aria-label="바로가기"></nav>'); wl = document.getElementById("whatwedo-links"); }
+        if (wl) wl.innerHTML = wwdLinks;
         wwd.innerHTML = (data.whatwedo || []).map(function (w) {
           var media = w.image
             ? '<div class="wwd-ph"><img alt="" src="' + esc(w.image) + '"/></div>'
             : "";
           var kick = w.kicker_ko ? '<p class="wwd-k">' + bi(w.kicker_ko, w.kicker_en || w.kicker_ko) + "</p>" : "";
-          var go = w.link ? '<a class="wwd-go" href="' + esc(w.link) + '">' + bi(esc(w.link_ko || "자세히 보기"), esc(w.link_en || "Learn more")) + '<span aria-hidden="true">→</span></a>' : "";
           return '<div class="wwd-item">' + media + kick +
             '<h3 class="wwd-t">' + bi(w.title_ko, w.title_en || w.title_ko) + "</h3>" +
-            '<p class="wwd-d">' + bi(w.desc_ko || "", w.desc_en || w.desc_ko || "") + "</p>" + go + "</div>";
+            '<p class="wwd-d">' + bi(w.desc_ko || "", w.desc_en || w.desc_ko || "") + "</p></div>";
         }).join("");
       }
       function courseRows(list) {
@@ -1125,9 +1140,9 @@
       if (grid && cards.length) {
         grid.innerHTML = cards.map(function (c, ci) {
           var pal = RA_ROW[ci % RA_ROW.length];
-          var media = c.image
-            ? '<div class="h-48 w-full overflow-hidden bg-surface-container-high"><img class="w-full h-full object-cover" alt="" src="' + esc(c.image) + '"/></div>'
-            : "";
+          var media = !c.image ? "" : /\.svg(\?|$)/i.test(c.image)
+            ? '<div class="ra-ill"><img alt="" src="' + esc(c.image) + '"/></div>'   // 선 그림: 자르지 않고 전체 표시
+            : '<div class="h-48 w-full overflow-hidden bg-surface-container-high"><img class="w-full h-full object-cover" alt="" src="' + esc(c.image) + '"/></div>';
           return '<div class="group relative bg-surface-container-lowest rounded-xl flex flex-col h-full overflow-hidden hover:-translate-y-1 transition-transform duration-300 shadow-md border border-outline-variant/40">' + media +
             '<div class="p-md flex flex-col flex-grow">' +
             (c.label ? '<div class="flex items-center gap-xs mb-sm"><span class="font-label-caps text-on-surface-variant uppercase tracking-widest">' + esc(c.label) + "</span></div>" : "") +
