@@ -103,7 +103,7 @@
       "name_ko": "한국석유공사",
       "name_en": "KNOC",
       "sector": "공공",
-      "partner": true
+      "partner": false
     },
     {
       "name_ko": "한국수자원공사",
@@ -145,19 +145,19 @@
       "name_ko": "국가녹색기술연구소",
       "name_en": "National Institute of Green Technology",
       "sector": "공공",
-      "partner": false
+      "partner": true
     },
     {
       "name_ko": "S&P Global",
       "name_en": "S&P Global",
       "sector": "산업체",
-      "partner": false
+      "partner": true
     },
     {
       "name_ko": "SLB",
       "name_en": "SLB (Schlumberger)",
       "sector": "산업체",
-      "partner": false
+      "partner": true
     },
     {
       "name_ko": "Shell",
@@ -169,7 +169,7 @@
       "name_ko": "포스코인터내셔널",
       "name_en": "POSCO International",
       "sector": "산업체",
-      "partner": true
+      "partner": false
     },
     {
       "name_ko": "현대로템",
@@ -181,7 +181,7 @@
       "name_ko": "SK어스온",
       "name_en": "SK Earthon",
       "sector": "산업체",
-      "partner": false
+      "partner": true
     },
     {
       "name_ko": "SK이노베이션 E&S",

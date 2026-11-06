@@ -99,7 +99,7 @@
   ],
   "cards": [
     {
-      "image": "assets/img/fig-reservoir-3d.png",
+      "image": "assets/img/area-og.svg",
       "label": "Area 1",
       "title_ko": "석유·천연가스",
       "title_en": "Oil & Natural Gas",
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "image": "assets/img/fig-screen2.png",
+      "image": "assets/img/area-co2.svg",
       "label": "Area 2",
       "title_ko": "CO₂ 지중저장",
       "title_en": "Geological CO₂ Storage",
