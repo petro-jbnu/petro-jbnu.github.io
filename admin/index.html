@@ -5,53 +5,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>관리자 | GeoFlow Engineering Lab</title>
   <link rel="icon" type="image/png" href="../assets/img/favicon.png"/>
-  <!-- Sveltia CMS: Decap CMS 호환 Git 기반 CMS. 로그인 후 폼으로 콘텐츠를 수정하면 GitHub에 자동 저장·배포됩니다. -->
+  <!-- Sveltia CMS (버전 고정: 업데이트는 시험 후에만 이 번호를 바꿉니다). -->
   <!-- 단독 편집 잠금: 최초 접속자만 편집 화면 진입, 이후 접속자는 잠금 안내(새로고침으로 재시도). -->
+  <style>
+    @font-face { font-family: "Pretendard Variable"; font-style: normal; font-weight: 45 920; font-display: swap; src: url("../assets/fonts/PretendardVariable.woff2") format("woff2"); }
+    /* 연구실 색(청록)과 글꼴을 관리 화면에 적용 */
+    :root, :root[data-theme] {
+      --sui-base-hue: 196 !important;
+      --sui-font-family-default: "Pretendard Variable", Pretendard, system-ui, sans-serif !important;
+      --sui-heading-font-family: "Pretendard Variable", Pretendard, system-ui, sans-serif !important;
+      --sui-control-font-family: "Pretendard Variable", Pretendard, system-ui, sans-serif !important;
+      --sui-textbox-font-family: "Pretendard Variable", Pretendard, system-ui, sans-serif !important;
+    }
+    /* 삭제 확인 창에 덧붙이는 경고 */
+    .gf-warn { margin: 12px 0 4px; padding: 10px 12px; border-left: 3px solid #b3261e; background: #fdf2f1; color: #5f1410; font-size: 14px; line-height: 1.55; font-weight: 600; }
+    /* 잠금 만료 안내 띠 */
+    .gf-lockbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 2147483000; background: #7a2e00; color: #fff; font: 600 14px/1.5 "Pretendard Variable", system-ui, sans-serif; padding: 10px 16px; text-align: center; }
+    .gf-lockbar button { margin-left: 12px; background: #fff; color: #7a2e00; border: 0; border-radius: 6px; padding: 4px 12px; font-weight: 700; cursor: pointer; }
+  </style>
 </head>
 <body>
   <script>
   (function () {
+    var CMS_SRC = "https://unpkg.com/@sveltia/cms@0.261.0/dist/sveltia-cms.js";
     var LOCK_API = "https://lab-admin-lock.gwanwoo7835.workers.dev/lock";
     var HEARTBEAT_MS = 45000; // 45초마다 점유 연장 (워커 유효기간 90초)
+
+    /* 삭제 경고 문구 — 확인 창(“…삭제하시겠습니까?”)에 자동으로 덧붙습니다. */
+    var WARN_ASSET = "삭제하면 사이트에서 즉시 사라지며 되돌리기 기능이 없습니다. 다시 필요하면 파일을 새로 업로드해야 합니다.";
+    var WARN_ENTRY = "삭제한 항목은 되돌리기 기능이 없습니다. 다시 필요하면 내용을 새로 입력해야 합니다.";
+    var RE_ASSET = /(에셋|asset)[^?？]*(삭제|delete)|(삭제|delete)[^?？]*(에셋|asset)/i;
+    var RE_ENTRY = /(엔트리|entr(y|ies))[^?？]*(삭제|delete)|(삭제|delete)[^?？]*(엔트리|entr(y|ies))/i;
+
     var sid = null;
     try {
       sid = sessionStorage.getItem("lab-lock-id");
       if (!sid) { sid = Math.random().toString(36).slice(2) + Date.now().toString(36); sessionStorage.setItem("lab-lock-id", sid); }
     } catch (e) { sid = "s" + Date.now(); }
 
+    function el(tag, css, text) { var e = document.createElement(tag); if (css) e.style.cssText = css; if (text != null) e.textContent = text; return e; }
+
     function showLockScreen(holder) {
-      document.body.innerHTML =
-        '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f1f4f6;font-family:Pretendard,sans-serif;">' +
-        '<div style="max-width:460px;background:#fff;border:1px solid #d5dde2;border-radius:16px;padding:40px;text-align:center;box-shadow:0 4px 16px rgba(13,27,36,.08);">' +
-        '<div style="font-size:40px;margin-bottom:12px;">&#128274;</div>' +
-        '<h1 style="font-size:20px;color:#0d1b24;margin:0 0 10px;">현재 다른 관리자가 편집 중입니다</h1>' +
-        '<p style="font-size:15px;color:#4f6472;line-height:1.6;margin:0 0 6px;">편집 중: <strong>' + (holder || "다른 관리자") + '</strong></p>' +
-        '<p style="font-size:14px;color:#4f6472;line-height:1.6;margin:0 0 24px;">동시 편집으로 인한 내용 덮어쓰기를 막기 위해<br/>한 번에 한 명만 편집할 수 있습니다.<br/>편집이 끝난 뒤 <strong>새로고침(F5)</strong> 하면 진입할 수 있습니다.</p>' +
-        '<button onclick="location.reload()" style="background:#0B5B78;color:#fff;border:0;border-radius:8px;padding:12px 28px;font-size:15px;font-weight:700;cursor:pointer;">새로고침</button>' +
-        '</div></div>';
+      // 편집 중인 사람 이름은 글자로만 넣습니다(HTML 해석 안 함).
+      document.body.innerHTML = "";
+      var wrap = el("div", "min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f1f4f6;font-family:'Pretendard Variable',system-ui,sans-serif;");
+      var card = el("div", "max-width:460px;background:#fff;border:1px solid #d5dde2;border-radius:16px;padding:40px;text-align:center;box-shadow:0 4px 16px rgba(13,27,36,.08);");
+      card.appendChild(el("div", "font-size:40px;margin-bottom:12px;", "🔒"));
+      card.appendChild(el("h1", "font-size:20px;color:#0d1b24;margin:0 0 10px;", "현재 다른 관리자가 편집 중입니다"));
+      var who = el("p", "font-size:15px;color:#4f6472;line-height:1.6;margin:0 0 6px;", "편집 중: ");
+      who.appendChild(el("strong", "", holder ? String(holder) : "다른 관리자"));
+      card.appendChild(who);
+      card.appendChild(el("p", "font-size:14px;color:#4f6472;line-height:1.6;margin:0 0 24px;", "동시 편집으로 내용이 덮어써지는 것을 막기 위해 한 번에 한 명만 편집할 수 있습니다. 편집이 끝난 뒤 새로고침(F5)하면 들어갈 수 있습니다."));
+      var btn = el("button", "background:#0B5B78;color:#fff;border:0;border-radius:8px;padding:12px 28px;font-size:15px;font-weight:700;cursor:pointer;", "새로고침");
+      btn.onclick = function () { location.reload(); };
+      card.appendChild(btn);
+      wrap.appendChild(card);
+      document.body.appendChild(wrap);
+    }
+
+    function acquire() {
+      return fetch(LOCK_API + "?action=acquire&id=" + encodeURIComponent(sid))
+        .then(function (r) { return r.json().then(function (b) { return { ok: r.status === 200 && b && b.ok, holder: b && b.holder }; }); });
+    }
+
+    /* 잠자기·탭 전환으로 점유가 끊겼다가 돌아오면 다시 확인하고, 그 사이 다른 사람이 들어왔으면 알림 */
+    var lockBar = null;
+    function warnLockLost(holder) {
+      if (lockBar) return;
+      lockBar = el("div", "", "편집 잠금이 만료되어 다른 관리자가 편집 중일 수 있습니다. 저장하기 전에 새로고침하세요.");
+      lockBar.className = "gf-lockbar";
+      var b = el("button", "", "새로고침"); b.onclick = function () { location.reload(); };
+      lockBar.appendChild(b);
+      document.body.appendChild(lockBar);
+    }
+    function recheck() {
+      acquire().then(function (res) { if (!res.ok) warnLockLost(res.holder); }).catch(function () {});
+    }
+
+    /* 삭제 확인 창 감시: 확인 문구가 보이면 경고를 한 번 덧붙임 */
+    function annotateDialogs() {
+      var dialogs = document.querySelectorAll('[role="dialog"], [role="alertdialog"], dialog');
+      for (var i = 0; i < dialogs.length; i++) {
+        var d = dialogs[i];
+        if (d.querySelector(".gf-warn")) continue;
+        var txt = d.textContent || "";
+        if (!/[?？]/.test(txt)) continue;
+        var msg = RE_ASSET.test(txt) ? WARN_ASSET : (RE_ENTRY.test(txt) ? WARN_ENTRY : null);
+        if (!msg) continue;
+        // 질문 문장을 담은 가장 안쪽 요소 바로 뒤에 넣음
+        var target = null, all = d.querySelectorAll("p, div, span");
+        for (var j = 0; j < all.length; j++) {
+          var t = all[j].textContent || "";
+          if (/[?？]/.test(t) && (RE_ASSET.test(t) || RE_ENTRY.test(t)) && !all[j].querySelector("p, div")) { target = all[j]; break; }
+        }
+        var w = el("div", "", "⚠ " + msg);
+        w.className = "gf-warn";
+        w.setAttribute("role", "note");
+        if (target && target.parentNode) target.parentNode.insertBefore(w, target.nextSibling);
+        else d.appendChild(w);
+      }
     }
 
     function startCms() {
       var s = document.createElement("script");
-      s.src = "https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js";
-      s.type = "module";
+      s.src = CMS_SRC; // 일반 스크립트로 불러옴(Sveltia 권장)
       document.body.appendChild(s);
-      // 점유 연장(하트비트)
       setInterval(function () {
-        fetch(LOCK_API + "?action=heartbeat&id=" + sid).catch(function () {});
+        // 하트비트는 잠금이 비어 있을 때만 다시 잡고, 남이 잡고 있으면 ok:false → 안내 띠 표시
+        fetch(LOCK_API + "?action=heartbeat&id=" + encodeURIComponent(sid))
+          .then(function (r) { return r.json(); })
+          .then(function (b) { if (b && b.ok === false) warnLockLost(b.holder); })
+          .catch(function () {});
       }, HEARTBEAT_MS);
-      // 페이지 이탈 시 잠금 해제
+      document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible") recheck(); });
       window.addEventListener("pagehide", function () {
-        try { navigator.sendBeacon(LOCK_API + "?action=release&id=" + sid); } catch (e) {}
+        try { navigator.sendBeacon(LOCK_API + "?action=release&id=" + encodeURIComponent(sid)); } catch (e) {}
       });
+      var pending = false;
+      new MutationObserver(function () {
+        if (pending) return; pending = true;
+        requestAnimationFrame(function () { pending = false; annotateDialogs(); });
+      }).observe(document.body, { childList: true, subtree: true });
     }
 
-    fetch(LOCK_API + "?action=acquire&id=" + sid)
-      .then(function (r) { return r.json().then(function (b) { return { status: r.status, body: b }; }); })
-      .then(function (res) {
-        if (res.status === 200 && res.body.ok) startCms();
-        else showLockScreen(res.body && res.body.holder);
-      })
+    acquire()
+      .then(function (res) { if (res.ok) startCms(); else showLockScreen(res.holder); })
       .catch(function () {
         // 잠금 서버 장애 시에는 편집을 막지 않음 (가용성 우선)
         startCms();
