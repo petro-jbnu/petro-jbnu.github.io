@@ -164,6 +164,20 @@
         (containers || []).forEach(function (id) { var el = document.getElementById(id); if (el) offlineNotice(el); });
       });
   }
+  /* v49: 기록형 목록은 content/<이름>.json(배열 하나)에 저장 — 관리자 페이지에서 항목별로 편집.
+     여러 목록을 한 번에 읽어 { 키: 배열 } 묶음으로 넘김. 하나라도 못 읽으면 안내 문구 표시. */
+  function loadLists(map, onOk, containers) {
+    var keys = Object.keys(map);
+    Promise.all(keys.map(function (k) {
+      return fetch("content/" + map[k] + ".json?t=" + Date.now()).then(function (r) { if (!r.ok) throw 0; return r.json(); });
+    })).then(function (vals) {
+      var data = {};
+      keys.forEach(function (k, i) { data[k] = Array.isArray(vals[i]) ? vals[i] : []; });
+      onOk(data);
+    }).catch(function () {
+      (containers || []).forEach(function (id) { var el = document.getElementById(id); if (el) offlineNotice(el); });
+    });
+  }
   var CAT_EN = { "교육": "Education", "워크샵": "Workshop", "발표": "Presentation", "기타": "Others" };
   var CAT_CLS = { "교육": "bg-primary-container text-on-primary-container", "워크샵": "bg-tertiary-container text-on-tertiary-container", "발표": "cat-present", "기타": "bg-surface-variant text-on-surface-variant" };
   function catBadge(c) {
@@ -240,7 +254,7 @@
   var miniCal = document.getElementById("mini-cal");
   var calFull = document.getElementById("cal-full");
   if (miniCal || calFull) {
-    load("data/schedule.json", function (data) {
+    loadLists({ events: "schedule" }, function (data) {
       var ev = data.events || [];
       var now = new Date();
       if (miniCal) {
@@ -301,7 +315,7 @@
   var homeAct = document.getElementById("home-activities");
   var actList = document.getElementById("activity-list");
   if (homeAct || actList) {
-    load("data/activities.json", function (data) {
+    loadLists({ items: "activities" }, function (data) {
       var items = (data.items || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
       if (homeAct) homeAct.innerHTML = items.slice(0, 3).map(homeActItem).join("");
       if (actList) {
@@ -363,6 +377,12 @@
     if (m) return m[1] + "." + m[2].padStart(2, "0") + (m[3] ? "." + m[3].padStart(2, "0") : "");
     return t.replace(/\.$/, "");
   }
+  /* 내림차순 안정 정렬: key 문자열이 큰 것부터, 같으면 원래 순서 */
+  function sortDesc(list, key) {
+    return (list || []).map(function (x, i) { return { x: x, i: i, k: key(x) }; })
+      .sort(function (a, b) { return a.k === b.k ? a.i - b.i : (a.k < b.k ? 1 : -1); })
+      .map(function (o) { return o.x; });
+  }
   function presRow(c) {
     var f = c.format === "oral" ? bi("구두", "Oral") : (c.format === "poster" ? bi("포스터", "Poster") : "—");
     return '<div class="pb-row pb-tr pb-tr-pres"><span class="pb-d">' + esc(fmtDate(c.date)) + "</span>" +
@@ -419,8 +439,11 @@
   var paperList = document.getElementById("paper-list");
   var homePub = document.getElementById("home-pub");
   if (paperList || homePub) {
-    load("data/publications.json", function (data) {
-      var papers = data.papers || [], pres = data.presentations || [], awards = data.awards || [];
+    loadLists({ papers: "papers", presentations: "presentations", awards: "awards" }, function (data) {
+      /* v49: 새 항목은 목록 끝에 저장되므로 표시 전에 최신순 정렬(같으면 저장 순서 유지) */
+      var papers = sortDesc(data.papers, function (p) { return String(p.year == null ? "" : p.year).trim(); }),
+        pres = sortDesc(data.presentations, function (c) { return fmtDate(c.date); }),
+        awards = sortDesc(data.awards, function (a) { return fmtDate(a.date); });
       var CNT = { papers: [papers.length + "편", papers.length + (papers.length === 1 ? " paper" : " papers")],
         pres: [pres.length + "건", pres.length + (pres.length === 1 ? " talk" : " talks")],
         awards: [awards.length + "건", awards.length + (awards.length === 1 ? " award" : " awards")] };
@@ -483,7 +506,7 @@
   /* ============ 9. 연구실 장비 ============ */
   var eqList = document.getElementById("equipment-list");
   if (eqList) {
-    load("data/equipment.json", function (data) {
+    loadLists({ items: "equipment" }, function (data) {
       eqList.innerHTML = (data.items || []).map(function (e) {
         var img = e.image
           ? '<div class="h-48 w-full overflow-hidden bg-surface-container-high"><img class="w-full h-full object-cover" alt="" src="' + esc(e.image) + '"/></div>'
@@ -525,7 +548,7 @@
   /* ============ 9b. 연구 과제 (Grants) ============ */
   var grantList = document.getElementById("grant-list");
   if (grantList) {
-    load("data/grants.json", function (data) {
+    loadLists({ items: "grants" }, function (data) {
       var items = data.items || [];
       var gc = document.getElementById("grant-count");
       if (gc) gc.textContent = items.length;
@@ -573,7 +596,7 @@
     return links ? '<div class="mbr-links">' + links + "</div>" : "";
   }
   if (memberList || alumniRows) {
-    load("data/members.json", function (data) {
+    loadLists({ members: "members", careers: "careers", alumni: "alumni" }, function (data) {
       if (memberList) {
         memberList.innerHTML = (data.members || []).map(function (m) {
           var ph = m.photo
@@ -606,7 +629,7 @@
 
   /* 진출 분야(소개 페이지) — 데이터는 members.json careers */
   if (document.getElementById("career-public") && !document.getElementById("member-list")) {
-    load("data/members.json", function (data) {
+    loadLists({ careers: "careers" }, function (data) {
       function item(c) { return '<span class="car-i' + (c.partner ? ' is-partner' : '') + '"><i aria-hidden="true"></i>' + bi(esc(c.name_ko), esc(c.name_en || c.name_ko)) + (c.partner ? '<span class="sr-only">' + bi(" (연구 협력 기관)", " (research partner)") + "</span>" : "") + "</span>"; }
       var careers = data.careers || [];
       document.getElementById("career-public").innerHTML = careers.filter(function (c) { return c.sector === "공공"; }).map(item).join("");
@@ -760,7 +783,7 @@
       if (!t) return "";
       return t.split(/\n[ \t]*\n+/).map(function (p) { return "<p>" + rich(p.trim()) + "</p>"; }).join("");
     };
-    load("data/activities.json", function (data) {
+    loadLists({ items: "activities" }, function (data) {
       var items = (data.items || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
       var id = null;
       try { id = new URLSearchParams(window.location.search).get("id"); } catch (e) {}
@@ -880,7 +903,7 @@
 
   var pjCards = document.getElementById("project-cards");
   if (pjCards) {
-    load("data/projects.json", function (data) {
+    loadLists({ items: "projects" }, function (data) {
       var items = data.items || [];
       document.querySelectorAll('[data-n="projects"]').forEach(function (e) { e.textContent = items.length; });
       pjCards.innerHTML = items.map(function (p) {
@@ -901,7 +924,7 @@
   var pjTitle = document.getElementById("pj-title");
   if (pjTitle) {
     /* 프로젝트 상세 (v24 리디자인): 히어로 이미지 + 번호형 섹션 + 결과 갤러리(확대 보기) + 이미지형 관련 프로젝트 */
-    load("data/projects.json", function (data) {
+    loadLists({ items: "projects" }, function (data) {
       var items = data.items || [];
       var id = null;
       try { id = new URLSearchParams(window.location.search).get("id"); } catch (e) {}
