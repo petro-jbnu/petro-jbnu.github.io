@@ -1,0 +1,30 @@
+[
+  {
+    "name_ko": "코어 플러딩 시스템",
+    "name_en": "Core Flooding System",
+    "desc_ko": "암석 코어에 CO₂·염수·기타 유체를 주입하여 유동 특성과 저장 효율을 평가합니다.",
+    "desc_en": "Injects CO₂, brine, and other fluids into rock cores under high pressure and temperature to evaluate flow behavior and storage efficiency.",
+    "image": ""
+  },
+  {
+    "name_ko": "DSA 100 (접촉각·계면장력 측정 장비)",
+    "name_en": "DSA 100 (Contact Angle & IFT Measurement System)",
+    "desc_ko": "고온·고압 조건에서 pendant drop / sessile drop 방식으로 접촉각과 계면장력을 측정 가능한 국내 유일 장비입니다.",
+    "desc_en": "Measures contact angle and interfacial tension via pendant/sessile drop methods under supercritical CO₂ conditions.",
+    "image": ""
+  },
+  {
+    "name_ko": "흡착 분석 장비",
+    "name_en": "Adsorption Analyzer",
+    "desc_ko": "셰일·석탄 시료의 기체 흡착 등온선을 측정하여 흡착 저장량을 평가합니다.",
+    "desc_en": "Measures Vapor adsorption isotherms of shale and coal samples to assess adsorption storage capacity.",
+    "image": ""
+  },
+  {
+    "name_ko": "워크스테이션 (128 core)",
+    "name_en": "Workstations (128 core)",
+    "desc_ko": "저류층·파이프라인 시뮬레이션과 머신러닝 모델 학습을 위한 고성능 전산 자원입니다.",
+    "desc_en": "High-performance computing resources for reservoir/pipeline simulation and machine-learning model training.",
+    "image": ""
+  }
+]

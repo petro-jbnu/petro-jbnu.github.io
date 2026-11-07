@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2026-10-01",
+    "category": "기타",
+    "title_ko": "전북대학교 지하유체유동연구실 홈페이지 개설 (GeoFlow Engineering Lab.)",
+    "title_en": "Welcome to GeoFlow Engineering Laboratory website",
+    "body_ko": "<strong>전북대학교 지하유체유동연구실</strong> 홈페이지가 개설되었습니다. \n\n다양한 연구실 소식과 연구 현황 등을 공유할 예정이니, 관심 있는 학생들의 많은 지원 바랍니다 😊\n\n<strong>*학부연구생/연구실 투어 등 궁금한 사항은 교수님 또는 대표 학생에게 연락</strong>주세요!",
+    "body_en": "As of September 1, 2026, the <strong>Jeonbuk National University GeoFlow Laboratory</strong> website has been launched and is now being operated 🎉\nWe plan to share various lab news and research updates, so we ask for your active interest 😃\n\n\n\n*The existing 'Jeonbuk National University Petroleum Engineering Laboratory' has been renamed to the 'GeoFlow Laboratory' 😊",
+    "images": []
+  },
+  {
+    "date": "2026-10-30",
+    "category": "발표",
+    "title_ko": "한국지오에너지학회 추계학술대회 발표 (통합과정 주관우)",
+    "title_en": "Oral Presentation at 2026 KSGE Fall Conference",
+    "body_ko": "본 연구실 소속 주관우 학생(통합과정)이 <strong>2026 한국지오에너지학회 추계학술대회에서 구두 발표를 수행</strong>하였습니다.  (발표명: 이산화탄소 지중저장 프로젝트에서의 CO₂ 플룸 기반 최적 유정 운영 제안)\n\n본 발표는 이산화탄소 지중저장(Geological CO₂ Storage, GCS) 프로젝트 내 플룸 분리·병합 기반의 지표 I를 정의하고, 해당 지표를 최적화 알고리즘에 적용 후 가상·현장부지에서의 적용성을 제시하였습니다.",
+    "body_en": "Gwanwoo Ju, a student in our research group (enrolled in the integrated doctoral program), delivered <strong>an oral presentation at the 2026 Fall Conference of the Korean Society for Geo-Energy.</strong> (Title: CO₂ Plume-based Well Optimization in a Geological CO₂ Storage Project)\n\nThis presentation defines Indicator I based on plume separation and merging within Geological CO₂ Storage (GCS) projects, and presents its applicability in synthetic and field sites after applying the said indicator to an optimization algorithm.",
+    "thumb": "/assets/img/uploads/KakaoTalk_20261103_105615337.jpg",
+    "images": [
+      {
+        "image": "/assets/img/uploads/[KSGE]_2026_추계_주관우(전북대학교)_1.png",
+        "caption_ko": "2026 KSGE 추계 초록(주관우)",
+        "caption_en": "2026 KSGE Fall Conference Abstract (Ju, G.)"
+      },
+      {
+        "image": "/assets/img/uploads/KakaoTalk_20261103_105615337.jpg",
+        "caption_ko": "Oral_1",
+        "caption_en": "Oral_1"
+      },
+      {
+        "image": "/assets/img/uploads/KakaoTalk_20261103_105615337_03.jpg",
+        "caption_ko": "Oral_2",
+        "caption_en": "Oral_2"
+      }
+    ]
+  }
+]

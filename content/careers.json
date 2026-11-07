@@ -1,0 +1,128 @@
+[
+  {
+    "name_ko": "한국가스공사",
+    "name_en": "KOGAS",
+    "sector": "공공",
+    "partner": true
+  },
+  {
+    "name_ko": "한국석유공사",
+    "name_en": "KNOC",
+    "sector": "공공",
+    "partner": false
+  },
+  {
+    "name_ko": "한국수자원공사",
+    "name_en": "K-water",
+    "sector": "공공",
+    "partner": false
+  },
+  {
+    "name_ko": "한국지질자원연구원",
+    "name_en": "Korea Institute of Geoscience and Mineral Resources (KIGAM)",
+    "sector": "공공",
+    "partner": true
+  },
+  {
+    "name_ko": "한국에너지기술평가원",
+    "name_en": "KETEP",
+    "sector": "공공",
+    "partner": true
+  },
+  {
+    "name_ko": "한국탄소산업진흥원",
+    "name_en": "Korea Carbon Industry Promotion Agency",
+    "sector": "공공",
+    "partner": false
+  },
+  {
+    "name_ko": "한국CCUS추진단",
+    "name_en": "K-CCUS",
+    "sector": "공공",
+    "partner": true
+  },
+  {
+    "name_ko": "정보통신기획평가원",
+    "name_en": "IITP",
+    "sector": "공공",
+    "partner": true
+  },
+  {
+    "name_ko": "국가녹색기술연구소",
+    "name_en": "National Institute of Green Technology",
+    "sector": "공공",
+    "partner": true
+  },
+  {
+    "name_ko": "S&P Global",
+    "name_en": "S&P Global",
+    "sector": "산업체",
+    "partner": true
+  },
+  {
+    "name_ko": "SLB",
+    "name_en": "SLB (Schlumberger)",
+    "sector": "산업체",
+    "partner": true
+  },
+  {
+    "name_ko": "Shell",
+    "name_en": "Shell",
+    "sector": "산업체",
+    "partner": false
+  },
+  {
+    "name_ko": "포스코인터내셔널",
+    "name_en": "POSCO International",
+    "sector": "산업체",
+    "partner": false
+  },
+  {
+    "name_ko": "현대로템",
+    "name_en": "Hyundai Rotem",
+    "sector": "산업체",
+    "partner": false
+  },
+  {
+    "name_ko": "SK어스온",
+    "name_en": "SK Earthon",
+    "sector": "산업체",
+    "partner": true
+  },
+  {
+    "name_ko": "SK이노베이션 E&S",
+    "name_en": "SK Innovation E&S",
+    "sector": "산업체",
+    "partner": false
+  },
+  {
+    "name_ko": "골든엔지니어링",
+    "name_en": "Golden Engineering",
+    "sector": "산업체",
+    "partner": true
+  },
+  {
+    "name_ko": "University of Calgary (UoC)",
+    "name_en": "University of Calgary (UoC)",
+    "sector": "국제",
+    "partner": true
+  },
+  {
+    "name_ko": "Norwegian Geotechnical Institute (NGI)",
+    "name_en": "Norwegian Geotechnical Institute (NGI)",
+    "sector": "국제",
+    "partner": true
+  },
+  {
+    "name_ko": "LNG Canada",
+    "name_en": "LNG Canada",
+    "sector": "국제",
+    "partner": false
+  },
+  {
+    "name_ko": "MKS Investment",
+    "name_en": "MKS Investment",
+    "sector": "국제",
+    "partner": false
+  }
+]

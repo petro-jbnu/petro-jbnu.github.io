@@ -1,0 +1,58 @@
+[
+  {
+    "org_ko": "S&P Global",
+    "org_en": "S&P Global",
+    "role_ko": "Upstream",
+    "role_en": "Upstream",
+    "degree_ko": "박사과정",
+    "degree_en": "Ph.D. Course"
+  },
+  {
+    "org_ko": "SLB",
+    "org_en": "SLB",
+    "role_ko": "생산/파이프라인 엔지니어",
+    "role_en": "Production/Pipeline Engineer",
+    "degree_ko": "박사",
+    "degree_en": "Ph.D."
+  },
+  {
+    "org_ko": "한국탄소산업진흥원",
+    "org_en": "Korea Carbon Industry Promotion Agency",
+    "role_ko": "산업진흥본부",
+    "role_en": "Promotion Business",
+    "degree_ko": "박사",
+    "degree_en": "Ph.D."
+  },
+  {
+    "org_ko": "한국CCUS추진단",
+    "org_en": "K-CCUS Association",
+    "role_ko": "기술지원 / 인력양성",
+    "role_en": "Technical Support / H·R Development",
+    "degree_ko": "박사과정",
+    "degree_en": "Ph.D. Course"
+  },
+  {
+    "org_ko": "현대로템",
+    "org_en": "Hyundai Rotem",
+    "role_ko": "수소 R&D",
+    "role_en": "R&D (Hydrogen)",
+    "degree_ko": "석사",
+    "degree_en": "M.S."
+  },
+  {
+    "org_ko": "정보통신기획평가원",
+    "org_en": "IITP",
+    "role_ko": "디지털 융합",
+    "role_en": "Digital Convergence",
+    "degree_ko": "석사",
+    "degree_en": "M.S."
+  },
+  {
+    "org_ko": "한국지질자원연구원",
+    "org_en": "Korea Institute of Geoscience and Mineral Resources (KIGAM)",
+    "role_ko": "지구환경연구본부 탄소저장연구센터",
+    "role_en": "Geological Carbon Storage Research Center",
+    "degree_ko": "석사",
+    "degree_en": "M.S."
+  }
+]
