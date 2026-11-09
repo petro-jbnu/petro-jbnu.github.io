@@ -459,7 +459,7 @@
       var pnav = document.getElementById("pub-nav");
       if (pnav) {
         var cnt = { papers: papers.length, pres: pres.length, awards: awards.length };
-        pnav.querySelectorAll("[data-n]").forEach(function (e) { e.textContent = cnt[e.getAttribute("data-n")]; });
+        pnav.querySelectorAll("[data-n]").forEach(function (e) { var v = cnt[e.getAttribute("data-n")]; if (v != null) e.textContent = v; });
         var links = Array.prototype.slice.call(pnav.querySelectorAll("a[href^='#']"));
         var secs = links.map(function (l) { return document.getElementById(l.getAttribute("href").slice(1)); });
         function setActive(id) { links.forEach(function (l) { l.classList.toggle("is-active", l.getAttribute("href") === "#" + id); }); }
@@ -472,8 +472,11 @@
           });
         });
         function onScroll() {
-          var top = window.matchMedia("(min-width:1680px)").matches ? 134 : window.matchMedia("(min-width:1024px)").matches ? 176 : 160, cur = secs[0] && secs[0].id;
+          var top = window.matchMedia("(min-width:1024px)").matches ? 134 : 160, cur = secs[0] && secs[0].id;
           secs.forEach(function (sec) { if (sec && sec.getBoundingClientRect().top - top <= 0) cur = sec.id; });
+          /* v50: 페이지 끝까지 내리면 마지막 항목 강조 */
+          var lastSec = secs.filter(Boolean).slice(-1)[0];
+          if (lastSec && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = lastSec.id;
           if (cur) setActive(cur);
         }
         window.addEventListener("scroll", onScroll, { passive: true });
@@ -892,14 +895,29 @@
       });
     });
     function onScroll() {
-      var top = window.matchMedia("(min-width:1680px)").matches ? 134 : window.matchMedia("(min-width:1024px)").matches ? 176 : 160, cur = secs[0] && secs[0].id;
+      var top = window.matchMedia("(min-width:1024px)").matches ? 134 : 160, cur = secs[0] && secs[0].id;
       secs.forEach(function (sec) { if (sec && sec.getBoundingClientRect().top - top <= 0) cur = sec.id; });
+      /* v50: 페이지 끝까지 내리면 마지막 항목 강조 */
+      var lastSec = secs.filter(Boolean).slice(-1)[0];
+      if (lastSec && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = lastSec.id;
       if (cur) setActive(cur);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     if (location.hash) { var h = document.getElementById(location.hash.slice(1)); if (h) setTimeout(function () { h.scrollIntoView({ block: "start" }); }, 300); }
   });
+
+  /* v50: 메가 메뉴 묶음별로 합친 사이드바 — 다른 페이지 항목의 건수 채우기 */
+  (function () {
+    var SRC = { projects: "projects", grants: "grants", papers: "papers", pres: "presentations", awards: "awards", acts: "activities" };
+    var need = {};
+    Array.prototype.forEach.call(document.querySelectorAll(".pub-nav .sn-x [data-n]"), function (e) { var k = e.getAttribute("data-n"); if (SRC[k]) need[k] = 1; });
+    Object.keys(need).forEach(function (k) {
+      loadLists({ items: SRC[k] }, function (d) {
+        document.querySelectorAll('.pub-nav .sn-x [data-n="' + k + '"]').forEach(function (e) { e.textContent = d.items.length; });
+      });
+    });
+  })();
 
   var pjCards = document.getElementById("project-cards");
   if (pjCards) {
