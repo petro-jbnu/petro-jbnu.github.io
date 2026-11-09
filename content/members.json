@@ -88,5 +88,19 @@
     "show_linkedin": false,
     "cv": "",
     "show_cv": false
+  },
+  {
+    "photo": "",
+    "name_ko": "정은서",
+    "name_en": "Eunseo Jung",
+    "role_ko": "학부연구생 (2026)",
+    "role_en": "Undergraduate Research Student",
+    "note_ko": "",
+    "note_en": "",
+    "email": "",
+    "linkedin": "",
+    "show_linkedin": false,
+    "cv": "",
+    "show_cv": false
   }
 ]
