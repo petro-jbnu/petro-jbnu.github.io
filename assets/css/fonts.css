@@ -613,3 +613,64 @@ header .h-20 > a.items-start > img + span { margin-top: 0 !important; }
 .vc-m { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 16px; }
 .vc-mn { font-size: 13px; color: #45474c; font-variant-numeric: tabular-nums; }
 .vc-mn b { font-weight: 700; color: #191c1e; }
+
+/* v50: 메가 메뉴 묶음별로 합친 사이드바 — 페이지 이름(묶음 제목) 아래에 그 페이지 항목. 다른 페이지 항목은 글자만 회색(모양은 같음), 누르면 그 페이지의 해당 위치로 */
+.pub-nav a.sn-g { display: block; padding: 16px 0 6px; border-bottom: 0; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: #75777d; }
+.pub-nav a.sn-g:first-child { padding-top: 12px; }
+.pub-nav a.sn-g.is-cur { color: #0b5b78; }
+.pub-nav a.sn-g:hover { color: #0b5b78; text-decoration: underline; text-underline-offset: 3px; }
+.pub-nav.sn-merged a:not(.sn-g) { padding-left: 10px; }
+.pub-nav a.sn-x { color: #75777d; font-weight: 500; }
+.pub-nav a.sn-x:hover { color: #0b5b78; }
+/* 원래 사이드바가 없던 페이지(연구실 소개·연구실 장비): 내용 전체를 감싸는 띠(rail)에 사이드바를 둠 */
+.sn-wrap { position: relative; }
+.sn-wrap [id] { scroll-margin-top: 130px; }
+@media (min-width: 1680px) {
+  .sn-rail { position: absolute; inset: 0; pointer-events: none; }
+  .sn-rail-in { height: 100%; padding-top: 64px; padding-bottom: 64px; }
+  .sn-rail .pub-nav { width: 168px; margin-left: -216px; pointer-events: auto; }
+  .sn-wrap [id] { scroll-margin-top: 62px; }
+  .sn-wrap #whatwedo { scroll-margin-top: 0; }
+}
+@media (max-width: 1679px) {
+  .pub-nav.sn-merged a:not(.sn-g) { padding-left: 16px; }
+  .pub-nav a.sn-g { display: flex; align-items: center; flex: 0 0 auto; padding: 0 2px 0 0; border: 0 !important; background: none !important; border-radius: 0; font-size: 12.5px; white-space: nowrap; }
+  .pub-nav a.sn-g:first-child { padding-top: 0; }
+  .pub-nav a.sn-g:not(:first-child) { margin-left: 10px; padding-left: 14px; border-left: 1px solid #c5c6cd !important; }
+  .sn-rail { position: sticky; top: 60px; z-index: 20; }
+  .sn-rail .pub-nav { position: static !important; margin-bottom: 0 !important; }
+}
+@media (min-width: 1024px) and (max-width: 1679px) {
+  .sn-rail { top: 92px; }
+  .sn-wrap [id], .sn-wrap #whatwedo { scroll-margin-top: 170px; }
+}
+@media (max-width: 1023px) {
+  .pub-nav.sn-merged a:not(.sn-g) { padding-left: 14px; }
+  .sn-wrap [id], .sn-wrap #whatwedo { scroll-margin-top: 130px; }
+}
+
+/* v50 (나): 1024px 이상은 모두 사이드바 — 1024~1679px도 가로 탭 대신 본문 왼쪽 열에 사이드바(본문 폭은 그만큼 좁아짐). 휴대폰은 가로 탭 유지 */
+@media (min-width: 1024px) and (max-width: 1679px) {
+  .pb-lay { grid-template-columns: 168px minmax(0, 1fr) !important; column-gap: 48px; }
+  .pub-nav { position: sticky !important; top: 116px !important; z-index: auto; flex-direction: column !important; gap: 0 !important; overflow: visible !important; border-top: 2px solid #0b5b78 !important; border-bottom: 0 !important; background: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; margin: 0 !important; padding: 0 !important; }
+  .pub-nav a { flex: none !important; padding: 12px 0 !important; border: 0 !important; border-bottom: 1px solid #e0e3e5 !important; border-radius: 0 !important; background: none !important; font-size: 15px !important; font-weight: 500 !important; white-space: normal !important; }
+  .pub-nav a.is-active { background: none !important; color: #0b5b78 !important; font-weight: 700 !important; }
+  .pub-nav.sn-merged a:not(.sn-g) { padding-left: 10px !important; }
+  .pub-nav a.sn-g { display: block !important; padding: 16px 0 6px !important; margin: 0 !important; border: 0 !important; font-size: 12.5px !important; font-weight: 700 !important; }
+  .pub-nav a.sn-g:first-child { padding-top: 12px !important; }
+  .pub-nav a.sn-g:not(:first-child) { margin-left: 0 !important; padding-left: 0 !important; border-left: 0 !important; }
+  .pub-nav a.sn-x:not(.is-active) { color: #75777d !important; }
+  .pub-nav a.sn-x:hover { color: #0b5b78 !important; }
+  .pub-sec { scroll-margin-top: 126px !important; }
+  /* 연구실 소개·연구실 장비: 띠(rail)는 내용 위에 겹쳐 두고, 각 구역 왼쪽에 사이드바 자리(216px)를 비움 */
+  .sn-rail { position: absolute !important; inset: 0; top: 0 !important; z-index: auto !important; pointer-events: none; }
+  .sn-rail-in { height: 100%; padding-top: 64px; padding-bottom: 64px; }
+  .sn-rail .pub-nav { position: sticky !important; top: 116px !important; width: 168px; pointer-events: auto; }
+  .sn-wrap > section.max-w-7xl, .sn-wrap > section > div.max-w-7xl { padding-left: 264px !important; }
+}
+/* 사이드바가 있는 폭(1024px 이상)에서 소개·장비 구역으로 이동했을 때 제목이 고정 상단 메뉴에 가리지 않게 */
+@media (min-width: 1024px) {
+  .sn-wrap [id] { scroll-margin-top: 52px !important; }
+  .sn-wrap #whatwedo { scroll-margin-top: 92px !important; }
+  .sn-wrap #careers { scroll-margin-top: 110px !important; }
+}
