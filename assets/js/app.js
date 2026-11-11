@@ -111,7 +111,12 @@
       dots[current].classList.remove("bg-white/40"); dots[current].classList.add("bg-white");
       setCaption(current, true);
     }
-    function reset() { clearInterval(interval); interval = setInterval(function () { show(current + 1); }, 5000); }
+    /* PC(1024px 이상)에서 1번 슬라이드에 데모(#hero-demo)가 있으면 한 바퀴(약 13.4초)를 다 보여 주도록 14초, 나머지는 5초 */
+    var heroDemo = document.getElementById("hero-demo") && window.matchMedia && matchMedia("(min-width: 1024px)").matches;
+    function reset() {
+      clearTimeout(interval);
+      interval = setTimeout(function () { show(current + 1); reset(); }, current === 0 && heroDemo ? 14000 : 5000);
+    }
     /* 등록된 히어로 장수가 DOM보다 적으면 초과 슬라이드·도트·캡션을 숨기고 회전 범위를 줄임 */
     setHeroCount = function (n) {
       if (!n || n < 1 || n >= slides.length) return;
@@ -122,12 +127,12 @@
       }
       if (current >= n) show(0);
       heroN = n;
-      if (n === 1) clearInterval(interval);
+      if (n === 1) clearTimeout(interval);
     };
     dots.forEach(function (d, i) { d.addEventListener("click", function () { show(i); reset(); }); });
     var hero = document.getElementById("hero");
     if (hero) {
-      hero.addEventListener("mouseenter", function () { clearInterval(interval); });
+      hero.addEventListener("mouseenter", function () { clearTimeout(interval); });
       hero.addEventListener("mouseleave", reset);
     }
     reset();
