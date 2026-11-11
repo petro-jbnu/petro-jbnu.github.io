@@ -1,4 +1,4 @@
-/* 홈 히어로 1번 슬라이드의 연구 파이프라인 데모 (assets/js/geoflow-demo.js가 #hero-demo에 그림).
+/* 홈 히어로 데모 슬라이드(0번, 문구는 1번 히어로와 같음)의 연구 파이프라인 데모 (assets/js/geoflow-demo.js가 #hero-demo에 그림).
    규격(2026-11-11 합의): PC(1024px 이상)에서만 사용, 크기·위치 고정 — 720×340, 문구 묶음 왼쪽 끝에서
    760px, 문구와 세로 가운데 정렬. 모니터 폭에 맞춰 줄이거나 옮기지 않음(좁으면 히어로 가장자리에서
    잘리고, 사용자가 화면 배율로 조절). 휴대폰·태블릿(1024px 미만)은 데모와 JS 없이 기존 히어로 그대로. */
@@ -11,8 +11,4 @@
     opacity: 0; transition: opacity .7s ease; pointer-events: none;
   }
   .hero-demo.is-on { opacity: 1; }
-  /* 1번 슬라이드는 사진 대신 히어로의 어두운 그라데이션 (관리자의 1번 사진은 PC에서 표시 안 함) */
-  #hero > .hero-slide:nth-of-type(1) {
-    background-image: linear-gradient(100deg, #0d1b24 20%, #142c38 52%, #18394a) !important;
-  }
 }
