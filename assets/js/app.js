@@ -89,6 +89,19 @@
   }
 
   /* ============ 4. Hero slider ============ */
+  /* 데모 슬라이드(0번, PC 1024px 이상 전용): 휴대폰·태블릿에서는 슬라이드·문구·도트·데모 자리를 제거하고
+     원래 1번 슬라이드부터 시작 */
+  var heroIsPC = !!(window.matchMedia && matchMedia("(min-width: 1024px)").matches);
+  var demoSlideEl = document.querySelector(".hero-slide--demo");
+  if (demoSlideEl && !heroIsPC) {
+    [".hero-slide--demo", ".hero-caption--demo", ".hero-dot--demo", "#hero-demo"].forEach(function (q) { var x = document.querySelector(q); if (x) x.remove(); });
+    demoSlideEl = null;
+    var s0 = document.querySelector(".hero-slide"), c0 = document.querySelector(".hero-caption"), d0 = document.querySelector(".hero-dot");
+    if (s0) { s0.classList.remove("opacity-0"); s0.classList.add("opacity-100"); }
+    if (c0) { c0.classList.remove("opacity-0", "pointer-events-none"); c0.classList.add("opacity-100"); }
+    if (d0) { d0.classList.remove("bg-white/40"); d0.classList.add("bg-white"); }
+  }
+  var heroOffset = demoSlideEl ? 1 : 0; /* 관리자 히어로 i번 → 화면 슬라이드 i + heroOffset번 */
   var slides = document.querySelectorAll(".hero-slide");
   var dots = document.querySelectorAll(".hero-dot");
   var captions = document.querySelectorAll(".hero-caption");
@@ -111,8 +124,8 @@
       dots[current].classList.remove("bg-white/40"); dots[current].classList.add("bg-white");
       setCaption(current, true);
     }
-    /* PC(1024px 이상)에서 1번 슬라이드에 데모(#hero-demo)가 있으면 한 바퀴(약 13.4초)를 다 보여 주도록 14초, 나머지는 5초 */
-    var heroDemo = document.getElementById("hero-demo") && window.matchMedia && matchMedia("(min-width: 1024px)").matches;
+    /* 데모 슬라이드(0번)는 데모 한 바퀴(약 13.4초)를 다 보여 주도록 14초, 나머지는 5초 */
+    var heroDemo = !!demoSlideEl && !!document.getElementById("hero-demo");
     function reset() {
       clearTimeout(interval);
       interval = setTimeout(function () { show(current + 1); reset(); }, current === 0 && heroDemo ? 14000 : 5000);
@@ -710,15 +723,19 @@
 
       /* 12-A. 히어로 배경 이미지 + 캡션 */
       var hero = data.hero || [];
-      hero.forEach(function (h, i) {
-        if (slides[i] && h.image) slides[i].style.backgroundImage = "url('" + h.image + "')";
-        var cap = captions[i];
+      var fillCap = function (cap, h) {
         if (!cap) return;
         var h1 = cap.querySelector("h1"), hp = cap.querySelector("p");
         if (h1 && (h.title_ko || h.title_en)) h1.innerHTML = biRich(h.title_ko || h.title_en, h.title_en);
         if (hp && (h.body_ko || h.body_en)) hp.innerHTML = biRich(h.body_ko || h.body_en, h.body_en);
+      };
+      hero.forEach(function (h, i) {
+        var k = i + heroOffset;
+        if (slides[k] && h.image) slides[k].style.backgroundImage = "url('" + h.image + "')";
+        fillCap(captions[k], h);
+        if (i === 0 && heroOffset) fillCap(captions[0], h); /* 데모 슬라이드도 1번 히어로 문구 사용 */
       });
-      if (hero.length) setHeroCount(hero.length);
+      if (hero.length) setHeroCount(hero.length + heroOffset);
 
       /* 12-B. 학과 태그라인 */
       el = document.querySelector('[data-home="dept"]');
