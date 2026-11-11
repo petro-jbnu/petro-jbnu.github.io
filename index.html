@@ -7,6 +7,7 @@
 <meta name="description" content="전북대학교 지하유체유동연구실 — GeoFlow Engineering Lab"/>
 <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
 <link href="assets/css/fonts.css" rel="stylesheet"/>
+<link href="assets/css/hero-demo.css" rel="stylesheet"/>
 <link href="assets/css/tw.css" rel="stylesheet"/>
 </head>
 <body class="hm2 bg-background font-body-md text-on-surface">
@@ -114,6 +115,7 @@
           <span class="ko">연구실 지원하기</span><span class="en">Join Our Lab</span>
         </a>
       </div>
+      <div id="hero-demo" class="hero-demo" role="img" aria-label="Animated illustration: the lab's research pipeline, Experiment, Simulation and AI, with one project for each step"></div>
     </div>
   </div>
   <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-3">
@@ -267,5 +269,11 @@
 </div>
 </footer>
 <script src="assets/js/app.js"></script>
+<script>/* 히어로 데모: PC(1024px 이상)에서만 CSS·JS를 불러옴 (휴대폰·태블릿은 아무것도 받지 않음) */
+if (window.matchMedia && matchMedia("(min-width: 1024px)").matches) {
+  var gfc = document.createElement("link"); gfc.rel = "stylesheet"; gfc.href = "assets/css/geoflow-demo.css"; document.head.appendChild(gfc);
+  var gfd = document.createElement("script"); gfd.src = "assets/js/geoflow-demo.js"; document.body.appendChild(gfd);
+}
+</script>
 </body>
 </html>
