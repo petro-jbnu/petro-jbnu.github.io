@@ -67,7 +67,9 @@
 <main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
 
 <section id="hero" class="relative w-full h-[600px] flex items-center bg-deep overflow-hidden">
-  <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100" style="background-image: url('assets/img/hero-slide1.jpg');"></div>
+  <!-- 0번: PC 전용 데모 슬라이드(사진 대신 그라데이션 + 연구 파이프라인 데모). 휴대폰·태블릿에서는 app.js가 제거 -->
+  <div class="hero-slide hero-slide--demo absolute inset-0 transition-opacity duration-1000 opacity-100" style="background-image: linear-gradient(100deg, #0d1b24 20%, #142c38 52%, #18394a);"></div>
+  <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('assets/img/hero-slide1.jpg');"></div>
   <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('assets/img/hero-slide2.jpg');"></div>
   <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('assets/img/hero-slide3.jpg');"></div>
   <div id="hero-overlay" class="absolute inset-0 z-10" style="background: linear-gradient(100deg, rgba(13,27,36,.88) 20%, rgba(13,27,36,.55) 52%, rgba(11,91,120,.18));"></div>
@@ -78,8 +80,17 @@
         <span data-home="dept" class="font-label-caps text-secondary-fixed tracking-widest"><span class="ko">전북대학교 기후환경에너지융합학과</span><span class="en">DEPT. OF CLIMATE, ENVIRONMENT &amp; ENERGY CONVERGENCE, JBNU</span></span>
       </div>
       <div class="grid">
+        <!-- 데모 슬라이드: 1번 슬라이드와 같은 문구(관리자의 1번 히어로 문구를 함께 사용) -->
+        <div class="hero-caption hero-caption--demo col-start-1 row-start-1 transition-opacity duration-700 opacity-100 space-y-md">
+          <h1 class="font-display-lg text-[clamp(28px,3.3vw,46px)] leading-tight text-white lg:whitespace-nowrap">
+            <span class="ko">자원개발부터 탄소중립까지</span><span class="en">From Resource Development<br class='hidden md:inline'/>to Carbon Neutrality</span>
+          </h1>
+          <p class="font-body-lg text-[16.5px] text-inverse-primary max-w-[780px]">
+            <span class="ko">저희 연구실은 <strong>실험</strong>으로 데이터를 확보하고, <strong>시뮬레이션</strong>으로 업스케일하며, <strong>인공지능</strong>으로 확장합니다.<br class='hidden md:inline'/> Hydrocarbon과 CO₂의 유체 유동 메커니즘을 규명하여, 현장 적용 가능한 최적 기법을 연구·개발합니다.</span><span class="en">We acquire data through <strong>experiments</strong>, upscale it with <strong>simulation</strong>, and extend it with <strong>AI</strong>.<br class='hidden md:inline'/> By characterizing the flow mechanisms of hydrocarbons and CO₂,<br class='hidden md:inline'/>we develop optimized techniques ready for field application.</span>
+          </p>
+        </div>
         <!-- Slide 1: 연구 방법론 & 프레임워크 -->
-        <div class="hero-caption col-start-1 row-start-1 transition-opacity duration-700 opacity-100 space-y-md">
+        <div class="hero-caption col-start-1 row-start-1 transition-opacity duration-700 opacity-0 pointer-events-none space-y-md">
           <h1 class="font-display-lg text-[clamp(28px,3.3vw,46px)] leading-tight text-white lg:whitespace-nowrap">
             <span class="ko">자원개발부터 탄소중립까지</span><span class="en">From Resource Development<br class='hidden md:inline'/>to Carbon Neutrality</span>
           </h1>
@@ -119,9 +130,10 @@
     </div>
   </div>
   <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-3">
-    <button aria-label="Slide 1" class="hero-dot w-3 h-3 rounded-full bg-white transition-colors"></button>
+    <button aria-label="Slide 1" class="hero-dot hero-dot--demo w-3 h-3 rounded-full bg-white transition-colors"></button>
     <button aria-label="Slide 2" class="hero-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/60 transition-colors"></button>
     <button aria-label="Slide 3" class="hero-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/60 transition-colors"></button>
+    <button aria-label="Slide 4" class="hero-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/60 transition-colors"></button>
   </div>
 </section>
 
